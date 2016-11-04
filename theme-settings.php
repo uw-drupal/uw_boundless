@@ -271,3 +271,15 @@ function uw_boundless_theme_settings_submit($form, &$form_state) {
         $values['uw_boundless_hero_image_path'] = _system_theme_settings_validate_path($values['uw_boundless_hero_image_path']);
     }
 }
+
+/**
+ * Theme settings throws Fatal error: Call to undefined function uw_boundless_theme_settings_validate()
+ * when submit handler is added to theme settings and theme settings manages files. 
+ * The following three lines fix this. More details at:
+ *   https://www.drupal.org/node/2613366
+ *   http://ghosty.co.uk/2014/03/managed-file-upload-in-drupal-theme-settings/
+ *   http://drupal.stackexchange.com/questions/52769/is-there-a-way-to-add-managed-file-field-to-theme-settings-php
+ */
+	$themes = list_themes();
+	$active_theme = $GLOBALS['theme_key'];
+	$form_state['build_info']['files'][] = str_replace("/$active_theme.info", '', $themes[$active_theme]->filename) . '/theme-settings.php';
