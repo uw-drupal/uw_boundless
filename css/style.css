@@ -8787,6 +8787,8 @@ address {
   -o-background-size: cover;
   background-size: cover;
   position: relative;
+  background-position:center;
+  background-position:center;
 }
 .uw-hero-image:after,
 .no-uw-hero-image:after {
