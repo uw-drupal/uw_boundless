@@ -48,7 +48,7 @@
     animate : function ( event ) {
       event.preventDefault();
 
-      if (this.animating || (event.keyCode && $.inArray(event.keyCode, [ 27 , 13 , 32 ]) == -1)){
+      if (this.animating || (event.keyCode && $.inArray(event.keyCode, [ 27 , 13 ]) == -1)){
         return false;
       }
 
