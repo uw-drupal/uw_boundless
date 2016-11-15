@@ -7109,6 +7109,10 @@ a.tabledrag-handle .handle {
   height: auto;
   width: auto;
 }
+form input.form-radio,
+form input.form-checkbox {
+  margin: 6px 0 0 -18px !important;
+}
 .error {
   color: #e74c3c;
 }
