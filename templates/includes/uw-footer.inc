@@ -3,7 +3,7 @@
 
     <a href="http://www.washington.edu/boundless/be-boundless/"><h3 class="be-boundless">Be boundless</h3></a>
 
-    <h4>Connect with us:</h4>
+    <h4>Connect with the UW:</h4>
 
     <nav role="navigation" aria-label="social networking">
         <ul class="footer-social">
@@ -32,5 +32,5 @@
         </ul>
     </nav>
 
-    <p role="contentinfo">&copy; <?php print render($uw_copyright_year); ?>  University of Washington  |  Seattle, WA</p>
+    <p role="contentinfo">&copy; <?php print '<a href="' . $GLOBALS['base_path'] . 'login/pc?destination=' . request_path() . '" style="color:white;">' . $uw_copyright_year . '</a>' ?>  University of Washington  |  Seattle, WA</p>
 </footer>
