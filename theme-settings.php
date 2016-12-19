@@ -281,5 +281,4 @@ function uw_boundless_theme_settings_submit($form, &$form_state) {
  *   http://drupal.stackexchange.com/questions/52769/is-there-a-way-to-add-managed-file-field-to-theme-settings-php
  */
 	$themes = list_themes();
-	$active_theme = $GLOBALS['theme_key'];
-	$form_state['build_info']['files'][] = str_replace("/$active_theme.info", '', $themes[$active_theme]->filename) . '/theme-settings.php';
+	$form_state['build_info']['files'][] = str_replace("/uw_boundless.info", '', $themes['uw_boundless']->filename) . '/theme-settings.php';
