@@ -15,35 +15,132 @@
 */
 // Font Section
 @import "uw/uw.fonts.less";
-@import "uw/flat/modules/glyphicons";
+// @import "uw/flat/modules/glyphicons"; // removed 2016-12-19
+
 // All the Variables
 @import "uw/flat/variables.less";
 @import "uw/uw.variables.less";
+
 @import "uw/flat/mixins.less";
 @import "uw/flat/modules/scaffolding.less";
 @import "uw/flat/modules/type.less";
-// Quicklinks
+
+
 @import "uw/uw.quicklinks.less";
+@import "uw/uw.slideshow.less";
+@import "uw/uw.vimeo.less";
+@import "uw/uw.select.less";
+@import "uw/uw.accordion.less";
+@import "uw/uw.boxes.less";
+@import "uw/uw.tables.less";
+@import "uw/uw.player.less";
+@import "uw/uw.youtube.less";
+@import "uw/uw.blogroll.less";
+
 // Thinstrip
 @import "uw/uw.thinstrip.less";
+
 // Dropdowns
 @import "uw/uw.dropdowns.less";
+
 // Secondary Hero
 @import "uw/uw.hero.less";
+
 // Breadcrumbs
 @import "uw/uw.breadcrumbs.less";
+
 // Main Body Area
 @import "uw/uw.body-content.less";
+
 // Search bar
 @import "uw/uw.search.less";
+
 // Right Sidebar
 @import "uw/uw.sidebar.less";
+
 // Mobile Sidebar Menu
 @import "uw/uw.mobile-menu.less";
+
+// Image Handling
+@import "uw/uw.images.less";
+
+// Image Gallery
+@import "uw/uw.gallery.less";
+
+// UW Carousel
+@import "uw/uw.carousel.less";
+
+// HTML5 Video
+@import "uw/uw.player.less";
+
+// Radio buttons and checkboxes
+@import "uw/flat/modules/checkbox-and-radio.less";
+
+// UW Buttons
+@import "uw/uw.checkbox-and-radio.less";
+
+// UW Buttons
+@import "uw/uw.buttons.less";
+
+// 404
+@import "uw/uw.404.less";
+
 // UW Footer
 @import "uw/uw.footer.less";
+
 // Flat Accessibility overrides
 @import "uw/uw.accessibility.less";
+
+// Hero Templates
+@import "uw/uw.heroimage.less";
+
+// Trumba overwrite
+@import "uw/uw.trumba.less";
+
+// UW font icon
+//@import "uw/uw.icon-font.less";
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+// /* Large Devices, Wide Screens */
+// @media only screen and (max-width : 1200px) {
+// }
+// /* Medium Devices, Desktops */
+// @media only screen and (max-width : 992px) {
+// }
+// /* Small Devices, Tablets */
+// @media only screen and (max-width : 768px) {
+// }
+// /* Extra Small Devices, Phones */
+// @media only screen and (max-width : 480px) {
+// }
+// /* Custom, iPhone Retina */
+// @media only screen and (max-width : 320px) {
+
+// }
+
+// Widgets
+
+@import "uw/widgets/campus-map.less";
+@import "uw/widgets/search.less";
+@import "uw/widgets/recent-entries.less";
+@import "uw/widgets/yarpp_widget.less";
+@import "uw/widgets/menu.less";
+@import "uw/widgets/pic-text.less";
+@import "uw/widgets/categories.less";
+@import "uw/widgets/twitter.less";
+@import "uw/widgets/cards.less";
+@import "uw/widgets/contact.less";
+//@import "uw/widgets/custom-menu.less";
+
+@import "uw/uw.alert.less";
+
+// Inline code
+@import "uw/uw.prettify.less";
+
+@import "uw/uw.print.less";
+
 
 /**
 * UW Boundless theme overrides
@@ -52,5 +149,6 @@
 @import 'header.less';
 @import 'content.less';
 @import 'footer.less';
-// module specific styles and overrides
+
+// Module specific styles and overrides
 @import 'modules/webform.less';
