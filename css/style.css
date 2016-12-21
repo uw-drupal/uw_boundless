@@ -8634,6 +8634,10 @@ ul.uw-select li.inactive a {
   background-image: url(assets/svg/uw-sprite.svg);
   background-repeat: no-repeat;
 }
+.uw-accordion-shortcode__panel .uw-accordion-shortcode__header {
+  color: #595959;
+  padding-left: 20px;
+}
 .uw-accordion-shortcode__header[aria-expanded="true"]:before {
   background-position: -283px -23px;
 }
@@ -10295,7 +10299,7 @@ a.more {
   position: relative;
 }
 a.more:after {
-  background: url(/wp-content/themes/uw-2014/assets/svg/uw-sprite.svg) no-repeat -206px -492px;
+  background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
   content: "";
   position: absolute;
   right: -24px;
@@ -10384,7 +10388,7 @@ span.next-page a {
   -moz-border-radius: 0;
 }
 span.next-page a:after {
-  background: url(/wp-content/themes/uw-2014/assets/svg/uw-sprite.svg) no-repeat -206px -492px;
+  background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
   content: "";
   position: absolute;
   right: 17px;
@@ -10470,6 +10474,10 @@ img.attachment-post-thumbnail.wp-post-image {
   margin: 5px 50px 0 0;
   height: 150px;
   width: auto;
+}
+img.attachment-post-thumbnail.wp-post-image.blogroll-img {
+  margin-bottom: 20px;
+  height: 130px;
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
@@ -13051,6 +13059,42 @@ label.screen-reader {
   margin: 0 0 30px;
   width: 70%;
 }
+#hero-container #hashtag {
+  position: absolute;
+  font-family: "Encode Sans Compressed", sans-serif;
+  font-weight: 900;
+  color: #4B2E83;
+  font-size: 21px;
+  overflow: hidden;
+}
+#hero-container #hashtag span {
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-transform: skew(-15deg, 0);
+  -ms-transform: skewX(-15deg) skewY(0);
+  transform: skew(-15deg, 0);
+  padding: 2px 25px 3px 28px;
+  display: block;
+  margin: 0 10px 0 -10px;
+}
+#hero-container #hashtag span span {
+  transform: skew(15deg, 0);
+  display: block;
+  background-color: transparent;
+}
+#hero-container #hashtag span span big {
+  font-size: xx-large;
+}
+#hero-container #hashtag span span small {
+  font-family: 'Uni Sans', sans-serif;
+  font-weight: 300;
+}
+#hero-container a.uw-btn {
+  background-color: #fff;
+  color: #4B2E83;
+}
+#hero-container a.uw-btn:before {
+  background-color: #b7a57a;
+}
 .uw-site-title-blank {
   font-size: 50px;
   padding-top: 20px;
@@ -13068,9 +13112,47 @@ label.screen-reader {
 .hero-height2 {
   height: 245px;
 }
-.hero-height2 .container {
-  height: 145px;
-  line-height: 145px;
+.hero-height2 .container #hashtag.mask {
+  position: inherit;
+  visibility: hidden;
+  min-height: 70px;
+}
+.hero-height2 .container #hashtag {
+  position: absolute;
+  top: 0px;
+  font-family: "Encode Sans Compressed", sans-serif;
+  font-weight: 900;
+  color: #4B2E83;
+  font-size: 21px;
+  overflow: hidden;
+}
+.hero-height2 .container #hashtag span {
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-transform: skew(-15deg, 0);
+  -ms-transform: skewX(-15deg) skewY(0);
+  transform: skew(-15deg, 0);
+  padding: 2px 25px 3px 28px;
+  display: block;
+  margin: 0 10px 0 -10px;
+}
+.hero-height2 .container #hashtag span span {
+  transform: skew(15deg, 0);
+  display: block;
+  background-color: transparent;
+}
+.hero-height2 .container #hashtag span span big {
+  font-size: xx-large;
+}
+.hero-height2 .container #hashtag span span small {
+  font-family: 'Uni Sans', sans-serif;
+  font-weight: 300;
+}
+.hero-height2 .container a.uw-btn {
+  background-color: #fff;
+  color: #4B2E83;
+}
+.hero-height2 .container a.uw-btn:before {
+  background-color: #b7a57a;
 }
 .hero-height2 h1 {
   font-family: "Encode Sans Compressed", sans-serif;
@@ -13096,6 +13178,9 @@ label.screen-reader {
   background: url(assets/svg/slashes-light.svg) no-repeat 0 0;
   z-index: 0;
 }
+.hero-height2:before {
+  display: none;
+}
 .hero-height2:after {
   display: none;
 }
@@ -13116,6 +13201,13 @@ label.screen-reader {
 @media only screen and (max-width: 767px) {
   .hero-content .uw-site-title {
     display: block;
+  }
+  #hero-container #hashtag {
+    margin-top: -50px;
+    font-size: 18px;
+  }
+  #hero-container #hashtag span span big {
+    font-size: 18px;
   }
 }
 #trumba\.spud\.0 iframe,
