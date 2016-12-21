@@ -134,7 +134,7 @@
                 <section<?php print $content_column_class; ?>>
                     
                 <?php if (!empty($site_name)): ?>
-                    <a href="<?php print $front_page; ?>" title="<?php print $site_name; ?>"><h2 class="uw-site-title"><?php print $site_name; ?></h2>
+                    <a href="<?php print $front_page; ?>" title="<?php print $site_name; ?>"><div class="uw-site-title"><?php print $site_name; ?></div>
                         <p><?php if (!empty($site_slogan)): print $site_slogan; endif; ?></p>
                     </a>
                 <?php endif; ?>
