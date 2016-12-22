@@ -8485,7 +8485,7 @@ ul.uw-select.open li.inactive a {
 ul.uw-select li {
   cursor: pointer;
   color: #565656;
-  font-weight: 700;
+  font-weight: 800;
   transition: padding-left 0.5s;
   opacity: 0;
   transition: opacity .5s;
@@ -13571,6 +13571,9 @@ div[id*='trumba'] iframe {
 }
 .ic-right-arrow:before {
   content: "\e92a";
+}
+.ic-money:before {
+  content: "\e937";
 }
 .icon-menu {
   text-align: center;
