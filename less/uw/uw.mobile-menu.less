@@ -87,8 +87,60 @@
             z-index: 1;
             //margin-top: 62px;
             //width: calc(~"100% - 40px");
-            .menu-dropdowns-container {
+            & > div {
                 margin-top: 0px;
+                ul {
+                  li {
+                    .current_page_parent {
+                      background-color: #909090;
+                    }
+                  }
+                }
+                & > ul {
+                  margin: -10px -20px 0;
+                  .active-menu {
+                    ul.sub-menu {
+                      display: block;
+                    }
+                    &.menu-item-has-children {
+                      & > a {
+                        &:after {
+                          background-position: -284px -25px;
+                        }
+                      }
+                    }
+                  }
+                  ul.sub-menu {
+                    display: none;
+                    li.current-menu-item a {
+                      background-color: #eee;
+                    } 
+                    a {
+                      background-color: white;
+                      color: #5F5F5F;
+                    }
+                  }
+                  .menu-item-has-children {
+                    & > a {
+                      position: relative;
+                      padding: 10px 10px 10px 20px;
+                      &:focus {
+                        color: black;
+                      }
+                      &:after {
+                        content: "";
+                            position: absolute;
+                            top: 11px;
+                            right: 11px;
+                            width: 26px;
+                            height: 23px;
+                            background: url(assets/svg/uw-sprite.svg) -284px 0 no-repeat rgba(0, 0, 0, 0);
+                            opacity: .8;
+                            margin-top: 0;
+                      }
+                    }
+                  }
+                }
             }
         }
         &.bighero {
