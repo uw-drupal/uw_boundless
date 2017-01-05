@@ -59,6 +59,14 @@
 
     });//document.ready
 
+    // Drupal behaviors 
+    Drupal.behaviors.myBehavior = {
+      // Attach behaviors that should be reloaded after AJAX calls.
+      attach: function (context, settings) {
+        $('.radio').each(function() { $(this).radio() });
+        $('.checkbox').each(function() { $(this).radio() });
+      }
+    };
 
     // The window load event executes after the document ready event,
     // when the complete page is fully loaded.

@@ -61,6 +61,7 @@ scripts[] = 'js/function.bind.js'
 scripts[] = 'js/uw.quicklinks.js'
 scripts[] = 'js/uw.search.js'
 scripts[] = 'js/dropdowns.js'
+scripts[] = 'js/radios.js'
 
 ; ;;;;;;;;;;;;;;;;;;;;;
 ; ;; theme script

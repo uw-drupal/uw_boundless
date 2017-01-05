@@ -12582,6 +12582,11 @@ textarea#jp-carousel-comment-form-comment-field:focus::-webkit-input-placeholder
   outline: none !important;
   display: none;
 }
+.checkbox label,
+.radio label {
+  font-weight: 700;
+  padding-left: 0;
+}
 .checkbox .icons,
 .radio .icons {
   color: #bdc3c7;
@@ -14578,10 +14583,6 @@ span.next-page a:after {
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   margin-left: 0;
-}
-.checkbox input,
-.radio input {
-  opacity: 1;
 }
 .form-text,
 .form-textarea,
