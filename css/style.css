@@ -10586,7 +10586,7 @@ img.attachment-post-thumbnail.wp-post-image.blogroll-img,
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
   .uw-body {
-    padding: 20px;
+    padding: 20px 0 0 0;
   }
   .uw-body .uw-site-title {
     color: #4b2e83;
@@ -13405,6 +13405,12 @@ div[id*='trumba'] iframe {
 [class^="ic-"].gray a,
 [class*=" ic-"].gray a {
   color: #5A5A5A;
+}
+[class^="ic-"].gray-light:before,
+[class*=" ic-"].gray-light:before,
+[class^="ic-"].gray-light a,
+[class*=" ic-"].gray-light a {
+  color: #c9c9c9;
 }
 .sm:before {
   font-size: 35px;
