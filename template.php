@@ -362,7 +362,7 @@ function _uw_boundless_uw_sidebar_menu() {
             // get active parent by moving one up the trail
             $active_parent = ($active_trail[$active_trail_key - 1]); 
             // create flag if parent points home
-            $active_parent_is_front = ($active_parent['link_path'] === '<front>') ? TRUE : FALSE;
+            $active_parent_is_front = ($active_parent['link_path'] === '<front>' || $active_parent['link_path'] === '<firstchild>') ? TRUE : FALSE;
 
             // get the parent menu link
             $parent_link = menu_link_get_preferred($active_parent['link_path'], 'main-menu');
