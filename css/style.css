@@ -907,7 +907,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #0088DD;
+  color: #0074BB;
   text-decoration: none;
 }
 a:hover,
@@ -3449,7 +3449,7 @@ fieldset[disabled] .btn-danger.active {
   background-color: #fff;
 }
 .btn-link {
-  color: #0088DD;
+  color: #0074BB;
   font-weight: normal;
   border-radius: 0;
 }
@@ -4074,7 +4074,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #0088DD;
+  border-color: #0074BB;
 }
 .nav .nav-divider {
   height: 1px;
@@ -5022,7 +5022,7 @@ a.badge:focus {
 }
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #0088DD;
+  color: #0074BB;
   background-color: #fff;
 }
 .list-group-item > .badge {
@@ -5093,7 +5093,7 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #0088DD;
+  border-color: #0074BB;
 }
 .thumbnail .caption {
   padding: 9px;
@@ -7519,7 +7519,7 @@ body {
   background-color: #fff;
 }
 a {
-  color: #0088DD;
+  color: #0074BB;
   text-decoration: none;
   -o-transition: 0.25s;
   -webkit-transition: 0.25s;
@@ -10380,6 +10380,12 @@ hr {
 }
 iframe {
   margin: 40px 0 20px;
+  max-width: 100%;
+}
+iframe[src*="youtu.be"],
+iframe[src*="youtube.com"],
+iframe[src*="www.facebook.com/plugins/video"] {
+  max-height: 50vw;
 }
 small,
 .small {
@@ -10616,6 +10622,11 @@ img.attachment-post-thumbnail.wp-post-image.blogroll-img,
 }
 .widget {
   padding: 10px 0 0 40px;
+}
+@media only screen and (max-width: 992px) {
+  .widget {
+    padding: 10px 0 0 0px;
+  }
 }
 @media only screen and (max-width: 1600px) {
   .info-box {
@@ -13585,6 +13596,15 @@ div[id*='trumba'] iframe {
 }
 .ic-money:before {
   content: "\e937";
+}
+.ic-checkmark:before {
+  content: "\e938";
+}
+.ic-simple-arrow:before {
+  content: "\e939";
+}
+.ic-external:before {
+  content: "\e93a";
 }
 .icon-menu {
   text-align: center;

@@ -17,6 +17,12 @@ hr {
 
 iframe {
 	margin: 40px 0 20px;
+	max-width: 100%;
+	&[src*="youtu.be"],
+	&[src*="youtube.com"],
+	&[src*="www.facebook.com/plugins/video"] {
+		max-height: 50vw;
+	}
 }
 
 
@@ -258,9 +264,9 @@ img.attachment-post-thumbnail.wp-post-image,
 
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : @screen-xs-max) {
 	.uw-body {
-		//padding: 20px;
+		padding: 20px 0 0 0;
 		.uw-site-title {
 			color: @purple;
 			font-size: 25px;
@@ -288,7 +294,7 @@ img.attachment-post-thumbnail.wp-post-image,
     }
 }
 
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width : @screen-sm) {
     .uw-body {
         .uw-site-title {
             &.long-title {
@@ -306,6 +312,10 @@ img.attachment-post-thumbnail.wp-post-image,
 	padding: 10px 0 0 40px;
 }
 
+@media only screen and (max-width : @screen-md) {
+	.widget {
+	padding: 10px 0 0 0px; }
+}
 
 // Big Screens
 
@@ -315,7 +325,7 @@ img.attachment-post-thumbnail.wp-post-image,
 	}
 }
 
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : @screen-xs-max) {
 
 	.widget {
 		padding: 0;
@@ -334,7 +344,7 @@ img.attachment-post-thumbnail.wp-post-image,
     }
 
 }
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width : @screen-sm) {
 
 	.uw-body {
 		.uw-site-title {
