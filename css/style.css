@@ -12798,6 +12798,10 @@ textarea#jp-carousel-comment-form-comment-field:focus::-webkit-input-placeholder
   outline: 0!important;
   opacity: 0;
 }
+label.radio-focus {
+  border-top: dotted .5px #777;
+  border-bottom: dotted .5px #777;
+}
 .wpcf7 .fui-radio-unchecked:before,
 .wpcf7 .fui-radio-checked:before {
   display: none;
@@ -12911,6 +12915,9 @@ a.uw-btn.btn-gold:before {
 }
 a.uw-btn.btn-gold:before {
   border-left: 5px solid rgba(0, 0, 0, 0.1);
+}
+a.uw-btn.btn-squish {
+  margin-bottom: 0;
 }
 body.error404 .woof {
   height: 400px;
