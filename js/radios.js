@@ -20,6 +20,13 @@
       $(input).after(template);
       setState();
       $(input).bind('change', toggle );
+      $(input)
+        .focus(function() {
+          $(label).addClass('radio-focus');
+        })
+        .focusout(function() {
+          $(label).removeClass('radio-focus');
+        });
     }
 
     var setState = function() {
