@@ -14532,7 +14532,7 @@ pre.prettyprint ol.linenums li {
     padding-right: 75px;
   }
   div.container.uw-body {
-    padding-top: 20px;
+    padding: 20px;
   }
 }
 .front .uw-body .uw-site-title + p {
