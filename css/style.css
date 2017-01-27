@@ -12916,7 +12916,7 @@ a.uw-btn.btn-gold:before {
   border-left: 5px solid rgba(0, 0, 0, 0.1);
 }
 a.uw-btn.btn-squish {
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 body.error404 .woof {
   height: 400px;
