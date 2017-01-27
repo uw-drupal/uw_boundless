@@ -363,7 +363,7 @@ function _uw_boundless_uw_sidebar_menu() {
             $active_parent = ($active_trail[$active_trail_key - 1]); 
             // create flag if parent points home
             $active_parent_is_front = ($active_parent['link_path'] === '<front>' || $active_parent['link_path'] === '<firstchild>') ? TRUE : FALSE;
-
+            $active_parent_is_firstchild = $active_parent['link_path'] === '<firstchild>' ? TRUE : FALSE;
             // get the parent menu link
             $parent_link = menu_link_get_preferred($active_parent['link_path'], 'main-menu');
             // however, if active parent points home, create a new array 
@@ -379,9 +379,6 @@ function _uw_boundless_uw_sidebar_menu() {
                ); 
             }
 
-            $output_menu .= '<li class="page_item page_item_has_children current_page_ancestor current_page_parent">';
-            $output_menu .= l($parent_link['link_title'], $parent_link['link_path']);
-
             // parameters to build the tree
             $parameters = array(
                 'active_trail' => array($parent_link['plid']),
@@ -392,6 +389,12 @@ function _uw_boundless_uw_sidebar_menu() {
               );  
             // get the children
             $children = menu_build_tree($parent_link['menu_name'], $parameters);
+            if ($active_parent_is_firstchild) {
+                $parent_link['link_path'] = reset($children)['link']['link_path'];
+            }
+
+            $output_menu .= '<li class="page_item page_item_has_children current_page_ancestor current_page_parent">';
+            $output_menu .= l($parent_link['link_title'], $parent_link['link_path']);
 
             $output_menu .= '<ul class="children">';
             foreach ($children as $child) {  
