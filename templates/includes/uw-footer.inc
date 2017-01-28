@@ -31,5 +31,5 @@
         </ul>
     </nav>
 
-    <p role="contentinfo">&copy; <?php print '<a href="' . $GLOBALS['base_path'] . 'login/pc?destination=' . request_path() . '" style="color:white;">' . $uw_copyright_year . '</a>' ?>  University of Washington  |  Seattle, WA</p>
+    <p role="contentinfo">&copy; <?php print '<a href="' . $GLOBALS['base_path'] . 'login/pc?destination=' . filter_xss( request_path() ) . '" style="color:white;">' . $uw_copyright_year . '</a>' ?>  University of Washington  |  Seattle, WA</p>
 </footer>
