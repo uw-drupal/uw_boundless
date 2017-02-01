@@ -1,7 +1,7 @@
 <footer class="uw-footer">
     <a href="http://www.washington.edu" class="footer-wordmark">University of Washington</a>
 
-    <a href="http://www.washington.edu/boundless/be-boundless/"><h3 class="be-boundless">Be boundless</h3></a>
+    <a href="http://www.washington.edu/boundless/"><h3 class="be-boundless">Be boundless</h3></a>
 
     <h4>Connect with the UW:</h4>
 
