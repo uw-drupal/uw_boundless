@@ -8704,14 +8704,6 @@ ul.uw-select li.inactive a {
 }
 .box-outer .box .tile {
   display: table-cell;
-  padding: 0 50px 20px;
-  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  vertical-align: top;
-}
-.box-outer .box .tile div {
-  margin: 0 -51px;
 }
 .box-outer .box .tile .shortcode-blogroll-mini {
   padding-left: 0px;
@@ -8720,21 +8712,6 @@ ul.uw-select li.inactive a {
   width: 70px;
   height: 70px;
   margin: 5px 25px 15px 0px;
-}
-.box-outer .box .tile img {
-  width: 100%;
-  height: auto;
-  margin: 0 0 30px;
-  display: block;
-}
-.box-outer .box .tile hr {
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-.box-outer .box .tile.empty {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 .box-outer .box-tan .tile {
   background-color: #EEEADF;
@@ -13678,6 +13655,31 @@ div[id*='trumba'] iframe {
     padding: 20px 0px;
     width: 47%;
   }
+}
+.tile {
+  padding: 0 50px 20px;
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  vertical-align: top;
+}
+.tile div {
+  margin: 0 -51px;
+}
+.tile img {
+  width: 100%;
+  height: auto;
+  margin: 0 0 30px;
+  display: block;
+}
+.tile hr {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.tile.empty {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 /*==========  Non-Mobile First Method  ==========*/
 .uw-widget-campus-map .uw-campus-map-widget {
