@@ -7458,6 +7458,13 @@ table .checkbox input[type="checkbox"] {
 * UW Marketing & Communications partials
 */
 @font-face {
+  font-family: 'Encode Sans Normal';
+  src: url('assets/fonts/EncodeSans-Normal-Black.eot');
+  src: url('assets/fonts/EncodeSans-Normal-Black.eot?#iefix') format('embedded-opentype'), url('assets/fonts/EncodeSans-Normal-Black.woff') format('woff'), url('assets/fonts/EncodeSans-Normal-Black.ttf') format('truetype'), url('assets/fonts/EncodeSans-Normal-Black.svg#EncodeSans-Normal-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
   font-family: 'Encode Sans Compressed';
   src: url('assets/fonts/encodesanscondensed-400-regular-webfont.eot');
   src: url('assets/fonts/encodesanscondensed-400-regular-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscondensed-400-regular-webfont.woff') format('woff'), url('assets/fonts/encodesanscondensed-400-regular-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscondensed-400-regular-webfont.svg#encodesanscondensed-400-regular-webfont') format('svg');
@@ -10255,14 +10262,20 @@ table th[class*="col-"] {
   position: relative;
 }
 .uw-breadcrumbs li:first-child a {
-  background: url(assets/svg/uw-sprite.svg) no-repeat -249px 5px;
+  background: url(assets/svg/uw-sprite.svg) no-repeat -253px 5px;
   text-indent: -99999px;
-  width: 30px;
+  width: 25px;
   padding: 5px 0 5px 0;
   margin-right: 25px;
 }
 .uw-breadcrumbs li:first-child a:before {
   right: -18px;
+}
+.uw-breadcrumbs li:first-child a:focus,
+.uw-breadcrumbs li:first-child a:active,
+.uw-breadcrumbs li:first-child a:hover {
+  border-bottom: 1px solid #85754d;
+  margin-bottom: -1px;
 }
 .uw-breadcrumbs li:first-child:after {
   top: 17px;
@@ -12923,19 +12936,19 @@ body.error404 .woof {
   background: url(assets/svg/uw-sprite-focus.svg) no-repeat 0 -434px transparent;
 }
 .uw-footer .be-boundless {
-  font-size: 24px;
-  background: url(assets/images/boundless.png) no-repeat center top transparent;
+  line-height: 64px;
+  background: url(assets/images/campaign.svg) no-repeat center top transparent;
   display: block;
   text-indent: -99999px;
   margin: 10px 0 60px;
-  opacity: .6;
+  opacity: 1;
   -o-transition: opacity 0.25s;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 .uw-footer .be-boundless:hover,
 .uw-footer .be-boundless:focus {
-  opacity: 1;
+  opacity: .6;
 }
 .uw-footer h4 {
   font-family: "Encode Sans Compressed", sans-serif;
