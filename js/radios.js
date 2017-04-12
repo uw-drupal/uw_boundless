@@ -14,7 +14,7 @@
     // Cache the current jQuery element using the plugin
     , $element = $(element)
     , label = $(element).children('label').first()
-    , input = $(label).children('input').first();
+    , input = ($(label).children('input').first().length !== 0) ? $(label).children('input').first() : $(label).closest('.form-item').children('input');
 
     this_.init = function() {
       $(input).after(template);
@@ -56,7 +56,8 @@
     var toggleCheckBox = function(a) {
       var t = '';
       var alabel = $(a).find('label').first()
-      , ainput = $(alabel).find('input').first()
+      //, ainput = $(alabel).find('input').first()
+      , ainput = ($(alabel).children('input').first().length !== 0) ? $(alabel).children('input').first() : $(alabel).closest('.form-item').children('input')
       , b = $(ainput).prop(states.checked)
       , c = $(ainput).prop(states.disabled);
         !c && $(a).removeClass(states.checked),

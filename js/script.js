@@ -63,6 +63,8 @@
     Drupal.behaviors.myBehavior = {
       // Attach behaviors that should be reloaded after AJAX calls.
       attach: function (context, settings) {
+        $('input[type=radio]').each(function() { $(this).closest('.form-item').addClass('radio'); });
+        $('input[type=checkbox]').each(function() { $(this).closest('.form-item').addClass('checkbox'); });
         $('.radio').each(function() { $(this).radio() });
         $('.checkbox').each(function() { $(this).radio() });
       }
