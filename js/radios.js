@@ -36,7 +36,12 @@
 
     var getGroup = function() {
       if ($(input).attr('type') === 'radio') {
-        return $(input).closest('.form-radios').children('.radio');
+        if ($(input).closest('.form-radios').length) {
+          return $(input).closest('.form-radios').children('.radio');
+        }
+        else if ($(input).closest('td.webform-grid-option')) {
+          return $(input).closest('tr').children('.radio');
+        }
       }
       if ($(input).attr('type') === 'checkbox') {
         return $(input).closest('.form-checkboxes').children('.checkbox');

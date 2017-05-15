@@ -56,6 +56,8 @@
                 // Animation complete.
             });
         });
+        $('.webform-grid-option').addClass('radio');
+        $('.webform-grid-option').removeClass('checkbox');
 
     });//document.ready
 
