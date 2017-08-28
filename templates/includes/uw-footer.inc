@@ -18,7 +18,7 @@
         </ul>
     </nav>
 
-    <nav role="navigation" aria-label="footer links">
+    <nav role="navigation" aria-label="footer navigation">
         <ul class="footer-links">
             <li><a href="http://www.uw.edu/accessibility">Accessibility</a></li>
             <li><a href="http://uw.edu/home/contact">Contact Us</a></li>
