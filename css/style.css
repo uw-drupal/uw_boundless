@@ -2208,11 +2208,11 @@ th {
   padding: 8px;
   line-height: 1.72222;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ababab;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #ababab;
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
@@ -2223,7 +2223,7 @@ th {
   border-top: 0;
 }
 .table > tbody + tbody {
-  border-top: 2px solid #ddd;
+  border-top: 2px solid #ababab;
 }
 .table .table {
   background-color: #fff;
@@ -2237,7 +2237,7 @@ th {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #ddd;
+  border: 1px solid #ababab;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -2245,14 +2245,14 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #ddd;
+  border: 1px solid #ababab;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
 }
 .table-striped > tbody > tr:nth-child(odd) {
-  background-color: #f9f9f9;
+  background-color: #e2e2e2;
 }
 .table-hover > tbody > tr:hover {
   background-color: #f5f5f5;
@@ -2383,7 +2383,7 @@ table th[class*="col-"] {
     margin-bottom: 21.75px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
+    border: 1px solid #ababab;
   }
   .table-responsive > .table {
     margin-bottom: 0;
@@ -5608,7 +5608,7 @@ a.list-group-item-danger.active:focus {
 .panel > .panel-body + .table-responsive,
 .panel > .table + .panel-body,
 .panel > .table-responsive + .panel-body {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ababab;
 }
 .panel > .table > tbody:first-child > tr:first-child th,
 .panel > .table > tbody:first-child > tr:first-child td {
@@ -8769,7 +8769,7 @@ th {
   width: 100%;
   max-width: 100%;
   margin-bottom: 29px;
-  border: 1px solid #E7E7E7;
+  border: 1px solid #ababab;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -8783,7 +8783,7 @@ th {
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #ababab;
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
@@ -8794,7 +8794,7 @@ th {
   border-top: 0;
 }
 .table > tbody + tbody {
-  border-top: 2px solid #ddd;
+  border-top: 2px solid #ababab;
 }
 .table .table {
   background-color: #fff;
@@ -8808,7 +8808,7 @@ th {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #ddd;
+  border: 1px solid #ababab;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -8816,7 +8816,7 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #ddd;
+  border: 1px solid #ababab;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
@@ -8824,7 +8824,7 @@ th {
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: #e2e2e2;
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
@@ -8953,7 +8953,7 @@ table th[class*="col-"] {
     overflow-y: hidden;
     overflow-x: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
+    border: 1px solid #ababab;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive > .table {
@@ -12799,6 +12799,13 @@ label.radio-focus {
 .wpcf7 .fui-radio-checked:before {
   display: none;
 }
+.gform_wrapper .fui-radio-unchecked:before,
+.gform_wrapper .fui-radio-checked:before {
+  display: none;
+}
+.gfield_checkbox br {
+  display: none;
+}
 a.uw-btn {
   padding: 11px 20px;
   text-transform: uppercase;
@@ -13633,6 +13640,12 @@ div[id*='trumba'] iframe {
 }
 .ic-check2:before {
   content: "\e93b";
+}
+.ic-people:before {
+  content: "\e93c";
+}
+.ic-clipboard-check:before {
+  content: "\e93d";
 }
 .icon-menu {
   text-align: center;
