@@ -11346,7 +11346,7 @@ body.home .uw-sidebar-menu {
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 768px) {
-  #desktop-relative {
+  #sidebar #desktop-relative {
     display: none;
   }
   .uw-mobile-menu li {
@@ -11386,7 +11386,7 @@ body.home .uw-sidebar-menu {
     background: url(assets/svg/uw-sprite.svg) no-repeat -600px 0 transparent;
   }
   #mobile-relative ul.uw-mobile-menu li.pagenav ul li.current_page_parent.current_page_ancestor > a:after {
-    display: none;
+    display: inline;
   }
   #mobile-relative.frontpage {
     margin-top: -10px;
@@ -13626,6 +13626,9 @@ div[id*='trumba'] iframe {
 }
 .ic-external:before {
   content: "\e93a";
+}
+.ic-check2:before {
+  content: "\e93b";
 }
 .icon-menu {
   text-align: center;
