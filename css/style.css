@@ -14677,8 +14677,8 @@ span.next-page a:after {
   left: 20px;
   z-index: 999;
 }
-.table-striped > tbody > tr:nth-child(2n+1) .checkbox.disabled,
-.table-striped > tbody > tr:nth-child(2n+1) .radio.disabled {
+.table-striped > tbody > tr .checkbox.disabled,
+.table-striped > tbody > tr .radio.disabled {
   color: #5A5A5A;
 }
 .form-text,
