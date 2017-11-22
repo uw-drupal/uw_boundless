@@ -14674,7 +14674,8 @@ span.next-page a:after {
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
-  margin-left: 0;
+  left: 20px;
+  z-index: 999;
 }
 .form-text,
 .form-textarea,
