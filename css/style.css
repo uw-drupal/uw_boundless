@@ -11350,7 +11350,7 @@ body.home .uw-sidebar-menu {
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 768px) {
-  #sidebar #desktop-relative {
+  #desktop-relative {
     display: none;
   }
   .uw-mobile-menu li {
