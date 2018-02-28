@@ -1,4 +1,4 @@
-<nav id="quicklinks" role="navigation" aria-label="quick links" aria-hidden="true">
+<nav id="quicklinks" aria-label="quick links" aria-hidden="true">
     <ul id="big-links"> 
         <li><span class="icon-myuw"></span><a href="http://myuw.washington.edu" tabindex="-1">MyUW</a></li> 
         <li><span class="icon-calendar"></span><a href="http://uw.edu/calendar" tabindex="-1">Calendar</a></li> 

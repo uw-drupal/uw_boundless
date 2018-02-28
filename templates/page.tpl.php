@@ -103,7 +103,7 @@
         <?php include_once $directory . "/templates/includes/thinstrip.inc"; ?>
         <!-- /#uw-thinstrip -->
 
-        <nav id="dawgdrops" aria-label="Main menu" role="navigation" tabindex="0">
+        <nav id="dawgdrops" aria-label="Main menu" tabindex="0">
             <div class="dawgdrops-inner container">
                 <?php print render($page['navigation']); ?>
             </div>
@@ -140,7 +140,7 @@
                 <?php endif; ?>
                     
                 <?php if (!empty($breadcrumb)): ?>
-                    <nav class="uw-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+                    <nav class="uw-breadcrumbs" aria-label="breadcrumbs">
                     <?php print $breadcrumb; ?>
                     </nav>
                 <?php endif;?>
@@ -151,7 +151,7 @@
                 <?php endif; ?>
                 
                 <?php if ((!empty($page['navigation']['system_main-menu']))): ?>  
-                  <nav id="mobile-relative" role="navigation" aria-label="relative">
+                  <nav id="mobile-relative" aria-label="relative">
                       <button class="uw-mobile-menu-toggle">Menu</button>
                       <ul class="uw-mobile-menu first-level">
                           <?php if (($is_front || (!$is_front && !$uw_sidebar_menu)) && !empty($primary_nav)): ?>
@@ -193,7 +193,7 @@
                 
                 <aside class="col-md-4 uw-sidebar" role="complementary">
                 <?php if ((!empty($page['navigation']['system_main-menu'])) &&  $uw_sidebar_menu): ?>
-                    <nav id="desktop-relative" role="navigation" aria-label="relative">
+                    <nav id="desktop-relative" aria-label="relative">
                         <ul class="uw-sidebar-menu first-level">
                             <li class="pagenav">
                                 <?php print l("Home", $GLOBALS['base_url'], array('attributes' => array('title' => 'Home', 'class' => array('homelink')))); ?>
