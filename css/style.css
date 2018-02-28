@@ -10582,7 +10582,7 @@ img.attachment-post-thumbnail.wp-post-image.blogroll-img,
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
   .uw-body {
-    padding: 20px 0 0 0;
+    padding: 20px;
   }
   .uw-body .uw-site-title {
     color: #4b2e83;
@@ -14565,9 +14565,6 @@ pre.prettyprint ol.linenums li {
 @media only screen and (max-width: 767px) {
   .uw-body .uw-site-title {
     padding-right: 75px;
-  }
-  div.container.uw-body {
-    padding: 20px;
   }
 }
 .front .uw-body .uw-site-title + p {
