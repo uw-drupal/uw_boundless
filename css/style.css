@@ -7536,9 +7536,6 @@ a:focus {
   color: #c9c9c9;
   text-decoration: none;
 }
-a:focus {
-  outline: none;
-}
 .img-rounded {
   border-radius: 6px;
 }
