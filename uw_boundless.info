@@ -58,6 +58,8 @@ scripts[] = 'bootstrap/js/transition.js'
 ; ;;;;;;;;;;;;;;;;;;;;;
 
 scripts[] = 'js/function.bind.js'
+scripts[] = 'js/uw.mobile-menu.js'
+scripts[] = 'js/uw.mobile-sidebar-menu.js'
 scripts[] = 'js/uw.quicklinks.js'
 scripts[] = 'js/uw.search.js'
 scripts[] = 'js/dropdowns.js'

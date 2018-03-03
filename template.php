@@ -86,6 +86,9 @@ function uw_boundless_preprocess_page(&$variables) {
     
     //new variable for the sidebar menu
     $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();
+
+    // variable for mobile (main) menu
+    $variables['uw_mobile_menu'] = _uw_boundless_mobile_menu();
     
     // new variable to display copyright
     $variables['uw_copyright_year'] = _uw_boundless_copyrightyear();
@@ -139,7 +142,7 @@ function uw_boundless_menu_tree__main_menu(&$variables) {
 function uw_boundless_menu_link__main_menu(array $variables) {
     $element = $variables['element'];
     $sub_menu = '';
-    
+
     // Generate as dawgdrops-item.
     $element['#attributes']['class'][] = 'dawgdrops-item';
     
@@ -159,7 +162,7 @@ function uw_boundless_menu_link__main_menu(array $variables) {
             $sub_menu = '<ul class="dawgdrops-menu" aria-hidden="true" aria-label="submenu">' . drupal_render($element['#below']) . '</ul>';
         }
     } 
-   
+    
     $output = l($element['#title'], $element['#href'], $element['#localized_options']);
     return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
@@ -447,6 +450,38 @@ function _uw_boundless_uw_sidebar_menu() {
 
     return ($output) ? $output_menu : $output;
     
+}
+
+/**
+ * Builds a mobile-styled menu from the main menu links.
+ *
+ * @return string HTML output
+ */
+function _uw_boundless_mobile_menu() {
+    $menu = menu_build_tree('main-menu');
+    $menu_tree = menu_tree_output($menu);
+
+    $mobile_menu = '<ul id="menu-dropdowns-1" class="">';
+    foreach ($menu_tree as &$element) {
+        if (isset($element['#title'])) {
+            $sub_menu = '';
+            
+            if ($element['#below']) {
+                $element['#attributes']['class'][] = 'menu-item-has-children';
+                if ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] == 1)) {
+
+                    $element['#localized_options']['attributes']['aria-expanded'][] = 'false';
+
+                    // Add our own wrapper.
+                    unset($element['#below']['#theme_wrappers']);
+                    $sub_menu = '<ul class="sub-menu" aria-hidden="true">' . drupal_render($element['#below']) . '</ul>';
+                }
+            } 
+            $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+            $mobile_menu .= '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+        }
+    }
+    return $mobile_menu . '</ul>';
 }
 
 /**

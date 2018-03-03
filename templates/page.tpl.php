@@ -138,7 +138,21 @@
                         <p><?php if (!empty($site_slogan)): print $site_slogan; endif; ?></p>
                     </a>
                 <?php endif; ?>
-                    
+                
+                <?php if ((!empty($page['navigation']['system_main-menu']))): ?>
+                  <nav id="mobile-relative" class="frontpage" aria-label="mobile menu">
+                      <button class="uw-mobile-menu-toggle">Menu</button>
+                      <ul class="uw-mobile-menu first-level">
+                        <div class="menu-dropdowns-container">
+                          <?php if (!empty($primary_nav)): ?>
+                            <?php print l("Home", $GLOBALS['base_url'], array('attributes' => array('title' => 'Home', 'class' => array('homelink')))); ?>
+                            <?php print $uw_mobile_menu; ?>
+                          <?php endif; ?>    
+                        </div>
+                      </ul>
+                  </nav><!-- /#uw-mobile-menu -->
+                <?php endif; ?>
+
                 <?php if (!empty($breadcrumb)): ?>
                     <nav class="uw-breadcrumbs" aria-label="breadcrumbs">
                     <?php print $breadcrumb; ?>
@@ -150,27 +164,36 @@
                   <h1 class="page-header"><?php print $title; ?></h1>
                 <?php endif; ?>
                 
-                <?php if ((!empty($page['navigation']['system_main-menu']))): ?>  
-                  <nav id="mobile-relative" aria-label="relative">
-                      <button class="uw-mobile-menu-toggle">Menu</button>
-                      <ul class="uw-mobile-menu first-level">
-                          <?php if (($is_front || (!$is_front && !$uw_sidebar_menu)) && !empty($primary_nav)): ?>
-                            <li class="pagenav">
-                                <?php print l("Home", $GLOBALS['base_url'], array('attributes' => array('title' => 'Home', 'class' => array('homelink')))); ?>
-                                <?php print render($primary_nav); ?>
-                            </li><!-- /#primary_nav --> 
-                          <?php endif; ?>     
-                          <?php if (!$is_front && $uw_sidebar_menu): ?>
-                            <li class="pagenav">
-                                <?php print l("Home", $GLOBALS['base_url'], array('attributes' => array('title' => 'Home', 'class' => array('homelink')))); ?>
-                                <?php print render($uw_sidebar_menu); ?>
-                            </li><!-- /#uw_sidebar_menu --> 
-                          <?php endif; ?>
-                      </ul>
-                  </nav><!-- /#uw-mobile-menu -->
-                <?php endif; ?>
+
                    
                 <?php print render($title_suffix); ?>
+
+                <?php if (!$is_front && (!empty($page['navigation']['system_main-menu']))): ?>  
+                  <div id="mobile-sidebar">
+                    <button id="mobile-sidebar-menu" class="visible-xs open" aria-hidden="true" tabindex="1"> 
+                        <div aria-hidden="true" id="ham"> 
+                            <span></span> 
+                            <span></span> 
+                            <span></span> 
+                            <span></span>        
+                        </div>
+                        <div id="mobile-sidebar-title" class="page_item">Close Menu</div>
+                    </button>
+                    <div id="mobile-sidebar-links" class="visible-xs" aria-hidden="true">
+                      <nav id="mobile-sidebar-relative" class="frontpage" aria-label="mobile menu that is not visible in the desktop version">
+                          <ul class="uw-sidebar-menu first-level">
+                            <?php if (!$is_front && $uw_sidebar_menu): ?>
+                                <li class="pagenav">
+                                    <?php print l("Home", $GLOBALS['base_url'], array('attributes' => array('title' => 'Home', 'class' => array('homelink')))); ?>
+                                    <?php print render($uw_sidebar_menu); ?>
+                                </li><!-- /#uw_sidebar_mobile_menu --> 
+                            <?php endif; ?>
+                          </ul>
+                      </nav>
+                    </div>
+                  </div><!-- /#uw-mobile-sidebar-menu -->
+                <?php endif; ?>
+
                 <?php print $messages; ?>
                 <?php if (!empty($tabs)): ?>
                   <?php print render($tabs); ?>
