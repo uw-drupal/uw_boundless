@@ -31,5 +31,5 @@
         </ul>
     </nav>
     
-    <p role="contentinfo">&copy; <?php echo '<a id="shiblink" href="' . shib_auth_generate_login_url() . '" style="color:white;">' . $uw_copyright_year . '</a>'; ?>  University of Washington  |  Seattle, WA </p>
+    <p role="contentinfo">&copy; <?php echo '<a id="shiblink" href="' . (function_exists('shib_auth_generate_login_url') && shib_auth_generate_login_url()) . '" style="color:white;">' . $uw_copyright_year . '</a>'; ?>  University of Washington  |  Seattle, WA </p>
 </footer>
