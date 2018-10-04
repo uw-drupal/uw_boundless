@@ -168,7 +168,7 @@
                    
                 <?php print render($title_suffix); ?>
 
-                <?php if (!$is_front && (!empty($page['navigation']['system_main-menu']))): ?>  
+                <?php if (!$is_front && (!empty($page['navigation']['system_main-menu'])) && $uw_sidebar_menu): ?>  
                   <div id="mobile-sidebar">
                     <button id="mobile-sidebar-menu" class="visible-xs open" aria-hidden="true" tabindex="1"> 
                         <div aria-hidden="true" id="ham"> 
@@ -182,12 +182,10 @@
                     <div id="mobile-sidebar-links" class="visible-xs" aria-hidden="true">
                       <nav id="mobile-sidebar-relative" class="frontpage" aria-label="mobile menu that is not visible in the desktop version">
                           <ul class="uw-sidebar-menu first-level">
-                            <?php if (!$is_front && $uw_sidebar_menu): ?>
-                                <li class="pagenav">
-                                    <?php print l("Home", $GLOBALS['base_url'], array('attributes' => array('title' => 'Home', 'class' => array('homelink')))); ?>
-                                    <?php print render($uw_sidebar_menu); ?>
-                                </li><!-- /#uw_sidebar_mobile_menu --> 
-                            <?php endif; ?>
+                            <li class="pagenav">
+                                <?php print l("Home", $GLOBALS['base_url'], array('attributes' => array('title' => 'Home', 'class' => array('homelink')))); ?>
+                                <?php print render($uw_sidebar_menu); ?>
+                            </li><!-- /#uw_sidebar_mobile_menu --> 
                           </ul>
                       </nav>
                     </div>
