@@ -1,6 +1,6 @@
 <nav id="quicklinks" aria-label="quick links" aria-hidden="true">
     <ul id="big-links"> 
-        <li><span class="icon-myuw"></span><a href="http://myuw.washington.edu" tabindex="-1">MyUW</a></li> 
+        <li><span class="icon-myuw"></span><a href="http://my.uw.edu" tabindex="-1">MyUW</a></li>
         <li><span class="icon-calendar"></span><a href="http://uw.edu/calendar" tabindex="-1">Calendar</a></li> 
         <li><span class="icon-directories"></span><a href="http://uw.edu/directory/" tabindex="-1">Directories</a></li> 
         <li><span class="icon-libraries"></span><a href="http://www.lib.washington.edu/" tabindex="-1">Libraries</a></li> 
