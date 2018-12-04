@@ -1,7 +1,8 @@
 name = UW Boundless
-description = A Bootstrap 7.x-3.0 Sub-theme. This theme can serve as a base-theme for site-specific UW sub-themes. It uses local bootstrap source files as described in "Method 1" of the Bootstrap Theming Guide: https://www.drupal.org/node/1978010
+description = A Bootstrap 7.x-3.x Sub-theme. This theme can serve as a base-theme for site-specific UW sub-themes. It uses local bootstrap source files as described in "Method 1" of the Bootstrap Theming Guide: https://www.drupal.org/node/1978010
 core = 7.x
 base theme = bootstrap
+php = 5.3.0
 
 
 ;;;;;;;;;;;;;;;;;;;;;
@@ -10,15 +11,12 @@ base theme = bootstrap
 
 regions[search]         = 'Search'
 regions[navigation]     = 'Navigation'
-; regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
 regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
-; regions[page_top]       = 'Page top'
-; regions[page_bottom]    = 'Page bottom'
 
 
 ;;;;;;;;;;;;;;;;;;;;;
@@ -28,18 +26,10 @@ regions[footer]         = 'Footer'
 stylesheets[all][] = css/style.css
 
 
-; For information on choosing the desired method, please read the Drupal
-; Bootstrap sub-theme "how-to" documentation:
-; https://drupal.org/node/1978010
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
 
-; ;----------------------------------
-; ; METHOD 1: Bootstrap Source Files
-; ;----------------------------------
-;
-; ;;;;;;;;;;;;;;;;;;;;;
-; ;; Scripts
-; ;;;;;;;;;;;;;;;;;;;;;
-;
 scripts[] = 'bootstrap/js/affix.js'
 scripts[] = 'bootstrap/js/alert.js'
 scripts[] = 'bootstrap/js/button.js'
@@ -53,9 +43,13 @@ scripts[] = 'bootstrap/js/scrollspy.js'
 scripts[] = 'bootstrap/js/tab.js'
 scripts[] = 'bootstrap/js/transition.js'
 
-; ;;;;;;;;;;;;;;;;;;;;;
-: ;; UW utility scripts
-; ;;;;;;;;;;;;;;;;;;;;;
+; Disable the CDN provider so compiled source files can be used.
+settings[bootstrap_cdn] = ''
+
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; UW utility scripts
+;;;;;;;;;;;;;;;;;;;;;;
 
 scripts[] = 'js/function.bind.js'
 scripts[] = 'js/uw.mobile-menu.js'
@@ -65,15 +59,17 @@ scripts[] = 'js/uw.search.js'
 scripts[] = 'js/dropdowns.js'
 scripts[] = 'js/radios.js'
 
-; ;;;;;;;;;;;;;;;;;;;;;
-; ;; theme script
-; ;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; theme script
+;;;;;;;;;;;;;;;;;;;;;;
 
 scripts[] = 'js/script.js'
 
-; ;;;;;;;;;;;;;;;;;;;;;
-; ;; theme settings
-; ;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; theme settings
+;;;;;;;;;;;;;;;;;;;;;;
 
 settings[uw_boundless_hero_image_front_default_path] = '//www.washington.edu/brand/files/2014/09/w.jpg'
 settings[uw_boundless_hero_image_front_default] = 1
@@ -87,15 +83,3 @@ settings[uw_boundless_front_page_slogan_color] = '#ffffff'
 settings[uw_boundless_text_shadow_black] = '2px 2px 2px rgba(0, 0, 0, 0.5)'
 settings[uw_boundless_text_shadow_white] = '2px 2px 2px rgba(255, 255, 255, 0.5)'
 settings[uw_boundless_sidebar_menu_visibility] = 1
-
-
-; ; Disable BootstrapCDN if using Bootstrap source files in your sub-theme.
-; settings[bootstrap_cdn] = ''
-
-; ;-------------------------
-; ; METHOD 2: Bootstrap CDN
-; ;-------------------------
-;
-; Method 2 uses BootstrapCDN, the only thing you might need to provide here
-; is overrides to Bootstrap theme settings. Copy them here from the base theme
-; to override.
