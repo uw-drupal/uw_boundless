@@ -83,3 +83,5 @@ settings[uw_boundless_front_page_slogan_color] = '#ffffff'
 settings[uw_boundless_text_shadow_black] = '2px 2px 2px rgba(0, 0, 0, 0.5)'
 settings[uw_boundless_text_shadow_white] = '2px 2px 2px rgba(255, 255, 255, 0.5)'
 settings[uw_boundless_sidebar_menu_visibility] = 1
+settings[uw_boundless_login_link_location] = 'none'
+settings[uw_boundless_login_link_text] = 'Login'

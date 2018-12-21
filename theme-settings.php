@@ -164,6 +164,32 @@ function uw_boundless_form_system_theme_settings_alter(&$form, $form_state, $for
             1 => t('Visible'),
         ),
     );
+
+    // Login link
+    $form['uw_boundless_login'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Login link'),
+        '#group' => 'uw_boundless',
+    );
+    // Login link location
+    $form['uw_boundless_login']['uw_boundless_login_link_location']= array(
+        '#type' => 'select',
+        '#title' => t('Login link location'),
+        '#default_value' => theme_get_setting('uw_boundless_login_link_location'),
+        '#options' => array(
+            'none' => t('None'),
+            'quick_links' => t('Quick Links - first item'),
+            'footer_date' => t('Footer - hidden in the copyright date'),
+            'footer_bottom' => t('Footer - visible at the very bottom'),
+        ),
+    );
+    // Login link text
+    $form['uw_boundless_login']['uw_boundless_login_link_text']= array(
+        '#type' => 'textfield',
+        '#title' => t('Login link text'),
+        '#description' => t('Text to use for the login link. Ignored if "Footer - hidden in copyright date" is selected.'),
+        '#default_value' => theme_get_setting('uw_boundless_login_link_text'),
+    );
     
     // add validate and submit functions to the form
     $form['#validate'][] = 'uw_boundless_theme_settings_validate';

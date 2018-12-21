@@ -92,6 +92,22 @@ function uw_boundless_preprocess_page(&$variables) {
     
     // new variable to display copyright
     $variables['uw_copyright_year'] = _uw_boundless_copyrightyear();
+
+    // variables for login link
+    $variables['uw_login_link_location'] = theme_get_setting('uw_boundless_login_link_location');
+    if ($variables['uw_login_link_location'] == 'footer_date') {
+        $login_link_text = _uw_boundless_copyrightyear();
+    }
+    else {
+        $login_link_text = theme_get_setting('uw_boundless_login_link_text');
+    }
+    if (module_exists('shib_auth')) {
+        $login_url = shib_auth_generate_login_url();
+    }
+    else {
+        $login_url = 'user/login';
+    }
+    $variables['uw_login_link'] = l(t($login_link_text), $login_url, array('query' => drupal_get_destination()));
     
     // reset content column class from bootstrap's default col-sm-9 to col-md-8.
     // the column class for uw-sidebar is hard-coded in page.tpl.php 
@@ -275,7 +291,7 @@ function uw_boundless_bootstrap_search_form_wrapper($variables) {
  */
 function _uw_boundless_copyrightyear() {
     $start = "2015";
-    $range = ((date('Y') == $start) ? $range = $start : $range = $start."&#45;".date('Y')); 
+    $range = ((date('Y') == $start) ? $range = $start : $range = $start."-".date('Y'));
     return t($range);
 }
 

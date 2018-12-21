@@ -37,6 +37,8 @@
  * - $uw_front_slogan_text_shadow (string): style setting, value for the text-shadow of the slogan.
  * - $uw_sidebar_menu (HTML content): content containing the sidebar menu.
  * - $uw_copyright_year (HTML content, in uw-footer.inc).
+ * - $uw_login_link_location (string, in quicklinks.inc and uw-footer.inc): where to show the login link.
+ * - $uw_login_link (HTML content, in quicklinks.inc and uw-footer.inc): the login link.
  * 
  * Navigation:
  * - $main_menu (array): An array containing the Main menu links for the
