@@ -1,6 +1,9 @@
 // Insert your styling here.
 // Site title
 // -------------------------
+
+//@import "variables.less";
+@font-family-header: "Encode Sans Compressed", sans-serif;
 .uw-body {
     .uw-site-title {
         +p {
@@ -217,21 +220,46 @@ span.next-page {
 }
 
 // views styles
-//
-.views-exposed-form .views-exposed-widget {
-	clear:both;
-	text-align:center;
+
+
+//.views-exposed-form {
+//}
+//div.views-exposed-widgets {
+//	display: flex;
+//	justify-content:center;
+//	width:100%;
+//}
+div.views-exposed-widget {
+	display: flex;
+	justify-content:center;
+	width:75vw;
 }
 .views-exposed-form .views-exposed-widget label {
-	float:left;
+	font-size:24px;
+	font-family:@font-family-header;
 }
-.views-exposed-form .views-exposed-widget div.views-widget{
+.views-exposed-form .views-exposed-widget .views-widget label {
+	color:#fff;
+	background-color:#4b2f92;
+	padding:12px;
+	margin-top:4px;
 }
+.view-showcase .views-exposed-form .checkbox .icons{
+	top:6px;
+	height:80px;
+}
+//.views-exposed-form .views-exposed-widget {
+//	width:100%;
+//	float:none;
+//	display: flex;
+//	justify-content:center;
+//}
 .views-exposed-form .views-exposed-widget .form-control{
 	border:none;
 	box-shadow:none;
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
+	padding:0;
 }
 .view-showcase #views-exposed-form-showcase-page .views-exposed-widget .form-item{
 	display:inline-block;
