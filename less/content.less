@@ -223,16 +223,24 @@ span.next-page {
 
 
 //.views-exposed-form {
-//}
-//div.views-exposed-widgets {
-//	display: flex;
-//	justify-content:center;
-//	width:100%;
-//}
+.views-exposed-form {
+	display: flex;
+	flex-wrap:wrap;
+}
 div.views-exposed-widget {
 	display: flex;
+	width:100%;
 	justify-content:center;
-	width:75vw;
+}
+.views-exposed-form .views-exposed-widget {
+	margin-bottom:20px;
+}
+.views-exposed-form .views-exposed-widget.views-submit-button{
+	display:none;
+	margin:0;
+}
+.views-exposed-form .views-exposed-widget.views-widget-filter-field_site_type_tid{
+	margin-bottom:0px;
 }
 .views-exposed-form .views-exposed-widget label {
 	font-size:18px;
@@ -254,8 +262,14 @@ div.views-exposed-widget {
 .views-exposed-form .views-exposed-widget .views-widget .form-item-field-audience-tid label {
 	background-color:#000;
 }
+.views-exposed-form .views-exposed-widget .views-widget .checked label {
+	background-color:#ccc;
+}
 .views-exposed-form .views-exposed-widget .views-widget .form-item-field-drupal-version-tid label {
 	background-color:#b6a579;
+}
+.views-exposed-form .views-exposed-widget .views-widget .form-item-field-drupal-version-tid .checked label {
+	background-color:#ccc;
 }
 .views-exposed-form .views-exposed-widget .form-control{
 	border:none;
