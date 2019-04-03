@@ -222,10 +222,21 @@ span.next-page {
 // views styles
 
 
-//.views-exposed-form {
+.views-exposed-form .checkbox input[type="checkbox"] {
+	left:0;
+	width:0;
+	height:0;
+}
 .views-exposed-form {
 	display: flex;
 	flex-wrap:wrap;
+	border:1px solid #ccc;
+	padding:24px;
+}
+div.views-exposed-widget .checkbox {
+div.views-exposed-widget span.icons {
+	display:none;
+	padding:0;
 }
 div.views-exposed-widget {
 	display: flex;
@@ -280,6 +291,5 @@ div.views-exposed-widget {
 }
 .view-showcase #views-exposed-form-showcase-page .views-exposed-widget .form-item{
 	display:inline-block;
-	margin-left:20px;
 	margin-top:0;
 }
