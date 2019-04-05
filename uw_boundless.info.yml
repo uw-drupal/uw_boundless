@@ -1,0 +1,29 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+version: 0.1
+
+name: 'UW Boundless'
+description: 'Bootstrap 8.x Sub-theme.  Uses lessc for css management.'
+package: 'Bootstrap'
+logo: images/logo.png
+
+regions:
+  search: 'Search'
+  thinstrip: 'Thinstrip'
+  navigation: 'Navigation'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  uwfooter: 'UW Footer'
+  quicklinks: 'Quicklinks'
+  
+libraries-extend:
+  bootstrap/framework:
+    - uw_boundless/framework
+    
+features:
+  - favicon
+  - logo

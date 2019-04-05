@@ -1,90 +1,228 @@
-# UW Boundless Theme
+<!-- @file Instructions for installation of the UW Boundless . -->
+<!-- @defgroup sub_theming_less -->
+<!-- @ingroup sub_theming -->
 
-This Bootstrap 3.x sub-theme replicates the [WordPress theme](https://github.com/uweb/uw-2014) developed by [UW Marketing & Communications](https://uw.edu/brand).
+# Overview
 
-Maintaining this theme is currently a volunteer effort provided by the UW Drupal Community. We do our best to keep the theme up to date with the UMAC version.
+The Drupal 8 UW Boundless theme is port of the drupal 7 version.  It is a
+itself a subtheme of Bootstrap.
 
-**Questions?** Contact the maintainers at [drupal-theme@uw.edu](mailto:drupal-theme@uw.edu).
+A notable change from the D7 version is that the .inc files that defined the
+content of the search area, the quicklinks flyout, the thin strip, and the
+footer have been replaced by regions into which you add a custom block that you
+define.  This facilitates managing the content of those areas, but since custom
+blocks cannot be created when a theme is installed, it places the burden of
+creating three custom blocks and placing them in the proper region on the admin
+who installs the theme.
 
-## Contents
+Here are some suggested steps for creating and configuring blocks for the four
+new regions.
 
-* [Requirements](#requirements)
-* [Development notes](#development-notes)
-* [Installation](#installation)
-* [Configuration](#configuration)
-* [Creating a sub-theme](#sub-theme)
-* [Authors](#authors)
+## Thinstrip
 
-## <a name="requirements"></a>REQUIREMENTS
+Add a new custom block (/admin/structure/block/block-content).  Put #Thinstrip"
+in the block description and paste the following content in the body, customizing
+the graphics and the uw-thin-links menu as needed.
 
-1. The [Bootstrap 3.x](https://www.drupal.org/project/bootstrap) base theme.
-2. jQuery 1.10 minimum. Install the [jQuery Update](http://drupal.org/project/jquery_update) module to manage your jQuery version.
-3. Your site's primary navigation uses a menu called "Main menu" (main_menu).
-4. Drupal core Search module. (If you use a different search module, you may need to customize the styles, either with a sub-theme or JS injector + CSS injector).
+```
+<header class="uw-thinstrip">
 
-### Recommendation:
+  <div class="container">
+    <a href="http://uw.edu" title="University of Washington Home" class="uw-patch" tabindex='-1' aria-hidden='true'>University of Washington</a>
+    <a href="http://uw.edu" title="University of Washington Home" class="uw-wordmark">University of Washington</a>
+  </div>
+  <div class='align-right'>
+      <nav class="uw-thin-strip-nav" aria-label='role navigation'>
+          <ul class="uw-thin-links">
+            <li><a href="/" title="Item 1">Item </a></li>
+            <li><a href="/f" title="Item 2">Item 2</a></li>
+            <li><a href="/" title="Item 3">Item 3</a></li>
+          </ul>
+      </nav>
+      <nav id='search-quicklinks' aria-label='search and quick links'>
+      <button class='uw-search' aria-owns='uwsearcharea' aria-controls='uwsearcharea' aria-expanded='false' aria-label='open search area' aria-haspopup='true'>
 
-For simplified navigation of the Management menu, install the [Administration menu](https://www.drupal.org/project/admin_menu) module.
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="19px" height="51px" viewBox="0 0 18.776 51.062" enable-background="new 0 0 18.776 51.062" xml:space="preserve">
+          <g>
+              <path fill="#FFFFFF" d="M3.537,7.591C3.537,3.405,6.94,0,11.128,0c4.188,0,7.595,3.406,7.595,7.591
+                c0,4.187-3.406,7.593-7.595,7.593C6.94,15.185,3.537,11.778,3.537,7.591z M5.245,7.591c0,3.246,2.643,5.885,5.884,5.885
+                c3.244,0,5.89-2.64,5.89-5.885c0-3.245-2.646-5.882-5.89-5.882C7.883,1.71,5.245,4.348,5.245,7.591z"/>
 
+              <rect x="2.418" y="11.445" transform="matrix(0.7066 0.7076 -0.7076 0.7066 11.7842 2.0922)" fill="#FFFFFF" width="1.902" height="7.622"/>
+          </g>
+          <path fill="#FFFFFF" d="M3.501,47.864c0.19,0.194,0.443,0.29,0.694,0.29c0.251,0,0.502-0.096,0.695-0.29l5.691-5.691l5.692,5.691
+              c0.192,0.194,0.443,0.29,0.695,0.29c0.25,0,0.503-0.096,0.694-0.29c0.385-0.382,0.385-1.003,0-1.388l-5.692-5.691l5.692-5.692
+              c0.385-0.385,0.385-1.005,0-1.388c-0.383-0.385-1.004-0.385-1.389,0l-5.692,5.691L4.89,33.705c-0.385-0.385-1.006-0.385-1.389,0
+              c-0.385,0.383-0.385,1.003,0,1.388l5.692,5.692l-5.692,5.691C3.116,46.861,3.116,47.482,3.501,47.864z"/>
+          </svg>
 
-## <a name="development-notes"></a>DEVELOPMENT NOTES
+      </button>
+      <button class='uw-quicklinks' aria-haspopup='true' aria-expanded="false" aria-label="Open quick links">Quick Links<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15.63px" height="69.13px" viewBox="0 0 15.63 69.13" enable-background="new 0 0 15.63 69.13" xml:space="preserve"><polygon fill="#FFFFFF" points="12.8,7.776 12.803,7.773 5.424,0 3.766,1.573 9.65,7.776 3.766,13.98 5.424,15.553 12.803,7.78"/><polygon fill="#FFFFFF" points="9.037,61.351 9.036,61.351 14.918,55.15 13.26,53.577 7.459,59.689 1.658,53.577 0,55.15 5.882,61.351 5.882,61.351 5.884,61.353 0,67.557 1.658,69.13 7.459,63.019 13.26,69.13 14.918,67.557 9.034,61.353"/></svg></button>
+      </nav>
+  </div>
 
-* The UW Boundless theme uses local bootstrap source files using the [LESS Starterkit](https://drupal-bootstrap.org/api/bootstrap/starterkits%21less%21README.md/7).
-* The style sheet (css/style.css) is compiled using LESS CSS preprocessor.
-* Scripts are not compiled and merely declared in the uw_boundless.info file.
+</header>
+```
 
-## <a name="installation"></a>INSTALLATION
+Go to the block layout page (/admin/structure/block) and click "Place block" in the Thinstrip region.
 
-The following documentation assumes:
+Note that in order for the styling to work as intended, your content should be wrapped in a &lt;header class="uw-thinstrip"&gt;&lt;/header&gt;
+element and should contain the uw-search and uw-quicklinks buttons verbatim if you intend to use the search and quickinks
+flyout.
 
-* A clean installation of Drupal 7 (Some instructions may not apply exactly to existing Drupal 7 installations.)
-* Use of the Main menu (main_menu).
+## Search
 
-1. Enable the jQuery Update module.
+## UW Footer
 
-2. Enable the Bootstrap base theme. *Note: The Bootstrap base theme must be enabled. The UW Boundless theme may appear to work without it, but certain features will not work correctly.*
+Create a custom block to go in your footer and place it in the .  The following content will get you started:
 
-3. Download this theme and put the extracted folder in the sites/[all|my_sitename]/themes/ folder of your site. Make sure the folder name is "uw_boundless".
+```
+    <a href="http://www.washington.edu" class="footer-wordmark">University of Washington</a>
 
-4. Enable the uw_boundless theme and set it as the default theme.
+    <h3 class="be-boundless">Be boundless</h3>
 
-5. Enable the core Search module. (See note about Search in the [Requirements](#requirements) section.)
+    <h4>Connect with us:</h4>
 
-## <a name="configuration"></a>CONFIGURATION
+    <nav role="navigation" aria-label="social networking">
+        <ul class="footer-social">
+            <li><a class="facebook" href="http://www.facebook.com/UofWA">Facebook</a></li>
+            <li><a class="twitter" href="http://twitter.com/UW">Twitter</a></li>
+            <li><a class="instagram" href="http://instagram.com/uofwa">Instagram</a></li>
+            <li><a class="tumblr" href="http://uofwa.tumblr.com/">Tumblr</a></li>
+            <li><a class="youtube" href="http://www.youtube.com/user/uwhuskies">YouTube</a></li>
+            <li><a class="linkedin" href="http://www.linkedin.com/company/university-of-washington">LinkedIn</a></li>
+            <li><a class="pinterest" href="http://www.pinterest.com/uofwa/">Pinterest</a></li>
+            <li><a class="vine" href="https://vine.co/uofwa">Vine</a></li>
+            <li><a class="google" href="https://plus.google.com/+universityofwashington/posts">Google+</a></li>
+        </ul>
+    </nav>
 
-### 1. Set jQuery Update
+    <nav role="navigation" aria-label="footer links">
+        <ul class="footer-links">
+            <li><a href="http://www.uw.edu/accessibility">Accessibility</a></li>
+            <li><a href="http://uw.edu/home/siteinfo/form">Contact Us</a></li>
+            <li><a href="http://www.washington.edu/jobs">Jobs</a></li>
+            <li><a href="http://www.washington.edu/safety">Campus Safety</a></li>
+            <li><a href="http://myuw.washington.edu/">My UW</a></li>
+            <li><a href="http://www.washington.edu/admin/rules/wac/rulesindex.html">Rules Docket</a></li>
+            <li><a href="http://www.washington.edu/online/privacy">Privacy</a></li>
+            <li><a href="http://www.washington.edu/online/terms">Terms</a></li>
+        </ul>
+    </nav>
 
-Go to jQuery Update settings (admin/config/development/jquery_update) and set default jQuery version to 1.10 or greater.
+```
 
-### 2. Disable Bootstrap CDN
+## Quicklinks
 
-1. Go to the settings for the UW Boundless theme (admin/appearance/settings/uw_boundless).
-2. Under **Bootstrap Settings**, click the **Advanced** tab, expand **CDN (Content Delivery Network)**. Under CDN provider, choose *None*.
+Create a quicklinks custom block and place it in the Quicklinks region.  This is the default
+content:
 
-### 3. Display Main menu
-1. In the **UW Boundless theme settings** under **Toggle display**, verify that *Main menu* is checked.
-2. Go to the **Blocks** page (admin/structure/block) and click the **configure** link next to the *Main menu* block.
+```
+<nav id="quicklinks" role="navigation" aria-label="quick links" aria-hidden="true">
+    <ul id="big-links"> 
+        <li><span class="icon-myuw"></span><a href="http://myuw.washington.edu" tabindex="-1">MyUW</a></li> 
+        <li><span class="icon-calendar"></span><a href="http://uw.edu/calendar" tabindex="-1">Calendar</a></li> 
+        <li><span class="icon-directories"></span><a href="http://uw.edu/directory/" tabindex="-1">Directories</a></li> 
+        <li><span class="icon-libraries"></span><a href="http://www.lib.washington.edu/" tabindex="-1">Libraries</a></li> 
+        <li><span class="icon-medicine"></span><a href="http://www.uwmedicine.org/" tabindex="-1">UW Medicine</a></li> 
+        <li><span class="icon-maps"></span><a href="http://uw.edu/maps" tabindex="-1">Maps</a></li> 
+        <li><span class="icon-uwtoday"></span><a href="http://www.uw.edu/news" tabindex="-1">UW Today</a></li>
+    </ul>
+    <h3>Helpful Links</h3>
+    <ul id="little-links">
+        <li><span class="false"></span><a href="http://www.washington.edu/itconnect/forstudents.html" tabindex="-1">Computing/IT</a></li> 
+        <li><span class="false"></span><a href="http://f2.washington.edu/fm/payroll/payroll/ESS" tabindex="-1">Employee Self Service</a></li> 
+        <li><span class="false"></span><a href="http://www.hfs.washington.edu/huskycard/" tabindex="-1">Husky Card</a></li> 
+        <li><span class="false"></span><a href="http://www.bothell.washington.edu/" tabindex="-1">UW Bothell</a></li> 
+        <li><span class="false"></span><a href="http://www.tacoma.uw.edu/" tabindex="-1">UW Tacoma</a></li> 
+        <li><span class="false"></span><a href="https://www.facebook.com/UofWA" tabindex="-1">UW Facebook</a></li> 
+        <li><span class="false"></span><a href="https://twitter.com/UW" tabindex="-1">UW Twitter</a></li>
+    </ul>
+</nav> 
+```
 
-    * Block title: `<none>`
-    * Region: Navigation
+## Making a subtheme
 
-3. Go to the *Main menu* settings page (admin/structure/menu/manage/main-menu) and make sure that all top-level menu items with children are marked "Show as expanded".
+Below are instructions on how to create a UW Boundless sub-theme using a Less
+preprocessor.
 
-### 4. Display Search form
+- [Prerequisites](#prerequisites)
+- [Additional Setup](#setup)
+- [Overrides](#overrides)
 
-*See note about Search in the [Requirements](#requirements) section.*
+## Prerequisites
+- Read the @link getting_started Getting Started @endlink and
+  @link sub_theming Sub-theming @endlink documentation topics.
+- You must understand the basic concept of using the [Less] CSS pre-processor.
+- You must use a **[local Less compiler](https://www.google.com/search?q=less+compiler)**.
+- You must use the [Bootstrap Framework Source Files] ending in the `.less`
+  extension, not files ending in `.css`.
 
-1. Go to the **Blocks** page (admin/structure/block) and click the **configure** link next to the *Search* block.
+## Additional Setup {#setup}
+Download and extract the **latest** 3.x.x version of
+[Bootstrap Framework Source Files] into the root of your new sub-theme. After
+it has been extracted, the directory should be renamed (if needed) so it reads
+`./uw_boundless/bootstrap`.
 
-    * Block title: `<none>`
-    * Region: Search
+If for whatever reason you have an additional `bootstrap` directory wrapping the
+first `bootstrap` directory (e.g. `./uw_boundless/bootstrap/bootstrap`), remove the
+wrapping `bootstrap` directory. You will only ever need to touch these files if
+or when you upgrade your version of the [Bootstrap Framework].
 
-## <a name="sub-theme"></a>CREATING A SUB-THEME
+{.alert.alert-warning} **WARNING:** Do not modify the files inside of
+`./uw_boundless/bootstrap` directly. Doing so may cause issues when upgrading the
+[Bootstrap Framework] in the future.
 
-Follow Drupal's instructions for [Creating a sub-theme](https://www.drupal.org/node/225125).
+## Overrides {#overrides}
+The `./uw_boundless/less/variable-overrides.less` file is generally where you will
+the majority of your time overriding the variables provided by the [Bootstrap
+Framework].
 
-## <a name="authors"></a>AUTHORS
+The `./uw_boundless/less/bootstrap.less` file is nearly an exact copy from the
+[Bootstrap Framework Source Files]. The only difference is that it injects the
+`variable-overrides.less` file directly after it has imported the [Bootstrap
+Framework]'s `variables.less` file. This allows you to easily override variables
+without having to constantly keep up with newer or missing variables during an
+upgrade.
 
-* UW Boundless brand design & development (2014): [UW Marketing & Communications](http://www.washington.edu/brand/)
-* Drupal 7 theme implementation (2015): [UW Creative Communications](https://finance.uw.edu/c2/)
-* Drupal 7 theme maintenance: [UW Drupal User Group](https://depts.washington.edu/uwdrupal/)
+The `./uw_boundless/less/overrides.less` file contains various Drupal overrides to
+properly integrate with the [Bootstrap Framework]. It may contain a few
+enhancements, feel free to edit this file as you see fit.
+
+The `./uw_boundless/less/style.less` file is the glue that combines the
+[Bootstrap Framework Source Files] and `overrides.less` files together.
+Generally, you will not need to modify this file unless you need to add or
+remove files to be imported. This is the file that you should compile to
+`./uw_boundless/css/styles.css` (note the same file name, using a different
+extension of course).
+
+After making changes to the less files, you will need to recompile them in
+order to update the site's css.  There is a shell script
+uw_boundless/less/compile.sh that will invoke the less compiler (lessc) in
+the proper way to rebuild the css and place it in the correct place.
+
+#### See also:
+- @link theme_settings Theme Settings @endlink
+- @link templates Templates @endlink
+- @link plugins Plugin System @endlink
+
+[Bootstrap Framework]: https://getbootstrap.com/docs/3.4/
+[Bootstrap Framework Source Files]: https://github.com/twbs/bootstrap/releases
+[Less]: http://lesscss.org
+
+## Drupal 8 Implementation Notes
+
+### template.php -> uw_boundless.theme
+
+The uw_boundless_preprocess_block() function has been removed.  Since blocks
+can appear in multiple regions in D8 there is no information available as to
+the intended region when a block is preprocessed.  This functionality has been
+moved to CSS-- see uw.body-content.less and uw.sidebar.less.
+
+The functions uw_boundless_menu_tree__main_menu() and uw_boundless_menu_link__main_menu()
+are not ported because D8 does not implement those hooks.  Rather, that functionality
+is folded into the template file menu--main.html.twig.
+
+The same applies to uw_boundless_breadcrumb() and breadcrumb.html.twig.
+

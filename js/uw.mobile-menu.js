@@ -18,7 +18,7 @@
 
     // Clone the first item in the menu if it has a flyout, as it can't be used as both an anchor and button
     cloneMenuAnchors : function() {
-      this.$el.find('.menu-item-has-children > a').once(function(){
+      this.$el.find('.menu-item-has-children > a').one(function(){
         var $target   = $(this),
             $targetUl = $target.next('ul')
 

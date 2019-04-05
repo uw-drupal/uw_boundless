@@ -1,0 +1,25 @@
+framework:
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    bootstrap/js/affix.js: {}
+    bootstrap/js/alert.js: {}
+    bootstrap/js/button.js: {}
+    bootstrap/js/carousel.js: {}
+    bootstrap/js/collapse.js: {}
+    bootstrap/js/dropdown.js: {}
+    bootstrap/js/modal.js: {}
+    bootstrap/js/tooltip.js: {}
+    bootstrap/js/popover.js: {}
+    bootstrap/js/scrollspy.js: {}
+    bootstrap/js/tab.js: {}
+    bootstrap/js/transition.js: {}
+    js/function.bind.js: {}
+    js/uw.quicklinks.js: {}
+    js/uw.search.js: {}
+    js/dropdowns.js: {}
+    js/uw.mobile-menu.js: {}
+    js/uw.mobile-sidebar-menu.js: {}
+    js/script.js: {}
+  

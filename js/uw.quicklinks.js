@@ -1,6 +1,5 @@
 (function ($, Drupal, window, document, undefined) {
   UW = (typeof(UW) === 'undefined') ? {} : UW;
-
   UW.quicklinks = {
     
     el                      : '.uw-quicklinks',
