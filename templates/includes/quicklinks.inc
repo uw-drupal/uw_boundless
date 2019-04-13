@@ -1,5 +1,8 @@
 <nav id="quicklinks" aria-label="quick links" aria-hidden="true">
     <ul id="big-links"> 
+        <?php if (!$logged_in && $uw_login_link_location == 'quick_links'): ?>
+        <li><span class="icon-myuw"></span><?php print $uw_login_link; ?></li>
+        <?php endif; ?>
         <li><span class="icon-myuw"></span><a href="http://my.uw.edu" tabindex="-1">MyUW</a></li>
         <li><span class="icon-calendar"></span><a href="http://uw.edu/calendar" tabindex="-1">Calendar</a></li> 
         <li><span class="icon-directories"></span><a href="http://uw.edu/directory/" tabindex="-1">Directories</a></li> 
