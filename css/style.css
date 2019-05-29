@@ -11266,7 +11266,7 @@ span.next-page a:hover {
   color: inherit;
 }
 .uw-body-copy a {
-  text-decoration: none;
+  border-bottom: 1px solid #0074BB;
 }
 .info-box {
   width: 310px;
