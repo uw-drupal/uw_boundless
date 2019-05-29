@@ -12032,6 +12032,9 @@ ul.uw-sidebar-menu ul.children,
 ul.uw-mobile-menu ul.children {
   display: none;
 }
+.uw-sidebar a {
+  border-bottom: 1px solid;
+}
 .uw-sidebar .widgettitle {
   clear: left;
   font-weight: 900;
