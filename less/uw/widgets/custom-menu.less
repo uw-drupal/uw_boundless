@@ -1,68 +1,60 @@
 .widget_nav_menu {
-  ul.menu
-    {
-      & > li {
-          background-color: #DDD;
-          & > a {
-            font-weight: bold;
-            border-bottom: 1px solid #FFF;
-            &:hover,
-            &:focus,
-            &:active {
-              background-color: #949494;
-              color: white;
-            }
-          }
-      }
-
-      li
-      {
-        a,
-        span
-        {
-          color:@darkgray;
-          padding: 6px 25px 6px 20px;         
-          border-bottom: 1px solid #FFF;
-          display: block;          
+  ul.menu {
+    & > li {
+      background-color: #DDD;
+      & > a {
+        font-weight: bold;
+        border-bottom: 1px solid #FFF;
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: #949494;
+          color: white;
         }
-
-      }
-      // background-color:white;
-      ul.sub-menu {
-        li {
-          border-bottom: 1px solid #E0E0E0;
-        }
-        li:last-child {
-          border-bottom: none;
-        }
-        a {
-          background-color: white;
-          border-left: none;
-          padding-left: 20px;
-          &:hover,
-          &:focus,
-          &:active {
-            background-color: #D2D2D2;
-          }
-          &:before {
-            content: "- ";
-          }
-        }
-      }
-      span
-      {
-        // background-color:#757575;
-        border-left: 10px solid #b7a57a;
-        padding-left: 20px;
-        background-color: #ddd;
-        a
-        {
-          color:white;
-          border-bottom: none;
-        }
-        // color:white;
-        border-bottom: none;
       }
     }
-  
+    li {
+      a,
+      span {
+        color:@darkgray;
+        padding: 6px 25px 6px 20px;
+        border-bottom: 1px solid #FFF;
+        display: block;
+      }
+    }
+    // background-color:white;
+    ul.sub-menu {
+      li {
+        border-bottom: 1px solid #E0E0E0;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      a {
+        background-color: white;
+        border-left: none;
+        padding-left: 20px;
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: #D2D2D2;
+        }
+        &:before {
+          content: "- ";
+        }
+      }
+    }
+    span {
+      // background-color:#757575;
+      border-left: 10px solid #b7a57a;
+      padding-left: 20px;
+      background-color: #ddd;
+      a {
+        color:white;
+        border-bottom: none;
+      }
+      // color:white;
+      border-bottom: none;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-ul.uw-select {  
+ul.uw-select {
   position: absolute;
   list-style: none;
   padding: 0;
@@ -7,22 +7,19 @@ ul.uw-select {
   padding: 0 0 0 0;
   z-index: 1;
   &.open {
-     background-color: #F7F7F7;
-     outline: 1px solid #F7F7F7;
-     overflow: scroll;
-     height: 355px;
-     outline: 1px solid #C4C4C4;
-     z-index:9999;
-     li {
-       opacity: 1;
-
-       &.inactive a {
-         display:block;
-       }
-
-     }
-   }
-
+    background-color: #F7F7F7;
+    outline: 1px solid #F7F7F7;
+    overflow: scroll;
+    height: 355px;
+    outline: 1px solid #C4C4C4;
+    z-index:9999;
+    li {
+      opacity: 1;
+      &.inactive a {
+        display:block;
+      }
+    }
+  }
   li {
     cursor: pointer;
     color: #565656;
@@ -50,7 +47,7 @@ ul.uw-select {
         background-color: #D1D1D1;
       }
       &:hover,
-      &:focus {   
+      &:focus {
         background-color: #DFDFDF;
         border-bottom: none;
         color: @purple;
@@ -60,23 +57,19 @@ ul.uw-select {
       a:after {
         display: none;
       }
-      &:hover {   
+      &:hover {
         background-color: transparent;
       }
     }
-
     &.active {
       opacity: 1;
       background: 0 0;
       display:block;
     }
-
     &.inactive a {
       display:none;
     }
-
   }
-
 }
 .uw-select-mask {
   height: 54px;
@@ -88,15 +81,15 @@ ul.uw-select {
     display: block;
     position: relative;
     &:hover{
-        z-index: 2;
+      z-index: 2;
     }
     &:before,
-    &:after {      
+    &:after {
       display: block;
       content: "";
       height: 53px;
       z-index: 1;
-      position: absolute;     
+      position: absolute;
     }
     &:before {
       background: url(assets/images/select-bar.png) 0 0;
@@ -114,15 +107,15 @@ ul.uw-select {
   }
   &.open {
     .uw-select-arrow{
-        position: absolute;
-        outline: none;
-        z-index: 9999;
-        width: 60px;
-        right: 0px;
-        top:0px;
+      position: absolute;
+      outline: none;
+      z-index: 9999;
+      width: 60px;
+      right: 0px;
+      top:0px;
     }
     .uw-select-mask {
-        z-index: 2;
+      z-index: 2;
     }
   }
 }

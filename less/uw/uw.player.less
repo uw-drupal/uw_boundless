@@ -5,19 +5,15 @@
 // @controls-color: mix(@brand-primary, black, 75%);
 //
 .uw-player {
-  margin-bottom: 80px  ;
-
+  margin-bottom: 80px;
   .video-js {
-
     background-color: transparent;
     // Otherwise you won't see controls in Fullscreen mode
-
     // margin: 20px 10px 80px 10px;
     position: relative;
     padding: 0;
     // font-size: 10px;
     // vertical-align: middle;
-
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility:hidden;
     -ms-backface-visibility:hidden;
@@ -30,7 +26,6 @@
       width: 100%;
       // height: 100%;
     }
-
     &.vjs-fullscreen {
       position: fixed;
       overflow: hidden;
@@ -43,7 +38,6 @@
       height: 100% !important;
       _position: absolute;
     }
-
     .vjs-play-control,
     .vjs-current-time,
     .vjs-duration,
@@ -61,14 +55,12 @@
       // outline: thin solid red;
       text-indent: -1000px;
     }
-
     .vjs-playback-rate,
     .vjs-subtitles-button,
     .vjs-captions-button,
     .vjs-chapters-button {
       display:none;
     }
-
     .vjs-control-bar {
       margin-top: -10px;
       position: relative;
@@ -82,7 +74,6 @@
       background: #4d4d4d;
       width:100%;
       height: 50px;
-
       // Play button
       .vjs-play-control {
         // display:block;
@@ -94,8 +85,6 @@
         text-indent:-1000px;
         .transition( all .25s )
       }
-
-
       // Progress Control
       .vjs-progress-control {
         // display:block;
@@ -107,17 +96,13 @@
         top: 18px;
         background: lightgray;
         border-radius: 32px;
-
         .vjs-progress-holder {
-
           height:100%;
-
           .vjs-load-progress {
             background: white;
             height: 100%;
             // display:none;
           }
-
           // Progress handle
           .vjs-seek-handle {
             background-color: @brightgold;
@@ -129,7 +114,6 @@
             top: 0;
             border-radius: 50%;
             .transition(background-color .25s);
-
             &[style*='95.'] {
               margin-left: 3px;
             }
@@ -144,23 +128,18 @@
               background-color: lighten( @brightgold, 10%);
             }
           }
-
         }
-
       }
-
       .vjs-fullscreen-control {
-          position:absolute;
-          top:0;
-          right:0;
-          width:50px;
-          height:100%;
+        position:absolute;
+        top:0;
+        right:0;
+        width:50px;
+        height:100%;
       }
-
       .vjs-live-controls {
         display:none;
       }
-
       .vjs-volume-control {
         position: absolute;
         right: 50px;
@@ -168,7 +147,6 @@
         width: 50px;
         height: 100%;
       }
-
       // Player time controls
       // Current time
       .vjs-current-time {
@@ -180,9 +158,7 @@
         span {
           display:none;
         }
-
       }
-
       // Duration
       .vjs-duration {
         text-indent:0px;
@@ -193,13 +169,11 @@
           display:none;
         }
       }
-
       // Remaining time
       .vjs-remaining-time {
         display: none;
       }
-
-      // Diverder between current and duration
+      // Divider between current and duration
       .vjs-time-divider {
         color: gray;
         font-size: @font-size-base;
@@ -207,18 +181,14 @@
         top: 11px;
         left: 77%;
       }
-
       //todo: what is this for?
       &.vjs-fade-out {
         visibility: visible !important;
         opacity: 1 !important;
       }
-
     }
 
-  // Video player control general style
-
-
+    // Video player control general style
     .vjs-time-controls {
       position: absolute;
       height: 20px;
@@ -226,9 +196,6 @@
       top: 16px;
       font: 300 13px @font-family-base;
     }
-
-
-
     &:-webkit-full-screen {
       width: 100% !important;
       height: 100% !important;
@@ -236,18 +203,13 @@
     &:-moz-full-screen {
       position: absolute;
     }
-
-
-
   }
-
   body.vjs-full-window {
     padding: 0;
     margin: 0;
     height: 100%;
     overflow-y: auto;
   }
-
 }
 
 //

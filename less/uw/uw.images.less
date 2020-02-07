@@ -1,5 +1,4 @@
 // Image Handling
-
 img {
 	max-width: 100%;
 	height: auto;
@@ -8,7 +7,6 @@ img {
 .alignleft {
 	margin: 20px 50px 50px 0;
 	&.size-large {
-
 		// width:305px !important;
 		height: auto;
 	}
@@ -35,11 +33,10 @@ img {
 }
 
 .textwidget {
-    .alignleft {
-        margin-bottom: 20px;
-    }
+  .alignleft {
+    margin-bottom: 20px;
+  }
 }
-
 
 .wp-caption-text {
 	font-size: 15px;
@@ -53,16 +50,12 @@ img {
 	font-size: 14px;
 }
 
-
 // Image gallery hide caption
-
 .gallery-item .wp-caption-text {
 	display: none;
 }
 
-
 // Attachment page (image page)
-
 .attachment .uw-image-content {
 	text-align: center;
 	img {
@@ -70,10 +63,7 @@ img {
 	}
 }
 
-
-
 @media only screen and (max-width : 1400px) {
-
 	.alignleft {
 		margin: 20px 50px 50px 0px;
 		&.size-large {
@@ -95,12 +85,10 @@ img {
 	.alignnone {
 
 	}
-
 }
 
 
 // Overlay
-
 .uw-overlay {
 	position: fixed;
 	top: 0;
@@ -110,11 +98,10 @@ img {
 	z-index: 999;
 	cursor: -webkit-zoom-out;
 	background-color: rgba(255,255,255,.95);
-
 	div.wrapper {
-	position:absolute;
-	top: 50%;
-	left : 50%;
+		position:absolute;
+		top: 50%;
+		left : 50%;
 		p {
 			font-size: 15px;
 			line-height: 22px;
@@ -125,22 +112,23 @@ img {
 		}
 	}
 }
+
 @media only screen and (max-width : 1024px) {
 	.uw-overlay {
 		cursor: pointer;
 	}
 }
+
 @media only screen and (max-width : 767px) {
 	.uw-overlay {
 		cursor: pointer;
 	}
-	.alignright, 
-	.alignleft, 
+	.alignright,
+	.alignleft,
 	.alignnone {
 		float: none;
 		margin: 20px 20px 20px 0px;
 		width: 100% !important;
 		height: auto;
 	}
-
 }
