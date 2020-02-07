@@ -10084,7 +10084,7 @@ table th[class*="col-"] {
 .shortcode-blogroll > li:after {
   display: block;
   content: "";
-  width: 80px;
+  width: 100%;
   height: 1px;
   background-color: #BBB;
   bottom: 0;
@@ -11167,6 +11167,9 @@ span.next-page a:after {
 span.next-page a:hover {
   background-color: #dfd8c2;
 }
+.uw-body-copy a {
+  text-decoration: underline;
+}
 .uw-body-copy h1 a,
 .uw-body-copy h2 a,
 .uw-body-copy h3 a,
@@ -11174,9 +11177,11 @@ span.next-page a:hover {
 .uw-body-copy h5 a {
   border-bottom: none;
   color: inherit;
+  text-decoration: none;
 }
-.uw-body-copy p a {
-  text-decoration: underline;
+.uw-body-copy a.uw-btn,
+.uw-body-copy .uw-widget-rss a {
+  text-decoration: none;
 }
 .info-box {
   width: 310px;
@@ -12278,9 +12283,11 @@ img {
 }
 .wp-media-credit {
   margin-left: 5px;
-  font-weight: bold;
   font-style: italic;
   font-size: 14px;
+}
+.credit-media-italic {
+  font-style: italic;
 }
 .gallery-item .wp-caption-text {
   display: none;
@@ -12290,6 +12297,11 @@ img {
 }
 .attachment .uw-image-content img {
   padding: 90px 0 50px 0;
+}
+.wrapper p span.wp-media-credit {
+  color: #3d3d3d;
+  text-decoration: none;
+  cursor: default;
 }
 @media only screen and (max-width: 1400px) {
   .alignleft {
