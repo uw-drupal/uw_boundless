@@ -9,7 +9,7 @@
 
 .prettyprint {
   overflow: auto;
-  
+
   &.linenums {
     overflow: visible;
     white-space: pre;
@@ -60,8 +60,8 @@
       float: none;
       margin-left: 20px;
       padding-top: 0;
-      width: auto;    
-      clear: both; 
+      width: auto;
+      clear: both;
     }
     .demo-type-example {
       padding-left: 265px;
@@ -84,13 +84,13 @@
 
   &.demo-content-article {
     font-size: ceil(@font-size-base * 1.285);
-    p { margin-bottom: 20px; }
-
+    p {
+      margin-bottom: 20px;
+    }
     ul {
       list-style-type: none;
       margin-left: 0;
     }
-
     li {
       line-height: ceil(@font-size-base * 1.285 * 1.5);
       padding: 0 0 5px;
@@ -218,16 +218,16 @@
 
 .demo-labels {
   font-size: ceil(@font-size-base * 1.357);
-  
+
   .visible-lg {
     display: inline !important;
-    
+
     @media (max-width: 767px) {
       & {
         display: none !important;
       }
     }
-  } 
+  }
 }
 
 
@@ -261,7 +261,7 @@
 // Dialog with form inside
 .demo-dialog {
   padding: 13px 20px 15px;
-  
+
   .flat {
     width: 300px;
   }
@@ -273,7 +273,7 @@
   padding: 62px 14px;
   margin-bottom: 50px;
   width: 100%;
-  
+
   .modal {
     bottom: auto;
     display: block;
@@ -324,7 +324,7 @@
   padding: 0;
   width: 150px;
   z-index: 10000;
-  background-color: mix(@brand-primary, white, 6%);
+  background-color: mix(@brand-primary, #ffffff, 6%);
   -webkit-backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
 
@@ -369,7 +369,9 @@
     padding-right: 15px;
   }
 
-  .demo-inline { display: block; }
+  .demo-inline {
+    display: block;
+  }
 
   .demo-navigation {
     .btn-toolbar {

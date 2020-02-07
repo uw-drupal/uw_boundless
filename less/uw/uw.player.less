@@ -15,9 +15,9 @@
     // font-size: 10px;
     // vertical-align: middle;
     -webkit-backface-visibility: hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility:hidden;
-    backface-visibility:hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
 
     .vjs-tech {
       // position: absolute;
@@ -59,7 +59,7 @@
     .vjs-subtitles-button,
     .vjs-captions-button,
     .vjs-chapters-button {
-      display:none;
+      display: none;
     }
     .vjs-control-bar {
       margin-top: -10px;
@@ -70,19 +70,19 @@
       // margin: 0;
       // padding: 0;
       // height: 50px;
-      color:gray;
+      color: gray;
       background: #4d4d4d;
-      width:100%;
+      width: 100%;
       height: 50px;
       // Play button
       .vjs-play-control {
         // display:block;
         position: absolute;
         left: 10px;
-        height:100%;
+        height: 100%;
         width: 50px;
         background: url(assets/svg/uw-sprite.svg) no-repeat -350px -100px;
-        text-indent:-1000px;
+        text-indent: -1000px;
         .transition( all .25s )
       }
       // Progress Control
@@ -94,12 +94,12 @@
         height: 12px;
         width: 57%;
         top: 18px;
-        background: lightgray;
+        background: #d3d3d3;
         border-radius: 32px;
         .vjs-progress-holder {
-          height:100%;
+          height: 100%;
           .vjs-load-progress {
-            background: white;
+            background: #ffffff;
             height: 100%;
             // display:none;
           }
@@ -122,23 +122,23 @@
             }
             &:hover,
             &:focus {
-              background-color: lighten( @brightgold, 10%);
+              background-color: lighten(@brightgold, 10%);
             }
             &:active {
-              background-color: lighten( @brightgold, 10%);
+              background-color: lighten(@brightgold, 10%);
             }
           }
         }
       }
       .vjs-fullscreen-control {
-        position:absolute;
-        top:0;
-        right:0;
-        width:50px;
-        height:100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 100%;
       }
       .vjs-live-controls {
-        display:none;
+        display: none;
       }
       .vjs-volume-control {
         position: absolute;
@@ -150,23 +150,23 @@
       // Player time controls
       // Current time
       .vjs-current-time {
-        color: white;
+        color: #ffffff;
         text-indent: 0px;
         text-align: center;
         font-size: @font-size-base;
         left: 70%;
         span {
-          display:none;
+          display: none;
         }
       }
       // Duration
       .vjs-duration {
-        text-indent:0px;
+        text-indent: 0px;
         text-align: center;
         font-size: @font-size-base;
         left: 78%;
         span {
-          display:none;
+          display: none;
         }
       }
       // Remaining time
@@ -175,7 +175,7 @@
       }
       // Divider between current and duration
       .vjs-time-divider {
-        color: gray;
+        color: #808080;
         font-size: @font-size-base;
         position: absolute;
         top: 11px;

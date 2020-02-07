@@ -53,12 +53,22 @@
 
 // Placeholder text
 .placeholder(@color: @input-color-placeholder) {
-  &:-moz-placeholder            { color: @color; } // Firefox 4-18
-  &::-moz-placeholder           { color: @color;   // Firefox 19+
-                                  opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
-  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
-  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
-  &.placeholder                 { color: @color; } // Fallback
+  &:-moz-placeholder {
+    color: @color;
+  } // Firefox 4-18
+  &::-moz-placeholder {
+    color: @color;   // Firefox 19+
+    opacity: 1;
+  } // See https://github.com/twbs/bootstrap/pull/11526
+  &:-ms-input-placeholder {
+    color: @color;
+  } // Internet Explorer 10+
+  &::-webkit-input-placeholder {
+    color: @color;
+  } // Safari and Chrome
+  &.placeholder {
+    color: @color;
+  } // Fallback
 }
 
 .placeholder-height(@height) {
@@ -96,18 +106,18 @@
 .background-cover(@cover) {
   -webkit-background-size: @cover;
      -moz-background-size: @cover;
-          background-size: @cover;
        -o-background-size: @cover;
+          background-size: @cover;
 }
 
 .border-radius (@radius: 5px) {
   -webkit-border-radius: @radius;
-  -moz-border-radius:    @radius;
-  border-radius:         @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
 
-  -moz-background-clip:    padding;
   -webkit-background-clip: padding-box;
-  background-clip:         padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
 }
 
 .mask(@arguments) {
@@ -118,19 +128,19 @@
 // Single side border-radius
 .border-top-radius(@radius) {
   border-top-right-radius: @radius;
-   border-top-left-radius: @radius;
+  border-top-left-radius: @radius;
 }
 .border-right-radius(@radius) {
   border-bottom-right-radius: @radius;
-     border-top-right-radius: @radius;
+  border-top-right-radius: @radius;
 }
 .border-bottom-radius(@radius) {
   border-bottom-right-radius: @radius;
-   border-bottom-left-radius: @radius;
+  border-bottom-left-radius: @radius;
 }
 .border-left-radius(@radius) {
   border-bottom-left-radius: @radius;
-     border-top-left-radius: @radius;
+  border-top-left-radius: @radius;
 }
 
 // Drop shadows
@@ -333,7 +343,7 @@
   //
   // Creates two color stops, start and end, by specifying a color and position for each color stop.
   // Color stops are not available in IE9 and below.
-  .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+  .horizontal(@start-color: #555555; @end-color: #333333; @start-percent: 0%; @end-percent: 100%) {
     background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent)); // Safari 5.1-6, Chrome 10+
     background-image:  linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
     background-repeat: repeat-x;
@@ -344,14 +354,14 @@
   //
   // Creates two color stops, start and end, by specifying a color and position for each color stop.
   // Color stops are not available in IE9 and below.
-  .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+  .vertical(@start-color: #555555; @end-color: #333333; @start-percent: 0%; @end-percent: 100%) {
     background-image: -webkit-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);  // Safari 5.1-6, Chrome 10+
     background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
     background-repeat: repeat-x;
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
   }
 
-  .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+  .directional(@start-color: #555555; @end-color: #333333; @deg: 45deg) {
     background-repeat: repeat-x;
     background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1-6, Chrome 10+
     background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
@@ -368,7 +378,7 @@
     background-repeat: no-repeat;
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
   }
-  .radial(@inner-color: #555; @outer-color: #333) {
+  .radial(@inner-color: #555555; @outer-color: #333333) {
     background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
     background-image: radial-gradient(circle, @inner-color, @outer-color);
     background-repeat: no-repeat;
@@ -386,8 +396,6 @@
 .reset-filter() {
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }
-
-
 
 // Retina images
 //
@@ -424,16 +432,22 @@
 // More easily include all the states for responsive-utilities.less.
 .responsive-visibility() {
   display: block !important;
-  tr& { display: table-row !important; }
+  tr& {
+    display: table-row !important;
+  }
   th&,
-  td& { display: table-cell !important; }
+  td& {
+    display: table-cell !important;
+  }
 }
 
 .responsive-invisibility() {
     &,
   tr&,
   th&,
-  td& { display: none !important; }
+  td& {
+    display: none !important;
+  }
 }
 
 // Grid System
@@ -443,14 +457,14 @@
 .container-fixed() {
   margin-right: auto;
   margin-left: auto;
-  padding-left:  (@grid-gutter-width / 2);
+  padding-left: (@grid-gutter-width / 2);
   padding-right: (@grid-gutter-width / 2);
   .clearfix();
 }
 
 // Creates a wrapper for a series of columns
 .make-row(@gutter: @grid-gutter-width) {
-  margin-left:  (@gutter / -2);
+  margin-left: (@gutter / -2);
   margin-right: (@gutter / -2);
   .clearfix();
 }
@@ -461,7 +475,7 @@
   float: left;
   width: percentage((@columns / @grid-columns));
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 }
 .make-xs-column-offset(@columns) {
@@ -485,7 +499,7 @@
 .make-sm-column(@columns; @gutter: @grid-gutter-width) {
   position: relative;
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 
   @media (min-width: @screen-sm-min) {
@@ -514,7 +528,7 @@
 .make-md-column(@columns; @gutter: @grid-gutter-width) {
   position: relative;
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 
   @media (min-width: @screen-md-min) {
@@ -543,7 +557,7 @@
 .make-lg-column(@columns; @gutter: @grid-gutter-width) {
   position: relative;
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 
   @media (min-width: @screen-lg-min) {
@@ -578,7 +592,7 @@
   }
   .palette-@{second-color} {
     background-color: ~"@{@{second-color}}";
-  }  
+  }
 }
 
 // Dropdown arrow
@@ -606,7 +620,6 @@
 .button-variant(@color; @background; @hover-background; @active-background; @disabled-background: @gray-light) {
   color: @color;
   background-color: @background;
-
   &:hover,
   &:focus,
   &:active,
@@ -653,17 +666,17 @@
 
   &:hover,
   &:focus {
-    background-color: mix(@background, white, 80%);
+    background-color: mix(@background, #ffffff, 80%);
   }
   &:active,
   &.active {
-    background-color: mix(@background, black, 85%);
+    background-color: mix(@background, #000000, 85%);
   }
 }
 
 .swap-dialog-color(@color) {
-  background-color: mix(@color, white, 9%);
-  border-top-color: mix(@color, white, 20%);
+  background-color: mix(@color, #ffffff, 9%);
+  border-top-color: mix(@color, #ffffff, 20%);
 }
 
 .dropdown-arrow-inverse {
@@ -677,31 +690,30 @@
     > li {
       &.active {
         > a {
-          color: mix(@color, black, 66%);
+          color: mix(@color, #000000, 66%);
         }
       }
       > a {
         &:hover, &:focus {
-          color: mix(@color, black, 66%);
+          color: mix(@color, #000000, 66%);
         }
       }
     }
   }
-  .iconbar-unread { background-color: mix(@color, black, 66%); }
+  .iconbar-unread { background-color: mix(@color, #000000, 66%); }
 }
 
 .swap-pagination-color(@color, @hover, @active) {
   ul {
     background-color: @color;
-
     li {
       &.previous {
         > a {
-          border-right-color: mix(@color, white, 66%);
+          border-right-color: mix(@color, #ffffff, 66%);
         }
       }
       > a, > span {
-        border-left-color: mix(@color, white, 66%);
+        border-left-color: mix(@color, #ffffff, 66%);
 
         &:hover, &:focus {
           background-color: @hover;
@@ -715,7 +727,6 @@
           background-color: @active;
         }
       }
-
       &.pagination-dropdown.dropup {
         .dropdown-arrow {
           border-top-color: @color;
@@ -730,10 +741,8 @@
 .label-variant(@color, @hover-color, @text-color: @inverse) {
   background-color: @color;
   color: @text-color;
-  
   &[href] {
     color: @text-color;
-    
     &:hover,
     &:focus {
       color: @text-color;
@@ -756,7 +765,7 @@
 .text-emphasis-variant(@color) {
   color: @color;
   a&:hover {
-    color: mix(@color, black, 80%);
+    color: mix(@color, #000000, 80%);
   }
 }
 
@@ -790,7 +799,7 @@
     border-color: @border-color;
     .box-shadow(none);
     .placeholder(@text-color);
-    
+
     &:focus {
       border-color: @border-color;
       .box-shadow(none);

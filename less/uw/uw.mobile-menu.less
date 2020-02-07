@@ -5,14 +5,14 @@
     width: 100%;
     float: right;
     clear: both;
-    list-style:none;
-    padding:0;
-    margin:0 0 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
     > ul {
       display: block;
-      list-style:none;
-      padding:0;
-      margin:0;
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
     li {
       width: 100%;
@@ -26,18 +26,21 @@
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 768px) {
   //Hides sidebar down in the page for mobile version
-  #desktop-relative {display:none;}
+  #desktop-relative {
+    display: none;
+  }
 
   .uw-mobile-menu li {
-    background-color: #eee;
-    border-bottom: 1px solid #fff;
+    background-color: #eeeeee;
+    border-bottom: 1px solid #ffffff;
   }
+
   #mobile-relative {
     display: block;
     button.uw-mobile-menu-toggle {
-      display:block;
+      display: block;
       position: relative;
-      float:right;
+      float: right;
       margin-top: -55px;
       margin-right: -10px;
       font-size: @font-size-base / 1.2;
@@ -48,7 +51,7 @@
       width: 50px;
       height: 40px;
       text-transform: uppercase;
-      color:@purple;
+      color: @purple;
       background: url(assets/svg/uw-sprite.svg) no-repeat -475px 20px transparent;
       background-size: 1200px;
       border: none;
@@ -64,9 +67,9 @@
       }
       &:focus {
         outline: none;
-        border: 1px solid #4D90FE;
-        -webkit-box-shadow: 0px 0px 5px #4D90FE;
-        box-shadow: 0px 0px 5px #4D90FE;
+        border: 1px solid #4d90fe;
+        -webkit-box-shadow: 0px 0px 5px #4d90fe;
+        box-shadow: 0px 0px 5px #4d90fe;
       }
     }
     ul.uw-mobile-menu li.pagenav ul li.current_page_parent.current_page_ancestor > a:after {
@@ -74,7 +77,7 @@
     }
     &.frontpage {
       ul.uw-mobile-menu > div > ul li .menu-item-has-children a:after {
-        background:none;
+        background: none;
       }
       margin-top: -10px;
       position: relative;
@@ -117,11 +120,11 @@
             ul.sub-menu {
               display: none;
               li.current-menu-item a {
-                background-color: #eee;
+                background-color: #eeeeee;
               }
               a {
                 background-color: white;
-                color: #5F5F5F;
+                color: #5f5f5f;
               }
             }
             .menu-item-has-children {
@@ -129,7 +132,7 @@
                 position: relative;
                 padding: 10px 10px 10px 20px;
                 &:focus {
-                  color: black;
+                  color: #000000;
                 }
                 &:after {
                   content: "";
@@ -149,7 +152,7 @@
       }
       &.bighero {
         margin-top: 0px;
-        background-color: white;
+        background-color: #ffffff;
         button.uw-mobile-menu-toggle {
           right: 0px;
           top: 12px;
@@ -181,7 +184,7 @@
     li{
       a:hover,
       a:focus {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #eeeeee;
       }
       &:last-child {
         a:hover,

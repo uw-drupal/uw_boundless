@@ -10,7 +10,7 @@
 // Resets
 #dawgdrops {
 	.box-shadow(0 1px 3px rgba(34, 25, 25, 0.4));
-  background-color: white;
+  background-color: #ffffff;
   position: relative;
   z-index: 5;
   display: block;
@@ -26,7 +26,7 @@
 		padding-left: 0;
 		padding-right: 0;
 		margin: 0;
-		list-style:none;
+		list-style: none;
 	}
 }
 
@@ -38,7 +38,7 @@
 // Menu blocks
 .menu-block {
 	float: left;
-	width:230px;
+	width: 230px;
 }
 
 .dawgdrops-item {
@@ -69,7 +69,7 @@
 			&:hover,
 			&:focus {
 				color: @purple;
-				background-color: #E7E7E7;
+				background-color: #e7e7e7;
 			}
 		}
 	}
@@ -119,30 +119,32 @@
 	&:hover .dawgdrops-menu {
 		display: block;
 	}
-	&:last-child a:after { display: none; }
+	&:last-child a:after {
+		display: none;
+	}
 }
 
 .dawgdrops-menu {
 	top: 66px;
 	left: 0;
 	position: absolute;
-	display:none;
+	display: none;
 	min-width: 260px;
 	// visibility: hidden;
 	border: 0;
 	border-top: 4px solid @purple;
 	padding: 10px 0;
 	margin: -1px 0 0;
-	background: #fff;
+	background: #ffffff;
 	overflow: hidden;
-	z-index:1;
+	z-index: 1;
   -webkit-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
   -moz-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
   box-shadow: 1px 1px 8px rgba(0,0,0,.5);
 	li {
-		float:left;
-		clear:left;
-		border-bottom: thin solid #eee;
+		float: left;
+		clear: left;
+		border-bottom: thin solid #eeeeee;
 		a {
 			color: #707070;
 			font-size: 17px;
@@ -150,7 +152,7 @@
 			text-align: left;
 			padding: 0 10px;
 			&:after {
-				background:none;
+				background: none;
 			}
 		}
 		&:first-child {
@@ -161,9 +163,7 @@
 			border: none;
 		}
 	}
-
 }
-
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px) {
@@ -206,7 +206,7 @@
 	nav#dawgdrops .btn-myuw a {
 		font-size: 18px;
 		text-transform: none;
-		color: #FFF;
+		color: #fff;
 		font-weight: @bold;
 		position: absolute;
 		top: 65px;
