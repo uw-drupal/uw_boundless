@@ -10,7 +10,6 @@
             <li><a class="facebook" href="http://www.facebook.com/UofWA">Facebook</a></li>
             <li><a class="twitter" href="http://twitter.com/UW">Twitter</a></li>
             <li><a class="instagram" href="http://instagram.com/uofwa">Instagram</a></li>
-            <li><a class="tumblr" href="http://uofwa.tumblr.com/">Tumblr</a></li>
             <li><a class="youtube" href="http://www.youtube.com/user/uwhuskies">YouTube</a></li>
             <li><a class="linkedin" href="http://www.linkedin.com/company/university-of-washington">LinkedIn</a></li>
             <li><a class="pinterest" href="http://www.pinterest.com/uofwa/">Pinterest</a></li>
@@ -30,7 +29,7 @@
             <li><a href="http://www.washington.edu/online/terms">Terms</a></li>
         </ul>
     </nav>
-    
+
     <p role="contentinfo">&copy; <?php if(!$logged_in && ($uw_login_link_location == 'footer_date')): print $uw_login_link;  else: print $uw_copyright_year; endif ?>  University of Washington  |  Seattle, WA </p>
     <?php if (!$logged_in && ($uw_login_link_location == 'footer_bottom')): ?>
         <p><?php print $uw_login_link; ?></p>
