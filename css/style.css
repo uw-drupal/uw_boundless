@@ -9993,7 +9993,6 @@ table th[class*="col-"] {
 .vidSmall .duration {
   color: #b6b6b6 ;
   background: url('assets/images/youtube-player/play-sm.png') right 2px no-repeat transparent;
-  color: #b6b6b6;
   padding-right: 16px;
   float: left;
   margin-top: 3px;
@@ -11585,11 +11584,11 @@ body.search-open #uw-container {
     width: 100%;
   }
   body.search-open #uw-container {
-    -webkit-transform: matrix(1, 0, 0, 1, 0, 80);
-    -moz-transform: matrix(1, 0, 0, 1, 0, 80);
-    -ms-transform: matrix(1, 0, 0, 1, 0, 80);
-    -o-transform: matrix(1, 0, 0, 1, 0, 80);
-    transform: matrix(1, 0, 0, 1, 0, 80);
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 100);
+    -moz-transform: matrix(1, 0, 0, 1, 0, 100);
+    -ms-transform: matrix(1, 0, 0, 1, 0, 100);
+    -o-transform: matrix(1, 0, 0, 1, 0, 100);
+    transform: matrix(1, 0, 0, 1, 0, 100);
   }
 }
 ul.uw-sidebar-menu,
@@ -13592,7 +13591,11 @@ label.radio-focus {
 .gfield_checkbox br {
   display: none;
 }
-a.uw-btn {
+button.uw-btn {
+  border: none;
+}
+a.uw-btn,
+button.uw-btn {
   padding: 11px 20px;
   text-transform: uppercase;
   background-color: #e8e3d3;
@@ -13610,7 +13613,8 @@ a.uw-btn {
   font-size: 16px;
   text-decoration: none !important;
 }
-a.uw-btn.btn-sm {
+a.uw-btn.btn-sm,
+button.uw-btn.btn-sm {
   padding: 8px 14px;
   font-size: 14px;
   font-weight: 800;
@@ -13618,11 +13622,13 @@ a.uw-btn.btn-sm {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-a.uw-btn.btn-sm:before {
+a.uw-btn.btn-sm:before,
+button.uw-btn.btn-sm:before {
   width: 43px;
   right: -43px;
 }
-a.uw-btn.btn-sm:after {
+a.uw-btn.btn-sm:after,
+button.uw-btn.btn-sm:after {
   width: 45px;
   height: 45px;
   top: 50%;
@@ -13631,42 +13637,56 @@ a.uw-btn.btn-sm:after {
   background-size: 740px;
   background-position: -32px -410px;
 }
-a.uw-btn.btn-sm.btn-play:after {
+a.uw-btn.btn-sm.btn-play:after,
+button.uw-btn.btn-sm.btn-play:after {
   background-position: -31px -466px;
 }
-a.uw-btn.btn-sm.btn-external:after {
+a.uw-btn.btn-sm.btn-external:after,
+button.uw-btn.btn-sm.btn-external:after {
   background-position: -126px -410px;
 }
-a.uw-btn.btn-sm.btn-plus:after {
+a.uw-btn.btn-sm.btn-plus:after,
+button.uw-btn.btn-sm.btn-plus:after {
   background-position: -83px -465px;
 }
 a.uw-btn:hover,
-a.uw-btn:focus {
+button.uw-btn:hover,
+a.uw-btn:focus,
+button.uw-btn:focus {
   color: #85754d;
   background-color: #f5f5f5;
 }
 a.uw-btn:hover:before,
-a.uw-btn:focus:before {
+button.uw-btn:hover:before,
+a.uw-btn:focus:before,
+button.uw-btn:focus:before {
   background-color: #613ba9;
 }
-a.uw-btn.btn-gold:hover:before {
+a.uw-btn.btn-gold:hover:before,
+button.uw-btn.btn-gold:hover:before {
   background-color: #a49161;
 }
-a.uw-btn.btn-purple {
+a.uw-btn.btn-purple,
+button.uw-btn.btn-purple {
   background-color: #4b2e83;
   color: #ffffff;
 }
 a.uw-btn.btn-purple:hover,
-a.uw-btn.btn-purple:focus {
+button.uw-btn.btn-purple:hover,
+a.uw-btn.btn-purple:focus,
+button.uw-btn.btn-purple:focus {
   background-color: #402770;
 }
-a.uw-btn.btn-purple:before {
+a.uw-btn.btn-purple:before,
+button.uw-btn.btn-purple:before {
   background-color: #402770;
 }
-a.uw-btn.btn-purple:hover:before {
+a.uw-btn.btn-purple:hover:before,
+button.uw-btn.btn-purple:hover:before {
   background-color: #201338;
 }
-a.uw-btn:after {
+a.uw-btn:after,
+button.uw-btn:after {
   content: "";
   position: absolute;
   top: 0;
@@ -13678,7 +13698,8 @@ a.uw-btn:after {
   margin-top: -28px;
   background: url(assets/svg/uw-sprite.svg) no-repeat -36px -475px transparent;
 }
-a.uw-btn:before {
+a.uw-btn:before,
+button.uw-btn:before {
   content: "";
   width: 48px;
   right: -48px;
@@ -13688,22 +13709,28 @@ a.uw-btn:before {
   background-color: #4b2e83;
   border-left: 5px solid rgba(0, 0, 0, 0.3);
 }
-a.uw-btn.btn-play:after {
+a.uw-btn.btn-play:after,
+button.uw-btn.btn-play:after {
   background-position: -36px -539px;
 }
-a.uw-btn.btn-external:after {
+a.uw-btn.btn-external:after,
+button.uw-btn.btn-external:after {
   background-position: -146px -475px;
 }
-a.uw-btn.btn-plus:after {
+a.uw-btn.btn-plus:after,
+button.uw-btn.btn-plus:after {
   background-position: -95px -539px;
 }
-a.uw-btn.btn-gold:before {
+a.uw-btn.btn-gold:before,
+button.uw-btn.btn-gold:before {
   background-color: #85754d;
 }
-a.uw-btn.btn-gold:before {
+a.uw-btn.btn-gold:before,
+button.uw-btn.btn-gold:before {
   border-left: 5px solid rgba(0, 0, 0, 0.1);
 }
-a.uw-btn.btn-squish {
+a.uw-btn.btn-squish,
+button.uw-btn.btn-squish {
   margin-bottom: 5px;
 }
 body.error404 .woof {
