@@ -11175,8 +11175,8 @@ span.next-page a:hover {
   border-bottom: none;
   color: inherit;
 }
-.uw-body-copy a {
-  border-bottom: 1px solid #0074BB;
+.uw-body-copy p a {
+  text-decoration: underline;
 }
 .info-box {
   width: 310px;
@@ -13587,6 +13587,7 @@ a.uw-btn {
   z-index: 1;
   line-height: 24px;
   font-size: 16px;
+  text-decoration: none !important;
 }
 a.uw-btn.btn-sm {
   padding: 8px 14px;
