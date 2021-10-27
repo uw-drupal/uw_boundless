@@ -5,6 +5,9 @@
  *
  */
  
+  use Drupal\Core\Link;
+
+
 /**
  * UW colors
  */
@@ -186,12 +189,13 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
   // Color settings
   //
   $url = \Drupal\Core\Url::fromUri('http://www.washington.edu/brand/primary-color-palette/');
+
   $form['uw_boundless_colors'] = array(
       '#type' => 'details',
       '#title' => t('Color settings'),
       '#group' => 'uw_boundless',
       '#description' => t('Set the color display of certain page elements. For color references, see: ') .
-                        \Drupal::l(t('UW brand color palette'),  $url, array('attributes' => array('target' => '_blank'))),
+                          (Link::fromTextAndUrl( t('UW brand color palette') , $url))->toString() ,
   );
   $form['uw_boundless_colors']['front_page'] = array(
       '#type' => 'fieldset',
