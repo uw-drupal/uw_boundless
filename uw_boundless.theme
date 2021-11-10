@@ -196,7 +196,7 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
       '#title' => t('Color settings'),
       '#group' => 'uw_boundless',
       '#description' => t('Set the color display of certain page elements. For color references, see: ') .
-                        (Link::fromTextAndUrl( t('UW brand color palette') , $url))->toString() ,
+        (Link::fromTextAndUrl( t('UW brand color palette') , $url))->toString() ,
   );
   $form['uw_boundless_colors']['front_page'] = array(
       '#type' => 'fieldset',
@@ -305,7 +305,7 @@ function _uw_boundless_uw_sidebar_menu() {
 
 
     $current_path = \Drupal::service('path.current')->getPath();
-    $current_uri = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $current_uri = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
 
 
     $title = $current_menu_item->link->getTitle();
@@ -316,7 +316,8 @@ function _uw_boundless_uw_sidebar_menu() {
 
     $output_menu = '<ul>';
     $output_menu .= "<li class=\"page_item page_item_has_children $class\">";
-    $output_menu .= \Drupal::l($title, $link_object);
+    $output_menu .= (Link::fromTextAndUrl( $title , $link_object ))->toString();
+
 
     $output_menu .= '<ul class="children">';
     foreach ($current_menu_item->subtree as $child) {
@@ -333,7 +334,7 @@ function _uw_boundless_uw_sidebar_menu() {
           // TODO: grandchildren
         }
       } else {
-        $output_menu .= \Drupal::l($title, $link_object);
+        $output_menu .= (Link::fromTextAndUrl( $title , $link_object ))->toString();
       }
       $output_menu .= '</li>';
     }
