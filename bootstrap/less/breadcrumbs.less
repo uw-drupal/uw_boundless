@@ -9,6 +9,13 @@
   list-style: none;
   background-color: @breadcrumb-bg;
   border-radius: @border-radius-base;
+  // For compatibility with gin_toolbar
+  margin-top: -13px;
+
+  > ol {
+    // For compatibility with gin_toolbar
+    margin-bottom: 0;
+  }
 
   > li {
     display: inline-block;

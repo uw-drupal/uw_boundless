@@ -1074,7 +1074,6 @@ th {
   box-sizing: border-box;
 }
 html {
-  font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
@@ -5203,6 +5202,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 4px;
+  margin-top: -13px;
+}
+.breadcrumb > ol {
+  margin-bottom: 0;
 }
 .breadcrumb > li {
   display: inline-block;
@@ -12742,7 +12745,7 @@ div.jp-carousel-buttons a.jp-carousel-like {
 div.jp-carousel-buttons a.jp-carousel-like:hover {
   background-position: 5px -15px;
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   div.jp-carousel-buttons a.jp-carousel-like,
   div.jp-carousel-buttons a.jp-carousel-reblog,
   div.jp-carousel-buttons a.jp-carousel-commentlink,
