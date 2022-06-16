@@ -5,6 +5,7 @@
  */
 
 use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 
 /**
  * UW colors
@@ -17,6 +18,22 @@ abstract class UW_Color {
     const Dark_Grey = '#444444';
     const Black = '#000000';
     const White = '#ffffff';
+}
+
+/**
+ * Adds the view mode as a class for the media's wrapper div.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An array of elements to display in view mode.
+ *   - media: The media item.
+ *   - name: The label for the media item.
+ *   - view_mode: View mode; e.g., 'full', 'teaser', etc.
+ *
+ * @see media.module->template_preprocess_media()
+ */
+function uw_boundless_preprocess_media(array &$variables) {
+  $variables['attributes']['class'][] = 'view-mode--' . $variables['elements']['#view_mode'];
 }
 
 function uw_boundless_preprocess_page(array &$variables) {
@@ -44,7 +61,6 @@ function uw_boundless_preprocess_page(array &$variables) {
   $menu_tree_service = \Drupal::service('menu.link_tree');
   $tree = $menu_tree_service->load('main', $menu_parameters);
   $variables['primary_nav'] = $menu_tree_service->build($tree);
-
 
 
   $theme = \Drupal::theme()->getActiveTheme();
@@ -252,18 +268,20 @@ function uw_boundless_settings_form_submit(&$form, &$form_state){
 
   $imagevars = ['hero_image_front_upload', 'hero_image_upload'];
 
-  foreach($imagevars as $thisimage){
-	$image = $form_state->getValue($thisimage);
-	$file = Drupal\file\Entity\File::load($image[0]);
-	if (is_object($file)) {
-	  if (!$file->isPermanent()) {
-	      $file->setPermanent();
-	      $file->save();
-	      $file_usage = \Drupal::service('file.usage');
-	      $file_usage->add($file, 'welcome', 'welcome', \Drupal::currentUser()->id());
-	  }
+  foreach ($imagevars as $thisimage) {
+    $image = $form_state->getValue($thisimage);
+    if (!empty($image)) {
+      $file = Drupal\file\Entity\File::load($image[0]);
+      if (is_object($file)) {
+        if (!$file->isPermanent()) {
+          $file->setPermanent();
+          $file->save();
+          $file_usage = \Drupal::service('file.usage');
+          $file_usage->add($file, 'welcome', 'welcome', \Drupal::currentUser()->id());
         }
+      }
     }
+  }
 }
 
 
