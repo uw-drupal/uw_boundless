@@ -35,7 +35,7 @@
  *   comment/reply/12345).
  *
  * Regions:
- * - page.search: 
+ * - page.search:
  * - page.header: Items for the header region.
  * - page.navigation: Items for the navigation region.
  * - page.thinstrip: Items for the thinstrip links.
@@ -75,11 +75,11 @@
 
 
 <div id="uw-container">
-    
+
     {% if page.quicklinks %}
       {{ page.quicklinks }}
     {% endif %}
-  
+
     <div id="uw-container-inner">
 
         {% if page.thinstrip %}
@@ -92,8 +92,8 @@
             </div>
         </nav><!-- /#dawgdrops -->
 
-        {% if is_front %}
-            <div class="uw-hero-image" style="background-image:url('{{ uw_hero_image_front_path }}');">
+        {% if is_front and uw_boundless_hero_image_front_display != 'none' %}
+            <div class="uw-hero-image uw-hero-image--{{ uw_boundless_hero_image_front_display }}" style="background-image:url('{{ uw_hero_image_front_path }}');">
                 {% if site_name is not empty %}
                     <div class="container">
                         <h1 style="color:{{ uw_boundless_front_page_title_color }};text-shadow:2px 2px 2px {{ uw_front_title_text_shadow }};">
@@ -104,40 +104,40 @@
                             <p style="color:{{ uw_boundless_front_page_slogan_color }};text-shadow:2px 2px 2px {{ uw_front_slogan_text_shadow }};">
                               {{ site_slogan }}
                             </p>
-                        {% endif %}   
+                        {% endif %}
                     </div>
-                {% endif %}   
+                {% endif %}
             </div>
-        {% else %}
+        {% elseif uw_boundless_hero_image_display != 'none' %}
           <!-- TODO -->
           <div class="uw-hero-image" style="background-image:url('{{ uw_hero_image_path }}');"></div>
-        {% endif %}   
+        {% endif %}
         <!-- /#uw-hero-image -->
-         
+
         <a id="main-content"></a>
         <div class="container uw-body">
-                        
+
             <div class="row">
-                
+
                 <section class="{{ content_column_class }}">
-                    
+
                 {% if site_name is not empty %}
                     <a href="{{ front_page }}" title="{{ site_name }}"><h2 class="uw-site-title foo">{{ site_name }}</h2>
-                        {% if site_slogan is not empty %} <p>{{ site_slogan }}</p> {% endif %}  
+                        {% if site_slogan is not empty %} <p>{{ site_slogan }}</p> {% endif %}
                     </a>
                 {% endif %}
-                
+
                 {% if breadcrumb is not empty %}
                     <nav class="uw-breadcrumbs" aria-label="breadcrumbs">
                     {{ breadcrumb }}
                     </nav>
                 {% endif %}
-                                   
+
                 {{ title_prefix }}
                 {% if title is not empty %}
                   <h1 class="page-header">{{ title }}</h1>
                 {% endif %}
-   
+
                 {% if primary_nav is not empty %}
                 <nav id="mobile-relative" role="navigation" aria-label="relative">
                   <button class="uw-mobile-menu-toggle">Menu</button>
@@ -146,30 +146,30 @@
                       <li class="pagenav uw_sidebar_menu_EMPTY">
                         <a href="{{ front_page }}" title="Home" class="homelink">Home</a>
                         {{ primary_nav }}
-                      </li><!-- /#primary_nav --> 
-                    {% endif %}     
+                      </li><!-- /#primary_nav -->
+                    {% endif %}
                     {% if (not is_front and uw_sidebar_menu is not empty) %}
                       <li class="pagenav uw_sidebar_menu_NOT_empty">
                         <a href="{{ base_path }}" title="Home" class="homelink">Home</a>
                         {{ uw_sidebar_menu | raw}}
-                      </li><!-- /#uw_sidebar_menu --> 
+                      </li><!-- /#uw_sidebar_menu -->
                     {% endif %}
                   </ul>
               </nav><!-- /#uw-mobile-menu -->
               {% endif %}
-              
+
                 {{ title_suffix }}
                 {{ messages }}
                 {% if tabs is not empty %}
                   {{ tabs }}
                 {% endif %}
-                
+
                 {% if page.highlighted is not empty %}
                   {% block highlighted %}
                     <div class="highlighted">{{ page.highlighted }}</div>
                   {% endblock %}
                 {% endif %}
-                
+
                 {# Help #}
                 {% if page.help is not empty %}
                   {% block help %}
@@ -180,7 +180,7 @@
                 {% if action_links is not empty%}
                   <ul class="action-links">{{ action_links }}</ul>
                 {% endif %}
-                
+
                 <div class="uw-content" role='main'>
                     <div id='main_content' class="uw-body-copy">
                       {% block content %}
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 </section>
-                
+
                 <aside class="col-md-4 uw-sidebar" role="complementary">
                 {% if page.navigation is not empty and  uw_sidebar_menu %}
                     <nav id="desktop-relative" aria-label="relative">
@@ -208,12 +208,12 @@
                 {% endif %}
                 </aside>
                 <!--  #uw-sidebar -->
-                
+
             </div><!-- /#row -->
 
         </div><!-- /#uw-body -->
-                
-                
+
+
        {% if page.uwfooter %}
         <footer class="uw-footer">
            {{ page.uwfooter }}

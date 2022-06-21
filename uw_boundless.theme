@@ -62,12 +62,15 @@ function uw_boundless_preprocess_page(array &$variables) {
   $tree = $menu_tree_service->load('main', $menu_parameters);
   $variables['primary_nav'] = $menu_tree_service->build($tree);
 
-
-  $theme = \Drupal::theme()->getActiveTheme();
-  $themepath = '/'. $theme->getPath();
+  $variables['uw_boundless_hero_image_front_display'] = theme_get_setting('uw_boundless_hero_image_front_display') ??
+    'large';
+  $variables['uw_boundless_hero_image_display'] = theme_get_setting('uw_boundless_hero_image_display') ?? 'small';
+  // $theme = \Drupal::theme()->getActiveTheme();
+  // $themepath = '/'. $theme->getPath();
   // $variables['uw_hero_image_front_path'] = $themepath . '/front.jpg';
   // $variables['uw_hero_image_path'] = $themepath . '/hero.jpg';
-  $variables['uw_hero_image_front_path'] = theme_get_setting('uw_boundless_hero_image_front_default_path');
+  $variables['uw_hero_image_front_path'] = theme_get_setting('uw_boundless_hero_image_front_display') == 'large' ?
+  theme_get_setting('uw_boundless_hero_image_front_default_path') : theme_get_setting('uw_boundless_hero_image_default_path');
   $variables['uw_hero_image_path'] = theme_get_setting('uw_boundless_hero_image_default_path');
 
   //if default is overridden with a file upload, re-set the hero paths
@@ -141,25 +144,45 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
   // Hero image settings for the image on the default front page
   $form['uw_boundless_hero_image']['front_page'] = array(
       '#type' => 'fieldset',
-      '#title' => t('front page hero-image'),
+      '#title' => t('Front page hero image'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
   );
+  $form['uw_boundless_hero_image']['front_page']['uw_boundless_hero_image_front_display'] = array(
+    '#type' => 'radios',
+    '#title' => t('Display size'),
+    '#options' => [
+      'large' => t('Large hero image'),
+      'small' => t('Small hero image'),
+      'none' => t('None - hide the hero image on the front page'),
+    ],
+    '#default_value' => theme_get_setting('uw_boundless_hero_image_front_display') ?? 'large',
+    '#tree' => FALSE,
+    // '#description' => t('Check here if you want the theme to use the hero-image supplied with it.')
+  );
   $form['uw_boundless_hero_image']['front_page']['uw_boundless_hero_image_front_default'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Use the default hero-image'),
-      '#default_value' => theme_get_setting('uw_boundless_hero_image_front_default'),
+      '#title' => t('Use the default hero image'),
+      '#default_value' => theme_get_setting('uw_boundless_hero_image_front_default') ?? TRUE,
       '#tree' => FALSE,
-      '#description' => t('Check here if you want the theme to use the hero-image supplied with it.')
-  );
-  $form['uw_boundless_hero_image']['front_page']['settings'] = array(
-      '#type' => 'container',
-      '#states' => array(
+      '#description' => t('The correct image size will be selected automatically. Uncheck to upload a custom image.'),
+    '#states' => array(
       // Hide the header settings when using the default header.
       'invisible' => array(
-          'input[name="uw_boundless_hero_image_front_default"]' => array('checked' => TRUE),
-          ),
+        'input[name="uw_boundless_hero_image_front_display"]' => array('value' => 'none')
       ),
+    ),
+  );
+  $form['uw_boundless_hero_image']['front_page']['settings'] = array(
+    '#type' => 'container',
+    '#states' => array(
+      // Hide the header settings when using the default header.
+      'invisible' => array(
+        array('input[name="uw_boundless_hero_image_front_default"]' => array('checked' => TRUE)),
+        'or',
+        array('input[name="uw_boundless_hero_image_front_display"]' => array('value' => 'none')),
+      ),
+    ),
   );
 
   $form['uw_boundless_hero_image']['front_page']['settings']['hero_image_front_upload'] = array(
@@ -174,24 +197,42 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
   // Hero image settings for the image used on other pages
   $form['uw_boundless_hero_image']['other_page'] = array(
       '#type' => 'fieldset',
-      '#title' => t('hero-image '),
+      '#title' => t('Hero image '),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
   );
+  $form['uw_boundless_hero_image']['other_page']['uw_boundless_hero_image_display'] = array(
+    '#type' => 'radios',
+    '#title' => t('Display size'),
+    '#options' => [
+      'small' => t('Small hero image'),
+      'none' => t('None - hide the hero image'),
+    ],
+    '#default_value' => theme_get_setting('uw_boundless_hero_image_display') ?? 'small',
+    '#tree' => FALSE,
+  );
   $form['uw_boundless_hero_image']['other_page']['uw_boundless_hero_image_default'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Use the default hero-image'),
+      '#title' => t('Use the default hero image'),
       '#tree' => FALSE,
       '#default_value' => theme_get_setting('uw_boundless_hero_image_default'),
-      '#description' => t('Check here if you want the theme to use the hero-image supplied with it.')
+      '#description' => t('Check here if you want the theme to use the hero image supplied with it.'),
+    '#states' => array(
+      // Hide the header settings when using the default header.
+      'invisible' => array(
+        'input[name="uw_boundless_hero_image_display"]' => array('value' => 'none')
+      ),
+    ),
   );
   $form['uw_boundless_hero_image']['other_page']['settings'] = array(
       '#type' => 'container',
       '#states' => array(
       // Hide the header settings when using the default header.
-      'invisible' => array(
-          'input[name="uw_boundless_hero_image_default"]' => array('checked' => TRUE),
-          ),
+        'invisible' => array(
+          array('input[name="uw_boundless_hero_image_default"]' => array('checked' => TRUE)),
+          'or',
+          array('input[name="uw_boundless_hero_image_display"]' => array('value' => 'none')),
+        ),
       ),
   );
   $form['uw_boundless_hero_image']['other_page']['settings']['hero_image_upload'] = array(
@@ -270,6 +311,9 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
  * @see uw_boundless_settings_form()
  */
 function uw_boundless_settings_form_submit(&$form, &$form_state){
+  /** @var \Drupal\Core\File\FileSystem $file_system */
+  // $file_system = \Drupal::service('file_system');
+  // $file_system->
 
   // Set the file usage for uploaded hero image files.
   $imagevars = ['hero_image_front_upload', 'hero_image_upload'];
@@ -288,6 +332,7 @@ function uw_boundless_settings_form_submit(&$form, &$form_state){
     }
   }
 }
+
 
 /**
  * Local function

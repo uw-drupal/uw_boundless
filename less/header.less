@@ -6,17 +6,17 @@
     form {
         overflow: hidden;
     }
-    .uw-search-wrapper {        
-        .block-search {            
+    .uw-search-wrapper {
+        .block-search {
             .form-control {
                 border-radius: 0;
                 z-index: 0;
             }
-        }        
+        }
         .btn.search {
             border-radius: 0;
         }
-    }  
+    }
     // copy of input.search from uw.search.less, Ln 132
     button.search
       {
@@ -62,7 +62,7 @@
 // -------------------------
 .front {
     .uw-hero-image {
-        height: 595px;
+        //height: 595px;
         padding: 60px 0 0 0;
         h1 {
             font-family: "Encode Sans Compressed",sans-serif;
@@ -80,5 +80,21 @@
             margin-bottom: 30px;
             text-shadow: 1px 1px 5px rgba(0,0,0,.8);
         }
+    }
+    .uw-hero-image--large {
+      height: 595px;
+    }
+    .uw-hero-image--small {
+      height: 170px;
+      h1 {
+        margin-top: 29px;
+        margin-bottom: 14.5px;
+        text-transform: none;
+        position: absolute;
+        top: 0px;
+        //left: 11px;
+        font-size: 50px;
+        line-height: 55px;
+      }
     }
 }
