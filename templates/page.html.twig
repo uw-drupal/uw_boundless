@@ -108,7 +108,7 @@
                     </div>
                 {% endif %}
             </div>
-        {% elseif uw_boundless_hero_image_display != 'none' %}
+        {% elseif not is_front and uw_boundless_hero_image_display != 'none' %}
           <!-- TODO -->
           <div class="uw-hero-image" style="background-image:url('{{ uw_hero_image_path }}');"></div>
         {% endif %}
