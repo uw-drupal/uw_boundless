@@ -264,10 +264,15 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
   $form['#submit'][] = 'uw_boundless_settings_form_submit';
 }
 
+/**
+ * Form submission handler for uw_boundless_settings_form.
+ *
+ * @see uw_boundless_settings_form()
+ */
 function uw_boundless_settings_form_submit(&$form, &$form_state){
 
+  // Set the file usage for uploaded hero image files.
   $imagevars = ['hero_image_front_upload', 'hero_image_upload'];
-
   foreach ($imagevars as $thisimage) {
     $image = $form_state->getValue($thisimage);
     if (!empty($image)) {
@@ -277,13 +282,12 @@ function uw_boundless_settings_form_submit(&$form, &$form_state){
           $file->setPermanent();
           $file->save();
           $file_usage = \Drupal::service('file.usage');
-          $file_usage->add($file, 'welcome', 'welcome', \Drupal::currentUser()->id());
+          $file_usage->add($file, 'uw_boundless', 'theme', 'uw_boundless.settings');
         }
       }
     }
   }
 }
-
 
 /**
  * Local function
