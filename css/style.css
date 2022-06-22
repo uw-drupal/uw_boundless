@@ -7559,9 +7559,6 @@ ul.secondary {
     float: right;
   }
 }
-.page-header {
-  margin-top: 0;
-}
 .region-sidebar-first .block:first-child h2.block-title,
 .region-sidebar-second .block:first-child h2.block-title {
   margin-top: 0;
@@ -8513,8 +8510,8 @@ a.bg-danger:hover {
 }
 .page-header {
   padding-bottom: 13.5px;
-  margin: 58px 0 29px;
-  border-bottom: 1px solid #e9e6f0;
+  margin: 29px 0 14.5px;
+  border-bottom: 0;
 }
 ul,
 ol {
@@ -15470,13 +15467,6 @@ pre.prettyprint ol.linenums li {
   top: 0px;
   font-size: 50px;
   line-height: 55px;
-}
-.uw-breadcrumbs span {
-  padding-top: 0;
-}
-.page-header {
-  margin: 29px 0 14.5px;
-  border-bottom: 0;
 }
 .uw-sidebar .region:not(:last-child) {
   padding-bottom: 30px;
