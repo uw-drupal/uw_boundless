@@ -1,5 +1,3 @@
-// Sets bulleted items to a default padding:
-
 ul {
 	padding-left: 25px;
 	//list-style-position: inside;
@@ -11,7 +9,7 @@ dd {
 // Basic styles
 
 hr {
-	border-top: 1px solid #EBEBEB;
+	border-top: 1px solid #ebebeb;
 	clear: both;
 }
 
@@ -25,14 +23,12 @@ iframe {
 	}
 }
 
-
 // This overrides the line-height issue with bootrap
 small,
 .small {
 	font-size: 15px;
 	line-height: 1.5;
 }
-
 
 .intro,
 .lead {
@@ -52,7 +48,7 @@ a.more {
   position: relative;
  // display: inline-block;
   &:after {
-    background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
+    background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px !important;
     content: "";
     position: absolute;
     right: -24px;
@@ -63,27 +59,28 @@ a.more {
   }
 }
 
-
 // Wrapper
-
 .uw-body {
-	position:relative;
+	position: relative;
 	&.container {
-		background-color: white;
+		background-color: #fff;
 		margin-bottom: 80px;
 	}
 }
 
 // Actual content area (includes sideabar)
-
 .uw-body {
 	padding-top: 10px;
 	-webkit-font-smoothing: antialiased;
-	h1, h2 {
+	h1,
+  h2 {
 		color: @purple;
 		display: block;
 	}
-	h2, h3, h4, h5 {
+	h2,
+  h3,
+  h4,
+  h5 {
 		font-weight: @bold;
 	}
 	blockquote {
@@ -130,7 +127,6 @@ a.more {
     margin: -4.5px 0 20px 0;
     font-weight: @ultra;
   }
-
 }
 
 .front {
@@ -142,8 +138,8 @@ a.more {
     }
   }
 }
-// Next link in the blog
 
+// Next link in the blog
 span.next-page {
 	display: block;
 	margin-top: 50px;
@@ -185,8 +181,7 @@ span.next-page {
 }
 
 
- // (doesn't include sidebar)
-
+// (doesn't include sidebar)
 .uw-body-copy {
 	h1 a,
 	h2 a,
@@ -199,10 +194,8 @@ span.next-page {
 	a {
 		text-decoration: none;
 		// border-bottom: 1px solid #D3D3D3;
-
 	}
 }
-
 
 .info-box {
 	width: 310px;
@@ -232,6 +225,7 @@ span.next-page {
 		margin-top: 0;
 	}
 }
+
 .uw-body-copy ul.links {
 	overflow: visible;
 }
@@ -240,26 +234,12 @@ span.next-page {
 	padding: 0;
 	margin-top: 20px;
 	overflow: visible;
-	a {
-//		position: relative;
-//		&:after {
-//			background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
-//			content: "";
-//			opacity: .4;
-//			position: absolute;
-//			right: -23px;
-//			bottom: 1px;
-//			width: 14px;
-//			height: 21px;
-//			.rotate(90deg);
-//		}
-	}
 	li {
 		padding: 0;
 		list-style: none;
 		margin-bottom: 6px;
 		padding-bottom: 6px;
-		border-bottom: 1px solid #EEE;
+		border-bottom: 1px solid #eee;
 		&:last-child {
 			border-bottom: none;
 		}
@@ -269,17 +249,16 @@ span.next-page {
 img.attachment-post-thumbnail.wp-post-image,
 .archive .uw-body-copy img.attachment-thumbnail.wp-post-image {
 	float: left;
-    margin: 5px 50px 0 0;
-    height: 150px;
-    width: auto;
+  margin: 5px 50px 0 0;
+  height: 150px;
+  width: auto;
 
 	// Images on the blogroll page
 	&.blogroll-img {
-	    margin-bottom: 20px;
-	    height: 130px;
+    margin-bottom: 20px;
+    height: 130px;
 	}
 }
-
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : @screen-xs-max) {
@@ -302,17 +281,17 @@ img.attachment-post-thumbnail.wp-post-image,
 			margin: 10px 80px 20px 0;
 			font-size: 33px;
 		}
-        p.date {
-            margin-bottom: -15px;
-        }
-	}
-    .home {
-        .uw-body {
-            .uw-site-title{
-                padding-right: 65px;
-             }
-        }
+    p.date {
+      margin-bottom: -15px;
     }
+	}
+  .home {
+    .uw-body {
+      .uw-site-title{
+        padding-right: 65px;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width : @screen-sm) {
@@ -346,11 +325,11 @@ img.attachment-post-thumbnail.wp-post-image,
 
 @media only screen and (max-width : @screen-md) {
 	.widget {
-	padding: 10px 0 0 0px; }
+	  padding: 10px 0 0 0px;
+  }
 }
 
-// Big Screens
-
+// Big screens - is this necessary?
 @media only screen and (max-width : 1600px) {
 	.info-box {
 		margin-left: -50px;
@@ -358,7 +337,6 @@ img.attachment-post-thumbnail.wp-post-image,
 }
 
 @media only screen and (max-width : @screen-xs-max) {
-
 	.widget {
 		padding: 0;
 	}
@@ -366,29 +344,30 @@ img.attachment-post-thumbnail.wp-post-image,
 		margin-left: 0;
 		width: 100%;
 	}
-    .uw-body-copy {
-        h1,h2,h3,h4,p:first-of-type {
-            clear: right;
-        }
-        >div.row {
-            clear:both;
-        }
+  .uw-body-copy {
+    h1,
+    h2,
+    h3,
+    h4,
+    p:first-of-type {
+      clear: right;
     }
-
+    >div.row {
+      clear:both;
+    }
+  }
 }
-@media only screen and (min-width : @screen-sm) {
 
+@media only screen and (min-width : @screen-sm) {
 	.uw-body {
 		.uw-site-title {
 			text-shadow: 1px 1px 2px rgba(0,0,0,.5);
 		}
 	}
-
 	// Fixes floated images next to a bulleted list. The bullets weren't indenting properly
 	.uw-body-copy {
 		ul {
 			overflow: hidden;
 		}
 	}
-
 }
