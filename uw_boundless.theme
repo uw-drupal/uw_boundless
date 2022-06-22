@@ -65,15 +65,17 @@ function uw_boundless_preprocess_page(array &$variables) {
   $variables['uw_boundless_hero_image_front_display'] = theme_get_setting('uw_boundless_hero_image_front_display') ??
     'large';
   $variables['uw_boundless_hero_image_display'] = theme_get_setting('uw_boundless_hero_image_display') ?? 'small';
-  // $theme = \Drupal::theme()->getActiveTheme();
-  // $themepath = '/'. $theme->getPath();
-  // $variables['uw_hero_image_front_path'] = $themepath . '/front.jpg';
-  // $variables['uw_hero_image_path'] = $themepath . '/hero.jpg';
-  $variables['uw_hero_image_front_path'] = theme_get_setting('uw_boundless_hero_image_front_display') == 'large' ?
-  theme_get_setting('uw_boundless_hero_image_front_default_path') : theme_get_setting('uw_boundless_hero_image_default_path');
-  $variables['uw_hero_image_path'] = theme_get_setting('uw_boundless_hero_image_default_path');
 
-  //if default is overridden with a file upload, re-set the hero paths
+  // Get the default hero images. Defer to a subtheme's image if one exists.
+  $front_hero_display = theme_get_setting('uw_boundless_hero_image_front_display') ?? theme_get_setting('uw_boundless_hero_image_front_display', 'uw_boundless');
+  if ($front_hero_display == 'large') {
+    $variables['uw_hero_image_front_path'] = theme_get_setting('uw_boundless_hero_image_front_default_path') ??
+      theme_get_setting('uw_boundless_hero_image_front_default_path', 'uw_boundless');
+  }
+  $variables['uw_hero_image_path'] = theme_get_setting('uw_boundless_hero_image_default_path') ??
+  theme_get_setting('uw_boundless_hero_image_default_path', 'uw_boundless');
+
+  //if default is overridden with a file upload, reset the hero paths
   if (!theme_get_setting('uw_boundless_hero_image_front_default') && !empty(theme_get_setting('hero_image_front_upload'))) {
     $hero_front = theme_get_setting('hero_image_front_upload');
     $fid = reset($hero_front);
@@ -265,21 +267,21 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
   $form['uw_boundless_colors']['front_page']['uw_boundless_front_page_title_color']= array(
       '#type' => 'select',
       '#title' => t('Site name'),
-      '#default_value' => theme_get_setting('uw_boundless_front_page_title_color'),
+      '#default_value' => theme_get_setting('uw_boundless_front_page_title_color') ?? '#ffffff',
       '#options' => $_colors,
   );
   // Front page slant color
   $form['uw_boundless_colors']['front_page']['uw_boundless_front_page_slant_color']= array(
       '#type' => 'select',
       '#title' => t('slant'),
-      '#default_value' => theme_get_setting('uw_boundless_front_page_slant_color'),
+      '#default_value' => theme_get_setting('uw_boundless_front_page_slant_color') ?? '#ffffff',
       '#options' => $_colors,
   );
   // Front page slogan color
   $form['uw_boundless_colors']['front_page']['uw_boundless_front_page_slogan_color']= array(
       '#type' => 'select',
       '#title' => t('Site slogan'),
-      '#default_value' => theme_get_setting('uw_boundless_front_page_slogan_color'),
+      '#default_value' => theme_get_setting('uw_boundless_front_page_slogan_color') ?? '#ffffff',
       '#options' => $_colors,
   );
 
@@ -414,38 +416,34 @@ function _uw_boundless_uw_sidebar_menu() {
 }
 
 /**
- * Local function
- * Gets the text-shadow settting for the provided color.
+ * Gets the text-shadow setting for the provided color.
  *
- * @param string $color string containing a hex value.
- * @return string   the theme setting value for uw_boundless_text_shadow_black or uw_boundless_text_shadow_white.
+ * @param string|NULL $hex
+ *   The hex code for the color, including the '#'.
+ *
+ * @return string
+ *   Returns the theme setting value for uw_boundless_text_shadow_black or
+ *   uw_boundless_text_shadow_white.
  */
-function _uw_boundless_get_text_shadow($color) {
-    switch ($color) {
+function _uw_boundless_get_text_shadow(?string $hex) {
+  $retval = '';
+  switch ($hex) {
     case UW_Color::White:
-        $retval = theme_get_setting('uw_boundless_text_shadow_black');
-        break;
     case UW_Color::Light_Grey:
-        $retval = theme_get_setting('uw_boundless_text_shadow_black');
-        break;
     case UW_Color::Gold:
-        $retval = theme_get_setting('uw_boundless_text_shadow_black');
-        break;
+      $retval = theme_get_setting('uw_boundless_text_shadow_black', 'uw_boundless');
+      break;
+
     case UW_Color::Purple:
-        $retval = theme_get_setting('uw_boundless_text_shadow_white');
-        break;
     case UW_Color::Metallic_Gold:
-        $retval = theme_get_setting('uw_boundless_text_shadow_white');
-        break;
     case UW_Color::Dark_Grey:
-        $retval = theme_get_setting('uw_boundless_text_shadow_white');
-        break;
     case UW_Color::Black:
-        $retval = theme_get_setting('uw_boundless_text_shadow_white');
-        break;
-    default:
-        $retval = theme_get_setting('uw_boundless_text_shadow_black');
-        break;
-    }
-    return $retval;
+      $retval = theme_get_setting('uw_boundless_text_shadow_white', 'uw_boundless');
+      break;
+
+  default:
+      $retval = theme_get_setting('uw_boundless_text_shadow_black', 'uw_boundless');
+      break;
+  }
+  return $retval;
 }
