@@ -11266,7 +11266,7 @@ span.next-page a {
   -moz-border-radius: 0;
 }
 span.next-page a:after {
-  background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
+  background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px !important;
   content: "";
   position: absolute;
   right: 17px;
@@ -15530,9 +15530,6 @@ nav#mobile-relative .navbar-nav .dawgdrops-item .dawgdrops-item-menu-link:before
     margin-top: -55px;
     margin-right: 0;
   }
-}
-span.next-page a:after {
-  background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
 }
 .links a:after {
   background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;

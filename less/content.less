@@ -173,46 +173,47 @@ nav#mobile-relative {
 //}
 
 // path fix from uw.body-content.less
-span.next-page {
-    a {
-        &:after {
-            background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
-      }
-    }
-}
-// path fix from uw.body-content.less
+//span.next-page {
+//    a {
+//        &:after {
+//            background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
+//      }
+//    }
+//}
+
+// path fix from uw.body-content.less. (Is this needed?)
 .links {
-    a {
-        &:after {
-            background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
-        }
+  a {
+    &:after {
+      background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px;
     }
+  }
 }
 
-// form elements
+// Form elements
 // -------------------------
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
-    left: 20px;
-    z-index: 999;
+  left: 20px;
+  z-index: 999;
 }
 .table-striped > tbody > tr {
-    .checkbox,
-    .radio {
-        &.disabled {
-            color: @darkgray;
-        }
+  .checkbox,
+  .radio {
+    &.disabled {
+      color: @darkgray;
     }
+  }
 }
 .form-text,
 .form-textarea,
 .form-select,
 .form-file {
-    border-radius: 0;
-    color: #595959;
+  border-radius: 0;
+  color: #595959;
 }
 .form-submit {
-    border-radius: 0;
+  border-radius: 0;
 }
