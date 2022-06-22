@@ -14307,6 +14307,12 @@ div[id*='trumba'] iframe {
 [class*=" ic-"].gray-light a {
   color: #c9c9c9;
 }
+[class^="ic-"].white:before,
+[class*=" ic-"].white:before,
+[class^="ic-"].white a,
+[class*=" ic-"].white a {
+  color: #fff;
+}
 .sm:before {
   font-size: 35px;
 }
