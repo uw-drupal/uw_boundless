@@ -16,11 +16,9 @@ cdn_provider: ''
 uw_boundless_hero_image_front_display: large
 uw_boundless_hero_image_front_default_path: '//www.washington.edu/brand/files/2014/09/w.jpg'
 uw_boundless_hero_image_front_default: 1
-#uw_boundless_hero_image_front_path: ''
 uw_boundless_hero_image_display: small
 uw_boundless_hero_image_default_path: '//www.washington.edu/brand/files/2014/09/w3.jpg'
 uw_boundless_hero_image_default: 1
-#uw_boundless_hero_image_path: ''
 uw_boundless_front_page_title_color: '#ffffff'
 uw_boundless_front_page_slant_color: '#ffffff'
 uw_boundless_front_page_slogan_color: '#ffffff'

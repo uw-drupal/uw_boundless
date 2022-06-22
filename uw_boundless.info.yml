@@ -19,11 +19,11 @@ regions:
   sidebar_second: 'Secondary'
   uwfooter: 'UW Footer'
   quicklinks: 'Quicklinks'
-  
+
 libraries-extend:
   bootstrap/framework:
     - uw_boundless/framework
-    
+
 features:
   - favicon
   - logo
