@@ -72,6 +72,10 @@ function uw_boundless_preprocess_page(array &$variables) {
     $variables['uw_hero_image_front_path'] = theme_get_setting('uw_boundless_hero_image_front_default_path') ??
       theme_get_setting('uw_boundless_hero_image_front_default_path', 'uw_boundless');
   }
+  else {
+    $variables['uw_hero_image_front_path'] = theme_get_setting('uw_boundless_hero_image_default_path') ??
+      theme_get_setting('uw_boundless_hero_image_default_path', 'uw_boundless');
+  }
   $variables['uw_hero_image_path'] = theme_get_setting('uw_boundless_hero_image_default_path') ??
   theme_get_setting('uw_boundless_hero_image_default_path', 'uw_boundless');
 
