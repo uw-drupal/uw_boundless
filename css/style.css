@@ -11220,6 +11220,15 @@ a.more:after {
 .uw-body .uw-site-title span {
   font-weight: 800;
 }
+.uw-body .uw-site-title + p {
+  position: absolute;
+  top: -60px;
+  color: #fff;
+  line-height: 1.55;
+  -webkit-font-smoothing: auto;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
 .uw-body div.uw-site-title {
   margin-top: 29px;
   margin-bottom: 14.5px;
@@ -11231,6 +11240,9 @@ a.more:after {
 .uw-body .author-info {
   margin: -4.5px 0 20px 0;
   font-weight: 900;
+}
+.front .uw-body .uw-site-title + p {
+  display: none;
 }
 span.next-page {
   display: block;
@@ -11361,9 +11373,12 @@ img.attachment-post-thumbnail.wp-post-image.blogroll-img,
     line-height: 1.2;
     font-weight: 900;
     margin: -20px -20px 20px -20px;
-    padding: 15px 15px 15px 20px;
+    padding: 15px 75px 15px 20px;
     position: static;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  .uw-body .uw-site-title + p {
+    display: none;
   }
   .uw-body h1 {
     margin: 10px 80px 20px 0;
@@ -11379,6 +11394,13 @@ img.attachment-post-thumbnail.wp-post-image.blogroll-img,
 @media only screen and (min-width: 768px) {
   .uw-body .uw-site-title.long-title {
     margin-top: 3px;
+  }
+  .front .uw-body > .row {
+    margin-top: -30px;
+    background-color: #fff;
+  }
+  .front .uw-body .uw-site-title {
+    display: none;
   }
 }
 .uw-sidebar .block,
@@ -15448,37 +15470,6 @@ pre.prettyprint ol.linenums li {
   top: 0px;
   font-size: 50px;
   line-height: 55px;
-}
-.uw-body .uw-site-title + p {
-  position: absolute;
-  top: -60px;
-  color: #fff;
-  line-height: 1.55;
-  -webkit-font-smoothing: auto;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-@media only screen and (max-width: 767px) {
-  .uw-body .uw-site-title {
-    padding-right: 75px;
-  }
-}
-.front .uw-body .uw-site-title + p {
-  display: none;
-}
-@media only screen and (max-width: 767px) {
-  .uw-body .uw-site-title + p {
-    display: none;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .front .uw-body > .row {
-    margin-top: -30px;
-    background-color: #fff;
-  }
-  .front .uw-body .uw-site-title {
-    display: none;
-  }
 }
 .uw-breadcrumbs span {
   padding-top: 0;

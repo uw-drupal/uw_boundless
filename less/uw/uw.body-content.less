@@ -8,7 +8,7 @@ dd {
 	margin-bottom: 24.5px;
 }
 
-// Basic styles 
+// Basic styles
 
 hr {
 	border-top: 1px solid #EBEBEB;
@@ -105,6 +105,15 @@ a.more {
 		span {
 			font-weight: @bold;
 		}
+    +p {
+      position: absolute;
+      top: -60px;
+      color: #fff;
+      line-height: 1.55;
+      -webkit-font-smoothing: auto;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,.8);
+    }
 	}
 	div.uw-site-title {
 		margin-top: 29px;
@@ -121,9 +130,18 @@ a.more {
     margin: -4.5px 0 20px 0;
     font-weight: @ultra;
   }
-  
+
 }
 
+.front {
+  .uw-body {
+    .uw-site-title {
+      +p {
+        display: none;
+      }
+    }
+  }
+}
 // Next link in the blog
 
 span.next-page {
@@ -273,9 +291,12 @@ img.attachment-post-thumbnail.wp-post-image,
 			line-height: 1.2;
 			font-weight: @ultra;
 			margin: -20px -20px 20px -20px;
-			padding: 15px 15px 15px 20px;
+			padding: 15px 75px 15px 20px;
 			position: static;
 			text-shadow: 0 1px 2px rgba(0,0,0,.2);
+      +p {
+        display: none;
+      }
 		}
 		h1 {
 			margin: 10px 80px 20px 0;
@@ -295,13 +316,24 @@ img.attachment-post-thumbnail.wp-post-image,
 }
 
 @media only screen and (min-width : @screen-sm) {
-    .uw-body {
-        .uw-site-title {
-            &.long-title {
-                margin-top: 3px;
-            }
-        }
+  .uw-body {
+    .uw-site-title {
+      &.long-title {
+        margin-top: 3px;
+      }
     }
+  }
+  .front {
+    .uw-body {
+      >.row {
+        margin-top: -30px;
+        background-color: #fff;
+      }
+      .uw-site-title {
+        display: none;
+      }
+    }
+  }
 }
 
 // .home .uw-sidebar-menu {
@@ -329,7 +361,7 @@ img.attachment-post-thumbnail.wp-post-image,
 
 	.widget {
 		padding: 0;
-	}	
+	}
 	.info-box {
 		margin-left: 0;
 		width: 100%;

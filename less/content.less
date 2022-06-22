@@ -1,61 +1,61 @@
 // Insert your styling here.
 // Site title
 // -------------------------
-.uw-body {
-    .uw-site-title {
-        +p {
-            position: absolute;
-            top: -60px;
-            color: #fff;
-            line-height: 1.55;
-            -webkit-font-smoothing: auto;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 5px rgba(0,0,0,.8);
-        }
-    }
-}
-@media only screen and (max-width: 767px) {
-    .uw-body {
-        .uw-site-title {
-            padding-right: 75px;
-        }
-    }
-    // div.container.uw-body {
-    //     padding: 20px;
-    // }
-}
-// some exceptions for site-title and site-slogan 
-.front {
-    .uw-body {
-        .uw-site-title {
-            +p {
-                display: none;
-            }
-        }
-    }
-}
-@media only screen and (max-width: 767px){
-    .uw-body {
-        .uw-site-title {
-            +p {
-                display: none;
-            }
-        }
-    }
-}
-@media only screen and (min-width: 768px) {
-    .front {
-        .uw-body {
-            >.row {
-                margin-top: -30px;
-                background-color: #fff;
-            }
-            .uw-site-title {
-                display: none;
-            }
-        }
-    }
-}
+//.uw-body {
+//  .uw-site-title {
+//    +p {
+//      position: absolute;
+//      top: -60px;
+//      color: #fff;
+//      line-height: 1.55;
+//      -webkit-font-smoothing: auto;
+//      margin-bottom: 30px;
+//      text-shadow: 1px 1px 5px rgba(0,0,0,.8);
+//    }
+//  }
+//}
+//@media only screen and (max-width: 767px) {
+//  .uw-body {
+//    .uw-site-title {
+//      padding-right: 75px;
+//    }
+//  }
+//  // div.container.uw-body {
+//  //   padding: 20px;
+//  // }
+//}
+// Site title on the front page.
+//.front {
+//  .uw-body {
+//    .uw-site-title {
+//      +p {
+//        display: none;
+//      }
+//    }
+//  }
+//}
+//@media only screen and (max-width: 767px){
+//    .uw-body {
+//        .uw-site-title {
+//            +p {
+//                display: none;
+//            }
+//        }
+//    }
+//}
+//@media only screen and (min-width: @screen-sm) {
+//    .front {
+//        .uw-body {
+//            >.row {
+//                margin-top: -30px;
+//                background-color: #fff;
+//            }
+//            .uw-site-title {
+//                display: none;
+//            }
+//        }
+//    }
+//}
 
 // Breadcrumbs
 // -------------------------
@@ -79,7 +79,7 @@
     }
 }
 @media only screen and (max-width: 992px) {
-    .uw-sidebar { 
+    .uw-sidebar {
         .region {
             padding-top: 30px;
         }
@@ -89,11 +89,11 @@
 // Mobile menu
 // -------------------------
 nav#mobile-relative {
-    // hide the submenu dropdowns on the rendering of $primary_nav 
+    // hide the submenu dropdowns on the rendering of $primary_nav
     .navbar-nav {
         .dawgdrops-menu {
             display: none;
-            
+
             position: relative;
             -webkit-box-shadow: none;
             box-shadow: none;
@@ -108,7 +108,7 @@ nav#mobile-relative {
                     padding-left: 35px;
                     padding-top: 10;
                     padding-bottom:10;
-                }  
+                }
             }
         }
         .dawgdrops-item {
@@ -190,9 +190,9 @@ span.next-page {
 
 // form elements
 // -------------------------
-.radio input[type="radio"], 
-.radio-inline input[type="radio"], 
-.checkbox input[type="checkbox"], 
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
     left: 20px;
     z-index: 999;
