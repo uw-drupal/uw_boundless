@@ -11808,7 +11808,7 @@ ul.uw-sidebar-menu li.pagenav ul li.current_page_parent span,
 ul.uw-mobile-menu li.pagenav ul li.current_page_parent span,
 ul.uw-sidebar-menu > div ul li.current_page_parent span,
 ul.uw-mobile-menu > div ul li.current_page_parent span {
-  color: white;
+  color: #fff;
   border-bottom: none;
   border-left: 10px solid #b7a57a;
 }
@@ -11926,7 +11926,7 @@ ul.uw-sidebar-menu > div ul li.current_page_ancestor ul.children,
 ul.uw-mobile-menu > div ul li.current_page_ancestor ul.children {
   display: block;
   font-size: 17px;
-  background-color: white;
+  background-color: #fff;
 }
 ul.uw-sidebar-menu li.pagenav ul li.current_page_item ul.children li,
 ul.uw-mobile-menu li.pagenav ul li.current_page_item ul.children li,
@@ -11991,7 +11991,7 @@ ul.uw-sidebar-menu li.pagenav ul li.current_page_ancestor ul.children li span:fo
 ul.uw-mobile-menu li.pagenav ul li.current_page_ancestor ul.children li span:focus,
 ul.uw-sidebar-menu > div ul li.current_page_ancestor ul.children li span:focus,
 ul.uw-mobile-menu > div ul li.current_page_ancestor ul.children li span:focus {
-  background-color: #DDD;
+  background-color: #ddd;
 }
 ul.uw-sidebar-menu li.pagenav ul li.current_page_item ul.children li.current_page_item ul.children li,
 ul.uw-mobile-menu li.pagenav ul li.current_page_item ul.children li.current_page_item ul.children li,
@@ -12001,7 +12001,7 @@ ul.uw-sidebar-menu li.pagenav ul li.current_page_ancestor ul.children li.current
 ul.uw-mobile-menu li.pagenav ul li.current_page_ancestor ul.children li.current_page_item ul.children li,
 ul.uw-sidebar-menu > div ul li.current_page_ancestor ul.children li.current_page_item ul.children li,
 ul.uw-mobile-menu > div ul li.current_page_ancestor ul.children li.current_page_item ul.children li {
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 }
 ul.uw-sidebar-menu li.pagenav ul li.current_page_item ul.children li.current_page_item ul.children li:last-child,
 ul.uw-mobile-menu li.pagenav ul li.current_page_item ul.children li.current_page_item ul.children li:last-child,
@@ -12021,7 +12021,7 @@ ul.uw-sidebar-menu li.pagenav ul li.current_page_ancestor ul.children li.current
 ul.uw-mobile-menu li.pagenav ul li.current_page_ancestor ul.children li.current_page_item ul.children a,
 ul.uw-sidebar-menu > div ul li.current_page_ancestor ul.children li.current_page_item ul.children a,
 ul.uw-mobile-menu > div ul li.current_page_ancestor ul.children li.current_page_item ul.children a {
-  background-color: white;
+  background-color: #fff;
   color: #5A5A5A;
   border-left: none;
   padding-left: 25px;
@@ -12057,7 +12057,7 @@ ul.uw-sidebar-menu li.pagenav ul li.current_page_ancestor ul.children li.current
 ul.uw-mobile-menu li.pagenav ul li.current_page_ancestor ul.children li.current_page_item span a,
 ul.uw-sidebar-menu > div ul li.current_page_ancestor ul.children li.current_page_item span a,
 ul.uw-mobile-menu > div ul li.current_page_ancestor ul.children li.current_page_item span a {
-  color: white;
+  color: #fff;
   border-bottom: none;
 }
 ul.uw-sidebar-menu li.pagenav ul li:last-child a,
@@ -12104,9 +12104,17 @@ ul.uw-mobile-menu ul.children {
   -ms-transform: skewX(-25deg) skewY(0);
   transform: skew(-25deg, 0);
   left: 80px;
-  background-color: white;
+  background-color: #fff;
   bottom: 3px;
   height: 8px;
+}
+.uw-sidebar .region:not(:last-child) {
+  padding-bottom: 30px;
+}
+@media only screen and (max-width: 992px) {
+  .uw-sidebar .region {
+    padding-top: 30px;
+  }
 }
 body.home .uw-sidebar-menu {
   display: none;
@@ -15467,14 +15475,6 @@ pre.prettyprint ol.linenums li {
   top: 0px;
   font-size: 50px;
   line-height: 55px;
-}
-.uw-sidebar .region:not(:last-child) {
-  padding-bottom: 30px;
-}
-@media only screen and (max-width: 992px) {
-  .uw-sidebar .region {
-    padding-top: 30px;
-  }
 }
 nav#mobile-relative .navbar-nav .dawgdrops-menu {
   display: none;
