@@ -14,59 +14,12 @@ a.uw-btn {
   z-index: 1;
   line-height: 24px;
   font-size: 16px;
-  &.btn-sm {
-    padding: 8px 14px;
-    font-size: 14px;
-    font-weight: @bold;
-    border-radius:0;
-    -webkit-border-radius:0;
-    -moz-border-radius:0;
-    &:before {      
-      width: 43px;
-      right: -43px;
-    }
-    &:after {
-      width: 45px;
-      height: 45px;
-      top: 50%;
-      margin-top: -21px;
-      right: -43px;
-      background-size: 740px;
-      background-position: -32px -410px;
-    }
-    &.btn-play:after {
-      background-position: -31px -466px;
-    }
-    &.btn-external:after {
-      background-position: -126px -410px;
-    }
-    &.btn-plus:after {
-      background-position: -83px -465px;
-    }
-  }
+
   &:hover, &:focus {
     color: @darkgold;
     background-color: #f5f5f5;
     &:before {
       background-color: lighten(@purple, 10%);
-    }
-  }
-  &.btn-gold {
-    &:hover:before {
-      background-color: lighten(@darkgold, 10%);
-    }
-  }
-  &.btn-purple {
-    background-color: @purple;
-    color: white;
-    &:hover, &:focus {
-      background-color: darken(@purple, 5%);
-    }
-    &:before {
-      background-color: darken(@purple, 5%);
-    }
-    &:hover:before {
-      background-color: darken(@purple, 20%);
     }
   }
   &:after {
@@ -91,6 +44,59 @@ a.uw-btn {
     background-color: @purple;
     border-left: 5px solid rgba(0,0,0,.3);
   }
+
+  &.btn-sm {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: @bold;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    &:before {
+      width: 43px;
+      right: -43px;
+    }
+    &:after {
+      width: 45px;
+      height: 45px;
+      top: 50%;
+      margin-top: -21px;
+      right: -43px;
+      background-size: 740px;
+      background-position: -32px -410px;
+    }
+    &.btn-play:after {
+      background-position: -31px -466px;
+    }
+    &.btn-external:after {
+      background-position: -126px -410px;
+    }
+    &.btn-plus:after {
+      background-position: -83px -465px;
+    }
+  }
+
+  &.btn-gold {
+    &:hover:before {
+      background-color: lighten(@darkgold, 10%);
+    }
+  }
+
+  &.btn-purple {
+    background-color: @purple;
+    color: #fff;
+    &:hover,
+    &:focus {
+      background-color: darken(@purple, 5%);
+    }
+    &:before {
+      background-color: darken(@purple, 5%);
+    }
+    &:hover:before {
+      background-color: darken(@purple, 20%);
+    }
+  }
+
   &.btn-play:after {
     background-position: -36px -539px;
   }

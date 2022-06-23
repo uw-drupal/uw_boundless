@@ -2,128 +2,124 @@
  *  All styles for Boxes shortcode
  */
 
-
 .box-outer {
-    margin: -10px -20px 0px -20px;
-    .box {
-        overflow: hidden;
-        display: table;
-        table-layout: fixed;
-        width: 100%;
-        border-spacing: 20px;
-        margin: 0 0 40px;
-        &.box-centered {
-            text-align: center;
+  margin: -10px -20px 0px -20px;
+  .box {
+    overflow: hidden;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 20px;
+    margin: 0 0 40px;
+    &.box-centered {
+      text-align: center;
+    }
+    &.two {
+      .tile {
+        // width: 47%;
+        // margin-right: 3%;
+      }
+    }
+    &.three {
+      .tile {
+        // width: 31%;
+        // margin-right: 2%;
+        padding: 0 40px 20px;
+        div {
+          margin: 0 -41px;
         }
-        &.two {
-            .tile {
-                // width: 47%;
-                // margin-right: 3%;
-            }
+      }
+    }
+    &.four {
+      .tile {
+        // width: 24%;
+        // margin-right: 1%;
+        padding: 0 25px 10px;
+        div {
+          margin: 0 -26px;
         }
-        &.three {
-            .tile {
-                // width: 31%;
-                // margin-right: 2%;
-                padding: 0 40px 20px;
-                div {
-                    margin: 0 -41px;
-                }
-            }
-        }
-        &.four {
-            .tile {
-                // width: 24%;
-                // margin-right: 1%;
-                padding: 0 25px 10px;
-                div {
-                    margin: 0 -26px;
-                }
-            }
-        }
-        &.nopad {
-            .tile {
-                padding: 0;
-            }
-        }
-        &.noshadow {
-            .tile {
-                .box-shadow(none);
-                background-color: transparent;
-            }
-        }
+      }
+    }
+    &.nopad {
+      .tile {
+        padding: 0;
+      }
+    }
+    &.noshadow {
+      .tile {
+        .box-shadow(none);
+        background-color: transparent;
+      }
+    }
 
-        .tile {
-            // div {
-            //     margin: 0 -51px;
-            // }
-            display: table-cell;
-            // padding: 0 50px 20px;
-            // .box-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
-            // vertical-align: top;
-            .shortcode-blogroll-mini {
-                padding-left: 0px;
-                img {
-                    width: 70px;
-                    height: 70px;
-                    margin: 5px 25px 15px 0px;
-                }
-            }
-            // img {
-            //     width: 100%;
-            //     height: auto;
-            //     margin: 0 0 30px;
-            //     display: block;
-            // }
-            // hr {
-            //     margin-top: 20px;
-            //     margin-bottom: 15px;
-            // }
-            // &.empty {
-            //   .box-shadow(none);
-            // }
+    .tile {
+      // div {
+      //     margin: 0 -51px;
+      // }
+      display: table-cell;
+      // padding: 0 50px 20px;
+      // .box-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
+      // vertical-align: top;
+      .shortcode-blogroll-mini {
+        padding-left: 0px;
+        img {
+          width: 70px;
+          height: 70px;
+          margin: 5px 25px 15px 0px;
         }
+      }
+      // img {
+      //     width: 100%;
+      //     height: auto;
+      //     margin: 0 0 30px;
+      //     display: block;
+      // }
+      // hr {
+      //     margin-top: 20px;
+      //     margin-bottom: 15px;
+      // }
+      // &.empty {
+      //   .box-shadow(none);
+      // }
     }
-    .box-tan .tile {
-        background-color: #EEEADF;
-    }
+  }
+  .box-tan .tile {
+    background-color: #eeeadf;
+  }
 }
 
-
-
-
 /* Small Devices, Tablets */
-@media only screen and (max-width : 767px) {
-    .box-outer {
-        .box {
-            overflow: visible;
-            &.two,
-            &.one,
-            &.three,
-            &.four,
-            &.five,
-            &.six,
-            &.seven,
-            &.eight {
-                .tile {
-                    div {
-                        margin: 0 -21px;
-                    }
-                    display: block;
-                    width: 100%;
-                    margin: 0 0 30px 0;
-                    padding: 0 20px 20px;
-                }
-            }
-            &.five,
-            &.six,
-            &.seven,
-            &.eight {
-                .tile {
-                    width: 50%;
-                    display: inline-block;
-                }
-            }
+@media only screen and (max-width: @screen-xs-max) {
+  .box-outer {
+    .box {
+      overflow: visible;
+      &.two,
+      &.one,
+      &.three,
+      &.four,
+      &.five,
+      &.six,
+      &.seven,
+      &.eight {
+        .tile {
+          div {
+            margin: 0 -21px;
+          }
+          display: block;
+          width: 100%;
+          margin: 0 0 30px 0;
+          padding: 0 20px 20px;
         }
+      }
+      &.five,
+      &.six,
+      &.seven,
+      &.eight {
+        .tile {
+          width: 50%;
+          display: inline-block;
+        }
+      }
     }
+  }
 }
