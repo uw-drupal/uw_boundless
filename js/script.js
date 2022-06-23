@@ -41,7 +41,7 @@
         * Setup the keyboard navigation for the drop down menu
         */
         $('.dawgdrops-nav').dawgDrops();
-        
+
         $(".dawgdrops-item-menu-link").click(function(event) {
             // targets the dawgdrops-menu submenu in this dawgdrops-item
             $(this).next().next(".dawgdrops-menu").toggle(200, "swing", function() {
@@ -56,7 +56,7 @@
 
     });//document.ready
 
-    // Drupal behaviors 
+    // Drupal behaviors
     Drupal.behaviors.myBehavior = {
       // Attach behaviors that should be reloaded after AJAX calls.
       attach: function (context, settings) {
@@ -69,7 +69,7 @@
 
     // The window load event executes after the document ready event,
     // when the complete page is fully loaded.
-    jQuery(window).load(function() {
+    jQuery(window).on('load', function() {
 
         /**
          * reposition the alert banner in the DOM
