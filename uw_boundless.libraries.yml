@@ -22,3 +22,4 @@ framework:
     js/uw.mobile-menu.js: {}
     js/uw.mobile-sidebar-menu.js: {}
     js/script.js: {}
+    js/radios.js: {}
