@@ -1,8 +1,8 @@
 .uw-footer {
 	background: url('assets/images/footer.jpg') center bottom;
       .background-size(cover);
-      padding: 0 0 30px 0;
-      background-color:@purple;
+  padding: 0 0 30px 0;
+  background-color:@purple;
 	// background: url('assets/images/footer.jpg') repeat-x center bottom;
 	// padding: 0 0 120px 0;
 	// background-color: #432577;
@@ -31,7 +31,7 @@
     .transition(opacity .25s);
     &:hover,
     &:focus {
-      opacity: .6; 
+      opacity: .6;
     }
 	}
 	h4 {
@@ -100,13 +100,12 @@
 			list-style: none;
 			display: inline-block;
 			&:last-child a:after {
-					display: none;
+        display: none;
 			}
 			a {
 				color: #fff;
 				position: relative;
 				margin-right: 20px;
-
 				&:after {
 					content: "/";
 					opacity: .5;
@@ -114,13 +113,13 @@
 					right: -14px;
 					top: -2px;
 				}
-                &:focus, &:hover {
-                    color: @lightgold;
-                    text-decoration:none;
-                    &:after {
-                        color: #fff;
-                    }
-                }
+        &:focus, &:hover {
+          color: @lightgold;
+          text-decoration: none;
+          &:after {
+            color: #fff;
+          }
+        }
 			}
 		}
 	}
@@ -130,13 +129,10 @@
 		font-size: .8em;
 		margin-top: 15px;
 	}
-
-
 }
 
 //Mobile
-
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width: @screen-xs-max) {
 	.uw-footer {
 		.footer-wordmark {
 			background-position: 25px -338px;
@@ -148,23 +144,5 @@
 			}
 		}
 	}
-}
-
-
-
-@media only screen and (min-width : 993px) {
-//	.uw-footer:after {
-//		position: absolute;
-//		right: 0;
-//		bottom: 50px;
-//		content: "";
-//		width: 186px;
-//		height: 126px;
-//		background: url(assets/svg/uw-sprite.svg) no-repeat 0 0 transparent;
-//		background-size: 1200px;
-//		.footer-links {
-//			padding: 0 210px;
-//		}
-//	}
 }
 

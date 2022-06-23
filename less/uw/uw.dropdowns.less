@@ -8,10 +8,9 @@
 }
 
 // Resets
-
 #dawgdrops {
 	.box-shadow(0 1px 3px rgba(34, 25, 25, 0.4));
-    background-color: white;
+    background-color: #fff;
     position: relative;
     z-index: 5;
     display: block;
@@ -27,7 +26,7 @@
 		padding-left: 0;
 		padding-right: 0;
 		margin: 0;
-		list-style:none;
+		list-style: none;
 	}
 }
 
@@ -37,19 +36,18 @@
 }
 
 // Menu blocks
-
 .menu-block {
 	float: left;
-	width:230px;
+	width: 230px;
 }
 
 .dawgdrops-item {
 	&.dawgdrops-item {
 		a {
-		font-family: @font-family-headline;
-		font-weight: @bold;
-		font-size: 19px;
-		padding: 5px 10px 21px 15px;
+      font-family: @font-family-headline;
+      font-weight: @bold;
+      font-size: 19px;
+      padding: 5px 10px 21px 15px;
 			&:focus,
 			&:hover {
 				color: @darkgold;
@@ -79,7 +77,6 @@
 		color: @gray;
 	}
 	a {
-
 		color: @purple;
 		-webkit-font-smoothing: antialiased;
 		font-size: 22px;
@@ -125,14 +122,16 @@
 	&:hover .dawgdrops-menu {
 		display: block;
 	}
-	&:last-child a:after { display: none; }
+	&:last-child a:after {
+    display: none;
+  }
 }
 
 .dawgdrops-menu {
 	top: 66px;
 	left: 0;
 	position: absolute;
-	display:none;
+	display: none;
 	min-width: 260px;
 	// visibility: hidden;
 	border: 0;
@@ -142,13 +141,13 @@
 	background: #fff;
 	overflow: hidden;
 	z-index:1;
-    -webkit-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
-    -moz-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
-    box-shadow: 1px 1px 8px rgba(0,0,0,.5);
+  -webkit-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
+     -moz-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
+          box-shadow: 1px 1px 8px rgba(0,0,0,.5);
 
 	li {
-		float:left;
-		clear:left;
+		float: left;
+		clear: left;
 		border-bottom: thin solid #eee;
 		a {
 			color: #707070;
@@ -157,11 +156,9 @@
 			text-align: left;
 			padding: 0 10px;
 			&:after {
-					background:none;
+        background: none;
 			}
-
 		}
-
 		&:first-child {
 			margin-top: 5px;
 		}
@@ -170,19 +167,17 @@
 			border: none;
 		}
 	}
-
 }
 
 
 /* Small Devices, Tablets */
-
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width: 767px) {
 	#dawgdrops {
  		display: none;
 	}
 }
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
 	.dawgdrops-inner {
 		padding: 20px 0;
 	}
@@ -204,6 +199,7 @@
 		}
 	}
 }
+
 @media only screen and (min-width : 993px) and (max-width : 1200px) {
 	.dawgdrops-item.dawgdrops-item a {
 		font-size: 18px;
@@ -212,45 +208,44 @@
 }
 
 // Special MyUW button
-
 @media only screen and (min-width : 768px) {
 	nav#dawgdrops .btn-myuw a {
-  		font-size: 18px;
-  		text-transform: none;
-  		color: #FFF;
-  		font-weight: @bold;
-  		position: absolute;
-  		top: 65px;
-  		right: 0;
-  		padding: 15px 20px 20px 100px;
-  		z-index: -1;
-  		overflow: hidden;
-	    &:after {
-  			content: "";
-  			display: block;
-  			position: absolute;
-  			width: 40px;
-  			height: 33px;
-  			left: 58px;
-  			top: 16px;
-	        background: url(assets/svg/person.svg) no-repeat 0 0;
-	    }
-	    &:hover {
-	      color: black;
-	    }
-	    &:before {
-	        content: "";
-	        display: block;
-	        position: absolute;
-	        top: 17px;
-	        width: 450px;
-	        height: 60px;
-	        left: 33px;
-	        top: -1px;
-	        background-color: @darkgold;
-	        .skew(-15deg,0);
-	        z-index: -1;
-	        box-shadow: 0px 1px 3px rgba(0,0,0,.4);
-	    }
+    font-size: 18px;
+    text-transform: none;
+    color: #fff;
+    font-weight: @bold;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    padding: 15px 20px 20px 100px;
+    z-index: -1;
+    overflow: hidden;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 40px;
+      height: 33px;
+      left: 58px;
+      top: 16px;
+      background: url(assets/svg/person.svg) no-repeat 0 0;
+    }
+    &:hover {
+      color: #ccc;
+    }
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 17px;
+      width: 450px;
+      height: 60px;
+      left: 33px;
+      top: -1px;
+      background-color: @darkgold;
+      .skew(-15deg,0);
+      z-index: -1;
+      box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+    }
 	}
 }
