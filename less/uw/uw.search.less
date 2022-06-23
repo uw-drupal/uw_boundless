@@ -1,18 +1,17 @@
 body.search-open #uwsearcharea {
+  -webkit-transform: matrix(1,0,0,1,0,0);
+     -moz-transform: matrix(1,0,0,1,0,0);
+      -ms-transform: matrix(1,0,0,1,0,0);
+       -o-transform: matrix(1,0,0,1,0,0);
+          transform: matrix(1,0,0,1,0,0);
+
+  .uw-search-wrapper {
     -webkit-transform: matrix(1,0,0,1,0,0);
        -moz-transform: matrix(1,0,0,1,0,0);
         -ms-transform: matrix(1,0,0,1,0,0);
          -o-transform: matrix(1,0,0,1,0,0);
             transform: matrix(1,0,0,1,0,0);
-
-    .uw-search-wrapper
-    {
-        -webkit-transform: matrix(1,0,0,1,0,0);
-           -moz-transform: matrix(1,0,0,1,0,0);
-            -ms-transform: matrix(1,0,0,1,0,0);
-             -o-transform: matrix(1,0,0,1,0,0);
-                transform: matrix(1,0,0,1,0,0);
-    }
+  }
 }
 
 #uwsearcharea {
@@ -22,73 +21,63 @@ body.search-open #uwsearcharea {
        -o-transform: matrix(1,0,0,1,0,-100);
           transform: matrix(1,0,0,1,0,-100);
   transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
   .uw-search-wrapper {
     -webkit-transform: matrix(1,0,0,1,0,-20);
        -moz-transform: matrix(1,0,0,1,0,-20);
         -ms-transform: matrix(1,0,0,1,0,-20);
          -o-transform: matrix(1,0,0,1,0,-20);
             transform: matrix(1,0,0,1,0,-20);
-    // transition: top 2s cubic-bezier(0.165, 0.84, 0.44, 1);
-    // transition: all 1s;
     transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
-  .uw-results
-  {
-    position:relative;
-    top:162px;
+
+  .uw-results {
+    position: relative;
+    top: 162px;
   }
 }
 
-.uw-search-bar-container
-{
-  background-color: #FFF;
+.uw-search-bar-container {
+  background-color: #fff;
 
   .radio.checked,
-  .radio.checked .second-icon
-  {
+  .radio.checked .second-icon {
     color: @purple;
   }
   .radio .icons {
-    color: #C7C7C7;
+    color: #c7c7c7;
   }
 
   .container.no-height {
-    position:absolute;
+    position: absolute;
     width: 100%;
     padding: 40px 0 50px;
   }
-  .uw-search-wrapper
-  {
-    position:relative;
-    width:890px;
+
+  .uw-search-wrapper {
+    position: relative;
+    width: 890px;
     margin-top: 30px;
   }
 
-  form
-  {
-
-    float:left;
-    width:calc(~"100% - 240px");
-    outline: 2px solid #ADADAD;
-
-    input
-    {
+  form {
+    float: left;
+    width: calc(~"100% - 240px");
+    outline: 2px solid #adadad;
+    input {
       width: 100%;
       height: 43px;
       border: none;
       font-size: 20px;
       outline: none;
-      background-color: #F1F1F1;
+      background-color: #f1f1f1;
     }
-    
     .form-group  {
       margin-bottom: auto;
     }
   }
 
-  div.labels
-  {
-
+  div.labels {
     float: left;
     display: block;
     margin-left: 40px;
@@ -109,12 +98,11 @@ body.search-open #uwsearcharea {
     margin-left: 30px;
   }
 
-  input.search
-  {
+  input.search {
     border: none;
     font-size: 0px;
-    float:left;
-    display:block;
+    float: left;
+    display: block;
     height: 54px;
     outline: 2px solid #808080;
     background: url(assets/svg/search.svg) no-repeat center center gray;
@@ -124,21 +112,20 @@ body.search-open #uwsearcharea {
     -o-background-size: 22px;
     background-size: 22px;
     padding: 0px 60px 0px 0px;
+    &:focus {
+      zoom: 1.2;
+      bottom: 5px;
+    }
   }
 
-  input.search:focus {
-    zoom: 1.2;
-    bottom: 5px;
-  }
-
-  .uw-results
-  {
+  .uw-results {
     width: 890px;
     margin: auto;
+
     .result {
       z-index: 1;
       width: 690px;
-      border-bottom: 1px solid #E4E4E4;
+      border-bottom: 1px solid #e4e4e4;
       display: block;
       float: left;
       margin-top: -10px;
@@ -207,18 +194,18 @@ body.search-open #uwsearcharea {
     }
 
     .information {
-      float:left;
-      width:100%;
-      color: #4E4E4E;
+      float: left;
+      width: 100%;
+      color: #4e4e4e;
       p {
-        color: #4E4E4E;
+        color: #4e4e4e;
       }
       span {
-        float:left;
-        width:100%;
+        float: left;
+        width: 100%;
       }
       a {
-        color: #4E4E4E;
+        color: #4e4e4e;
       }
     }
 
@@ -228,46 +215,42 @@ body.search-open #uwsearcharea {
       font-size: 15px;
       color: #525252;
     }
-
   }
-
 }
 
 body {
+  #uw-container {
+    transition: transform .3s;
+  }
+  &.search-open {
     #uw-container {
-        transition: transform .3s;
+      -webkit-transform: matrix(1,0,0,1,0,192);
+         -moz-transform: matrix(1,0,0,1,0,192);
+          -ms-transform: matrix(1,0,0,1,0,192);
+           -o-transform: matrix(1,0,0,1,0,192);
+              transform: matrix(1,0,0,1,0,192);
     }
-    &.search-open {
-        #uw-container {
-            -webkit-transform: matrix(1,0,0,1,0,192);
-               -moz-transform: matrix(1,0,0,1,0,192);
-                -ms-transform: matrix(1,0,0,1,0,192);
-                 -o-transform: matrix(1,0,0,1,0,192);
-                    transform: matrix(1,0,0,1,0,192);
-        }
-    }
+  }
 }
 
-@media only screen and (min-width : 768px) and (max-width : 991px) {
-
-    #uwsearcharea {
-        .center-block {
-            width: 750px;
-        }
+@media only screen and (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  #uwsearcharea {
+    .center-block {
+      width: 750px;
     }
+  }
 }
 
 // Mobile
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : @screen-xs-max) {
 
   #uwsearcharea {
-    .uw-results{
-        top: 126px;
+    .uw-results {
+      top: 126px;
     }
   }
 
   .uw-search-bar-container {
-   // margin-top: -176px;
     padding: 0px;
     form {
       width: 100%;
@@ -289,7 +272,6 @@ body {
         margin-left: 10px;
         margin-bottom: 20px;
       }
-
     }
     select {
       width: 100%;
@@ -311,13 +293,13 @@ body {
       }
     }
   }
-    body.search-open {
-        #uw-container {
-            -webkit-transform: matrix(1,0,0,1,0,80);
-               -moz-transform: matrix(1,0,0,1,0,80);
-                -ms-transform: matrix(1,0,0,1,0,80);
-                 -o-transform: matrix(1,0,0,1,0,80);
-                    transform: matrix(1,0,0,1,0,80);
-        }
+  body.search-open {
+    #uw-container {
+      -webkit-transform: matrix(1,0,0,1,0,80);
+         -moz-transform: matrix(1,0,0,1,0,80);
+          -ms-transform: matrix(1,0,0,1,0,80);
+           -o-transform: matrix(1,0,0,1,0,80);
+              transform: matrix(1,0,0,1,0,80);
     }
+  }
 }

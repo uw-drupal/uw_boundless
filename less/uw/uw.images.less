@@ -7,8 +7,8 @@ img {
 
 .alignleft {
 	margin: 20px 50px 50px 0;
+  float: left;
 	&.size-large {
-
 		// width:305px !important;
 		height: auto;
 	}
@@ -23,23 +23,21 @@ img {
 
 	}
 }
-.alignleft {
-	float: left;
-}
+
 .alignright {
 	float: right;
 	margin: 20px 20px 50px 60px;
 }
+
 .alignnone {
 	margin: 20px 0 50px;
 }
 
 .textwidget {
-    .alignleft {
-        margin-bottom: 20px;
-    }
+  .alignleft {
+    margin-bottom: 20px;
+  }
 }
-
 
 .wp-caption-text {
 	font-size: 15px;
@@ -55,11 +53,9 @@ img {
 
 
 // Image gallery hide caption
-
 .gallery-item .wp-caption-text {
 	display: none;
 }
-
 
 // Attachment page (image page)
 
@@ -70,12 +66,11 @@ img {
 	}
 }
 
-
-
 @media only screen and (max-width : 1400px) {
 
 	.alignleft {
 		margin: 20px 50px 50px 0px;
+    float: left;
 		&.size-large {
 
 		}
@@ -86,21 +81,18 @@ img {
 
 		}
 	}
-	.alignleft {
-		float: left;
-	}
+
 	.alignright {
 
 	}
+
 	.alignnone {
 
 	}
-
 }
 
 
 // Overlay
-
 .uw-overlay {
 	position: fixed;
 	top: 0;
@@ -112,25 +104,27 @@ img {
 	background-color: rgba(255,255,255,.95);
 
 	div.wrapper {
-	position:absolute;
-	top: 50%;
-	left : 50%;
+    position:absolute;
+    top: 50%;
+    left : 50%;
 		p {
 			font-size: 15px;
 			line-height: 22px;
 			margin-top: 15px;
 		}
 		img {
-			border: 1px solid #ECECEC;
+			border: 1px solid #ececec;
 		}
 	}
 }
+
 @media only screen and (max-width : 1024px) {
 	.uw-overlay {
 		cursor: pointer;
 	}
 }
-@media only screen and (max-width : 767px) {
+
+@media only screen and (max-width : @screen-xs-max) {
 	.uw-overlay {
 		cursor: pointer;
 	}
@@ -142,5 +136,4 @@ img {
 		width: 100% !important;
 		height: auto;
 	}
-
 }

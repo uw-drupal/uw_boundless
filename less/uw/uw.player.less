@@ -5,19 +5,13 @@
 // @controls-color: mix(@brand-primary, black, 75%);
 //
 .uw-player {
-  margin-bottom: 80px  ;
+  margin-bottom: 80px;
 
   .video-js {
-
-    background-color: transparent;
     // Otherwise you won't see controls in Fullscreen mode
-
-    // margin: 20px 10px 80px 10px;
+    background-color: transparent;
     position: relative;
     padding: 0;
-    // font-size: 10px;
-    // vertical-align: middle;
-
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility:hidden;
     -ms-backface-visibility:hidden;
@@ -88,13 +82,12 @@
         // display:block;
         position: absolute;
         left: 10px;
-        height:100%;
+        height: 100%;
         width: 50px;
         background: url(assets/svg/uw-sprite.svg) no-repeat -350px -100px;
-        text-indent:-1000px;
+        text-indent: -1000px;
         .transition( all .25s )
       }
-
 
       // Progress Control
       .vjs-progress-control {
@@ -109,9 +102,7 @@
         border-radius: 32px;
 
         .vjs-progress-holder {
-
           height:100%;
-
           .vjs-load-progress {
             background: white;
             height: 100%;
@@ -144,21 +135,19 @@
               background-color: lighten( @brightgold, 10%);
             }
           }
-
         }
-
       }
 
       .vjs-fullscreen-control {
-          position:absolute;
-          top:0;
-          right:0;
-          width:50px;
-          height:100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 100%;
       }
 
       .vjs-live-controls {
-        display:none;
+        display: none;
       }
 
       .vjs-volume-control {
@@ -180,7 +169,6 @@
         span {
           display:none;
         }
-
       }
 
       // Duration
@@ -213,12 +201,9 @@
         visibility: visible !important;
         opacity: 1 !important;
       }
-
     }
 
-  // Video player control general style
-
-
+    // Video player control general style
     .vjs-time-controls {
       position: absolute;
       height: 20px;
@@ -227,8 +212,6 @@
       font: 300 13px @font-family-base;
     }
 
-
-
     &:-webkit-full-screen {
       width: 100% !important;
       height: 100% !important;
@@ -236,9 +219,6 @@
     &:-moz-full-screen {
       position: absolute;
     }
-
-
-
   }
 
   body.vjs-full-window {
@@ -247,7 +227,6 @@
     height: 100%;
     overflow-y: auto;
   }
-
 }
 
 //
