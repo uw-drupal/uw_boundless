@@ -3,44 +3,23 @@
 //## Font, line-height for body text, headings and more
 
 // Color swatches
-@purple:    #4b2e83;
-@gray:      #c9c9c9;
-@darkgray:    #5A5A5A;
-
-@link:      #0074BB;
-@brightgold:  #ffd800;
-@ultralightgold:#e8e3d3;
-@lightgold:   #b7a57a;
-@darkgold:    #85754d;
+@purple:         #4b2e83;
+@gray:           #c9c9c9;
+@darkgray:       #5a5a5a;
+@brightgold:     #ffd800;
+@ultralightgold: #e8e3d3;
+@lightgold:      #b7a57a;
+@darkgold:       #85754d;
 
 
 // Fonts
-@font-family-base:          "Open Sans", sans-serif;
-@font-family-headline:      "Encode Sans Compressed", sans-serif;
-@headline:                  "Encode Sans Normal", sans-serif;
-@uni:                       "Uni sans", sans-serif;
+@font-family-base:      "Open Sans", sans-serif;
+@font-family-headline:  "Encode Sans Compressed", sans-serif;
+@headings-font-family:  @font-family-headline;
+@headline:              "Encode Sans Normal", sans-serif;
+@uni:                   "Uni sans", sans-serif;
 
-// @font-family-monospace:  Monaco, Menlo, Consolas, "Courier New", monospace;
-@font-size-base:    17px;
-@font-weight-base:  normal;
-@font-color-base:   #3D3D3D;
-//** Global text color on `<body>`.
-@text-color:        #3D3D3D;
-
-
-@headings-font-family:    @font-family-headline;
-
-
-@font-size-h1:              floor(@font-size-base * 2.222); // ~62px
-@font-size-h2:              ceil(@font-size-base * 1.6); // ~52px
-@font-size-h3:              ceil(@font-size-base * 1.35); // ~40px
-@font-size-h4:              ceil(@font-size-base * 1.2); // ~29px
-@font-size-h5:              floor(@font-size-base * 1.111); // ~28px
-@font-size-h6:              ceil(@font-size-base * 1.111); // ~20px
-
-@headings-line-height:      1.3;
-
-
+// ## Local fonts
 @local-font-path:               "assets/fonts/";
 @local-font-name-normal-black:  "EncodeSans-Normal-Black";
 @local-font-name-thin:          "encodesanscompressed-100-thin-webfont";
@@ -55,15 +34,24 @@
 @local-font-name-icon:          "icomoon";
 @uni-sans:                      "uni_sans_thin-webfont";
 
+// ## Font styles
+@font-size-base:    17px;
+@font-weight-base:  normal;
+@font-color-base:   #3d3d3d;
+//** Global text color on `<body>`.
+@text-color:        @font-color-base;
 
+// ## Font sizes
+@font-size-h1: floor(@font-size-base * 2.222); // ~62px
+@font-size-h2: ceil(@font-size-base * 1.6); // ~52px
+@font-size-h3: ceil(@font-size-base * 1.35); // ~40px
+@font-size-h4: ceil(@font-size-base * 1.2); // ~29px
+@font-size-h5: floor(@font-size-base * 1.111); // ~28px
+@font-size-h6: ceil(@font-size-base * 1.111); // ~20px
 
-// Legacy weights
-@ultra-font-weight:     900;
-@headings-font-weight:  800;
-@body-font-weight:      300;
+@headings-line-height:      1.3;
 
-
-// Readjusted for simplicity (the old ones still work)
+// ## Font weights
 @ultra:           900;
 @bold:            800;
 @heavy:           700;
@@ -71,6 +59,10 @@
 @light:           400;
 @body:            300;
 
+// ## Legacy font weights
+@ultra-font-weight:     900;
+@headings-font-weight:  800;
+@body-font-weight:      300;
 
 // Iconography
 // This font needs updating. Reverted to default bootstrap glyphicon font as
@@ -86,12 +78,14 @@
 @brand-primary:             @purple;
 @brand-secondary:           @purple;
 
-//** Global textual link color.
-@link-color:                @link;
-@link-hover-color:          @gray;
+// Elements
+// ## Links
+@link:             #0074bb;
+@link-color:       @link;
+@link-hover-color: @gray;
 
-//** Background color used for `.table-striped`.
-@table-bg-accent:              #e2e2e2;
-
-//** Border color for table and cell borders.
-@table-border-color:            #ababab;
+// ## Tables
+// .table-striped accent
+@table-bg-accent:    #e2e2e2;
+// Border color for table and cell borders.
+@table-border-color: #ababab;
