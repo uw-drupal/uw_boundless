@@ -171,36 +171,36 @@
 
 
 /* Small Devices, Tablets */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: @screen-xs-max) {
 	#dawgdrops {
  		display: none;
 	}
 }
 /* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-	.dawgdrops-inner {
-		padding: 20px 0;
-	}
-	.dawgdrops-item.dawgdrops-item {
-		&:hover .dawgdrops-menu {
-			display: none;
-		}
-		a {
-			padding: 4px 10px 10px 15px;
-			&.dropdown-toggle {
-				padding-right: 10px;
-			}
-			&:before {
-				display: none;
-			}
-			&:after {
-				top: 13px;
-			}
-		}
-	}
-}
+//@media only screen and (max-width: @screen-sm-max) {
+//	.dawgdrops-inner {
+//		padding: 20px 0;
+//	}
+//	.dawgdrops-item.dawgdrops-item {
+//		&:hover .dawgdrops-menu {
+//			display: none;
+//		}
+//		a {
+//			padding: 4px 10px 10px 15px;
+//			&.dropdown-toggle {
+//				padding-right: 10px;
+//			}
+//			&:before {
+//				display: none;
+//			}
+//			&:after {
+//				top: 13px;
+//			}
+//		}
+//	}
+//}
 
-@media only screen and (min-width : 993px) and (max-width : 1200px) {
+@media only screen and (min-width: @screen-md-min) and (max-width: @screen-md-max) {
 	.dawgdrops-item.dawgdrops-item a {
 		font-size: 18px;
 		padding-bottom: 23px;

@@ -10703,27 +10703,7 @@ table th[class*="col-"] {
   }
 }
 /* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-  .dawgdrops-inner {
-    padding: 20px 0;
-  }
-  .dawgdrops-item.dawgdrops-item:hover .dawgdrops-menu {
-    display: none;
-  }
-  .dawgdrops-item.dawgdrops-item a {
-    padding: 4px 10px 10px 15px;
-  }
-  .dawgdrops-item.dawgdrops-item a.dropdown-toggle {
-    padding-right: 10px;
-  }
-  .dawgdrops-item.dawgdrops-item a:before {
-    display: none;
-  }
-  .dawgdrops-item.dawgdrops-item a:after {
-    top: 13px;
-  }
-}
-@media only screen and (min-width: 993px) and (max-width: 1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .dawgdrops-item.dawgdrops-item a {
     font-size: 18px;
     padding-bottom: 23px;
