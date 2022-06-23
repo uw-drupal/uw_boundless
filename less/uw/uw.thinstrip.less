@@ -10,13 +10,11 @@
 	.box-shadow(0 2px 5px rgba(0,0,0,.3));
 
 	// Container
-
 	.container {
 		position: relative;
 	}
 
 	// Patch
-
 	.uw-patch {
 		display: block;
 		text-indent: -9999px;
@@ -28,18 +26,17 @@
 		left: 0;
 		z-index: 1;
     &:focus,
-    &:hover{
+    &:hover {
       background: url(assets/svg/uw-sprite-focus.svg) no-repeat 0 0 transparent;
     }
     &:before {
-      //to preload and cache hover svg
+      // to preload and cache hover svg
       content: url(assets/svg/uw-sprite-focus.svg);
       display: none;
     }
 	}
 
 	// Wordmark
-
 	.uw-wordmark {
 		display: block;
 		position: absolute;
@@ -61,7 +58,6 @@
   }
 
 	// Audience
-
 	ul.uw-thin-links {
 		margin: 0;
 		position: relative;
@@ -75,7 +71,8 @@
 			&:last-child a:after {
 				display: none;
 			}
-			a, button {
+			a,
+      button {
 				font-family: @font-family-headline;
 				color: #fff;
 				font-size: 17px;
@@ -96,101 +93,101 @@
 				&:hover,
 				&:focus {
 					color: @lightgold;
-                    text-decoration: underline;
+          text-decoration: underline;
 				}
 			}
-        }
     }
-    button{
-        border: none;
-        display: inline-block;
-        vertical-align: top;
-        font-family: @font-family-headline;
-        font-size: 17px;
-        font-weight: @medium;
-        position: relative;
-        z-index: 1;
-        &.uw-search {
-            text-indent: -99999px;
-            padding-right: 78px;
-            border: 2px solid white;
-            background-color: transparent;
-            .border-radius(100%);
-            width: 45px;
-            padding: 0;
-            height: 45px;
-            margin: 0 15px;
-            overflow: hidden;
-            &:hover, &:focus {
-                border: 2px solid @lightgold;
-                background-color: darken(@purple, 5%);
-                .transition(all .1s linear)
-            }
-            &:after {
-                display: none;
-            }
-            svg {
-                position: absolute;
-                top: 12px;
-                left: 11px;
-            }
-        }
-        &.uw-quicklinks {
-            div {
-                position: absolute;
-                top: -22px;
-                right: 0px;
-                    width: 160px;
-                    height: 68px;
-                    margin: 0px;
-                }
-                height: 45px;
-                padding-left: 38px;
-                margin-left: -15px;
-                margin-right: 0;
-                padding-right: 54px;
-                color: #404040;
-                background: url(assets/svg/uw-sprite.svg) no-repeat -451px -235px;
-                overflow: hidden;
-                &:hover,
-                &:focus {
-                	color: #FFF;
-					text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.54);
-					text-decoration: underline;
-					outline: none;
-					.transition(all 0.2s ease);
-                    svg {
-                    	right: 15px;
-                    }
-                }
-                &:after {
-                    display: none;
-                }
-                //&:before {
-                //	position: absolute;
-                //	top: 1px;
-                //	right: -7px;
-                //	content: "";
-                //	width: 51px;
-                //	height: 45px;
-                //	display: block;
-                //	transform: skewX(-14deg);
-                //	background: linear-gradient(to right,#2e2e2e 0,#686868 4%,#686868 100%);
-                //}
-                svg {
-                    position: absolute;
-                    right: 11px;
-                    top: 16px;
-                    .transition(right 0.2s ease);
-                }
-
-            }
-        }
+  }
+  button {
+    border: none;
+    display: inline-block;
+    vertical-align: top;
+    font-family: @font-family-headline;
+    font-size: 17px;
+    font-weight: @medium;
+    position: relative;
+    z-index: 1;
+    &.uw-search {
+      text-indent: -99999px;
+      padding-right: 78px;
+      border: 2px solid white;
+      background-color: transparent;
+      .border-radius(100%);
+      width: 45px;
+      padding: 0;
+      height: 45px;
+      margin: 0 15px;
+      overflow: hidden;
+      &:hover,
+      &:focus {
+        border: 2px solid @lightgold;
+        background-color: darken(@purple, 5%);
+        .transition(all .1s linear)
+      }
+      &:after {
+        display: none;
+      }
+      svg {
+        position: absolute;
+        top: 12px;
+        left: 11px;
+      }
     }
-    // Active state of search button
-
-    .search-open .uw-thinstrip button.uw-search {
+    &.uw-quicklinks {
+      height: 45px;
+      padding-left: 38px;
+      margin-left: -15px;
+      margin-right: 0;
+      padding-right: 54px;
+      color: #404040;
+      background: url(assets/svg/uw-sprite.svg) no-repeat -451px -235px;
+      overflow: hidden;
+      div {
+        position: absolute;
+        top: -22px;
+        right: 0px;
+        width: 160px;
+        height: 68px;
+        margin: 0px;
+      }
+      &:hover,
+      &:focus {
+        color: #fff;
+        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.54);
+        text-decoration: underline;
+        outline: none;
+        .transition(all 0.2s ease);
         svg {
+          right: 15px;
+        }
+      }
+      &:after {
+          display: none;
+      }
+      //&:before {
+      //	position: absolute;
+      //	top: 1px;
+      //	right: -7px;
+      //	content: "";
+      //	width: 51px;
+      //	height: 45px;
+      //	display: block;
+      //	transform: skewX(-14deg);
+      //	background: linear-gradient(to right,#2e2e2e 0,#686868 4%,#686868 100%);
+      //}
+      svg {
+        position: absolute;
+        right: 11px;
+        top: 16px;
+        .transition(right 0.2s ease);
+      }
+    }
+  }
+}
+
+// Active state of search button
+.search-open .uw-thinstrip button.uw-search {
+  svg {
 		top: -20px;
 		left: 10px;
 	}
@@ -204,7 +201,6 @@
 		top: -37px;
 	}
 }
-
 
 #uw-container {
 	&.open .uw-quicklinks a {
@@ -224,11 +220,11 @@
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : @screen-xs-max) {
 
 	#uw-container {
 		&.open .uw-quicklinks button {
-			color: black;
+			color: #ccc;
 			background-position: -492px -317px;
 			&:after {
 				background-position: -294px -52px;
@@ -236,7 +232,6 @@
 			}
 		}
 	}
-
 
 	.uw-thinstrip {
 		padding: 0;
@@ -252,8 +247,7 @@
 			background-size: 470px;
       .transition(all 0s);
       &:hover,
-      &:focus
-      {
+      &:focus {
         background-size: 470px;
       }
 		}
@@ -269,77 +263,79 @@
 			background-size: 397px;
 		}
     button {
-        &.uw-quicklinks {
-            background-position: -484px -247px;
-            background-size: 900px;
-            text-indent: -99999px;
-            overflow: hidden;
-            padding: 20px 9px 0 0;
-            width: 50px;
-            top: 0;
-            right: 0;
-            position: absolute;
-            &:after {
-                background-position: -253px 4px;
-                background-size: 780px;
-                top: 11px;
-                right: 9px;
-            }
+      &.uw-quicklinks {
+        background-position: -484px -247px;
+        background-size: 900px;
+        text-indent: -99999px;
+        overflow: hidden;
+        padding: 20px 9px 0 0;
+        width: 50px;
+        top: 0;
+        right: 0;
+        position: absolute;
+        &:after {
+          background-position: -253px 4px;
+          background-size: 780px;
+          top: 11px;
+          right: 9px;
         }
-        &.uw-search{
-            top: 0;
-            right: 36px;
-            height: 47px;
-            width: 47px;
-            margin-right: 10px;
-            border: none;
-            overflow: hidden;
-            position: absolute;
-            &:hover {
-                background-color: transparent;
-                border: none;
-            }
-            svg {
-                top: 14px;
-                left: 14px;
-            }
+      }
+      &.uw-search{
+        top: 0;
+        right: 36px;
+        height: 47px;
+        width: 47px;
+        margin-right: 10px;
+        border: none;
+        overflow: hidden;
+        position: absolute;
+        &:hover {
+          background-color: transparent;
+          border: none;
         }
+        svg {
+          top: 14px;
+          left: 14px;
+        }
+      }
     }
 	}
-    .search-open {
-        .uw-thinstrip {
-            button.uw-search {
-                svg {
-                    top: -17px;
-                    left: 14px;
-                }
-            }
+
+  .search-open {
+    .uw-thinstrip {
+      button.uw-search {
+        svg {
+          top: -17px;
+          left: 14px;
         }
+      }
     }
+  }
 }
 
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : @screen-xs-max) {
 	.uw-thinstrip {
 		ul.uw-thin-links {
 			li {
-			    display: none;
-			    &.uw-search, &.uw-quicklinks {
-			    	display: block;
-			    }
-	                &.uw-quicklinks {
-	                	button:before {
-							background: none;
-						}
-	                	div {
-	                    	display: none;
-	                	}
+        display: none;
+        &.uw-search,
+        &.uw-quicklinks {
+          display: block;
+        }
+	      &.uw-quicklinks {
+	        button:before {
+            background: none;
+          }
+          div {
+              display: none;
+          }
 				}
 			}
 		}
 	}
-
 }
-@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+@media only screen and (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
 	.uw-thinstrip {
 		height: 140px;
 		.uw-patch {
@@ -347,21 +343,18 @@
 		}
 		.uw-wordmark {
 			//top: -60px;
-            z-index: 2;
+      z-index: 2;
 		}
     div.align-right {
-        position: relative;
-        #search-quicklinks {
-            position:absolute;
-            top:0px;
-            right:0px;
-            min-width: 233px;
-        }
+      position: relative;
+      #search-quicklinks {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        min-width: 233px;
+      }
     }
 		ul.uw-thin-links {
-			li {
-				//float: none;
-			}
 			&:before {
 				position: absolute;
 				top: 0;
@@ -370,10 +363,11 @@
 				content: "";
 				background-color: @purple;
 			}
-			li a,li button {
+			li a,
+      li button {
 				font-size: 16px;
 				padding: 10px 25px 10px 0;
-				color: white;
+				color: #fff;
 			}
 		}
 		li {
@@ -393,13 +387,14 @@
 		}
 	}
 }
-@media only screen and (min-width : 992px) and (max-width : 1200px) {
+
+@media only screen and (min-width : @screen-md-min) and (max-width : @screen-lg-min) {
 	.uw-thinstrip {
-		ul.uw-thin-links li{
-            a, button {
-			    font-size: 16px;
-			    padding: 10px 25px 10px 0;
-            }
+		ul.uw-thin-links li {
+      a, button {
+        font-size: 16px;
+        padding: 10px 25px 10px 0;
+      }
 		}
 		.uw-wordmark {
       left: 100px;

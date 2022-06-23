@@ -1,4 +1,4 @@
-ul.uw-select {  
+ul.uw-select {
   position: absolute;
   list-style: none;
   padding: 0;
@@ -6,35 +6,31 @@ ul.uw-select {
   overflow: hidden;
   padding: 0 0 0 0;
   z-index: 1;
+
   &.open {
-     background-color: #F7F7F7;
-     outline: 1px solid #F7F7F7;
-     overflow: scroll;
-     height: 355px;
-     outline: 1px solid #C4C4C4;
-     z-index:9999;
-     li {
-       opacity: 1;
-
-       &.inactive a {
-         display:block;
-       }
-
+    background-color: #f7f7f7;
+    outline: 1px solid #f7f7f7;
+    overflow: scroll;
+    height: 355px;
+    outline: 1px solid #C4C4C4;
+    z-index:9999;
+    li {
+     opacity: 1;
+     &.inactive a {
+       display:block;
      }
-   }
+    }
+  }
 
   li {
     cursor: pointer;
     color: #565656;
-    font-weight: @bold;
-    transition: padding-left 0.5s;
     opacity: 0;
     transition: opacity .5s;
     position: relative;
     font-size: 16px;
     font-weight: normal;
     a {
-      padding: 0;
       color: #5a5a5a;
       display: block;
       line-height: 23px;
@@ -47,21 +43,13 @@ ul.uw-select {
         left: 20px;
         height: 1px;
         width: 40px;
-        background-color: #D1D1D1;
+        background-color: #d1d1d1;
       }
       &:hover,
-      &:focus {   
-        background-color: #DFDFDF;
+      &:focus {
+        background-color: #dfdfdf;
         border-bottom: none;
         color: @purple;
-      }
-    }
-    &.active {
-      a:after {
-        display: none;
-      }
-      &:hover {   
-        background-color: transparent;
       }
     }
 
@@ -69,34 +57,40 @@ ul.uw-select {
       opacity: 1;
       background: 0 0;
       display:block;
+      a:after {
+        display: none;
+      }
+      &:hover {
+        background-color: transparent;
+      }
     }
 
     &.inactive a {
       display:none;
     }
-
   }
-
 }
+
 .uw-select-mask {
   height: 54px;
   position: relative;
+
   .uw-select-arrow {
-    outline: 1px solid #ADADAD;
+    outline: 1px solid #adadad;
     width: 100%;
     height: 54px;
     display: block;
     position: relative;
     &:hover{
-        z-index: 2;
+      z-index: 2;
     }
     &:before,
-    &:after {      
+    &:after {
       display: block;
       content: "";
       height: 53px;
       z-index: 1;
-      position: absolute;     
+      position: absolute;
     }
     &:before {
       background: url(assets/images/select-bar.png) 0 0;
@@ -112,17 +106,18 @@ ul.uw-select {
       .rotate(90deg);
     }
   }
+
   &.open {
-    .uw-select-arrow{
-        position: absolute;
-        outline: none;
-        z-index: 9999;
-        width: 60px;
-        right: 0px;
-        top:0px;
+    .uw-select-arrow {
+      position: absolute;
+      outline: none;
+      z-index: 9999;
+      width: 60px;
+      right: 0px;
+      top:0px;
     }
     .uw-select-mask {
-        z-index: 2;
+      z-index: 2;
     }
   }
 }
