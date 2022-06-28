@@ -10976,9 +10976,6 @@ table th[class*="col-"] {
     visibility: hidden;
     height: 60px;
   }
-  div.container.uw-body {
-    padding-top: 0;
-  }
   div.container.uw-body div.uw-site-title {
     margin-top: 0;
   }
