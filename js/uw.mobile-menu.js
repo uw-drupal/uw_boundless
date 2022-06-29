@@ -2,7 +2,7 @@
   UW = (typeof(UW) === 'undefined') ? {} : UW;
 
   UW.mobileMenu = {
-    
+
     el                      : '#mobile-relative',
     mobilemenu_ul           : '.uw-mobile-menu',
     toggle_button           : '.uw-mobile-menu-toggle',
@@ -14,7 +14,7 @@
       this.cloneMenuAnchors();
       this.removeDawgdrops();
       this.events();
-    },  
+    },
 
     // Clone the first item in the menu if it has a flyout, as it can't be used as both an anchor and button
     cloneMenuAnchors : function() {
@@ -27,10 +27,10 @@
         // Initial ARIA tags
         $target.attr('aria-expanded', false);
         $targetUl.attr('aria-hidden', true)
-      }) 
+      })
     },
 
-    // template.php themes the main menu items and adds the class 
+    // template.php themes the main menu items and adds the class
     // 'dawgdrops-item'. Instead of rewriting that function, we're being lazy
     // and removing the class here.
     removeDawgdrops : function() {
@@ -39,21 +39,21 @@
       });
     },
 
-    openmenu : function(event) {    
+    openmenu : function(event) {
       var $target = $(event.target),
           $targeUl = $target.next();
 
       if( $targeUl.length > 0 ){
-        event.preventDefault();  
-        // Toggle ARIA tags 
+        event.preventDefault();
+        // Toggle ARIA tags
         $targeUl.attr('aria-hidden', function(index, attr){
           return attr === 'true' ? 'false' : 'true';
-        });  
+        });
         $target.attr('aria-expanded', function(index, attr){
           return attr === 'true' ? 'false' : 'true';
         });
         $target.parent().toggleClass('active-menu');
-      }     
+      }
     },
 
     toggle: function(event) {
@@ -69,6 +69,6 @@
     events : function () {
       this.$toggle_button.bind('click', this.toggle.bind(this));
       this.$mobilemenu_ul.bind('click', this.openmenu.bind(this));
-    },    
+    },
   }
 })(jQuery, Drupal, this, this.document);
