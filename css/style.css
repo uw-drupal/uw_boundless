@@ -10651,7 +10651,8 @@ table th[class*="col-"] {
   top: 14px;
   background: url('assets/svg/slash.svg') no-repeat;
 }
-.dawgdrops-item:hover .dawgdrops-menu {
+.dawgdrops-item:hover .dawgdrops-menu,
+.dawgdrops-item.open .dawgdrops-menu {
   display: block;
 }
 .dawgdrops-item:last-child a:after {

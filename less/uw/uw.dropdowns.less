@@ -119,9 +119,18 @@
 
 		}
 	}
-	&:hover .dawgdrops-menu {
-		display: block;
+	&:hover,
+  &.open {
+    .dawgdrops-menu {
+      display: block;
+    }
 	}
+  //&:hover,
+  //  &:focus {
+  //  .dawgdrops-menu {
+  //    display: block;
+  //  }
+  //}
 	&:last-child a:after {
     display: none;
   }

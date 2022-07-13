@@ -15,7 +15,7 @@
  *   - localized_options: Menu link localized options.
  *
  * UW Boundless additions:
- *   Add 'dawgdrops-nav' to top 
+ *   Add 'dawgdrops-nav' to top
  *   Add 'dawgdrops-item' to menu items (links)
  *   Add 'dropdown-toggle' to dropdown_classes
  *
@@ -36,6 +36,8 @@
     'dawgdrops-menu'
   ]
 %}
+<div class="dawgdrops-wrapper">
+  <div>
 {% macro menu_links(items, attributes, menu_level, classes, dropdown_classes) %}
   {% if items %}
     <ul{{ attributes.addClass(menu_level == 0 ? classes : dropdown_classes) }}>
@@ -57,7 +59,8 @@
         {% set link_attributes = item.link_attributes %}
         {% if menu_level == 0 and item.is_expanded and item.below %}
           {% set link_title %}{{ link_title }}{% endset %}
-          {% set link_attributes = link_attributes.addClass('dropdown-toggle').setAttribute('data-toggle', 'dropdown') %}
+          {% set link_attributes = link_attributes.addClass('dropdown-toggle') %}
+{#          {% set link_attributes = link_attributes.addClass('dropdown-toggle').setAttribute('data-toggle', 'dropdown') %}#}
         {% endif %}
         {# Must use link() here so it triggers hook_link_alter(). #}
         {{ link(link_title, item.url, link_attributes.addClass(item.in_active_trail ? 'active-trail')) }}
@@ -69,11 +72,11 @@
     </ul>
   {% endif %}
 {% endmacro %}
-
 {#
   Invoke the custom macro defined above. If classes were provided, use them.
   This allows the template to be extended without having to also duplicate the
   code above. @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 {{ _self.menu_links(items, attributes, 0, classes ?: ['menu', 'menu--' ~ menu_name|clean_class, 'nav'], dropdown_classes ?: ['dropdown-menu']) }}
-
+</div>
+</div>

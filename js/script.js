@@ -11,6 +11,7 @@
 // wrapping it with an "anonymous closure". See:
 // - http://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
+
 (function ($, Drupal, window, document, undefined) {
 
     // The document ready event executes when the HTML-Document is loaded
@@ -40,16 +41,16 @@
         /**
         * Setup the keyboard navigation for the drop down menu
         */
-        $('.dawgdrops-nav').dawgDrops();
+        // $('.dawgdrops-nav').dawgDrops();
 
-        $(".dawgdrops-item-menu-link").click(function(event) {
-            // targets the dawgdrops-menu submenu in this dawgdrops-item
-            $(this).next().next(".dawgdrops-menu").toggle(200, "swing", function() {
-                // Animation complete.
-            }, function() {
-                // Animation complete.
-            });
-        });
+        // $(".dawgdrops-item-menu-link").click(function(event) {
+        //     // targets the dawgdrops-menu submenu in this dawgdrops-item
+        //     $(this).next().next(".dawgdrops-menu").toggle(200, "swing", function() {
+        //         // Animation complete.
+        //     }, function() {
+        //         // Animation complete.
+        //     });
+        // });
 
         $('.webform-grid-option').addClass('radio');
         $('.webform-grid-option').removeClass('checkbox');

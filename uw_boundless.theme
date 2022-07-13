@@ -5,6 +5,7 @@
  */
 
 use Drupal\Core\Link;
+use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Render\Element;
 
 /**
@@ -36,7 +37,26 @@ function uw_boundless_preprocess_media(array &$variables) {
   $variables['attributes']['class'][] = 'view-mode--' . $variables['elements']['#view_mode'];
 }
 
+/**
+ * Implements template_preprocess_menu().
+ */
+// function uw_boundless_preprocess_menu(array &$variables) {
+//   $variables['attributes']['class'][] = 'my-fancy-class';
+//   dpm($variables, 'uw-boundless preproc-menu');
+// }
+
+// function uw_boundless_preprocess_block(array &$variables) {
+//   if ($variables['plugin_id'] == 'system_menu_block:main') {
+//     $variables['attributes']['class'][] = 'dawgdrops';
+//     $variables['attributes']['class'][] = 'js-dawgdrops';
+//   }
+// }
+
+// function uw_boundless_preprocess(&$variables) {
+//   dpm($variables, 'all the preproc vars');
+// }
 function uw_boundless_preprocess_page(array &$variables) {
+  // dpm($variables, 'page vars');
   $variables['current_year'] = date("Y");
   $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();  //TODO
 
@@ -56,8 +76,9 @@ function uw_boundless_preprocess_page(array &$variables) {
   // Primary Nav - the main menu without all the surrounding sections and divs
   // See https://www.drupal.org/node/2226481 and https://www.amazeelabs.com/en/render-menu-tree-custom-code-drupal-8
   $variables['primary_nav'] = FALSE;
-  $menu_parameters = new \Drupal\Core\Menu\MenuTreeParameters();
+  $menu_parameters = new MenuTreeParameters();
   $menu_parameters->setMaxDepth(2);
+  /** @var \Drupal\Core\Menu\MenuLinkTree $menu_tree_service */
   $menu_tree_service = \Drupal::service('menu.link_tree');
   $tree = $menu_tree_service->load('main', $menu_parameters);
   $variables['primary_nav'] = $menu_tree_service->build($tree);
