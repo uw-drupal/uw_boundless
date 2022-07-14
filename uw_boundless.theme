@@ -45,12 +45,12 @@ function uw_boundless_preprocess_media(array &$variables) {
 //   dpm($variables, 'uw-boundless preproc-menu');
 // }
 
-// function uw_boundless_preprocess_block(array &$variables) {
-//   if ($variables['plugin_id'] == 'system_menu_block:main') {
-//     $variables['attributes']['class'][] = 'dawgdrops';
-//     $variables['attributes']['class'][] = 'js-dawgdrops';
-//   }
-// }
+function uw_boundless_preprocess_block(array &$variables) {
+  if ($variables['plugin_id'] == 'system_menu_block:main') {
+    $variables['attributes']['class'][] = 'dawgdrops';
+    $variables['attributes']['class'][] = 'js-dawgdrops';
+  }
+}
 
 // function uw_boundless_preprocess(&$variables) {
 //   dpm($variables, 'all the preproc vars');

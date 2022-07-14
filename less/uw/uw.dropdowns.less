@@ -8,7 +8,7 @@
 }
 
 // Resets
-#dawgdrops {
+.dawgdrops {
 	.box-shadow(0 1px 3px rgba(34, 25, 25, 0.4));
     background-color: #fff;
     position: relative;
@@ -116,7 +116,7 @@
 			background: url('assets/svg/slash.svg') no-repeat;
 		}
 		&:focus {
-
+      outline: thin dotted;
 		}
 	}
 	&:hover,
@@ -181,7 +181,7 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: @screen-xs-max) {
-	#dawgdrops {
+	.dawgdrops {
  		display: none;
 	}
 }
@@ -218,7 +218,7 @@
 
 // Special MyUW button
 @media only screen and (min-width : 768px) {
-	nav#dawgdrops .btn-myuw a {
+	nav.dawgdrops .btn-myuw a {
     font-size: 18px;
     text-transform: none;
     color: #fff;

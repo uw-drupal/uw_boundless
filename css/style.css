@@ -10548,7 +10548,7 @@ table th[class*="col-"] {
   clip: rect(1px, 1px, 1px, 1px);
   z-index: -1;
 }
-#dawgdrops {
+.dawgdrops {
   -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
   -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
   box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
@@ -10557,15 +10557,15 @@ table th[class*="col-"] {
   z-index: 5;
   display: block;
 }
-#dawgdrops li {
+.dawgdrops li {
   list-style: none;
   display: inline-block;
 }
-#dawgdrops li li {
+.dawgdrops li li {
   width: 80%;
   margin: 0 10%;
 }
-#dawgdrops ul {
+.dawgdrops ul {
   padding-left: 0;
   padding-right: 0;
   margin: 0;
@@ -10651,6 +10651,9 @@ table th[class*="col-"] {
   top: 14px;
   background: url('assets/svg/slash.svg') no-repeat;
 }
+.dawgdrops-item a:focus {
+  outline: thin dotted;
+}
 .dawgdrops-item:hover .dawgdrops-menu,
 .dawgdrops-item.open .dawgdrops-menu {
   display: block;
@@ -10699,7 +10702,7 @@ table th[class*="col-"] {
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
-  #dawgdrops {
+  .dawgdrops {
     display: none;
   }
 }
@@ -10711,7 +10714,7 @@ table th[class*="col-"] {
   }
 }
 @media only screen and (min-width: 768px) {
-  nav#dawgdrops .btn-myuw a {
+  nav.dawgdrops .btn-myuw a {
     font-size: 18px;
     text-transform: none;
     color: #fff;
@@ -10723,7 +10726,7 @@ table th[class*="col-"] {
     z-index: -1;
     overflow: hidden;
   }
-  nav#dawgdrops .btn-myuw a:after {
+  nav.dawgdrops .btn-myuw a:after {
     content: "";
     display: block;
     position: absolute;
@@ -10733,10 +10736,10 @@ table th[class*="col-"] {
     top: 16px;
     background: url(assets/svg/person.svg) no-repeat 0 0;
   }
-  nav#dawgdrops .btn-myuw a:hover {
+  nav.dawgdrops .btn-myuw a:hover {
     color: #ccc;
   }
-  nav#dawgdrops .btn-myuw a:before {
+  nav.dawgdrops .btn-myuw a:before {
     content: "";
     display: block;
     position: absolute;
@@ -13994,10 +13997,10 @@ label.screen-reader {
   font-size: 1px;
   left: -9999px;
 }
-#dawgdrops li.dawgdrops-item a:focus {
+.dawgdrops li.dawgdrops-item a:focus {
   text-decoration: underline;
 }
-#dawgdrops li.dawgdrops-item ul.dawgdrops-menu a:focus {
+.dawgdrops li.dawgdrops-item ul.dawgdrops-menu a:focus {
   text-decoration: none;
 }
 .uw-body a:focus,
@@ -15231,7 +15234,7 @@ pre.prettyprint ol.linenums li {
     width: 8.5in !important;
   }
   .uw-thinstrip,
-  #dawgdrops,
+  .dawgdrops,
   #quicklinks,
   #uwsearcharea,
   .uw-breadcrumbs,

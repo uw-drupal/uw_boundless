@@ -29,14 +29,16 @@
     'nav',
     'navbar-nav',
     'dawgdrops-nav',
+    'js-dawgdrops-nav',
   ]
 %}
 {%
   set dropdown_classes = [
-    'dawgdrops-menu'
+    'dawgdrops-menu',
+    'js-dawgdrops-menu'
   ]
 %}
-<div class="dawgdrops-wrapper">
+<div class="dawgdrops-inner js-dawgdrops-inner container">
   <div>
 {% macro menu_links(items, attributes, menu_level, classes, dropdown_classes) %}
   {% if items %}
@@ -52,18 +54,22 @@
           loop.first ? 'first',
           loop.last ? 'last',
           'dawgdrops-item',
+          'js-dawgdrops-item',
         ]
       %}
       <li{{ item.attributes.addClass(item_classes) }}>
-        {% set link_title = item.title %}
-        {% set link_attributes = item.link_attributes %}
-        {% if menu_level == 0 and item.is_expanded and item.below %}
-          {% set link_title %}{{ link_title }}{% endset %}
-          {% set link_attributes = link_attributes.addClass('dropdown-toggle') %}
-{#          {% set link_attributes = link_attributes.addClass('dropdown-toggle').setAttribute('data-toggle', 'dropdown') %}#}
-        {% endif %}
-        {# Must use link() here so it triggers hook_link_alter(). #}
-        {{ link(link_title, item.url, link_attributes.addClass(item.in_active_trail ? 'active-trail')) }}
+        <div class="dawgdrops-link js-dawgdrops-link">
+          {% set link_title = item.title %}
+          {% set link_attributes = item.link_attributes %}
+          {% if menu_level == 0 and item.is_expanded and item.below %}
+            {% set link_title %}{{ link_title }}{% endset %}
+            {% set link_attributes = link_attributes.addClass('dropdown-toggle') %}
+            {#          {% set link_attributes = link_attributes.addClass('dropdown-toggle').setAttribute('data-toggle', 'dropdown') %}#}
+          {% endif %}
+          {# Must use link() here so it triggers hook_link_alter(). #}
+          {{ link(link_title, item.url, link_attributes.addClass(item.in_active_trail ? 'active-trail')) }}
+        </div>
+
         {% if item.below %}
           {{ _self.menu_links(item.below, attributes.removeClass(classes), menu_level + 1, classes, dropdown_classes) }}
         {% endif %}

@@ -86,11 +86,9 @@
           {{ page.thinstrip }}
         {% endif %}
 
-        <nav id="dawgdrops" aria-label="Main menu">
-            <div class="dawgdrops-inner container">
-                {{ page.navigation }}
-            </div>
-        </nav><!-- /#dawgdrops -->
+        {% if page.navigation %}
+          {{ page.navigation }}
+        {% endif %}
 
         {% if is_front and uw_boundless_hero_image_front_display != 'none' %}
             <div class="uw-hero-image uw-hero-image--{{ uw_boundless_hero_image_front_display }}" style="background-image:url('{{ uw_hero_image_front_path }}');">
