@@ -38,7 +38,7 @@
     'js-dawgdrops-menu',
   ]
 %}
-{#<button class="uw-mobile-menu-toggle mobile-only">Menu</button>#}
+
 <div class="dawgdrops-inner js-dawgdrops-inner container">
   <div>
 {% macro menu_links(items, attributes, menu_level, classes, dropdown_classes) %}
@@ -65,16 +65,9 @@
           {% if menu_level == 0 and item.is_expanded and item.below %}
             {% set link_title %}{{ link_title }}{% endset %}
             {% set link_attributes = link_attributes.addClass('dropdown-toggle') %}
-            {#          {% set link_attributes = link_attributes.addClass('dropdown-toggle').setAttribute('data-toggle', 'dropdown') %}#}
           {% endif %}
           {# Must use link() here so it triggers hook_link_alter(). #}
           {{ link(link_title, item.url, link_attributes.addClass(item.in_active_trail ? 'active-trail')) }}
-
-{#          {% if menu_level == 0 and item.is_expanded and item.below %}#}
-{#            <button class="navbar-toggle uw-mobile-menu-toggle js-navbar-toggle uw-mobile-menu-toggle"></button>#}
-{#            {% set icon_link_attributes = item.icon_link_attributes %}#}
-{#            {{ link(link_title, item.url, link_attributes.addClass(item.in_active_trail ? 'active-trail')) }}#}
-{#          {% endif %}#}
         </div>
 
         {% if item.below %}

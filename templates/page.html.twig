@@ -37,10 +37,9 @@
  * Regions:
  * - page.search:
  * - page.header: Items for the header region.
- * - page.navigation: Items for the navigation region.
+ * - page.navigation: Items for the navigation region. Functions like the parent theme's page.navigation_collapsible.
  * - page.thinstrip: Items for the thinstrip links.
  * - page.quicklinks: Content for the quicklinks flyout
- * - page.navigation_collapsible: Items for the navigation (collapsible) region.
  * - page.highlighted: Items for the highlighted content region.
  * - page.help: Dynamic help text, mostly for admin pages.
  * - page.content: The main content of the current page.
@@ -109,9 +108,6 @@
                     </a>
                 </div>
                 {% endif %}
-{#                {{ page.navigation }}#}
-                {# .btn-navbar is used as the toggle for collapsed navbar content #}
-{#                {% if page.navigation_collapsible %}#}
                 {% if page.navigation %}
                   <button type="button" class="navbar-toggle collapsed uw-mobile-menu-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
                     <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
@@ -120,8 +116,6 @@
                 {% endif %}
               </div>
 
-              {# Navigation (collapsible) #}
-{#              {% if page.navigation_collapsible %}#}
               {% if page.navigation %}
                 {%
                   set navbar_collapse_classes = [
@@ -131,9 +125,7 @@
                   ]
                 %}
                 <div id="navbar-collapse" {{ attributes.addClass(navbar_collapse_classes) }}>
-{#                  {{ page.navigation_collapsible }}#}
-                    {{ page.navigation }}
-{#                  {% else %}#}
+                  {{ page.navigation }}
                   {% if (not is_front and uw_sidebar_menu is not empty) %}
                     <nav id="mobile-relative" role="navigation" aria-label="relative">
                       <ul class="uw-mobile-menu first-level">
@@ -151,48 +143,6 @@
           </header>
         {% endblock %}
       {% endif %}
-      <!-- Mobile header -->
-{#      <div class="uw-mobile-header mobile-only container">#}
-{#        <!-- Site title -->#}
-{#        {% if site_name is not empty %}#}
-{#          <a href="{{ front_page }}" title="{{ site_name }}">#}
-{#            <div class="uw-site-title">#}
-{#              {{ site_name }}#}
-{#            </div>#}
-{#          </a>#}
-{#        {% endif %}#}
-        <!-- /Site title -->
-
-        <!-- Mobile navigation -->
-{#        {% if page.navigation_collapsible %}#}
-{#          {{ page.navigation_collapsible }}#}
-{#        {% endif %}#}
-{#        {% if primary_nav is not empty %}#}
-{#          <nav id="mobile-relative" role="navigation" aria-label="relative">#}
-{#            <button class="uw-mobile-menu-toggle">Menu</button>#}
-{#            <ul class="uw-mobile-menu first-level">#}
-{#              {% if ((is_front or (not is_front and not uw_sidebar_menu)) and page.navigation is not empty) %}#}
-{#                <li class="pagenav uw_sidebar_menu_EMPTY">#}
-{#                  <a href="{{ front_page }}" title="Home" class="homelink">Home</a>#}
-{#                  {{ primary_nav }}#}
-{#                </li><!-- /#primary_nav -->#}
-{#              {% endif %}#}
-{#              {% if (not is_front and uw_sidebar_menu is not empty) %}#}
-{#                <li class="pagenav uw_sidebar_menu_NOT_empty">#}
-{#                  <a href="{{ base_path }}" title="Home" class="homelink">Home</a>#}
-{#                  {{ uw_sidebar_menu | raw}}#}
-{#                </li><!-- /#uw_sidebar_menu -->#}
-{#              {% endif %}#}
-{#            </ul>#}
-{#          </nav><!-- /#uw-mobile-menu -->#}
-{#        {% endif %}#}
-        <!-- /Mobile navigation -->
-{#      </div>#}
-      <!-- /Mobile header -->
-
-{#        {% if page.navigation %}#}
-{#          {{ page.navigation }}#}
-{#        {% endif %}#}
 
         {% if is_front and uw_boundless_hero_image_front_display != 'none' %}
             <div class="uw-hero-image uw-hero-image--{{ uw_boundless_hero_image_front_display }}" style="background-image:url('{{ uw_hero_image_front_path }}');">
@@ -211,32 +161,9 @@
                 {% endif %}
             </div>
         {% elseif not is_front and uw_boundless_hero_image_display != 'none' %}
-          <!-- TODO -->
-          <div class="uw-hero-image" style="background-image:url('{{ uw_hero_image_path }}');">
-
-{#            {% if site_name is not empty %}#}
-{#              <div class="container">#}
-{#                <div class="uw-site-title" style="color:{{ uw_boundless_front_page_title_color }};text-shadow:2px 2px 2px {{ uw_front_title_text_shadow }};">#}
-{#                  {{ site_name }}#}
-{#                </div>#}
-
-{#                <div class="uw-site-title">#}
-{#                  <a href="{{ front_page }}" title="{{ site_name }}">#}
-{#                      {{ site_name }}#}
-{#                  </a>#}
-{#                </div>#}
-{#                {% if site_slogan is not empty %}#}
-{#                  <div>#}
-{#                    {{ site_slogan }}#}
-{#                  </div>#}
-{#                {% endif %}#}
-{#              </div>#}
-{#            {% endif %}#}
-          </div>
+          <div class="uw-hero-image" style="background-image:url('{{ uw_hero_image_path }}');">    </div>
         {% endif %}
         <!-- /#uw-hero-image -->
-
-
 
         <a id="main-content"></a>
         <div class="container uw-body">
@@ -247,7 +174,7 @@
 
                 {% if site_name is not empty %}
                     <a href="{{ front_page }}" title="{{ site_name }}">
-                        <h2 class="uw-site-title foo">{{ site_name }}</h2>
+                        <h2 class="uw-site-title">{{ site_name }}</h2>
                         {% if site_slogan is not empty %} <p>{{ site_slogan }}</p> {% endif %}
                     </a>
                 {% endif %}
@@ -262,26 +189,6 @@
                 {% if title is not empty %}
                   <h1 class="page-header">{{ title }}</h1>
                 {% endif %}
-
-{#                {% if primary_nav is not empty %}#}
-{#                <nav id="mobile-relative" role="navigation" aria-label="relative">#}
-{#                  <button class="uw-mobile-menu-toggle">Menu</button>#}
-{#                  <ul class="uw-mobile-menu first-level">#}
-{#                    {% if ((is_front or (not is_front and not uw_sidebar_menu)) and page.navigation is not empty) %}#}
-{#                      <li class="pagenav uw_sidebar_menu_EMPTY">#}
-{#                        <a href="{{ front_page }}" title="Home" class="homelink">Home</a>#}
-{#                        {{ primary_nav }}#}
-{#                      </li><!-- /#primary_nav -->#}
-{#                    {% endif %}#}
-{#                    {% if (not is_front and uw_sidebar_menu is not empty) %}#}
-{#                      <li class="pagenav uw_sidebar_menu_NOT_empty">#}
-{#                        <a href="{{ base_path }}" title="Home" class="homelink">Home</a>#}
-{#                        {{ uw_sidebar_menu | raw}}#}
-{#                      </li><!-- /#uw_sidebar_menu -->#}
-{#                    {% endif %}#}
-{#                  </ul>#}
-{#              </nav><!-- /#uw-mobile-menu -->#}
-{#              {% endif %}#}
 
                 {{ title_suffix }}
                 {{ messages }}

@@ -15,13 +15,9 @@ framework:
     bootstrap/js/scrollspy.js: {}
     bootstrap/js/tab.js: {}
     bootstrap/js/transition.js: {}
-#    js/dropdowns.js: {}
-#    js/function.bind.js: {}
     js/uw.dropdown.js: {}
     js/uw.quicklinks.js: {}
     js/uw.search.js: {}
-    js/uw.mobile-menu.js: {}
-    js/uw.mobile-sidebar-menu.js: {}
     js/script.js: {}
     js/radios.js: {}
   dependencies:

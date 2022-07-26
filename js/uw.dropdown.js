@@ -1,31 +1,25 @@
-// Drupal.dawgDrops = Drupal.dawgDrops || {};
+/**
+ * Dawgdrops main menu behaviors.
+ */
 
 (function ($, Drupal, drupalSettings) {
   "use strict";
   Drupal.dawgDrops = Drupal.dawgDrops || {};
-  // UW = (typeof(UW) === 'undefined') ? {} : UW;
 
   Drupal.dawgDrops.isMobile = false;
   Drupal.dawgDrops.windowWidth = 0;
   Drupal.dawgDrops.mobileMax = 767;
 
   Drupal.behaviors.dawgDrops = {
-  // UW.dawgDrops = {
-
-    // nav      : '.dawgdrops-nav',
-    // topLevel : '.dawgdrops-nav > .dawgdrops-item',
-    // submenu  : '.dawgdrops-menu',
 
     attach : function (context, settings) {
 
-      $('.js-dawgdrops .js-dawgdrops-inner'/*, context*/).once('js-dawgdrops-inner').each(function() {
-      // $('#dawgdrops .dawgdrops-wrapper'/*, context*/).once('dawgdrops-wrapper').each(function() {
+      $('.js-dawgdrops .js-dawgdrops-inner').once('js-dawgdrops-inner').each(function() {
 
         /** KEYBOARD NAVIGATION **/
 
         // Add a keydown event listener to the dawgdrops menu
         var navParent = document.querySelector('.js-dawgdrops-inner');
-        // var navParent = document.querySelector('.dawgdrops-wrapper');
         if (navParent !== null) {
           navParent.addEventListener('keydown', keydownEvent);
         }
@@ -98,9 +92,6 @@
         // Up
         function nav_up() {
           if (nav_is_toplink()) {
-            if (Drupal.dawgDrops.isMobile) {
-
-            }
             // From a top level item, go to previous sibling if any.
             nav_prev_toplink();
           }
@@ -110,9 +101,7 @@
           }
           else {
             // For non-first submenu items, go to previous sibling.
-            // $(k.target).parent().prev().children('a').first().focus();
             nav_prev_sibling();
-            // $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').prev().find('.js-dawgdrops-link > a').first().focus();
           }
         }
 
@@ -139,46 +128,17 @@
             // From a top level item, go to the first visible submenu item. From
             // the last item in a submenu, go back to the first item.
             if ((isToplink && nav_has_submenu()) || nav_is_last_item()) {
-              // if (nav_has_submenu()) {
-                // On a top-level item, go to first submenu item.
-                // $(k.target).parent('.js-dawgdrops-link').siblings('ul.js-dawgdrops-menu').find('.js-dawgdrops-item.first .js-dawgdrops-link > a').focus();
-                nav_first_sublink();
-              // }
+              // On a top-level item, go to first submenu item.
+              nav_first_sublink();
             }
-            // else if (nav_is_last_item()) {
-            //   // On the last submenu item, go back to the first.
-            //   nav_first_sublink(k);
-            // }
             else {
               // On non-last submenu items, go to the next sibling.
               if (!isToplink) {
                 nav_next_sibling();
               }
-              // $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
             }
           }
-
         }
-
-        // Home Button
-        // function nav_home() {
-        //   if (nav_is_toplink()) {
-        //     linkArray[0][-1].focus();
-        //   }
-        //   else {
-        //     linkArray[curPos[0]][0][0].focus();
-        //   }
-        // }
-
-        // End Button
-        // function nav_end() {
-        //   if (nav_is_toplink()) {
-        //     linkArray.slice(-1)[0][-1].focus();
-        //   }
-        //   else {
-        //     linkArray[curPos[0]].slice(-1)[0].slice(-1)[0].focus();
-        //   }
-        // }
 
         /* Helper Functions */
         // Determines if the current item is a top level menu item.
@@ -203,13 +163,11 @@
 
         // Determines if the current item is the first item in its level.
         function nav_is_first_item() {
-          // return $(k.target).parent('li.dawgdrops-item').hasClass('first');
           return $targetA.parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').hasClass('first');
         }
 
         // Determines if the current item is the last item in its level.
         function nav_is_last_item() {
-          // return $(k.target).parent('li.dawgdrops-item').hasClass('last');
           return $targetA.parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').hasClass('last');
         }
 
@@ -221,13 +179,6 @@
             $('.js-dawgdrops-item').removeClass('js-dawgdrops-clicked');
             $('.js-dawgdrops-nav .open').removeClass('open');
           });
-          // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').each(function() {
-          //   $(this).removeClass('js-dawgdrops-clicked');
-          //   // $(this).children('.dawgdrops-menu').css('display', '');
-          // });
-          // $subMenu.hide('fast', function() {
-          //   $subMenu.css('display', '');
-          // });
           ariaCheck();
         }
 
@@ -246,7 +197,6 @@
           var $nextDdItem = $ddItem.next('li.js-dawgdrops-item');
           if ($nextDdItem.length) {
             $targetA.closest('li.js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
-            // $nextDdItem.find('.js-dawgdrops-link > a').first().focus();
           }
         }
 
@@ -258,17 +208,13 @@
         // Go to the next top level item.
         function nav_next_toplink() {
           $targetA.parents('.js-dawgdrops-nav > .js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
-          // if (!Drupal.dawgDrops.isMobile) {
-            nav_close_submenus();
-          // }
+          nav_close_submenus();
         }
 
         // Go to the previous top level item.
         function nav_prev_toplink() {
           $targetA.parents('.js-dawgdrops-nav > .js-dawgdrops-item').prev().find('.js-dawgdrops-link > a').first().focus();
-          // if (!Drupal.dawgDrops.isMobile) {
-            nav_close_submenus();
-          // }
+          nav_close_submenus();
         }
 
         // From a submenu item, go to its parent top level item.
@@ -365,35 +311,16 @@
 
             var $copyParent = $this.clone();
 
-            // showMenu($subMenu, mm_timeout);
             // If the menu link has already been clicked once...
             if ($parent.hasClass('js-dawgdrops-clicked')) {
-              // var $uri = $item.attr('href');
-
-              // If the menu link has a URI, go to the link.
-              // <nolink> menu items will not have a URI.
-              // if ($uri) {
-              //   window.location.href = $uri;
-              // }
-              // else {
               $parent.removeClass('js-dawgdrops-clicked');
-                // hideMenu($parent, mm_timeout);
-                $subMenu.hide('fast', function() {
-                  $subMenu.css('display', '');
-                });
-              // }
+              $subMenu.hide('fast', function() {
+                $subMenu.css('display', '');
+              });
             }
             else {
-              // e.preventDefault();
-
-              // Hide any already open menus.
-              // nav_close_submenus();
-              // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
-              // $('.dawgdrops-wrapper').find('.dawgdrops-clicked').removeClass('dawgdrops-clicked');
-
               // Open the submenu.
               $parent.addClass('js-dawgdrops-clicked');
-              // showMenu($parent, mm_timeout);
               $subMenu.show('fast');
             }
           }
@@ -422,7 +349,6 @@
           var mm_duration = 0;
 
           $('.js-dawgdrops-inner', context).each(function () {
-          // $('.dawgdrops-wrapper', context).each(function () {
             if ($(this).data('duration')) {
               mm_duration = $(this).data('duration');
             }
@@ -532,8 +458,6 @@
 
                 // Hide any already open menus.
                 nav_close_submenus();
-                // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
-                // $('.dawgdrops-wrapper').find('.dawgdrops-clicked').removeClass('dawgdrops-clicked');
 
                 // Open the submenu.
                 $item.addClass('js-dawgdrops-clicked');
@@ -546,7 +470,6 @@
           $(document).on('click', function (event) {
             if ($(event.target).closest('.js-dawgdrops-nav').length === 0) {
               nav_close_submenus();
-              // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
             };
           })
         };

@@ -28,30 +28,6 @@
          */
         UW.quicklinks.initialize();
 
-        /**
-         * this displays/hides the mobile sidebar menu
-         */
-        UW.mobileSidebarMenu.initialize();
-
-        /**
-         * this displays/hides the mobile main menu
-         */
-        // UW.mobileMenu.initialize();
-
-        /**
-        * Setup the keyboard navigation for the drop down menu
-        */
-        // $('.dawgdrops-nav').dawgDrops();
-
-        // $(".dawgdrops-item-menu-link").click(function(event) {
-        //     // targets the dawgdrops-menu submenu in this dawgdrops-item
-        //     $(this).next().next(".dawgdrops-menu").toggle(200, "swing", function() {
-        //         // Animation complete.
-        //     }, function() {
-        //         // Animation complete.
-        //     });
-        // });
-
         $('.webform-grid-option').addClass('radio');
         $('.webform-grid-option').removeClass('checkbox');
 

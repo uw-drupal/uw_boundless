@@ -1,7 +1,7 @@
 core_version_requirement: ^8 || ^9
 type: theme
 base theme: bootstrap
-version: 0.1
+version: 0.2
 
 name: 'UW Boundless'
 description: 'Bootstrap 8.x || 9.x Sub-theme.  Uses lessc for css management.'
