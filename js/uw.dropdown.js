@@ -5,7 +5,9 @@
   Drupal.dawgDrops = Drupal.dawgDrops || {};
   // UW = (typeof(UW) === 'undefined') ? {} : UW;
 
-  Drupal.dawgDrops.displayedMenuMobile = false;
+  Drupal.dawgDrops.isMobile = false;
+  Drupal.dawgDrops.windowWidth = 0;
+  Drupal.dawgDrops.mobileMax = 767;
 
   Drupal.behaviors.dawgDrops = {
   // UW.dawgDrops = {
@@ -19,17 +21,21 @@
       $('.js-dawgdrops .js-dawgdrops-inner'/*, context*/).once('js-dawgdrops-inner').each(function() {
       // $('#dawgdrops .dawgdrops-wrapper'/*, context*/).once('dawgdrops-wrapper').each(function() {
 
+        /** KEYBOARD NAVIGATION **/
+
+        // Add a keydown event listener to the dawgdrops menu
         var navParent = document.querySelector('.js-dawgdrops-inner');
         // var navParent = document.querySelector('.dawgdrops-wrapper');
-
-        /* Event Listener */
-        // On Keydown
         if (navParent !== null) {
           navParent.addEventListener('keydown', keydownEvent);
         }
 
+        // The current target of the keydown event.
+        var $targetA = '';
+
         // Key pressed
         function keydownEvent(k) {
+          $targetA = $(k.target);
 
           // Determine key
           switch(k.keyCode) {
@@ -42,39 +48,33 @@
             // LEFT
             case 37:
               k.preventDefault();
-              nav_left(k);
+              nav_left();
               break;
 
             // UP
             case 38:
               k.preventDefault();
-              nav_up(k);
+              nav_up();
               break;
 
             // RIGHT
             case 39:
               k.preventDefault();
-              nav_right(k);
+              nav_right();
               break;
 
             // DOWN
             case 40:
               k.preventDefault();
-              nav_down(k);
+              nav_down();
               break;
 
             // Else
             default:
               // Do nothing
 
-          } // determine key
-        } // keydownEvent
-
-
-        // Open Link
-        // function nav_open_link() {
-        //   linkArray[curPos[0]][curPos[1]][curPos[2]].click();
-        // }
+          }
+        }
 
         // Escape
         function nav_esc() {
@@ -82,52 +82,82 @@
         }
 
         // Left
-        function nav_left(k) {
-          nav_prev_toplink(k);
+        function nav_left() {
+          if (!Drupal.dawgDrops.isMobile) {
+            nav_prev_toplink();
+          }
         }
 
         // Right
-        function nav_right(k) {
-          nav_next_toplink(k);
+        function nav_right() {
+          if (!Drupal.dawgDrops.isMobile) {
+            nav_next_toplink();
+          }
         }
 
         // Up
-        function nav_up(k) {
-          if (nav_is_toplink(k)) {
-            // On a top-level item, go to previous sibling if any (like
-            // shift+tab).
-            nav_prev_toplink(k);
+        function nav_up() {
+          if (nav_is_toplink()) {
+            if (Drupal.dawgDrops.isMobile) {
+
+            }
+            // From a top level item, go to previous sibling if any.
+            nav_prev_toplink();
           }
-          else if (nav_is_first(k)) {
-            // On the first item in a submenu, go to parent top-level item.
-            nav_parent_toplink(k);
+          else if (nav_is_first_item()) {
+            // From the first item in a submenu, go to parent top-level item.
+            nav_parent_toplink();
           }
           else {
-            // For other submenu items, go to previous sibling.
+            // For non-first submenu items, go to previous sibling.
             // $(k.target).parent().prev().children('a').first().focus();
-            $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').prev().find('.js-dawgdrops-link > a').first().focus();
+            nav_prev_sibling();
+            // $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').prev().find('.js-dawgdrops-link > a').first().focus();
           }
         }
 
         // Down
-        function nav_down(k) {
-          if (nav_is_toplink(k)) {
-            // Go to the first submenu item, if one exists. Do nothing if there
-            // is no submenu.
-            if (nav_has_submenu(k)) {
-              // On a top-level item, go to first submenu item.
-              // $(k.target).siblings('ul.dawgdrops-menu').find('a').first().focus();
-              $(k.target).parent('.js-dawgdrops-link').siblings('ul.js-dawgdrops-menu').find('.js-dawgdrops-link > a').first().focus();
+        function nav_down() {
+          var isToplink = nav_is_toplink();
+          if (Drupal.dawgDrops.isMobile) {
+            // From a top level item, go to the first visible submenu item or
+            // the next top item.
+            if (isToplink && nav_is_submenu_open()) {
+                nav_first_sublink();
+            }
+            else if (isToplink || nav_is_last_item()) {
+              // From a top level item with no visible submenu, or the last link
+              // in a submenu, go to the next top link.
+              nav_next_toplink();
+            }
+            else {
+              // On non-last submenu items, go to the next sibling.
+              nav_next_sibling();
             }
           }
-          else if (nav_is_last(k)) {
-            // On the last submenu item, go back to the first.
-            nav_first_sublink(k);
-          }
           else {
-            // On other submenu items, go to the next sibling.
-            $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
+            // From a top level item, go to the first visible submenu item. From
+            // the last item in a submenu, go back to the first item.
+            if ((isToplink && nav_has_submenu()) || nav_is_last_item()) {
+              // if (nav_has_submenu()) {
+                // On a top-level item, go to first submenu item.
+                // $(k.target).parent('.js-dawgdrops-link').siblings('ul.js-dawgdrops-menu').find('.js-dawgdrops-item.first .js-dawgdrops-link > a').focus();
+                nav_first_sublink();
+              // }
+            }
+            // else if (nav_is_last_item()) {
+            //   // On the last submenu item, go back to the first.
+            //   nav_first_sublink(k);
+            // }
+            else {
+              // On non-last submenu items, go to the next sibling.
+              if (!isToplink) {
+                nav_next_sibling();
+              }
+              // $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
+            }
           }
+
         }
 
         // Home Button
@@ -151,51 +181,102 @@
         // }
 
         /* Helper Functions */
-        // Determine Link Level
-        function nav_is_toplink(k) {
-          // return $(k.target).parent('li.dawgdrops-item').parent('ul').hasClass('dawgdrops-nav');
-          return $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').parent('ul').hasClass('js-dawgdrops-nav');
+        // Determines if the current item is a top level menu item.
+        function nav_is_toplink() {
+          return $targetA.parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').parent('ul').hasClass('js-dawgdrops-nav');
         }
 
-        function nav_has_submenu(k) {
-          return $(k.target).hasClass('dropdown-toggle');
+        // Determines if the current item has a submenu.
+        function nav_has_submenu() {
+          return $targetA.hasClass('dropdown-toggle');
         }
 
-        function nav_is_first(k) {
+        // Determines if a top level item's submenu open (visible). Returns
+        // false if there is no submenu.
+        function nav_is_submenu_open() {
+          if (!nav_has_submenu()) {
+            return false;
+          }
+          var $parent = $targetA.closest('.dawgdrops-item');
+          return (!Drupal.dawgDrops.isMobile && $parent.hasClass('open')) || (Drupal.dawgDrops.isMobile && $parent.hasClass('js-dawgdrops-clicked'));
+        }
+
+        // Determines if the current item is the first item in its level.
+        function nav_is_first_item() {
           // return $(k.target).parent('li.dawgdrops-item').hasClass('first');
-          return $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').hasClass('first');
+          return $targetA.parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').hasClass('first');
         }
 
-        function nav_is_last(k) {
+        // Determines if the current item is the last item in its level.
+        function nav_is_last_item() {
           // return $(k.target).parent('li.dawgdrops-item').hasClass('last');
-          return $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').hasClass('last');
-        }
-
-        function nav_first_sublink(k) {
-          $(k.target).parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').parent('ul.js-dawgdrops-menu').find('li.first > .js-dawgdrops-link > a').first().focus();
+          return $targetA.parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').hasClass('last');
         }
 
         // Close all submenus
         function nav_close_submenus() {
-          $('.js-dawgdrops-nav .open').removeClass('open');
+          var closeSpeed = Drupal.dawgDrops.isMobile ? 'fast' : 0;
+          $('.js-dawgdrops-menu').hide(closeSpeed, function() {
+            $(this).css('display', '');
+            $('.js-dawgdrops-item').removeClass('js-dawgdrops-clicked');
+            $('.js-dawgdrops-nav .open').removeClass('open');
+          });
+          // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').each(function() {
+          //   $(this).removeClass('js-dawgdrops-clicked');
+          //   // $(this).children('.dawgdrops-menu').css('display', '');
+          // });
+          // $subMenu.hide('fast', function() {
+          //   $subMenu.css('display', '');
+          // });
           ariaCheck();
         }
 
-        // Next Toplink
-        function nav_next_toplink(k) {
-          $(k.target).parents('.js-dawgdrops-nav > .js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
-          nav_close_submenus();
+        // Finds the first item in the closest submenu.
+        // If the current target is a top level item, it will find the first
+        // item in its submenu. If the target is a submenu item, it will find
+        // the first sibling item.
+        function nav_first_sublink() {
+          var $closestSubmenu = $targetA.closest('li.js-dawgdrops-item.dropdown');
+          $closestSubmenu.find('ul.js-dawgdrops-menu li.js-dawgdrops-item.first a').first().focus();
         }
 
-        function nav_prev_toplink(k) {
-          $(k.target).parents('.js-dawgdrops-nav > .js-dawgdrops-item').prev().find('.js-dawgdrops-link > a').first().focus();
-          nav_close_submenus();
+        // Go to the next item on the same level.
+        function nav_next_sibling() {
+          var $ddItem = $targetA.closest('li.js-dawgdrops-item');
+          var $nextDdItem = $ddItem.next('li.js-dawgdrops-item');
+          if ($nextDdItem.length) {
+            $targetA.closest('li.js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
+            // $nextDdItem.find('.js-dawgdrops-link > a').first().focus();
+          }
         }
 
-        // Go to Parent Toplink
-        function nav_parent_toplink(k) {
-          $(k.target).parents('.js-dawgdrops-item.dropdown').find('.js-dawgdrops-link > a').first().focus();
+        // Go to the previous item on the same level.
+        function nav_prev_sibling() {
+          $targetA.parent('.js-dawgdrops-link').parent('li.js-dawgdrops-item').prev().find('.js-dawgdrops-link > a').first().focus();
         }
+
+        // Go to the next top level item.
+        function nav_next_toplink() {
+          $targetA.parents('.js-dawgdrops-nav > .js-dawgdrops-item').next().find('.js-dawgdrops-link > a').first().focus();
+          // if (!Drupal.dawgDrops.isMobile) {
+            nav_close_submenus();
+          // }
+        }
+
+        // Go to the previous top level item.
+        function nav_prev_toplink() {
+          $targetA.parents('.js-dawgdrops-nav > .js-dawgdrops-item').prev().find('.js-dawgdrops-link > a').first().focus();
+          // if (!Drupal.dawgDrops.isMobile) {
+            nav_close_submenus();
+          // }
+        }
+
+        // From a submenu item, go to its parent top level item.
+        function nav_parent_toplink() {
+          $targetA.parents('.js-dawgdrops-item.dropdown').find('.js-dawgdrops-link > a').first().focus();
+        }
+
+        /** End KEYBOARD NAVIGATION **/
 
         var ariaCheck = function () {
           $('.js-dawgdrops-nav > li.js-dawgdrops-item', this).each(function () {
@@ -265,16 +346,74 @@
           }
         };
 
-        // $('.tb-megamenu-button', this).click(function () {
-        //   if (parseInt($(this).parent().children('.nav-collapse').height())) {
-        //     $(this).parent().children('.nav-collapse').css({height: 0, overflow: 'hidden'});
-        //     Drupal.TBMegaMenu.displayedMenuMobile = false;
-        //   }
-        //   else {
-        //     $(this).parent().children('.nav-collapse').css({height: 'auto', overflow: 'visible'});
-        //     Drupal.TBMegaMenu.displayedMenuMobile = true;
-        //   }
-        // });
+        // Mobile behavior
+        $('.js-dawgdrops-item.dropdown .js-dawgdrops-menu').each(function() {
+          var $parent = $(this).closest('.js-dawgdrops-item');
+          var $parentClone = $parent.clone();
+          $parentClone.children('.dawgdrops-menu').remove();
+          $parentClone.removeClass('expanded dropdown last').addClass('parent-clone mobile-only');
+          $parentClone.find('a').removeClass('dropdown-toggle');
+          $(this).prepend($parentClone);
+        });
+
+        $('.js-dawgdrops .dropdown-toggle').on('click', function (e) {
+          if (Drupal.dawgDrops.isMobile) {
+            e.preventDefault();
+            var $this = $(this);
+            var $parent = $this.closest('.js-dawgdrops-item');
+            var $subMenu = $parent.find('.js-dawgdrops-menu');
+
+            var $copyParent = $this.clone();
+
+            // showMenu($subMenu, mm_timeout);
+            // If the menu link has already been clicked once...
+            if ($parent.hasClass('js-dawgdrops-clicked')) {
+              // var $uri = $item.attr('href');
+
+              // If the menu link has a URI, go to the link.
+              // <nolink> menu items will not have a URI.
+              // if ($uri) {
+              //   window.location.href = $uri;
+              // }
+              // else {
+              $parent.removeClass('js-dawgdrops-clicked');
+                // hideMenu($parent, mm_timeout);
+                $subMenu.hide('fast', function() {
+                  $subMenu.css('display', '');
+                });
+              // }
+            }
+            else {
+              // e.preventDefault();
+
+              // Hide any already open menus.
+              // nav_close_submenus();
+              // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
+              // $('.dawgdrops-wrapper').find('.dawgdrops-clicked').removeClass('dawgdrops-clicked');
+
+              // Open the submenu.
+              $parent.addClass('js-dawgdrops-clicked');
+              // showMenu($parent, mm_timeout);
+              $subMenu.show('fast');
+            }
+          }
+        });
+
+        // Move the 'first' class to the cloned parent for mobile.
+        function toggleSubmenuFirstLinks() {
+          if (Drupal.dawgDrops.isMobile) {
+            $('.dawgdrops-item.mobile-only').each(function () {
+              $(this).siblings('.dawgdrops-item.first').removeClass('first');
+              $(this).addClass('first');
+            });
+          }
+          else {
+            $('.dawgdrops-item.mobile-only').each(function () {
+              $(this).next().addClass('first');
+              $(this).removeClass('first');
+            });
+          }
+        }
 
         // Detect if the device is a touch screen.
         var isTouch = window.matchMedia('(pointer: coarse)').matches;
@@ -290,11 +429,14 @@
           });
 
           var mm_timeout = mm_duration ? 100 + mm_duration : 500;
-          $('.nav > li, li.js-dawgdrops-item.expanded', context).bind('mouseenter', function (event) {
-            showMenu($(this), mm_timeout);
+
+          $('li.js-dawgdrops-item.dropdown', context).bind('mouseenter', function (event) {
+            if (!Drupal.dawgDrops.isMobile) {
+              showMenu($(this), mm_timeout);
+            }
           });
 
-          $('.nav > li > .dropdown-toggle, li.js-dawgdrops-item.expanded > .js-dawgdrops-link > .dropdown-toggle', context).bind('focus', function (event) {
+          $('li.js-dawgdrops-item.dropdown a.dropdown-toggle', context).bind('focus', function (event) {
             var $this = $(this);
             var $subMenu = $this.closest('li');
             showMenu($subMenu, mm_timeout);
@@ -308,8 +450,10 @@
             });
           });
 
-          $('.nav > li, li.js-dawgdrops-item.expanded', context).bind('mouseleave', function (event) {
-            hideMenu($(this), mm_timeout);
+          $('li.js-dawgdrops-item.dropdown', context).bind('mouseleave', function (event) {
+            if (!Drupal.dawgDrops.isMobile) {
+              hideMenu($(this), mm_timeout);
+            }
           });
 
           /**
@@ -325,7 +469,7 @@
             }
           });
 
-          $('.nav > li > a, li.js-dawgdrops-item.expanded > .js-dawgdrops-link > a').focus(function (event) {
+          $('.nav > li > a, li.js-dawgdrops-item.dropdown > .js-dawgdrops-link > a').focus(function (event) {
             // Remove all occurrences of "open" from other menu trees
             var siblings = $(this).parents('.js-dawgdrops-item').siblings();
             $.each(siblings, function (i, v) {
@@ -388,7 +532,7 @@
 
                 // Hide any already open menus.
                 nav_close_submenus();
-                $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
+                // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
                 // $('.dawgdrops-wrapper').find('.dawgdrops-clicked').removeClass('dawgdrops-clicked');
 
                 // Open the submenu.
@@ -402,7 +546,7 @@
           $(document).on('click', function (event) {
             if ($(event.target).closest('.js-dawgdrops-nav').length === 0) {
               nav_close_submenus();
-              $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
+              // $('.js-dawgdrops-inner').find('.js-dawgdrops-clicked').removeClass('js-dawgdrops-clicked');
             };
           })
         };
@@ -411,27 +555,22 @@
           createTouchMenu($('.js-dawgdrops-nav > li.js-dawgdrops-item', context).has('ul.js-dawgdrops-menu'));
         };
 
-        // $(window).on('load resize', function () {
-        //   var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
-        //   if (windowWidth != Drupal.dawgDrops.oldWindowWidth) {
-        //     Drupal.dawgDrops.oldWindowWidth = windowWidth;
-        //     Drupal.dawgDrops.menuResponsive();
-        //
-        //     if (windowWidth >= Drupal.dawgDrops.supportedScreens[0]) {
-        //       navParent.addEventListener('keydown',keydownEvent);
-        //     }
-        //     else {
-        //       navParent.removeEventListener('keydown',keydownEvent);
-        //     }
-        //   }
-        // });
-        // $(window).resize(function() {
-        //   var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
-        //   if(windowWidth != Drupal.TBMegaMenu.oldWindowWidth){
-        //     Drupal.TBMegaMenu.oldWindowWidth = windowWidth;
-        //     Drupal.TBMegaMenu.menuResponsive();
-        //   }
-        // });
+
+        // On window load and resize, assess whether it's a 'mobile' width.
+        $(window).on('load resize', function () {
+          var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
+          var isMobile = windowWidth <= Drupal.dawgDrops.mobileMax;
+
+          // Set the new values.
+          Drupal.dawgDrops.isMobile = isMobile;
+          Drupal.dawgDrops.windowWidth = windowWidth;
+
+          toggleSubmenuFirstLinks();
+
+          if (!Drupal.dawgDrops.isMobile) {
+            nav_close_submenus();
+          }
+        });
 
       });
     },

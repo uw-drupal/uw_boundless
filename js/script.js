@@ -36,7 +36,7 @@
         /**
          * this displays/hides the mobile main menu
          */
-        UW.mobileMenu.initialize();
+        // UW.mobileMenu.initialize();
 
         /**
         * Setup the keyboard navigation for the drop down menu

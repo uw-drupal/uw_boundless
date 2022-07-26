@@ -26,8 +26,8 @@
         &:focus,
         &:active,
         &:hover {
-            border-bottom: 1px solid @darkgold;
-            margin-bottom: -1px;
+          border-bottom: 1px solid @darkgold;
+          margin-bottom: -1px;
         }
 			}
 			&:after {
@@ -35,13 +35,13 @@
 			}
 		}
 		&.current {
-            span {
-                color: @darkgold;						
-            }
+      span {
+          color: @darkgold;
+      }
 			&:after {
 				display: none;
-			}	
-		} 
+			}
+		}
 		&:before {
 			content: "";
 			position: absolute;
@@ -53,7 +53,7 @@
 		}
 		&:after {
 			content: "";
-			position: absolute;			
+			position: absolute;
 			height: 10px;
 			width: 10px;
 			right: 5px;
@@ -66,12 +66,19 @@
 		&:empty {
 			display: none;
 		}
-		a:hover {
-			border-bottom: none;
-			text-decoration: underline;
+    &:last-child:after {
+      background: none;
+    }
+		a {
+      border-bottom-color: @gray;
+      &:hover {
+        //border-bottom: none;
+        //text-decoration: underline;
+      }
 		}
 	}
-	a, span {
+	a,
+  span {
 		font-family: @font-family-headline;
 		color: #535353;
 		font-weight: 400;
@@ -86,7 +93,8 @@
 		}
 	}
 }
-@media only screen and (max-width : 767px) {
+
+@media only screen and (max-width: @screen-xs-max) {
 	.uw-breadcrumbs {
 		float: none;
 		padding: 0;
@@ -94,7 +102,8 @@
 		li {
 			float: left;
 			display: initial;
-			a, span {
+			a,
+      span {
 				padding: 0 25px 0 0;
 			}
 			&:first-child {
@@ -106,7 +115,6 @@
 					top: 8px;
 				}
 			}
-			 
 		}
 	}
 }

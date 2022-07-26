@@ -38,13 +38,8 @@ function uw_boundless_preprocess_media(array &$variables) {
 }
 
 /**
- * Implements template_preprocess_menu().
+ * Implements hook_preprocess().
  */
-// function uw_boundless_preprocess_menu(array &$variables) {
-//   $variables['attributes']['class'][] = 'my-fancy-class';
-//   dpm($variables, 'uw-boundless preproc-menu');
-// }
-
 function uw_boundless_preprocess_block(array &$variables) {
   if ($variables['plugin_id'] == 'system_menu_block:main') {
     $variables['attributes']['class'][] = 'dawgdrops';
@@ -52,13 +47,12 @@ function uw_boundless_preprocess_block(array &$variables) {
   }
 }
 
-// function uw_boundless_preprocess(&$variables) {
-//   dpm($variables, 'all the preproc vars');
-// }
+/**
+ * Implements hook_preprocess().
+ */
 function uw_boundless_preprocess_page(array &$variables) {
-  // dpm($variables, 'page vars');
   $variables['current_year'] = date("Y");
-  $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();  //TODO
+  $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();
 
   // Load the site name out of configuration.
   $config = \Drupal::config('system.site');
@@ -75,13 +69,13 @@ function uw_boundless_preprocess_page(array &$variables) {
 
   // Primary Nav - the main menu without all the surrounding sections and divs
   // See https://www.drupal.org/node/2226481 and https://www.amazeelabs.com/en/render-menu-tree-custom-code-drupal-8
-  $variables['primary_nav'] = FALSE;
-  $menu_parameters = new MenuTreeParameters();
-  $menu_parameters->setMaxDepth(2);
-  /** @var \Drupal\Core\Menu\MenuLinkTree $menu_tree_service */
-  $menu_tree_service = \Drupal::service('menu.link_tree');
-  $tree = $menu_tree_service->load('main', $menu_parameters);
-  $variables['primary_nav'] = $menu_tree_service->build($tree);
+  // $variables['primary_nav'] = FALSE;
+  // $menu_parameters = new MenuTreeParameters();
+  // $menu_parameters->setMaxDepth(2);
+  // /** @var \Drupal\Core\Menu\MenuLinkTree $menu_tree_service */
+  // $menu_tree_service = \Drupal::service('menu.link_tree');
+  // $tree = $menu_tree_service->load('main', $menu_parameters);
+  // $variables['primary_nav'] = $menu_tree_service->build($tree);
 
   $variables['uw_boundless_hero_image_front_display'] = theme_get_setting('uw_boundless_hero_image_front_display') ??
     'large';
@@ -373,7 +367,6 @@ function uw_boundless_settings_form_submit(&$form, &$form_state){
 function _uw_boundless_uw_sidebar_menu() {
     // check the theme setting for visibility
     if (!theme_get_setting('uw_boundless_sidebar_menu_visibility')) {
-      //dpm('No sidebar menu');
       return false;
     }
 
@@ -399,8 +392,7 @@ function _uw_boundless_uw_sidebar_menu() {
 
 
     $current_path = \Drupal::service('path.current')->getPath();
-    $current_uri = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-
+    $current_uri = \Drupal\core\Url::fromUserInput($current_path)->toString();
 
     $title = $current_menu_item->link->getTitle();
     //$current_depth = $current_menu_item->depth;

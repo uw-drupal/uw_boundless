@@ -187,12 +187,15 @@ span.next-page {
 	h3 a,
 	h4 a,
 	h5 a {
-		border-bottom: none;
+		border-bottom: 2px solid;
 		color: inherit;
+    &:hover {
+      border-bottom-width: 2px;
+    }
 	}
 	a {
 		text-decoration: none;
-		// border-bottom: 1px solid #D3D3D3;
+		 border-bottom: 1px solid;
 	}
 }
 
@@ -233,12 +236,17 @@ span.next-page {
 	padding: 0;
 	margin-top: 20px;
 	overflow: visible;
+  &.list-inline {
+    > li {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
 	li {
-		padding: 0;
-		list-style: none;
+    list-style: none;
 		margin-bottom: 6px;
-		padding-bottom: 6px;
-		border-bottom: 1px solid #eee;
+    padding: 0 0 6px;
+    border-bottom: 1px solid #eee;
 		&:last-child {
 			border-bottom: none;
 		}
@@ -261,8 +269,27 @@ img.attachment-post-thumbnail.wp-post-image,
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : @screen-xs-max) {
+  .uw-mobile-header {
+    padding: 20px;
+    .uw-site-title {
+      color: @purple;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: @ultra;
+      font-family: "Encode Sans Compressed", sans-serif;
+      margin: -20px -20px 20px -20px;
+      padding: 15px 75px 15px 20px;
+      position: static;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+
+      p {
+        display: none;
+      }
+    }
+  }
 	.uw-body {
 		padding: 20px;
+    /* Deprecated - use .mobile-header .uw-site-title */
 		.uw-site-title {
 			color: @purple;
 			font-size: 25px;
@@ -286,7 +313,7 @@ img.attachment-post-thumbnail.wp-post-image,
 	}
   .home {
     .uw-body {
-      .uw-site-title{
+      .uw-site-title {
         padding-right: 65px;
       }
     }

@@ -1,7 +1,144 @@
+.navbar-dawgdrops {
+  .uw-site-title {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: @screen-xs-max) {
+  .navbar-mobile-sidebar .dawgdrops {
+    display: none;
+  }
+  .navbar-dawgdrops {
+    border: none;
+    box-shadow: none;
+    .navbar-header {
+      position: relative;
+    }
+    .uw-site-title {
+      font-family: @font-family-headline;
+      color: @purple;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: @ultra;
+      margin: 0;
+      padding: 12px 95px 15px 10px;
+      position: absolute;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+      display: block;
+      a {
+        color: @purple;
+      }
+    }
+    button.uw-mobile-menu-toggle {
+      font-size: (@font-size-base / 1.2);
+      line-height: (@line-height-base / 1.2);
+      font-family: @font-family-headline;
+      font-weight: @bold;
+      text-align: center;
+      width: 50px;
+      height: 40px;
+      text-transform: uppercase;
+      color: @purple;
+      background: url(assets/svg/uw-sprite.svg) no-repeat -475px 20px transparent;
+      background-size: 1200px;
+      padding: 0 0 10px 0;
+      right: -10px;
+      z-index: 10;
+      top: 0;
+      &:before {
+        content: "";
+        position: absolute;
+        right: 55px;
+        top: -4px;
+        width: 20px;
+        height: 40px;
+        background: url(assets/svg/uw-sprite.svg) no-repeat -600px 0 transparent;
+      }
+      &:focus {
+        outline: none;
+        border: 1px solid #4d90fe;
+        -webkit-box-shadow: 0px 0px 5px #4d90fe;
+        box-shadow: 0px 0px 5px #4d90fe;
+      }
+    }
+    // Resets
+    .navbar-collapse,
+    .dawgdrops-inner {
+      padding: 0;
+    }
+  }
+  .dawgdrops {
+    li {
+      display: block;
+    }
+  }
+  .dawgdrops-item {
+    background-color: #eee;
+    border-bottom: 1px solid #fff;
+    &.last .dawgdrops-menu {
+      border-bottom: thin solid #eee;
+    }
+    a {
+      font-family: @font-family-base;
+      font-size: 16px;
+      padding: 10px 10px 10px 20px;
+      text-transform: none;
+      &.dropdown-toggle {
+        &:after {
+          content: "";
+          position: absolute;
+          top: 11px;
+          right: 11px;
+          width: 26px;
+          height: 23px;
+          background: url(assets/svg/uw-sprite.svg) -284px 0 no-repeat rgba(0, 0, 0, 0);
+          opacity: .8;
+          margin-top: 0
+        }
+      }
+    }
+    a {
+      font-weight: normal;
+    }
+    .dawgdrops-menu {
+      border-top: 0;
+      position: initial;
+      width: 100% !important;
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+      li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        a {
+          color: #5F5F5F;
+          margin: 0;
+          padding: 10px 10px 10px 20px;
+          background-color: #fff;
+          font-family: @font-family-base;
+          font-size: 16px;
+          font-weight: normal;
+          &:hover,
+          &:focus {
+            background: @ultralightgold;
+          }
+          &.is-active {
+            border-left: 10px solid @darkgold;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ### Former stuff ###
+// ####################
 #mobile-relative {
   display: none;
   ul.uw-mobile-menu {
-    display: none;
+    //display: none;
     width: 100%;
     float: right;
     clear: both;
@@ -24,8 +161,8 @@
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
-@media only screen and (max-width: @screen-sm-min) {
-
+//@media only screen and (max-width: @screen-sm-min) {
+@media only screen and (max-width: @screen-xs-max) {
   // Hides sidebar down in the page for mobile version
   #desktop-relative {
     display:none;
@@ -36,28 +173,77 @@
     border-bottom: 1px solid #fff;
   }
 
+  //.navbar-dawgdrops {
+    //button.uw-mobile-menu-toggle {
+    //  /*margin-top: -55px;*/
+    //  font-size: (@font-size-base / 1.2);
+    //  line-height: (@line-height-base / 1.2);
+    //  font-family: @font-family-headline;
+    //  font-weight: @bold;
+    //  text-align: center;
+    //  /*width: 50px;*/
+    //  /*height: 40px;*/
+    //  text-transform: uppercase;
+    //  color: @purple;
+    //  background: url(assets/svg/uw-sprite.svg) no-repeat -475px 20px transparent;
+    //  background-size: 1200px;
+    //  //padding: 0 0 20px 0;
+    //  &:before {
+    //    content: "";
+    //    position: absolute;
+    //    right: 55px;
+    //    top: -4px;
+    //    width: 20px;
+    //    height: 40px;
+    //    background: url(assets/svg/uw-sprite.svg) no-repeat -600px 0 transparent;
+    //  }
+    //  //&:focus {
+    //  //  outline: none;
+    //  //  border: 1px solid #4d90fe;
+    //  //  -webkit-box-shadow: 0px 0px 5px #4d90fe;
+    //  //  box-shadow: 0px 0px 5px #4d90fe;
+    //  //}
+    //}
+
+    //.uw-site-title {
+    //  font-family: @font-family-headline;
+    //  color: @purple;
+    //  font-size: 25px;
+    //  line-height: 1.2;
+    //  font-weight: @ultra;
+    //  margin: -20px -20px 20px 0;
+    //  padding: 15px 95px 15px 20px;
+    //  position: static;
+    //  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+    //  display: block;
+    //  a {
+    //    color: @purple;
+    //  }
+    //}
+  //}
+  // Deprecate
   #mobile-relative {
     display: block;
 
     button.uw-mobile-menu-toggle {
-      display: block;
-      position: relative;
-      float: right;
-      margin-top: -55px;
-      margin-right: -10px;
-      font-size: (@font-size-base / 1.2);
-      line-height: (@line-height-base / 1.2);
-      font-family: @font-family-headline;
-      font-weight: @bold;
-      text-align: center;
-      width: 50px;
-      height: 40px;
-      text-transform: uppercase;
-      color: @purple;
-      background: url(assets/svg/uw-sprite.svg) no-repeat -475px 20px transparent;
-      background-size: 1200px;
-      border: none;
-      padding: 0 0 20px 0;
+      //display: block;
+      //position: relative;
+      //float: right;
+      //margin-top: -55px;
+      //margin-right: -10px;
+      //font-size: (@font-size-base / 1.2);
+      //line-height: (@line-height-base / 1.2);
+      //font-family: @font-family-headline;
+      //font-weight: @bold;
+      //text-align: center;
+      //width: 50px;
+      //height: 40px;
+      //text-transform: uppercase;
+      //color: @purple;
+      //background: url(assets/svg/uw-sprite.svg) no-repeat -475px 20px transparent;
+      //background-size: 1200px;
+      //border: none;
+      //padding: 0 0 20px 0;
       &:before {
         content: "";
         position: absolute;
@@ -67,6 +253,12 @@
         height: 40px;
         background: url(assets/svg/uw-sprite.svg) no-repeat -600px 0 transparent;
       }
+      //&:focus {
+      //  outline: none;
+      //  border: 1px solid #4d90fe;
+      //  -webkit-box-shadow: 0px 0px 5px #4d90fe;
+      //  box-shadow: 0px 0px 5px #4d90fe;
+      //}
     }
 
     ul.uw-mobile-menu li.pagenav ul li.current_page_parent.current_page_ancestor > a:after {
@@ -177,19 +369,19 @@
   }
 
   // Next few lines for the homepage only
- .home #mobile-relative {
-    li {
-      a:hover,
-      a:focus {
-        border-bottom: 1px solid #eee;
-      }
-      &:last-child {
-        a:hover,
-        a:focus {
-          border-bottom: none;
-        }
-      }
-    }
-  }
+ //.home #mobile-relative {
+ //   li {
+ //     a:hover,
+ //     a:focus {
+ //       border-bottom: 1px solid #eee;
+ //     }
+ //     &:last-child {
+ //       a:hover,
+ //       a:focus {
+ //         border-bottom: none;
+ //       }
+ //     }
+ //   }
+ // }
 }
 
