@@ -1,24 +1,27 @@
 <?php
+
 /**
  * @file
- * UW Boundless (Bootstrap sub-theme).
+ * UW Boundless (Bootstrap subtheme).
  */
 
 use Drupal\Core\Link;
-use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\Core\Render\Element;
+use Drupal\core\Url;
+use Drupal\file\Entity\File;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
- * UW colors
+ * UW colors.
  */
-abstract class UW_Color {
-    const Purple = '#4b2e83';
-    const Gold = '#b7a57a';
-    const Metallic_Gold = '#85754d';
-    const Light_Grey = '#d9d9d9';
-    const Dark_Grey = '#444444';
-    const Black = '#000000';
-    const White = '#ffffff';
+abstract class UwColor {
+  const PURPLE = '#4b2e83';
+  const GOLD = '#b7a57a';
+  const METALLIC_GOLD = '#85754d';
+  const LIGHT_GREY = '#d9d9d9';
+  const DARK_GREY = '#444444';
+  const BLACK = '#000000';
+  const WHITE = '#ffffff';
+
 }
 
 /**
@@ -52,33 +55,26 @@ function uw_boundless_preprocess_block(array &$variables) {
  */
 function uw_boundless_preprocess_page(array &$variables) {
   $variables['current_year'] = date("Y");
-  $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();
 
   // Load the site name out of configuration.
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
   $variables['site_slogan'] = $config->get('slogan');
 
-  if ($variables['uw_sidebar_menu'] or
-      !empty($variables['page']['sidebar_first']) or
-      !empty($variables['page']['sidebar_second'])) {
-      $variables['content_column_class'] = 'col-md-8';
-  } else {
-      $variables['content_column_class'] = 'col-sm-12';
+  // Sidebar menu.
+  $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();
+  if ($variables['uw_sidebar_menu'] ||
+    !empty($variables['page']['sidebar_first']) ||
+    !empty($variables['page']['sidebar_second'])) {
+    $variables['content_column_class'] = 'col-md-8';
   }
+  else {
+    $variables['content_column_class'] = 'col-sm-12';
+  }
+  $variables['uw_boundless_sidebar_menu_visibility'] = theme_get_setting('uw_boundless_sidebar_menu_visibility');
 
-  // Primary Nav - the main menu without all the surrounding sections and divs
-  // See https://www.drupal.org/node/2226481 and https://www.amazeelabs.com/en/render-menu-tree-custom-code-drupal-8
-  // $variables['primary_nav'] = FALSE;
-  // $menu_parameters = new MenuTreeParameters();
-  // $menu_parameters->setMaxDepth(2);
-  // /** @var \Drupal\Core\Menu\MenuLinkTree $menu_tree_service */
-  // $menu_tree_service = \Drupal::service('menu.link_tree');
-  // $tree = $menu_tree_service->load('main', $menu_parameters);
-  // $variables['primary_nav'] = $menu_tree_service->build($tree);
-
-  $variables['uw_boundless_hero_image_front_display'] = theme_get_setting('uw_boundless_hero_image_front_display') ??
-    'large';
+  // Hero images.
+  $variables['uw_boundless_hero_image_front_display'] = theme_get_setting('uw_boundless_hero_image_front_display') ?? 'large';
   $variables['uw_boundless_hero_image_display'] = theme_get_setting('uw_boundless_hero_image_display') ?? 'small';
 
   // Get the default hero images. Defer to a subtheme's image if one exists.
@@ -91,237 +87,233 @@ function uw_boundless_preprocess_page(array &$variables) {
     $variables['uw_hero_image_front_path'] = theme_get_setting('uw_boundless_hero_image_default_path') ??
       theme_get_setting('uw_boundless_hero_image_default_path', 'uw_boundless');
   }
-  $variables['uw_hero_image_path'] = theme_get_setting('uw_boundless_hero_image_default_path') ??
-  theme_get_setting('uw_boundless_hero_image_default_path', 'uw_boundless');
+  $variables['uw_hero_image_path'] = theme_get_setting('uw_boundless_hero_image_default_path') ?? theme_get_setting('uw_boundless_hero_image_default_path', 'uw_boundless');
 
-  //if default is overridden with a file upload, reset the hero paths
-  if (!theme_get_setting('uw_boundless_hero_image_front_default') && !empty(theme_get_setting('hero_image_front_upload'))) {
+  // If default is overridden with a file upload, reset the hero paths.
+  if (!theme_get_setting('uw_boundless_hero_image_front_default') &&
+    !empty(theme_get_setting('hero_image_front_upload'))) {
     $hero_front = theme_get_setting('hero_image_front_upload');
     $fid = reset($hero_front);
-    if($file = Drupal\file\Entity\File::load($fid)){
+    if ($file = File::load($fid)) {
       $variables['uw_hero_image_front_path'] = $file->createFileUrl(TRUE);
     }
   }
 
-  if (!theme_get_setting('uw_boundless_hero_image_default')&& !empty(theme_get_setting('hero_image_upload'))) {
+  if (!theme_get_setting('uw_boundless_hero_image_default') &&
+    !empty(theme_get_setting('hero_image_upload'))) {
     $hero = theme_get_setting('hero_image_upload');
     $fid2 = reset($hero);
-    if($file = Drupal\file\Entity\File::load($fid2)){
-        $variables['uw_hero_image_path'] = $file->createFileUrl(TRUE);
+    if ($file = File::load($fid2)) {
+      $variables['uw_hero_image_path'] = $file->createFileUrl(TRUE);
     }
   }
 
-  // Front page title and shadow colors
+  // Front page title and shadow colors.
   $variables['uw_boundless_front_page_title_color'] = theme_get_setting('uw_boundless_front_page_title_color');
   $variables['uw_front_title_text_shadow'] = _uw_boundless_get_text_shadow($variables['uw_boundless_front_page_title_color']);
 
-  // Slant color
+  // Slant color.
   $variables['uw_boundless_front_page_slant_color'] = theme_get_setting('uw_boundless_front_page_slant_color');
 
-  // Front page motto and shadow colors
+  // Front page slogan and shadow colors.
   $variables['uw_boundless_front_page_slogan_color'] = theme_get_setting('uw_boundless_front_page_slogan_color');
   $variables['uw_front_slogan_text_shadow'] = _uw_boundless_get_text_shadow($variables['uw_boundless_front_page_slogan_color']);
-
-  $variables['uw_boundless_sidebar_menu_visibility'] = theme_get_setting('uw_boundless_sidebar_menu_visibility');
-
 }
 
-//
-// See https://www.drupal.org/docs/8/theming-drupal-8/creating-advanced-theme-settings
-//
-function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
-  // Work-around for a core bug affecting admin themes. See issue #943212.
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @see https://www.drupal.org/docs/8/theming-drupal-8/creating-advanced-theme-settings
+ */
+function uw_boundless_form_system_theme_settings_alter(&$form, FormStateInterface &$form_state, $form_id = NULL) {
+  // Workaround for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
     return;
   }
 
-  // array of UW colors for select options
-  $_colors = array(
-      '#4b2e83' => t('Purple'),
-      '#b7a57a' => t('Gold'),
-      '#85754d' => t('Metallic Gold'),
-      '#d9d9d9' => t('Light Grey'),
-      '#444444' => t('Dark Grey'),
-      '#000000' => t('Black'),
-      '#ffffff' => t('White'),
-  );
-
-  // UW Boundless Theme Settings
-  $form['uw_boundless'] = array(
-      '#type' => 'vertical_tabs',
-      '#prefix' => '<h2><small>' . t('UW Boundless Theme Settings') . '</small></h2>',
-      '#weight' => -11,
-  );
+  // Array of UW colors for select options.
+  $_colors = [
+    '#4b2e83' => t('Purple'),
+    '#b7a57a' => t('Gold'),
+    '#85754d' => t('Metallic Gold'),
+    '#d9d9d9' => t('Light Grey'),
+    '#444444' => t('Dark Grey'),
+    '#000000' => t('Black'),
+    '#ffffff' => t('White'),
+  ];
 
   //
-  // Hero image tab
+  // UW Boundless theme settings group.
   //
-  $form['uw_boundless_hero_image'] = array(
-      '#type' => 'details',
-      '#title' => t('Hero Image'),
-      '#group' => 'uw_boundless',
-  );
+  $form['uw_boundless'] = [
+    '#type' => 'vertical_tabs',
+    '#prefix' => '<h2><small>' . t('UW Boundless Theme Settings') . '</small></h2>',
+    '#weight' => -11,
+  ];
 
-  // Hero image settings for the image on the default front page
-  $form['uw_boundless_hero_image']['front_page'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Front page hero image'),
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-  );
-  $form['uw_boundless_hero_image']['front_page']['uw_boundless_hero_image_front_display'] = array(
-    '#type' => 'radios',
-    '#title' => t('Display size'),
-    '#options' => [
-      'large' => t('Large hero image'),
-      'small' => t('Small hero image'),
-      'none' => t('None - hide the hero image on the front page'),
+  //
+  // Hero image settings tab.
+  //
+  $form['uw_boundless_hero_image'] = [
+    '#type' => 'details',
+    '#title' => t('Hero image'),
+    '#group' => 'uw_boundless',
+  ];
+
+  // Settings for the hero image on the default front page.
+  $form['uw_boundless_hero_image']['front_page'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Front page hero image'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    'uw_boundless_hero_image_front_display' => [
+      '#type' => 'radios',
+      '#title' => t('Display size'),
+      '#options' => [
+        'large' => t('Large hero image'),
+        'small' => t('Small hero image'),
+        'none' => t('None - hide the hero image on the front page'),
+      ],
+      '#default_value' => theme_get_setting('uw_boundless_hero_image_front_display') ?? 'large',
+      '#tree' => FALSE,
     ],
-    '#default_value' => theme_get_setting('uw_boundless_hero_image_front_display') ?? 'large',
-    '#tree' => FALSE,
-    // '#description' => t('Check here if you want the theme to use the hero-image supplied with it.')
-  );
-  $form['uw_boundless_hero_image']['front_page']['uw_boundless_hero_image_front_default'] = array(
+    'uw_boundless_hero_image_front_default' => [
       '#type' => 'checkbox',
       '#title' => t('Use the default hero image'),
       '#default_value' => theme_get_setting('uw_boundless_hero_image_front_default') ?? TRUE,
       '#tree' => FALSE,
       '#description' => t('The correct image size will be selected automatically. Uncheck to upload a custom image.'),
-    '#states' => array(
-      // Hide the header settings when using the default header.
-      'invisible' => array(
-        'input[name="uw_boundless_hero_image_front_display"]' => array('value' => 'none')
-      ),
-    ),
-  );
-  $form['uw_boundless_hero_image']['front_page']['settings'] = array(
-    '#type' => 'container',
-    '#states' => array(
-      // Hide the header settings when using the default header.
-      'invisible' => array(
-        array('input[name="uw_boundless_hero_image_front_default"]' => array('checked' => TRUE)),
-        'or',
-        array('input[name="uw_boundless_hero_image_front_display"]' => array('value' => 'none')),
-      ),
-    ),
-  );
-
-  $form['uw_boundless_hero_image']['front_page']['settings']['hero_image_front_upload'] = array(
-      '#type' => 'managed_file',
-      '#title' => t('Upload hero-image'),
-      '#upload_location' => 'public://branding',
-      '#default_value' => theme_get_setting('hero_image_front_upload'),
-      '#description' => t("Use this field to upload your front-page hero-image."),
-      '#upload_validators' => array('file_validate_extensions' => array('gif png jpg jpeg')),
-  );
-
-  // Hero image settings for the image used on other pages
-  $form['uw_boundless_hero_image']['other_page'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Hero image '),
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-  );
-  $form['uw_boundless_hero_image']['other_page']['uw_boundless_hero_image_display'] = array(
-    '#type' => 'radios',
-    '#title' => t('Display size'),
-    '#options' => [
-      'small' => t('Small hero image'),
-      'none' => t('None - hide the hero image'),
+      '#states' => [
+        'invisible' => [
+          'input[name="uw_boundless_hero_image_front_display"]' => ['value' => 'none'],
+        ],
+      ],
     ],
-    '#default_value' => theme_get_setting('uw_boundless_hero_image_display') ?? 'small',
-    '#tree' => FALSE,
-  );
-  $form['uw_boundless_hero_image']['other_page']['uw_boundless_hero_image_default'] = array(
+    'settings' => [
+      '#type' => 'container',
+      '#states' => [
+        'invisible' => [
+          ['input[name="uw_boundless_hero_image_front_default"]' => ['checked' => TRUE]],
+          'or',
+          ['input[name="uw_boundless_hero_image_front_display"]' => ['value' => 'none']],
+        ],
+      ],
+      'hero_image_front_upload' => [
+        '#type' => 'managed_file',
+        '#title' => t('Upload hero-image'),
+        '#upload_location' => 'public://branding',
+        '#default_value' => theme_get_setting('hero_image_front_upload'),
+        '#description' => t("Use this field to upload your front-page hero-image."),
+        '#upload_validators' => [
+          'file_validate_extensions' => ['gif png jpg jpeg'],
+        ],
+      ],
+    ],
+  ];
+
+  // Settings for the hero image used on other pages.
+  $form['uw_boundless_hero_image']['other_page'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Hero image'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    'uw_boundless_hero_image_display' => [
+      '#type' => 'radios',
+      '#title' => t('Display size'),
+      '#options' => [
+        'small' => t('Small hero image'),
+        'none' => t('None - hide the hero image'),
+      ],
+      '#default_value' => theme_get_setting('uw_boundless_hero_image_display') ?? 'small',
+      '#tree' => FALSE,
+    ],
+    'uw_boundless_hero_image_default' => [
       '#type' => 'checkbox',
       '#title' => t('Use the default hero image'),
       '#tree' => FALSE,
       '#default_value' => theme_get_setting('uw_boundless_hero_image_default'),
       '#description' => t('Check here if you want the theme to use the hero image supplied with it.'),
-    '#states' => array(
-      // Hide the header settings when using the default header.
-      'invisible' => array(
-        'input[name="uw_boundless_hero_image_display"]' => array('value' => 'none')
-      ),
-    ),
-  );
-  $form['uw_boundless_hero_image']['other_page']['settings'] = array(
+      '#states' => [
+        'invisible' => [
+          'input[name="uw_boundless_hero_image_display"]' => ['value' => 'none'],
+        ],
+      ],
+    ],
+    'settings' => [
       '#type' => 'container',
-      '#states' => array(
-      // Hide the header settings when using the default header.
-        'invisible' => array(
-          array('input[name="uw_boundless_hero_image_default"]' => array('checked' => TRUE)),
+      '#states' => [
+        'invisible' => [
+          ['input[name="uw_boundless_hero_image_default"]' => ['checked' => TRUE]],
           'or',
-          array('input[name="uw_boundless_hero_image_display"]' => array('value' => 'none')),
-        ),
-      ),
-  );
-  $form['uw_boundless_hero_image']['other_page']['settings']['hero_image_upload'] = array(
-      '#type' => 'managed_file',
-      '#title' => t('Upload hero-image'),
-      '#description' => t("Use this field to upload your hero-image."),
-      '#upload_location' => 'public://branding',
-      '#default_value' => theme_get_setting('hero_image_upload'),
-      '#upload_validators' => array('file_validate_extensions' => array('gif png jpg jpeg'))
-  );
+          ['input[name="uw_boundless_hero_image_display"]' => ['value' => 'none']],
+        ],
+      ],
+      'hero_image_upload' => [
+        '#type' => 'managed_file',
+        '#title' => t('Upload hero-image'),
+        '#description' => t("Use this field to upload your hero-image."),
+        '#upload_location' => 'public://branding',
+        '#default_value' => theme_get_setting('hero_image_upload'),
+        '#upload_validators' => ['file_validate_extensions' => ['gif png jpg jpeg']],
+      ],
+    ],
+  ];
 
   //
-  // Color settings
+  // Color settings tab.
   //
-  $url = \Drupal\Core\Url::fromUri('http://www.washington.edu/brand/primary-color-palette/');
-  $form['uw_boundless_colors'] = array(
-      '#type' => 'details',
-      '#title' => t('Color settings'),
-      '#group' => 'uw_boundless',
-      '#description' => t('Set the color display of certain page elements. For color references, see: ') .
-                        (Link::fromTextAndUrl( t('UW brand color palette') , $url))->toString() ,
-  );
-  $form['uw_boundless_colors']['front_page'] = array(
+  $color_palette_url = 'https://www.washington.edu/brand/graphic-elements/primary-color-palette/';
+  $form['uw_boundless_colors'] = [
+    '#type' => 'details',
+    '#title' => t('Color settings'),
+    '#group' => 'uw_boundless',
+    '#description' => t('Set the color display of certain page elements. For color references, see: <a href="@color_palette_url">UW brand color palette</a>.',
+      [
+        '@color_palette_url' => $color_palette_url,
+      ]),
+    'front_page' => [
       '#type' => 'fieldset',
       '#title' => t('front page elements'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
-  );
-  // Front page title color
-  $form['uw_boundless_colors']['front_page']['uw_boundless_front_page_title_color']= array(
-      '#type' => 'select',
-      '#title' => t('Site name'),
-      '#default_value' => theme_get_setting('uw_boundless_front_page_title_color') ?? '#ffffff',
-      '#options' => $_colors,
-  );
-  // Front page slant color
-  $form['uw_boundless_colors']['front_page']['uw_boundless_front_page_slant_color']= array(
-      '#type' => 'select',
-      '#title' => t('slant'),
-      '#default_value' => theme_get_setting('uw_boundless_front_page_slant_color') ?? '#ffffff',
-      '#options' => $_colors,
-  );
-  // Front page slogan color
-  $form['uw_boundless_colors']['front_page']['uw_boundless_front_page_slogan_color']= array(
-      '#type' => 'select',
-      '#title' => t('Site slogan'),
-      '#default_value' => theme_get_setting('uw_boundless_front_page_slogan_color') ?? '#ffffff',
-      '#options' => $_colors,
-  );
+      'uw_boundless_front_page_title_color' => [
+        '#type' => 'select',
+        '#title' => t('Site name'),
+        '#default_value' => theme_get_setting('uw_boundless_front_page_title_color') ?? '#ffffff',
+        '#options' => $_colors,
+      ],
+      'uw_boundless_front_page_slant_color' => [
+        '#type' => 'select',
+        '#title' => t('slant'),
+        '#default_value' => theme_get_setting('uw_boundless_front_page_slant_color') ?? '#ffffff',
+        '#options' => $_colors,
+      ],
+      'uw_boundless_front_page_slogan_color' => [
+        '#type' => 'select',
+        '#title' => t('Site slogan'),
+        '#default_value' => theme_get_setting('uw_boundless_front_page_slogan_color') ?? '#ffffff',
+        '#options' => $_colors,
+      ],
+    ],
+  ];
 
   //
-  // Sidebar menu
+  // Sidebar menu tab.
   //
-  $form['uw_boundless_sidebar_menu'] = array(
-      '#type' => 'details',
-      '#title' => t('Sidebar menu'),
-      '#group' => 'uw_boundless',
-  );
-  // Sidebar menu visibilty
-  $form['uw_boundless_sidebar_menu']['uw_boundless_sidebar_menu_visibility']= array(
+  $form['uw_boundless_sidebar_menu'] = [
+    '#type' => 'details',
+    '#title' => t('Sidebar menu'),
+    '#group' => 'uw_boundless',
+    'uw_boundless_sidebar_menu_visibility' => [
       '#type' => 'select',
       '#title' => t('Sidebar menu visibility'),
       '#default_value' => theme_get_setting('uw_boundless_sidebar_menu_visibility'),
-      '#options' => array(
-          0 => t('Hidden'),
-          1 => t('Visible'),
-      ),
-  );
+      '#options' => [
+        0 => t('Hidden'),
+        1 => t('Visible'),
+      ],
+    ],
+  ];
 
   $form['#submit'][] = 'uw_boundless_settings_form_submit';
 }
@@ -331,17 +323,13 @@ function uw_boundless_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
  *
  * @see uw_boundless_settings_form()
  */
-function uw_boundless_settings_form_submit(&$form, &$form_state){
-  /** @var \Drupal\Core\File\FileSystem $file_system */
-  // $file_system = \Drupal::service('file_system');
-  // $file_system->
-
+function uw_boundless_settings_form_submit(&$form, &$form_state) {
   // Set the file usage for uploaded hero image files.
   $imagevars = ['hero_image_front_upload', 'hero_image_upload'];
   foreach ($imagevars as $thisimage) {
     $image = $form_state->getValue($thisimage);
     if (!empty($image)) {
-      $file = Drupal\file\Entity\File::load($image[0]);
+      $file = File::load($image[0]);
       if (is_object($file)) {
         if (!$file->isPermanent()) {
           $file->setPermanent();
@@ -354,88 +342,85 @@ function uw_boundless_settings_form_submit(&$form, &$form_state){
   }
 }
 
-
 /**
- * Local function
- *
  * Builds a sidebar menu based on the current path.
  *
- * @return HTML content or false
+ * @return string|false
+ *   Returns HTML for the sidebar menu. Returns FALSE if the sidebar menu is
+ *   hidden.
  *
  * @todo grandchildren
  */
 function _uw_boundless_uw_sidebar_menu() {
-    // check the theme setting for visibility
-    if (!theme_get_setting('uw_boundless_sidebar_menu_visibility')) {
-      return false;
+  // Check the theme setting for visibility.
+  if (!theme_get_setting('uw_boundless_sidebar_menu_visibility')) {
+    return FALSE;
+  }
+
+  $menu_tree = \Drupal::menuTree();
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters('main');
+  $main_menu_top_level = $menu_tree->load('main', $parameters);
+
+  // Find the first item in the current trail.  Also, we're only interested if
+  // that item has children and is accessible by the current user.
+  $current_menu_item = NULL;
+  foreach ($main_menu_top_level as $menu_item) {
+    if ($menu_item->inActiveTrail and $menu_item->hasChildren) {
+      $current_menu_item = $menu_item;
+      break;
     }
+  }
 
-    // get some data
-    $menu_tree = Drupal::menuTree();
-    $parameters = $menu_tree->getCurrentRouteMenuTreeParameters('main');
-    $main_menu_top_level = $menu_tree->load('main', $parameters); // Array of Drupal\Core\Menu\MenuLinkTreeElement
+  if (!$current_menu_item) {
+    return FALSE;
+  }
 
-    // Find the first item in the current trail.  Also, we're only interested if
-    // that item has children and is accessible by the current user.
-    $current_menu_item = null;
-    foreach ($main_menu_top_level as $menu_item) {
-      // $menu_item is Drupal\Core\Menu\MenuLinkTreeElement
-      if ($menu_item->inActiveTrail and $menu_item->hasChildren) {
-        $current_menu_item = $menu_item;
-        break;
-      }
-    }
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_uri = Url::fromUserInput($current_path)->toString();
 
-    if (! $current_menu_item) {
-      return(false);
-    }
+  $title = $current_menu_item->link->getTitle();
+  // $current_depth = $current_menu_item->depth;
+  $link_object = $current_menu_item->link->getUrlObject();
+  $path = $link_object->toString();
+  $class = ($path == $current_uri) ? 'current_page_item' : 'current_page_ancestor current_page_parent';
 
+  $output_menu = '<ul>';
+  $output_menu .= "<li class=\"page_item page_item_has_children $class\">";
+  $output_menu .= Link::fromTextAndUrl($title, $link_object)->toString();
 
-    $current_path = \Drupal::service('path.current')->getPath();
-    $current_uri = \Drupal\core\Url::fromUserInput($current_path)->toString();
-
-    $title = $current_menu_item->link->getTitle();
-    //$current_depth = $current_menu_item->depth;
-    $link_object = $current_menu_item->link->getUrlObject();
+  $output_menu .= '<ul class="children">';
+  foreach ($current_menu_item->subtree as $child) {
+    $title = $child->link->getTitle();
+    $link_object = $child->link->getUrlObject();
+    $current_depth = $child->depth;
     $path = $link_object->toString();
-    $class = ($path == $current_uri) ? 'current_page_item' : 'current_page_ancestor current_page_parent';
+    $class = ($path == $current_uri) ? 'current_page_item' : '';
 
-    $output_menu = '<ul>';
-    $output_menu .= "<li class=\"page_item page_item_has_children $class\">";
-    $output_menu .= Link::fromTextAndUrl($title , $link_object)->toString();
-    // $output_menu .= \Drupal::l($title, $link_object);
-
-    $output_menu .= '<ul class="children">';
-    foreach ($current_menu_item->subtree as $child) {
-      $title = $child->link->getTitle();
-      $link_object = $child->link->getUrlObject();
-      $current_depth = $child->depth;
-      $path = $link_object->toString();
-      $class = ($path == $current_uri) ? 'current_page_item' : '';
-
-      $output_menu .= "<li class=\"page_item $class\">";
-      if ($path == $current_uri) {
-        $output_menu .= "<span>$title</span>";
-        if ($child->hasChildren) {
-          // TODO: grandchildren
-        }
-      } else {
-        // $output_menu .= \Drupal::l($title, $link_object);
-        $output_menu .= Link::fromTextAndUrl($title, $link_object)->toString();
+    $output_menu .= "<li class=\"page_item $class\">";
+    if ($path == $current_uri) {
+      $output_menu .= "<span>$title</span>";
+      if ($child->hasChildren) {
+        // @todo: Add grandchildren?
+        // (This note was an artifact from...before. There's no javascript or
+        // CSS to handle grandchildren. Do we need this?)
       }
-      $output_menu .= '</li>';
     }
-
-    $output_menu .= '</ul>';
+    else {
+      $output_menu .= Link::fromTextAndUrl($title, $link_object)->toString();
+    }
     $output_menu .= '</li>';
-    $output_menu .= '</ul>';
-    return($output_menu);
+  }
+
+  $output_menu .= '</ul>';
+  $output_menu .= '</li>';
+  $output_menu .= '</ul>';
+  return $output_menu;
 }
 
 /**
  * Gets the text-shadow setting for the provided color.
  *
- * @param string|NULL $hex
+ * @param string|null $hex
  *   The hex code for the color, including the '#'.
  *
  * @return string
@@ -443,24 +428,17 @@ function _uw_boundless_uw_sidebar_menu() {
  *   uw_boundless_text_shadow_white.
  */
 function _uw_boundless_get_text_shadow(?string $hex) {
-  $retval = '';
   switch ($hex) {
-    case UW_Color::White:
-    case UW_Color::Light_Grey:
-    case UW_Color::Gold:
-      $retval = theme_get_setting('uw_boundless_text_shadow_black', 'uw_boundless');
+    case UwColor::PURPLE:
+    case UwColor::METALLIC_GOLD:
+    case UwColor::DARK_GREY:
+    case UwColor::BLACK:
+      return theme_get_setting('uw_boundless_text_shadow_white', 'uw_boundless');
       break;
 
-    case UW_Color::Purple:
-    case UW_Color::Metallic_Gold:
-    case UW_Color::Dark_Grey:
-    case UW_Color::Black:
-      $retval = theme_get_setting('uw_boundless_text_shadow_white', 'uw_boundless');
-      break;
-
-  default:
-      $retval = theme_get_setting('uw_boundless_text_shadow_black', 'uw_boundless');
+    // Applies to WHITE, LIGHT_GREY and GOLD.
+    default:
+      return theme_get_setting('uw_boundless_text_shadow_black', 'uw_boundless');
       break;
   }
-  return $retval;
 }

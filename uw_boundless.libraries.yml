@@ -22,4 +22,3 @@ framework:
     js/radios.js: {}
   dependencies:
     - core/jquery.once
-
