@@ -14,45 +14,45 @@
 
 (function ($, Drupal, window, document, undefined) {
 
-    // The document ready event executes when the HTML-Document is loaded
-    // and the DOM is ready.
-    jQuery(document).ready(function($) {
+  // The document ready event executes when the HTML-Document is loaded
+  // and the DOM is ready.
+  jQuery(document).ready(function($) {
 
-        /**
-         * this displays/hides the search area
-         */
-        UW.search.initialize();
+    /**
+     * This displays/hides the search area.
+     */
+    UW.search.initialize();
 
-        /**
-         * this displays/hides the quicklinks
-         */
-        UW.quicklinks.initialize();
+    /**
+     * This displays/hides the quicklinks.
+     */
+    UW.quicklinks.initialize();
 
-        $('.webform-grid-option').addClass('radio');
-        $('.webform-grid-option').removeClass('checkbox');
+    $('.webform-grid-option').addClass('radio');
+    $('.webform-grid-option').removeClass('checkbox');
 
-    });//document.ready
+  });//document.ready
 
-    // Drupal behaviors
-    Drupal.behaviors.myBehavior = {
-      // Attach behaviors that should be reloaded after AJAX calls.
-      attach: function (context, settings) {
-        $('input[type=radio]').each(function() { $(this).closest('.form-item').addClass('radio'); });
-        $('input[type=checkbox]').each(function() { $(this).closest('.form-item').addClass('checkbox'); });
-        $('.radio').each(function() { $(this).radio() });
-        $('.checkbox').each(function() { $(this).radio() });
-      }
-    };
+  // Drupal behaviors
+  Drupal.behaviors.myBehavior = {
+    // Attach behaviors that should be reloaded after AJAX calls.
+    attach: function (context, settings) {
+      $('input[type=radio]').each(function() { $(this).closest('.form-item').addClass('radio'); });
+      $('input[type=checkbox]').each(function() { $(this).closest('.form-item').addClass('checkbox'); });
+      $('.radio').each(function() { $(this).radio() });
+      $('.checkbox').each(function() { $(this).radio() });
+    }
+  };
 
-    // The window load event executes after the document ready event,
-    // when the complete page is fully loaded.
-    jQuery(window).on('load', function() {
+  // The window load event executes after the document ready event,
+  // when the complete page is fully loaded.
+  jQuery(window).on('load', function() {
 
-        /**
-         * reposition the alert banner in the DOM
-         */
-        $("#uwalert-alert-message").insertAfter("header.uw-thinstrip");
+    /**
+     * Reposition the alert banner in the DOM.
+     */
+    $("#uwalert-alert-message").insertAfter("header.uw-thinstrip");
 
-    });//window.load
+  });//window.load
 
 })(jQuery, Drupal, this, this.document);
