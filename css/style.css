@@ -15435,4 +15435,16 @@ pre.prettyprint ol.linenums li {
 .webform-component {
   margin-bottom: 15px;
 }
+/**
+ * Node styling.
+ */
+.is-unpublished {
+  background-color: #fff4f4;
+}
+.node-preview-container {
+  margin-top: -15px;
+}
+.node-preview-form-select {
+  padding: 15px;
+}
 /*# sourceMappingURL=style.css.map */
