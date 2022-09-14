@@ -55,7 +55,7 @@ function uw_boundless_preprocess_block(array &$variables) {
  */
 function uw_boundless_preprocess_page(array &$variables) {
   $variables['current_year'] = date("Y");
-
+  $variables['login_url'] = base_path() . ltrim(theme_get_setting('uw_boundless_login_url'), '/') ;
   // Load the site name out of configuration.
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
@@ -313,6 +313,19 @@ function uw_boundless_form_system_theme_settings_alter(&$form, FormStateInterfac
         1 => t('Visible'),
       ],
     ],
+  ];
+
+  // Login url settings.
+  $form['uw_boundless_login'] = [
+    '#type' => 'details',
+    '#title' => t('Login settings'),
+    '#group' => 'uw_boundless',
+  ];
+  $form['uw_boundless_login']['uw_boundless_login_url'] = [
+    '#type' => 'textfield',
+    '#title' => t('Login url'),
+    '#description' => t("Enter the path for the login link (lead with a forward slash '/'). The copyright year in the footer will be linked to this path. Leave empty to not link the year in the footer to a login url."),
+    '#default_value' => theme_get_setting('uw_boundless_login_url'),
   ];
 
   $form['#submit'][] = 'uw_boundless_settings_form_submit';
