@@ -24,6 +24,9 @@ libraries-extend:
   bootstrap/framework:
     - uw_boundless/framework
 
+ckeditor5-stylesheets:
+  - css/ckeditor.css
+
 features:
   - favicon
   - logo

@@ -1,0 +1,115 @@
+.ck-content a.uw-btn {
+  padding: 11px 20px;
+  text-transform: uppercase;
+  background-color: #e8e3d3;
+  font-family: "Encode Sans Compressed", sans-serif;
+  font-weight: 800;
+  color: #5a5a5a;
+  display: inline-block;
+  position: relative;
+  background-image: none !important;
+  border-bottom: none;
+  margin-bottom: 25px;
+  margin-right: 50px;
+  z-index: 1;
+  line-height: 24px;
+  font-size: 16px;
+}
+.ck-content a.uw-btn:hover,
+.ck-content a.uw-btn:focus {
+  color: #85754d;
+  background-color: #f5f5f5;
+}
+.ck-content a.uw-btn:hover:before,
+.ck-content a.uw-btn:focus:before {
+  background-color: #613ba9;
+}
+.ck-content a.uw-btn:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 55px;
+  height: 55px;
+  right: -50px;
+  top: 50%;
+  margin-top: -28px;
+  background: url(assets/svg/uw-sprite.svg) no-repeat -36px -475px transparent;
+}
+.ck-content a.uw-btn:before {
+  content: "";
+  width: 48px;
+  right: -48px;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: #4b2e83;
+  border-left: 5px solid rgba(0, 0, 0, 0.3);
+}
+.ck-content a.uw-btn.btn-sm {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 800;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.ck-content a.uw-btn.btn-sm:before {
+  width: 43px;
+  right: -43px;
+}
+.ck-content a.uw-btn.btn-sm:after {
+  width: 45px;
+  height: 45px;
+  top: 50%;
+  margin-top: -21px;
+  right: -43px;
+  background-size: 740px;
+  background-position: -32px -410px;
+}
+.ck-content a.uw-btn.btn-sm.btn-play:after {
+  background-position: -31px -466px;
+}
+.ck-content a.uw-btn.btn-sm.btn-external:after {
+  background-position: -126px -410px;
+}
+.ck-content a.uw-btn.btn-sm.btn-plus:after {
+  background-position: -83px -465px;
+}
+.ck-content a.uw-btn.btn-gold:hover:before {
+  background-color: #a49161;
+}
+.ck-content a.uw-btn.btn-purple {
+  background-color: #4b2e83;
+  color: #fff;
+}
+.ck-content a.uw-btn.btn-purple:hover,
+.ck-content a.uw-btn.btn-purple:focus {
+  background-color: #402770;
+}
+.ck-content a.uw-btn.btn-purple:before {
+  background-color: #402770;
+}
+.ck-content a.uw-btn.btn-purple:hover:before {
+  background-color: #201338;
+}
+.ck-content a.uw-btn.btn-play:after {
+  background-position: -36px -539px;
+}
+.ck-content a.uw-btn.btn-external:after {
+  background-position: -146px -475px;
+}
+.ck-content a.uw-btn.btn-plus:after {
+  background-position: -95px -539px;
+}
+.ck-content a.uw-btn.btn-gold:before {
+  background-color: #85754d;
+}
+.ck-content a.uw-btn.btn-gold:before {
+  border-left: 5px solid rgba(0, 0, 0, 0.1);
+}
+.ck-content a.uw-btn.btn-squish {
+  margin-bottom: 5px;
+}
+
+/*# sourceMappingURL=ckeditor.css.map */
