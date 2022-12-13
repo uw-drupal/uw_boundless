@@ -94,6 +94,7 @@
             'navbar',
             theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-dawgdrops',
             theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : '',
+            theme.settings.navbar_height == 'thin' ? 'navbar-thin' : '',
           ]
           %}
           <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">

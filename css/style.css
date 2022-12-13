@@ -10660,6 +10660,21 @@ table th[class*="col-"] {
   margin-bottom: 10px;
   border: none;
 }
+.navbar-thin {
+  min-height: 45px;
+}
+.navbar-thin .dawgdrops-inner {
+  padding: 0;
+}
+.navbar-thin .dawgdrops-link a {
+  padding: 7px 10px 7px 15px;
+}
+.navbar-thin .dawgdrops-menu {
+  top: 48px;
+}
+.navbar-thin .dawgdrops-item a.dropdown-toggle {
+  padding-right: 30px;
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .dawgdrops-item a {
     font-size: 18px;

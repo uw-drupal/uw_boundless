@@ -328,6 +328,27 @@ function uw_boundless_form_system_theme_settings_alter(&$form, FormStateInterfac
     '#default_value' => theme_get_setting('uw_boundless_login_url'),
   ];
 
+  //
+  // Navbar settings tab.
+  //
+  $form['uw_boundless_navbar'] = [
+    '#type' => 'details',
+    '#title' => t('Navbar'),
+    '#group' => 'uw_boundless',
+  ];
+  // Settings for the hero image on the default front page.
+  $form['uw_boundless_navbar']['navbar_height'] = [
+    '#type' => 'select',
+    '#title' => t('Navbar height'),
+    '#options' => [
+      'default' => t('Default'),
+      'thin' => t('Thin'),
+    ],
+    '#required' => TRUE,
+    '#default_value' => theme_get_setting('navbar_height') ?? 'default',
+    '#tree' => FALSE,
+  ];
+
   $form['#submit'][] = 'uw_boundless_settings_form_submit';
 }
 
