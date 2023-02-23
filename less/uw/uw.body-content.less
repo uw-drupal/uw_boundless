@@ -1,58 +1,58 @@
+// Basic styles
 ul {
-	padding-left: 25px;
-	//list-style-position: inside;
-}
-dd {
-	margin-bottom: 24.5px;
+  padding-left: 25px;
 }
 
-// Basic styles
+dd {
+  margin-bottom: 24.5px;
+}
 
 hr {
-	border-top: 1px solid #ebebeb;
-	clear: both;
+  border-top: 1px solid #ebebeb;
+  clear: both;
 }
 
 iframe {
-	margin: 40px 0 20px;
-	max-width: 100%;
-	&[src*="youtu.be"],
-	&[src*="youtube.com"],
-	&[src*="www.facebook.com/plugins/video"] {
-		max-height: 50vw;
-	}
+  margin: 40px 0 20px;
+  max-width: 100%;
+
+  &[src*="youtu.be"],
+  &[src*="youtube.com"],
+  &[src*="www.facebook.com/plugins/video"] {
+    max-height: 50vw;
+  }
 }
 
-// This overrides the line-height issue with bootrap
+// This overrides the line-height issue with bootstrap
 small,
 .small {
-	font-size: 15px;
-	line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .intro,
 .lead {
-	font-family: @font-family-headline;
-	font-size: 23px;
-	font-weight: 400;
-	line-height: 1.5;
-	margin-bottom: 20px;
+  font-family: @font-family-headline;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 // Makes heavy
 .uw-body-copy .weight-900 {
-	font-weight: @ultra;
+  font-weight: @ultra;
 }
 
 a.more {
   position: relative;
- // display: inline-block;
+  // display: inline-block;
   &:after {
     background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px !important;
     content: "";
     position: absolute;
     right: -24px;
-    bottom: 0px;
+    bottom: 0;
     width: 14px;
     height: 21px;
     .rotate(90deg);
@@ -61,68 +61,71 @@ a.more {
 
 // Wrapper
 .uw-body {
-	position: relative;
-	&.container {
-		background-color: #fff;
-		margin-bottom: 80px;
-	}
+  position: relative;
+  &.container {
+    background-color: #fff;
+    margin-bottom: 80px;
+  }
 }
 
-// Actual content area (includes sideabar)
+// Actual content area (includes sidebar)
 .uw-body {
-	padding-top: 10px;
-	-webkit-font-smoothing: antialiased;
-	h1,
+  padding-top: 10px;
+  -webkit-font-smoothing: antialiased;
+
+  h1,
   h2 {
-		color: @purple;
-		display: block;
-	}
-	h2,
+    color: @purple;
+    display: block;
+  }
+
+  h2,
   h3,
   h4,
   h5 {
-		font-weight: @bold;
-	}
-	blockquote {
-		p {
-			font-family: @font-family-headline;
-			font-size: 21px;
-		}
-	}
-	.uw-site-title {
-		position: absolute;
-		top: -150px;
-		left: 11px;
-		color: #fff;
-		font-family: @font-family-headline;
-		font-size: 50px;
-		line-height: 55px;
-		font-weight: @ultra;
-		-webkit-font-smoothing: antialiased;
-		span {
-			font-weight: @bold;
-		}
-    +p {
+    font-weight: @bold;
+  }
+
+  blockquote {
+    p {
+      font-family: @font-family-headline;
+      font-size: 21px;
+    }
+  }
+
+  .uw-site-title {
+    position: absolute;
+    top: -150px;
+    left: 11px;
+    color: #fff;
+    font-family: @font-family-headline;
+    font-size: 50px;
+    line-height: 55px;
+    font-weight: @ultra;
+    -webkit-font-smoothing: antialiased;
+    span {
+      font-weight: @bold;
+    }
+    + p {
       position: absolute;
       top: -60px;
       color: #fff;
       line-height: 1.55;
       -webkit-font-smoothing: auto;
       margin-bottom: 30px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,.8);
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
     }
-	}
-	div.uw-site-title {
-		margin-top: 29px;
-		margin-bottom: 14.5px;
-	}
+  }
+  div.uw-site-title {
+    margin-top: 29px;
+    margin-bottom: 14.5px;
+  }
+
   p.date {
     margin-top: 25px;
     margin-bottom: -19px;
-    // &:first-of-type{
-    //     margin-top: 0px;
-    // }
   }
+
   .author-info {
     margin: -4.5px 0 20px 0;
     font-weight: @ultra;
@@ -132,7 +135,7 @@ a.more {
 .front {
   .uw-body {
     .uw-site-title {
-      +p {
+      + p {
         display: none;
       }
     }
@@ -141,29 +144,28 @@ a.more {
 
 // Next link in the blog
 span.next-page {
-	display: block;
-	margin-top: 50px;
-	a {
-	  padding: 10px 40px 10px 19px;
-	  text-transform: uppercase;
-	  background-color: @ultralightgold;
-	  font-family: @font-family-headline;
-	  font-weight: @bold;
-	  color: @darkgray;
-	  display: inline-block;
-	  position: relative;
-	  background-image: none !important;
-	  border-bottom: none;
-	  margin-bottom: 25px;
-	  margin-right: 55px;
-	  z-index: 1;
-	  line-height: 24px;
-	  font-size: 14px;
-	  font-weight: @bold;
-	  border-radius:0;
-	  -webkit-border-radius:0;
-	  -moz-border-radius:0;
-	  &:after {
+  display: block;
+  margin-top: 50px;
+  a {
+    padding: 10px 40px 10px 19px;
+    text-transform: uppercase;
+    background-color: @ultralightgold;
+    font-family: @font-family-headline;
+    font-weight: @bold;
+    color: @darkgray;
+    display: inline-block;
+    position: relative;
+    background-image: none !important;
+    border-bottom: 0;
+    margin-bottom: 25px;
+    margin-right: 55px;
+    z-index: 1;
+    line-height: 24px;
+    font-size: 14px;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    &:after {
       background: url(assets/svg/uw-sprite.svg) no-repeat -206px -492px !important;
       content: "";
       position: absolute;
@@ -173,104 +175,108 @@ span.next-page {
       width: 14px;
       height: 21px;
       .rotate(90deg);
-	  }
-	  &:hover {
-	  	 background-color: darken(@ultralightgold, 5%);
-	  }
-	}
+    }
+    &:hover {
+      background-color: darken(@ultralightgold, 5%);
+    }
+  }
 }
 
 // (doesn't include sidebar)
 .uw-body-copy {
-	h1 a,
-	h2 a,
-	h3 a,
-	h4 a,
-	h5 a {
-		border-bottom: 2px solid;
-		color: inherit;
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a {
+    border-bottom: 2px solid;
+    color: inherit;
     &:hover {
       border-bottom-width: 2px;
     }
-	}
-	a {
-		text-decoration: none;
-		 border-bottom: 1px solid;
-	}
+  }
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid;
+  }
 }
 
 .info-box {
-	width: 310px;
-	float: left;
-	margin-right: 50px;
-	margin-bottom: 50px;
-	margin-top: 20px;
-	margin-left: -150px;
-	padding: 30px 30px 30px;
-	.box-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
-	border-top: 6px solid @lightgold;
-	position: relative;
-	background: url('assets/images/stripes-dark-tile.svg') repeat-x 0 -88px transparent;
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-	&:after {
-		top: auto;
-		bottom: -40px;
-	}
-	p, li, a {
-		font-size: 16px;
-		line-height: 1.6;
-	}
-	h1, h2, h3, h4, h5 {
-		margin-top: 0;
-	}
+  width: 310px;
+  float: left;
+  margin: 20px 50px 50px -150px;
+  padding: 30px 30px 30px;
+  .box-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
+  border-top: 6px solid @lightgold;
+  position: relative;
+  background: url(assets/images/stripes-dark-tile.svg) repeat-x 0 -88px transparent;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  &:after {
+    top: auto;
+    bottom: -40px;
+  }
+  p,
+  li,
+  a {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-top: 0;
+  }
 }
 
 .uw-body-copy ul.links {
-	overflow: visible;
+  overflow: visible;
 }
 
 .links {
-	padding: 0;
-	margin-top: 20px;
-	overflow: visible;
+  padding: 0;
+  margin-top: 20px;
+  overflow: visible;
   &.list-inline {
     > li {
       padding-right: 5px;
       padding-left: 5px;
     }
   }
-	li {
+  li {
     list-style: none;
-		margin-bottom: 6px;
+    margin-bottom: 6px;
     padding: 0 0 6px;
     border-bottom: 1px solid #eee;
-		&:last-child {
-			border-bottom: none;
-		}
-	}
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
 }
 
 img.attachment-post-thumbnail.wp-post-image,
 .archive .uw-body-copy img.attachment-thumbnail.wp-post-image {
-	float: left;
+  float: left;
   margin: 5px 50px 0 0;
   height: 150px;
   width: auto;
 
-	// Images on the blogroll page
-	&.blogroll-img {
+  // Images on the blogroll page
+  &.blogroll-img {
     margin-bottom: 20px;
     height: 130px;
-	}
+  }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : @screen-xs-max) {
+@media only screen and (max-width: @screen-xs-max) {
   .uw-mobile-header {
     padding: 20px;
+
     .uw-site-title {
       color: @purple;
       font-size: 25px;
@@ -280,37 +286,43 @@ img.attachment-post-thumbnail.wp-post-image,
       margin: -20px -20px 20px -20px;
       padding: 15px 75px 15px 20px;
       position: static;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
       p {
         display: none;
       }
     }
   }
-	.uw-body {
-		padding: 20px;
+
+  .uw-body {
+    padding: 20px;
     /* Deprecated - use .mobile-header .uw-site-title */
-		.uw-site-title {
-			color: @purple;
-			font-size: 25px;
-			line-height: 1.2;
-			font-weight: @ultra;
-			margin: -20px -20px 20px -20px;
-			padding: 15px 75px 15px 20px;
-			position: static;
-			text-shadow: 0 1px 2px rgba(0,0,0,.2);
-      +p {
+
+    .uw-site-title {
+      color: @purple;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: @ultra;
+      margin: -20px -20px 20px -20px;
+      padding: 15px 75px 15px 20px;
+      position: static;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+      + p {
         display: none;
       }
-		}
-		h1 {
-			margin: 10px 80px 20px 0;
-			font-size: 33px;
-		}
+    }
+
+    h1 {
+      margin: 10px 80px 20px 0;
+      font-size: 33px;
+    }
+
     p.date {
       margin-bottom: -15px;
     }
-	}
+  }
+
   .home {
     .uw-body {
       .uw-site-title {
@@ -320,7 +332,7 @@ img.attachment-post-thumbnail.wp-post-image,
   }
 }
 
-@media only screen and (min-width : @screen-sm) {
+@media only screen and (min-width: @screen-sm) {
   .uw-body {
     .uw-site-title {
       &.long-title {
@@ -328,12 +340,14 @@ img.attachment-post-thumbnail.wp-post-image,
       }
     }
   }
+
   .front {
     .uw-body {
-      >.row {
+      > .row {
         margin-top: -30px;
         background-color: #fff;
       }
+
       .uw-site-title {
         display: none;
       }
@@ -346,30 +360,32 @@ img.attachment-post-thumbnail.wp-post-image,
 // }
 .uw-sidebar .block,
 .widget {
-	padding: 10px 0 0 40px;
+  padding: 10px 0 0 40px;
 }
 
-@media only screen and (max-width : @screen-md) {
-	.widget {
-	  padding: 10px 0 0 0px;
+@media only screen and (max-width: @screen-md) {
+  .widget {
+    padding: 10px 0 0 0;
   }
 }
 
 // Big screens - is this necessary?
-@media only screen and (max-width : 1600px) {
-	.info-box {
-		margin-left: -50px;
-	}
+@media only screen and (max-width: 1600px) {
+  .info-box {
+    margin-left: -50px;
+  }
 }
 
-@media only screen and (max-width : @screen-xs-max) {
-	.widget {
-		padding: 0;
-	}
-	.info-box {
-		margin-left: 0;
-		width: 100%;
-	}
+@media only screen and (max-width: @screen-xs-max) {
+  .widget {
+    padding: 0;
+  }
+
+  .info-box {
+    margin-left: 0;
+    width: 100%;
+  }
+
   .uw-body-copy {
     h1,
     h2,
@@ -378,22 +394,24 @@ img.attachment-post-thumbnail.wp-post-image,
     p:first-of-type {
       clear: right;
     }
-    >div.row {
-      clear:both;
+
+    > div.row {
+      clear: both;
     }
   }
 }
 
-@media only screen and (min-width : @screen-sm) {
-	.uw-body {
-		.uw-site-title {
-			text-shadow: 1px 1px 2px rgba(0,0,0,.5);
-		}
-	}
-	// Fixes floated images next to a bulleted list. The bullets weren't indenting properly
-	.uw-body-copy {
-		ul {
-			overflow: hidden;
-		}
-	}
+@media only screen and (min-width: @screen-sm) {
+  .uw-body {
+    .uw-site-title {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // Fixes floated images next to a bulleted list. The bullets weren't indenting properly
+  .uw-body-copy {
+    ul {
+      overflow: hidden;
+    }
+  }
 }

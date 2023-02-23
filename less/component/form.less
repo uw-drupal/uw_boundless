@@ -3,7 +3,8 @@
  */
 
 // Checkboxes / radio buttons.
-.checkbox, .radio {
+.checkbox,
+.radio {
   // Remove top/bottom margins when in table context, because this is most
   // likely a tableselect checkbox element.
   table &.form-no-label {
@@ -44,12 +45,12 @@
   }
   &:after {
     color: @brand-primary;
-    content: '▼';
+    content: "▼";
     font-style: normal;
     font-weight: 400;
     line-height: 1;
-    margin-top: -.5em;
-    padding-right: .5em;
+    margin-top: -0.5em;
+    padding-right: 0.5em;
     pointer-events: none;
     position: absolute;
     right: 0;
@@ -60,9 +61,9 @@
     .has-glyphicons & {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      content: '\e114'; // .glyphicon-chevron-down
+      content: "\e114"; // .glyphicon-chevron-down
       display: inline-block;
-      font-family: 'Glyphicons Halflings';
+      font-family: "Glyphicons Halflings";
     }
     .has-error & {
       color: @state-danger-text;
@@ -80,19 +81,20 @@
 // @see https://www.drupal.org/node/2152217
 // @see https://www.drupal.org/node/2274631
 .form-required:after {
-  background-image: url('@{image-path}/required.svg');
+  background-image: url("@{image-path}/required.svg");
   background-size: 10px 7px;
-  content:"";
+  content: "";
   display: inline-block;
   vertical-align: super;
-  line-height:1;
+  line-height: 1;
   height: 7px;
   width: 10px;
 }
 
 // Form action buttons.
 .form-actions {
-  .btn, .btn-group {
+  .btn,
+  .btn-group {
     margin-right: 10px;
   }
   .btn-group {

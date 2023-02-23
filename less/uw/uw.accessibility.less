@@ -17,7 +17,7 @@ a.screen-reader-shortcut {
     padding: 15px 23px 14px;
     background-color: #f1f1f1;
     color: @purple;
-    box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -33,8 +33,8 @@ label.screen-reader {
 }
 
 .dawgdrops {
-  li.dawgdrops-item{
-    a:focus{
+  li.dawgdrops-item {
+    a:focus {
       text-decoration: underline;
     }
     ul.dawgdrops-menu {
@@ -52,7 +52,7 @@ label.screen-reader {
     border-bottom: 1px solid #bdbdbd;
     // We don't want buttons underlined on hover
     &.uw-btn {
-      border-bottom: none;
+      border-bottom: 0;
     }
   }
   a.uw-btn:focus {
@@ -60,18 +60,18 @@ label.screen-reader {
   }
   .uw-breadcrumbs {
     a:focus {
-      border-bottom: none;
+      border-bottom: 0;
       text-decoration: underline;
     }
   }
   #main_content:focus {
-    outline:none;
+    outline: none;
   }
   .widget {
-    a.widget-link{
+    a.widget-link {
       &:focus,
       &:hover {
-        border-bottom: none;
+        border-bottom: 0;
         color: @darkgold;
       }
       &:focus {

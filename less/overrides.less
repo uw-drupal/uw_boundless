@@ -40,6 +40,7 @@ html {
     }
   }
 }
+
 body {
   // Fix horizontal scrolling on iOS devices.
   // https://www.drupal.org/node/1870076
@@ -86,7 +87,9 @@ body {
     z-index: 1600;
   }
   // Override box-shadow styles on all "admin" menus.
-  #toolbar, #admin-menu, #admin-toolbar {
+  #toolbar,
+  #admin-menu,
+  #admin-toolbar {
     .box-shadow(none);
   }
   // Override #admin-menu style.
@@ -153,7 +156,7 @@ body {
   margin-top: 45px;
   padding-top: 35px;
   padding-bottom: 36px;
-  border-top: 1px solid #E5E5E5;
+  border-top: 1px solid #e5e5e5;
 }
 
 // Element invisible fix
@@ -227,7 +230,7 @@ form#search-block-form {
   }
 }
 .navbar-search .control-group {
-  margin-bottom:0px;
+  margin-bottom: 0;
 }
 
 // Action Links
@@ -245,7 +248,10 @@ ul.action-links {
 }
 
 // Form elements.
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   max-width: 100%;
   width: auto;
 }
@@ -278,7 +284,7 @@ fieldset .panel-heading a.panel-title {
   margin-left: 0;
   margin-right: 0;
 }
-.form-actions{
+.form-actions {
   clear: both;
 }
 .managed-files.table {
@@ -327,7 +333,8 @@ table.sticky-header {
     vertical-align: text-top;
   }
 }
-.radio, .checkbox {
+.radio,
+.checkbox {
   &:first-child {
     margin-top: 0;
   }
@@ -335,7 +342,8 @@ table.sticky-header {
     margin-bottom: 0;
   }
 }
-.help-block, .control-group .help-inline {
+.help-block,
+.control-group .help-inline {
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
@@ -349,8 +357,8 @@ a.tabledrag-handle .handle {
 }
 form input {
   &.form-radio,
-  &.form-checkbox{
-    margin:6px 0 0 -18px !important;
+  &.form-checkbox {
+    margin: 6px 0 0 -18px !important;
   }
 }
 
@@ -366,14 +374,19 @@ table tr.error {
 .form-group.error,
 .form-group.has-error {
   background: none;
-  label, .control-label {
+  label,
+  .control-label {
     color: @state-danger-text;
     font-weight: 600;
   }
-  input, textarea, select, .uneditable-input {
+  input,
+  textarea,
+  select,
+  .uneditable-input {
     color: @input-color;
   }
-  .help-block, .help-inline {
+  .help-block,
+  .help-inline {
     color: @text-muted;
   }
 }
@@ -387,12 +400,15 @@ table tr.error {
 .nav-tabs {
   margin-bottom: 10px;
 }
-ul li.collapsed,
-ul li.expanded,
-ul li.leaf {
-  list-style: none;
-  list-style-image: none;
+ul li {
+  &.collapsed,
+  &.expanded,
+  &.leaf {
+    list-style: none;
+    list-style-image: none;
+  }
 }
+
 .tabs--secondary {
   margin: 0 0 10px;
 }
@@ -418,12 +434,12 @@ ul li.leaf {
     padding-left: 2em;
     @media (min-width: @screen-sm-min) {
       border-left: 1px solid @table-border-color;
-      left: percentage((6/12));
+      left: percentage((6 / 12));
       margin-left: (@grid-gutter-width / 2);
       position: absolute;
     }
     @media (min-width: @screen-md-min) {
-      left: percentage((4/12));
+      left: percentage((4 / 12));
     }
   }
   .progress {
@@ -433,7 +449,7 @@ ul li.leaf {
     border-radius: 0 0 5px 5px;
     .box-shadow(none);
     height: 4px;
-    margin: -5px 0px 0;
+    margin: -5px 0 0;
   }
   .form-type-password {
     clear: left;
@@ -612,7 +628,9 @@ a .glyphicon-spin {
 .tabbable {
   margin-bottom: 20px;
 }
-.tabs-below, .tabs-left, .tabs-right {
+.tabs-below,
+.tabs-left,
+.tabs-right {
   > .nav-tabs {
     border-bottom: 0;
     .summary {
@@ -676,7 +694,7 @@ a .glyphicon-spin {
   }
   > .tab-content {
     border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
-    .box-shadow(0 1px 1px rgba(0,0,0,.05));
+    .box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
     border: 1px solid @nav-tabs-border-color;
     overflow: hidden;
     padding: 10px 15px;
@@ -699,7 +717,7 @@ a .glyphicon-spin {
     > .active > a:hover,
     > .active > a:focus {
       border-color: @nav-tabs-border-color transparent @nav-tabs-border-color @nav-tabs-border-color;
-      .box-shadow(-1px 1px 1px rgba(0,0,0,.05));
+      .box-shadow(-1px 1px 1px rgba(0, 0, 0, 0.05));
     }
   }
 }
@@ -714,7 +732,7 @@ a .glyphicon-spin {
       &:hover,
       &:focus {
         border-color: @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-border-color;
-        .box-shadow(1px 1px 1px rgba(0,0,0,.05));
+        .box-shadow(1px 1px 1px rgba(0, 0, 0, 0.05));
       }
     }
     > .active > a,
@@ -737,7 +755,7 @@ td.radio {
 .views-display-settings {
   .label {
     font-size: 100%;
-    color: #666666;
+    color: #666;
   }
   .footer {
     padding: 0;
@@ -763,7 +781,7 @@ table {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 7px;
-  padding-left:  (@grid-gutter-width / 2);
+  padding-left: (@grid-gutter-width / 2);
   padding-right: (@grid-gutter-width / 2);
   text-align: right;
 
@@ -856,7 +874,8 @@ td.module,
 }
 fieldset.features-export-component {
   font-size: @font-size-small;
-  html.js #features-export-form &, & {
+  html.js #features-export-form &,
+  & {
     margin: 0 0 (@line-height-computed / 2);
   }
   .panel-heading {
@@ -883,8 +902,8 @@ div.features-export-list {
     line-height: 1em;
     margin: 5px 5px 5px 0 !important;
     min-height: 0;
-    padding: 3px 3px 3px 25px!important;
-    input[type=checkbox] {
+    padding: 3px 3px 3px 25px !important;
+    input[type="checkbox"] {
       margin-top: 0;
     }
   }
@@ -904,17 +923,17 @@ body.navbar-is-fixed-top.navbar-administration.navbar-vertical.navbar-tray-open 
     left: 24rem;
   }
 }
-.navbar-administration #navbar-administration.navbar-oriented .navbar-bar{
+.navbar-administration #navbar-administration.navbar-oriented .navbar-bar {
   z-index: 1032;
 }
 .navbar-administration #navbar-administration .navbar-tray {
   z-index: 1031;
 }
 body.navbar-is-fixed-top.navbar-administration {
-  padding-top: 103px!important;
+  padding-top: 103px !important;
 }
 body.navbar-is-fixed-top.navbar-administration.navbar-horizontal.navbar-tray-open {
-  padding-top: 143px!important;
+  padding-top: 143px !important;
 }
 body.navbar-tray-open.navbar-vertical.navbar-fixed {
   margin-left: 240px;
@@ -930,23 +949,23 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 a {
   &.icon-before .glyphicon,
   & .glyphicon.icon-before {
-    margin-right: .25em;
+    margin-right: 0.25em;
   }
   &.icon-after .glyphicon,
   & .glyphicon.icon-after {
-    margin-left: .25em;
+    margin-left: 0.25em;
   }
 }
 
 .btn {
   &.icon-before .glyphicon,
   & .glyphicon.icon-before {
-    margin-left: -.25em;
-    margin-right: .25em;
+    margin-left: -0.25em;
+    margin-right: 0.25em;
   }
   &.icon-after .glyphicon,
   & .glyphicon.icon-after {
-    margin-left: .25em;
-    margin-right: -.25em;
+    margin-left: 0.25em;
+    margin-right: -0.25em;
   }
 }
