@@ -5,11 +5,11 @@
 @grid-breakpoint:     ~"screen and (min-width: @{grid-float-breakpoint})";
 
 // Drop shadows.
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow;
-     -moz-box-shadow: @shadow;
-          box-shadow: @shadow;
-}
+// .box-shadow(@shadow) {
+//   -webkit-box-shadow: @shadow;
+//      -moz-box-shadow: @shadow;
+//           box-shadow: @shadow;
+// }
 
 html {
   &.overlay-open .navbar-fixed-top {
@@ -44,36 +44,36 @@ html {
 body {
   // Fix horizontal scrolling on iOS devices.
   // https://www.drupal.org/node/1870076
-  position: relative;
+  // position: relative;
   &.admin-expanded.admin-vertical.admin-nw .navbar,
   &.admin-expanded.admin-vertical.admin-sw .navbar {
     margin-left: 260px;
   }
   // Add padding to body if various toolbar or navbars are fixed on top.
-  &.navbar-is-fixed-top {
-    padding-top: 64px;
-  }
-  &.navbar-is-fixed-bottom {
-    padding-bottom: 64px !important;
-  }
-  &.toolbar {
-    padding-top: 30px !important;
-    .navbar-fixed-top {
-      top: 30px;
-    }
-    &.navbar-is-fixed-top {
-      padding-top: 94px !important;
-    }
-  }
-  &.toolbar-drawer {
-    padding-top: 64px !important;
-    .navbar-fixed-top {
-      top: 64px;
-    }
-    &.navbar-is-fixed-top {
-      padding-top: 128px !important;
-    }
-  }
+  // &.navbar-is-fixed-top {
+  //   padding-top: 64px;
+  // }
+  // &.navbar-is-fixed-bottom {
+  //   padding-bottom: 64px !important;
+  // }
+  // &.toolbar {
+  //   padding-top: 30px !important;
+  //   .navbar-fixed-top {
+  //     top: 30px;
+  //   }
+  //   &.navbar-is-fixed-top {
+  //     padding-top: 94px !important;
+  //   }
+  // }
+  // &.toolbar-drawer {
+  //   padding-top: 64px !important;
+  //   .navbar-fixed-top {
+  //     top: 64px;
+  //   }
+  //   &.navbar-is-fixed-top {
+  //     padding-top: 128px !important;
+  //   }
+  // }
   // Admin_menu toolbar.
   &.admin-menu {
     .navbar-fixed-top {
@@ -106,17 +106,17 @@ body {
 
 // Default navbar.
 .navbar {
-  &.container {
-    @media @tablet {
-      max-width: ((@container-sm - @grid-gutter-width));
-    }
-    @media @normal {
-      max-width: ((@container-md - @grid-gutter-width));
-    }
-    @media @wide {
-      max-width: ((@container-lg - @grid-gutter-width));
-    }
-  }
+  // &.container {
+  //   @media @tablet {
+  //     max-width: ((@container-sm - @grid-gutter-width));
+  //   }
+  //   @media @normal {
+  //     max-width: ((@container-md - @grid-gutter-width));
+  //   }
+  //   @media @wide {
+  //     max-width: ((@container-lg - @grid-gutter-width));
+  //   }
+  // }
   &.container,
   &.container-fluid {
     margin-top: 20px;
@@ -167,15 +167,15 @@ body {
 }
 
 // Branding.
-.navbar .logo {
-  margin-right: -15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  @media @grid-breakpoint {
-    margin-right: 0;
-    padding-left: 0;
-  }
-}
+// .navbar .logo {
+//   margin-right: -15px;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   @media @grid-breakpoint {
+//     margin-right: 0;
+//     padding-left: 0;
+//   }
+// }
 
 // Navigation.
 ul.secondary {
