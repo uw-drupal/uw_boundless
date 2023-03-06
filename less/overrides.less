@@ -224,12 +224,7 @@ table.sticky-header {
     margin-bottom: 0;
   }
 }
-// .help-block,
-// .control-group .help-inline {
-//   font-size: 12px;
-//   margin: 5px 0 10px;
-//   padding: 0;
-// }
+
 .panel-heading {
   display: block;
 }
@@ -405,6 +400,7 @@ ul.pagination li > a {
 }
 
 // Autocomplete and throbber
+// @todo Needed? Maybe replace with drupal-bootstrap/ajax.less
 .form-autocomplete {
   .glyphicon {
     color: @gray-light;
@@ -441,66 +437,6 @@ ul.pagination li > a {
     padding: 0;
   }
 }
-
-.glyphicon-spin {
-  display: inline-block;
-  -moz-animation: spin 1s infinite linear;
-  -o-animation: spin 1s infinite linear;
-  -webkit-animation: spin 1s infinite linear;
-  animation: spin 1s infinite linear;
-}
-a .glyphicon-spin {
-  display: inline-block;
-  text-decoration: none;
-}
-@-moz-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    -moz-transform: rotate(359deg);
-  }
-}
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-  }
-}
-@-o-keyframes spin {
-  0% {
-    -o-transform: rotate(0deg);
-  }
-  100% {
-    -o-transform: rotate(359deg);
-  }
-}
-@-ms-keyframes spin {
-  0% {
-    -ms-transform: rotate(0deg);
-  }
-  100% {
-    -ms-transform: rotate(359deg);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
-}
-
-// .glyphicon-refresh {
-//   -webkit-transform-origin: 50% 45%;
-//   -moz-transform-origin: 50% 45%;
-//   -ms-transform-origin: 50% 45%;
-//   -o-transform-origin: 50% 45%;
-//   transform-origin: 50% 45%;
-// }
 
 /**
  * Missing Bootstrap 2 tab styling.

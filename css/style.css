@@ -7110,6 +7110,44 @@ td.visible-print {
   color: #d62c1a;
 }
 /**
+ * AJAX (throbber) styling.
+ */
+@keyframes glyphicon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+.glyphicon-spin {
+  display: inline-block;
+  animation: glyphicon-spin 1s infinite linear;
+}
+a .glyphicon-spin {
+  display: inline-block;
+  text-decoration: none;
+}
+html.js .btn .ajax-throbber {
+  margin-left: 0.5em;
+  margin-right: -0.25em;
+}
+html.js .form-item .input-group-addon .glyphicon {
+  color: #bdc3c7;
+  opacity: 0.5;
+  transition: 150ms color, 150ms opacity;
+}
+html.js .form-item .input-group-addon .glyphicon.glyphicon-spin {
+  color: #4b2e83;
+  opacity: 1;
+}
+html.js .form-item .input-group-addon .input-group-addon {
+  background-color: #ffffff;
+}
+html.js .ajax-new-content:empty {
+  display: none !important;
+}
+/**
  * Navbar styling.
  */
 body {
@@ -7607,57 +7645,6 @@ ul.pagination li > a.progress-disabled {
   line-height: 1em;
   margin: 5px 0 0;
   padding: 0;
-}
-.glyphicon-spin {
-  display: inline-block;
-  -moz-animation: spin 1s infinite linear;
-  -o-animation: spin 1s infinite linear;
-  -webkit-animation: spin 1s infinite linear;
-  animation: spin 1s infinite linear;
-}
-a .glyphicon-spin {
-  display: inline-block;
-  text-decoration: none;
-}
-@-moz-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    -moz-transform: rotate(359deg);
-  }
-}
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-  }
-}
-@-o-keyframes spin {
-  0% {
-    -o-transform: rotate(0deg);
-  }
-  100% {
-    -o-transform: rotate(359deg);
-  }
-}
-@-ms-keyframes spin {
-  0% {
-    -ms-transform: rotate(0deg);
-  }
-  100% {
-    -ms-transform: rotate(359deg);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
 }
 /**
  * Missing Bootstrap 2 tab styling.
