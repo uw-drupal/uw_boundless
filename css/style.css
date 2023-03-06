@@ -7245,30 +7245,6 @@ body.admin-expanded.admin-vertical.admin-sw .navbar {
     margin-top: 0;
   }
 }
-body.admin-menu .navbar-fixed-top {
-  top: 29px;
-}
-body.admin-menu.navbar-is-fixed-top {
-  padding-top: 93px;
-}
-body div#admin-toolbar {
-  z-index: 1600;
-}
-body #toolbar,
-body #admin-menu,
-body #admin-toolbar {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-body #admin-menu {
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  z-index: 1600;
-}
-body #admin-menu .dropdown li {
-  line-height: normal;
-}
 .navbar.container,
 .navbar.container-fluid {
   margin-top: 20px;
@@ -7278,14 +7254,6 @@ body #admin-menu .dropdown li {
   margin: 0;
   padding: 0;
   width: auto;
-}
-#overlay-container,
-.overlay-modal-background,
-.overlay-element {
-  z-index: 1500;
-}
-#toolbar {
-  z-index: 1600;
 }
 .modal {
   z-index: 1620;

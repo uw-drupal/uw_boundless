@@ -1,15 +1,9 @@
 // Media query variables.
-@tablet:  ~"screen and (min-width: @{screen-sm-min})";
-@normal:  ~"screen and (min-width: @{screen-md-min})";
-@wide:    ~"screen and (min-width: @{screen-lg-min})";
-@grid-breakpoint:     ~"screen and (min-width: @{grid-float-breakpoint})";
-
-// Drop shadows.
-// .box-shadow(@shadow) {
-//   -webkit-box-shadow: @shadow;
-//      -moz-box-shadow: @shadow;
-//           box-shadow: @shadow;
-// }
+@mobile:          ~"screen and (max-width: @{screen-xs-max})";
+@tablet:          ~"screen and (min-width: @{screen-sm-min})";
+@normal:          ~"screen and (min-width: @{screen-md-min})";
+@wide:            ~"screen and (min-width: @{screen-lg-min})";
+@grid-breakpoint: ~"screen and (min-width: @{grid-float-breakpoint})";
 
 html {
   &.overlay-open .navbar-fixed-top {
@@ -42,81 +36,49 @@ html {
 }
 
 body {
-  // Fix horizontal scrolling on iOS devices.
-  // https://www.drupal.org/node/1870076
-  // position: relative;
+  // @todo When is this used?
   &.admin-expanded.admin-vertical.admin-nw .navbar,
   &.admin-expanded.admin-vertical.admin-sw .navbar {
     margin-left: 260px;
   }
-  // Add padding to body if various toolbar or navbars are fixed on top.
-  // &.navbar-is-fixed-top {
-  //   padding-top: 64px;
-  // }
-  // &.navbar-is-fixed-bottom {
-  //   padding-bottom: 64px !important;
-  // }
-  // &.toolbar {
-  //   padding-top: 30px !important;
-  //   .navbar-fixed-top {
-  //     top: 30px;
-  //   }
-  //   &.navbar-is-fixed-top {
-  //     padding-top: 94px !important;
-  //   }
-  // }
-  // &.toolbar-drawer {
-  //   padding-top: 64px !important;
-  //   .navbar-fixed-top {
-  //     top: 64px;
-  //   }
-  //   &.navbar-is-fixed-top {
-  //     padding-top: 128px !important;
-  //   }
-  // }
+  // Overrides drupal-bootstrap/navbar.less
+  @media @tablet {
+    margin-top: 0;
+  }
+  
   // Admin_menu toolbar.
-  &.admin-menu {
-    .navbar-fixed-top {
-      top: 29px;
-    }
-    &.navbar-is-fixed-top {
-      padding-top: 93px;
-    }
-  }
-  div#admin-toolbar {
-    z-index: 1600;
-  }
-  // Override box-shadow styles on all "admin" menus.
-  #toolbar,
-  #admin-menu,
-  #admin-toolbar {
-    .box-shadow(none);
-  }
-  // Override #admin-menu style.
-  #admin-menu {
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    z-index: 1600;
-    .dropdown li {
-      line-height: normal;
-    }
-  }
+  // @todo Does this apply in Drupal 9+?
+  // &.admin-menu {
+  //   .navbar-fixed-top {
+  //     top: 29px;
+  //   }
+  //   &.navbar-is-fixed-top {
+  //     padding-top: 93px;
+  //   }
+  // }
+  // div#admin-toolbar {
+  //   z-index: 1600;
+  // }
+  // // Override box-shadow styles on all "admin" menus.
+  // #toolbar,
+  // #admin-menu,
+  // #admin-toolbar {
+  //   .box-shadow(none);
+  // }
+  // // Override #admin-menu style.
+  // #admin-menu {
+  //   margin: 0;
+  //   padding: 0;
+  //   position: fixed;
+  //   z-index: 1600;
+  //   .dropdown li {
+  //     line-height: normal;
+  //   }
+  // }
 }
 
 // Default navbar.
 .navbar {
-  // &.container {
-  //   @media @tablet {
-  //     max-width: ((@container-sm - @grid-gutter-width));
-  //   }
-  //   @media @normal {
-  //     max-width: ((@container-md - @grid-gutter-width));
-  //   }
-  //   @media @wide {
-  //     max-width: ((@container-lg - @grid-gutter-width));
-  //   }
-  // }
   &.container,
   &.container-fluid {
     margin-top: 20px;
@@ -129,16 +91,15 @@ body {
   }
 }
 
-// Adjust z-index of core components.
-#overlay-container,
-.overlay-modal-background,
-.overlay-element {
-  z-index: 1500;
-}
-#toolbar {
-  z-index: 1600;
-}
-// Adjust z-index of bootstrap modals
+// Z-index adjustments.
+// #overlay-container,
+// .overlay-modal-background,
+// .overlay-element {
+//   z-index: 1500;
+// }
+// #toolbar {
+//   z-index: 1600;
+// }
 .modal {
   z-index: 1620;
 }
@@ -152,6 +113,8 @@ body {
 .modal-backdrop {
   z-index: 1610;
 }
+
+
 .footer {
   margin-top: 45px;
   padding-top: 35px;
