@@ -15,16 +15,16 @@
 //    that are clearfixed.
 // 2. The use of `table` rather than `block` is only necessary if using
 //    `:before` to contain the top-margins of child elements.
-.clearfix() {
-  &:before,
-  &:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-  }
-  &:after {
-    clear: both;
-  }
-}
+// .clearfix() {
+//   &:before,
+//   &:after {
+//     content: " "; /* 1 */
+//     display: table; /* 2 */
+//   }
+//   &:after {
+//     clear: both;
+//   }
+// }
 
 // Webkit-style focus
 .tab-focus() {
@@ -54,10 +54,10 @@
 // Placeholder text
 .placeholder(@color: @input-color-placeholder) {
   &:-moz-placeholder            { color: @color; } // Firefox 4-18
-  &::-moz-placeholder           { color: @color; opacity: 1; } // Firefox 19+
-                                   // See https://github.com/twbs/bootstrap/pull/11526
-  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
-  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+  // &::-moz-placeholder           { color: @color; opacity: 1; } // Firefox 19+
+  //                                  // See https://github.com/twbs/bootstrap/pull/11526
+  // &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  // &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
   &.placeholder                 { color: @color; } // Fallback
 }
 
@@ -424,9 +424,9 @@
 // More easily include all the states for responsive-utilities.less.
 .responsive-visibility() {
   display: block !important;
-  tr& { display: table-row !important; }
-  th&,
-  td& { display: table-cell !important; }
+  // tr& { display: table-row !important; }
+  // th&,
+  // td& { display: table-cell !important; }
 }
 
 .responsive-invisibility() {
@@ -440,20 +440,20 @@
 // -----------
 
 // Centered container element
-.container-fixed() {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left:  (@grid-gutter-width / 2);
-  padding-right: (@grid-gutter-width / 2);
-  .clearfix();
-}
+// .container-fixed() {
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding-left:  (@grid-gutter-width / 2);
+//   padding-right: (@grid-gutter-width / 2);
+//   .clearfix();
+// }
 
 // Creates a wrapper for a series of columns
-.make-row(@gutter: @grid-gutter-width) {
-  margin-left:  (@gutter / -2);
-  margin-right: (@gutter / -2);
-  .clearfix();
-}
+// .make-row(@gutter: @grid-gutter-width) {
+//   margin-left:  (@gutter / -2);
+//   margin-right: (@gutter / -2);
+//   .clearfix();
+// }
 
 // Generate the extra small columns
 .make-xs-column(@columns; @gutter: @grid-gutter-width) {
@@ -578,7 +578,7 @@
   }
   .palette-@{second-color} {
     background-color: ~"@{@{second-color}}";
-  }  
+  }
 }
 
 // Dropdown arrow
@@ -744,12 +744,12 @@
 
 // Contextual backgrounds
 // -------------------------
-.bg-variant(@color) {
-  background-color: @color;
-  a&:hover {
-    background-color: darken(@color, 10%);
-  }
-}
+// .bg-variant(@color) {
+//   background-color: @color;
+//   a&:hover {
+//     background-color: darken(@color, 10%);
+//   }
+// }
 
 // Typography
 // -------------------------
@@ -790,7 +790,7 @@
     border-color: @border-color;
     .box-shadow(none);
     .placeholder(@text-color);
-    
+
     &:focus {
       border-color: @border-color;
       .box-shadow(none);
