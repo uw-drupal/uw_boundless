@@ -7165,6 +7165,25 @@ p:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
+.region-help > .glyphicon {
+  font-size: 22px;
+  float: left;
+  margin: -0.05em 0.5em 0 0;
+}
+.region-help .block {
+  overflow: hidden;
+}
+.help-block,
+.control-group .help-inline {
+  color: #bdc3c7;
+  font-size: 12px;
+  margin: 5px 0 10px;
+  padding: 0;
+}
+.help-block:first-child,
+.control-group .help-inline:first-child {
+  margin-top: 0;
+}
 /**
 * UW Boundless theme
 */
@@ -7299,14 +7318,6 @@ ul.secondary {
 .region-sidebar-second .block:first-child h2.block-title {
   margin-top: 0;
 }
-.region-help > .glyphicon {
-  font-size: 22px;
-  float: left;
-  margin: -0.05em 0.5em 0 0;
-}
-.region-help .block {
-  overflow: hidden;
-}
 form#search-block-form {
   margin: 0;
 }
@@ -7424,12 +7435,6 @@ table.sticky-header {
 .radio:last-child,
 .checkbox:last-child {
   margin-bottom: 0;
-}
-.help-block,
-.control-group .help-inline {
-  font-size: 12px;
-  margin: 5px 0 10px;
-  padding: 0;
 }
 .panel-heading {
   display: block;
