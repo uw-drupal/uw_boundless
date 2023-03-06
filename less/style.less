@@ -3,25 +3,33 @@
 */
 
 /**
-* Bootstrap
+* Bootstrap base theme
 */
 // Bootstrap library.
 @import "bootstrap.less";
-// Base-theme overrides.
-@import "overrides.less";
+
+// Drupal Bootstrap Styles.
+// @import "drupal-bootstrap.less";
 
 /**
-* UW Marketing & Communications partials
+* UW Boundless theme
 */
-// Font Section
+
+// Variables
+@import "uw/flat/variables.less";
+@import "variable-overrides.less";
+@import "uw/uw.variables.less";
+
+// Font faces
 @import "uw/uw.fonts.less";
 // @import "uw/flat/modules/glyphicons"; // removed 2016-12-19
 
-// All the Variables
-@import "uw/flat/variables.less";
-@import "uw/uw.variables.less";
-
+// Mixins
 @import "uw/flat/mixins.less";
+
+// Base-theme overrides.
+@import "overrides.less";
+
 @import "uw/flat/modules/scaffolding.less";
 @import "uw/flat/modules/type.less";
 

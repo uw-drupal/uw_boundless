@@ -2,7 +2,7 @@
 * style.less imports all required less partials
 */
 /**
-* Bootstrap
+* Bootstrap base theme
 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -7080,6 +7080,69 @@ td.visible-print {
     display: none !important;
   }
 }
+/**
+* UW Boundless theme
+*/
+@font-face {
+  font-family: 'Encode Sans Normal';
+  src: url('assets/fonts/EncodeSans-Normal-Black.eot');
+  src: url('assets/fonts/EncodeSans-Normal-Black.eot?#iefix') format('embedded-opentype'), url('assets/fonts/EncodeSans-Normal-Black.woff') format('woff'), url('assets/fonts/EncodeSans-Normal-Black.ttf') format('truetype'), url('assets/fonts/EncodeSans-Normal-Black.svg#EncodeSans-Normal-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Encode Sans Compressed';
+  src: url('assets/fonts/encodesanscondensed-400-regular-webfont.eot');
+  src: url('assets/fonts/encodesanscondensed-400-regular-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscondensed-400-regular-webfont.woff') format('woff'), url('assets/fonts/encodesanscondensed-400-regular-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscondensed-400-regular-webfont.svg#encodesanscondensed-400-regular-webfont') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Encode Sans Compressed';
+  src: url('assets/fonts/encodesanscompressed-600-semibold-webfont.eot');
+  src: url('assets/fonts/encodesanscompressed-600-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-600-semibold-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-600-semibold-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-600-semibold-webfont.svg#encodesanscompressed-600-semibold-webfont') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Encode Sans Compressed';
+  src: url('assets/fonts/encodesanscompressed-700-bold-webfont.eot');
+  src: url('assets/fonts/encodesanscompressed-700-bold-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-700-bold-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-700-bold-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-700-bold-webfont.svg#encodesanscompressed-700-bold-webfont') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Encode Sans Compressed';
+  src: url('assets/fonts/encodesanscompressed-800-extrabold-webfont.eot');
+  src: url('assets/fonts/encodesanscompressed-800-extrabold-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-800-extrabold-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-800-extrabold-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-800-extrabold-webfont.svg#encodesanscompressed-800-extrabold-webfont') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Encode Sans Compressed';
+  src: url('assets/fonts/encodesanscompressed-900-black-webfont.eot');
+  src: url('assets/fonts/encodesanscompressed-900-black-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-900-black-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-900-black-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-900-black-webfont.svg#encodesanscompressed-900-black-webfont') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'uw-icon';
+  src: url('assets/fonts/icomoon.eot');
+  src: url('assets/fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('assets/fonts/icomoon.ttf') format('truetype'), url('assets/fonts/icomoon.woff') format('woff'), url('assets/fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Uni Sans';
+  src: url('assets/fonts/uni_sans_thin-webfont.eot');
+  src: url('assets/fonts/uni_sans_thin-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/uni_sans_thin-webfont.woff') format('woff'), url('assets/fonts/uni_sans_thin-webfont.ttf') format('truetype'), url('assets/fonts/uni_sans_thin-webfont.svg#uni_sans_thin-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.dropdown-arrow-inverse {
+  border-bottom-color: #4b2e83 !important;
+  border-top-color: #4b2e83 !important;
+}
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
@@ -7871,69 +7934,6 @@ a .glyphicon.icon-after {
 .btn .glyphicon.icon-after {
   margin-left: 0.25em;
   margin-right: -0.25em;
-}
-/**
-* UW Marketing & Communications partials
-*/
-@font-face {
-  font-family: 'Encode Sans Normal';
-  src: url('assets/fonts/EncodeSans-Normal-Black.eot');
-  src: url('assets/fonts/EncodeSans-Normal-Black.eot?#iefix') format('embedded-opentype'), url('assets/fonts/EncodeSans-Normal-Black.woff') format('woff'), url('assets/fonts/EncodeSans-Normal-Black.ttf') format('truetype'), url('assets/fonts/EncodeSans-Normal-Black.svg#EncodeSans-Normal-Black') format('svg');
-  font-weight: 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Encode Sans Compressed';
-  src: url('assets/fonts/encodesanscondensed-400-regular-webfont.eot');
-  src: url('assets/fonts/encodesanscondensed-400-regular-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscondensed-400-regular-webfont.woff') format('woff'), url('assets/fonts/encodesanscondensed-400-regular-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscondensed-400-regular-webfont.svg#encodesanscondensed-400-regular-webfont') format('svg');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Encode Sans Compressed';
-  src: url('assets/fonts/encodesanscompressed-600-semibold-webfont.eot');
-  src: url('assets/fonts/encodesanscompressed-600-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-600-semibold-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-600-semibold-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-600-semibold-webfont.svg#encodesanscompressed-600-semibold-webfont') format('svg');
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Encode Sans Compressed';
-  src: url('assets/fonts/encodesanscompressed-700-bold-webfont.eot');
-  src: url('assets/fonts/encodesanscompressed-700-bold-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-700-bold-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-700-bold-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-700-bold-webfont.svg#encodesanscompressed-700-bold-webfont') format('svg');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Encode Sans Compressed';
-  src: url('assets/fonts/encodesanscompressed-800-extrabold-webfont.eot');
-  src: url('assets/fonts/encodesanscompressed-800-extrabold-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-800-extrabold-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-800-extrabold-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-800-extrabold-webfont.svg#encodesanscompressed-800-extrabold-webfont') format('svg');
-  font-weight: 800;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Encode Sans Compressed';
-  src: url('assets/fonts/encodesanscompressed-900-black-webfont.eot');
-  src: url('assets/fonts/encodesanscompressed-900-black-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/encodesanscompressed-900-black-webfont.woff') format('woff'), url('assets/fonts/encodesanscompressed-900-black-webfont.ttf') format('truetype'), url('assets/fonts/encodesanscompressed-900-black-webfont.svg#encodesanscompressed-900-black-webfont') format('svg');
-  font-weight: 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'uw-icon';
-  src: url('assets/fonts/icomoon.eot');
-  src: url('assets/fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('assets/fonts/icomoon.ttf') format('truetype'), url('assets/fonts/icomoon.woff') format('woff'), url('assets/fonts/icomoon.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Uni Sans';
-  src: url('assets/fonts/uni_sans_thin-webfont.eot');
-  src: url('assets/fonts/uni_sans_thin-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/uni_sans_thin-webfont.woff') format('woff'), url('assets/fonts/uni_sans_thin-webfont.ttf') format('truetype'), url('assets/fonts/uni_sans_thin-webfont.svg#uni_sans_thin-webfont') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-.dropdown-arrow-inverse {
-  border-bottom-color: #4b2e83 !important;
-  border-top-color: #4b2e83 !important;
 }
 body {
   font-family: "Open Sans", sans-serif;
