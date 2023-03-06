@@ -7151,6 +7151,20 @@ body.navbar-is-fixed-bottom {
 .node-preview-form-select {
   padding: 15px;
 }
+.page-header {
+  margin-top: 0;
+}
+.footer {
+  margin-top: 45px;
+  padding-top: 35px;
+  padding-bottom: 36px;
+  border-top: 1px solid #e5e5e5;
+}
+p:last-child,
+.form-group:last-child,
+.panel:last-child {
+  margin-bottom: 0;
+}
 /**
 * UW Boundless theme
 */
@@ -7268,12 +7282,6 @@ body.admin-expanded.admin-vertical.admin-sw .navbar {
 .modal-backdrop {
   z-index: 1610;
 }
-.footer {
-  margin-top: 45px;
-  padding-top: 35px;
-  padding-bottom: 36px;
-  border-top: 1px solid #e5e5e5;
-}
 .element-invisible {
   margin: 0;
   padding: 0;
@@ -7290,9 +7298,6 @@ ul.secondary {
 .region-sidebar-first .block:first-child h2.block-title,
 .region-sidebar-second .block:first-child h2.block-title {
   margin-top: 0;
-}
-p:last-child {
-  margin-bottom: 0;
 }
 .region-help > .glyphicon {
   font-size: 22px;
@@ -7359,10 +7364,6 @@ fieldset .panel-heading a.panel-title {
 }
 fieldset .panel-heading a.panel-title:hover {
   text-decoration: none;
-}
-.form-group:last-child,
-.panel:last-child {
-  margin-bottom: 0;
 }
 .form-horizontal .form-group {
   margin-left: 0;
