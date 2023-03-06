@@ -7081,6 +7081,35 @@ td.visible-print {
   }
 }
 /**
+ * Alert styling.
+ */
+.alert-sm {
+  padding: 5px 10px;
+}
+.alert a {
+  font-weight: bold;
+}
+.alert-success a,
+.alert-success a:hover,
+.alert-success a:focus {
+  color: #25a25a;
+}
+.alert-info a,
+.alert-info a:hover,
+.alert-info a:focus {
+  color: #217dbb;
+}
+.alert-warning a,
+.alert-warning a:hover,
+.alert-warning a:focus {
+  color: #c29d0b;
+}
+.alert-danger a,
+.alert-danger a:hover,
+.alert-danger a:focus {
+  color: #d62c1a;
+}
+/**
  * Navbar styling.
  */
 body {
@@ -7778,29 +7807,6 @@ table .checkbox input[type="checkbox"] {
     float: left;
     width: 16.66666667%;
   }
-}
-.alert a {
-  font-weight: bold;
-}
-.alert-success a,
-.alert-success a:hover,
-.alert-success a:focus {
-  color: #25a25a;
-}
-.alert-info a,
-.alert-info a:hover,
-.alert-info a:focus {
-  color: #217dbb;
-}
-.alert-warning a,
-.alert-warning a:hover,
-.alert-warning a:focus {
-  color: #c29d0b;
-}
-.alert-danger a,
-.alert-danger a:hover,
-.alert-danger a:focus {
-  color: #d62c1a;
 }
 div.image-style-new,
 div.image-style-new div {
