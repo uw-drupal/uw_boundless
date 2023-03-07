@@ -7785,11 +7785,6 @@ ul.pagination li > a.progress-disabled {
   margin: 5px 0 0;
   padding: 0;
 }
-/**
- * Missing Bootstrap 2 tab styling.
- * @see http://stackoverflow.com/questions/18432577/stacked-tabs-in-bootstrap-3
- * @see http://bootply.com/74926
- */
 th.checkbox,
 td.checkbox,
 th.radio,
@@ -7936,9 +7931,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 #navbar-administration.navbar-oriented .navbar-tray-vertical {
   width: 24rem;
 }
-/**
- * Icon styles.
- */
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 17px;
