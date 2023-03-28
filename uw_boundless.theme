@@ -55,7 +55,8 @@ function uw_boundless_preprocess_block(array &$variables) {
  */
 function uw_boundless_preprocess_page(array &$variables) {
   $variables['current_year'] = date("Y");
-  $variables['login_url'] = base_path() . ltrim(theme_get_setting('uw_boundless_login_url'), '/') ;
+  $login_url = theme_get_setting('uw_boundless_login_url') ?? '';
+  $variables['login_url'] = base_path() . ltrim($login_url, '/') ;
   // Load the site name out of configuration.
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
