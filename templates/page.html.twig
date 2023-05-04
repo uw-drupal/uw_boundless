@@ -167,7 +167,7 @@
     {# Hero image and desktop site name #}
     {% if (is_front and uw_boundless_hero_image_front_display != 'none') or
       (not is_front and uw_boundless_hero_image_display != 'none') %}
-      {% set hero_image_path = is_front ? uw_hero_image_front_path : uwf_hero_image_path %}
+      {% set hero_image_path = is_front ? uw_hero_image_front_path : uw_hero_image_path %}
       {% set hero_image_classes = [
         'uw-hero-image',
         is_front ? 'uw-hero-image--' ~ uw_boundless_hero_image_front_display : '',
