@@ -10706,6 +10706,7 @@ table th[class*="col-"] {
   width: 25px;
   padding: 5px 0 5px 0;
   margin-right: 25px;
+  border-bottom: none;
 }
 .uw-breadcrumbs li:first-child a:before {
   right: -18px;
@@ -10713,8 +10714,7 @@ table th[class*="col-"] {
 .uw-breadcrumbs li:first-child a:focus,
 .uw-breadcrumbs li:first-child a:active,
 .uw-breadcrumbs li:first-child a:hover {
-  border-bottom: 1px solid #85754d;
-  margin-bottom: -1px;
+  border-bottom: none;
 }
 .uw-breadcrumbs li:first-child:after {
   top: 17px;
