@@ -5,7 +5,7 @@
 }
 
 @media only screen and (max-width: @screen-xs-max) {
-  .navbar-mobile-sidebar .dawgdrops {
+  .use-mobile-relative .dawgdrops {
     display: none;
   }
   .navbar-dawgdrops {
@@ -154,6 +154,30 @@
       width: 100%;
     }
   }
+  ul.uw-sidebar-menu {
+    margin-top: 0;
+    margin-bottom: 20px;
+    li.pagenav ul li {
+      &.current_page_item,
+      &.current_page_parent {
+        > a {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          &:after {
+            height: 38px;
+            margin-top: -19px;
+            background-position-y: -484px;
+          }
+        }
+      }
+      ul.children li.page_item a {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 20px;
+      }
+    }
+  }
+  //ul.uw-sidebar-menu li.pagenav ul li.current_page_item > a
 }
 
 // Mobile sidebar menu

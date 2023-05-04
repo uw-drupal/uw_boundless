@@ -103,65 +103,72 @@
     {# END Region: Thinstrip #}
     
     {# Navbar #}
-    {% if page.navigation %}
-      {% block navbar %}
-        {% set navbar_classes = [
-          'navbar',
-          theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-dawgdrops',
-          theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : '',
-          theme.settings.navbar_height == 'thin' ? 'navbar-thin' : '',
-        ] %}
-        <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar"
-                                                                role="banner">
-          {% if not navbar_attributes.hasClass(container) %}
-          <div class="{{ container }}">
-            {% endif %}
-            <div class="navbar-header">
-              {% if site_name is not empty %}
-                <div class="uw-site-title">
-                  <a href="{{ front_page }}" title="{{ site_name }}">
-                    {{ site_name }}
-                  </a>
-                </div>
-              {% endif %}
-              {% if page.navigation %}
-                <button type="button"
-                        class="navbar-toggle collapsed uw-mobile-menu-toggle"
-                        data-toggle="collapse" data-target="#navbar-collapse"
-                        aria-expanded="false">
-                  <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
-                  Menu
-                </button>
-              {% endif %}
-            </div>
-            
-            {% if page.navigation %}
-              {% set navbar_collapse_classes = [
-                'navbar-collapse',
-                'collapse',
-                (not is_front and uw_sidebar_menu is not empty) ? 'navbar-mobile-sidebar' : '',
-              ] %}
-              <div
-                  id="navbar-collapse" {{ attributes.addClass(navbar_collapse_classes) }}>
-                {{ page.navigation }}
-                {% if (not is_front and uw_sidebar_menu is not empty) %}
-                  <nav id="mobile-relative" role="navigation"
-                       aria-label="relative">
-                    <ul class="uw-mobile-menu first-level">
-                      <li class="pagenav uw_sidebar_menu_NOT_empty">
-                        {{ uw_sidebar_menu | raw }}
-                      </li>
-                    </ul>
-                  </nav>
-                {% endif %}
+    {% block navbar %}
+      {% set navbar_classes = [
+        'navbar',
+        theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-dawgdrops',
+        theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : '',
+        theme.settings.navbar_height == 'thin' ? 'navbar-thin' : '',
+      ] %}
+      <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar"
+                                                              role="banner">
+        {% if not navbar_attributes.hasClass(container) %}
+        <div class="{{ container }}">
+          {% endif %}
+          {# Mobile header including site title and Menu toggle button #}
+          <div class="navbar-header">
+            {% if site_name is not empty %}
+              <div class="uw-site-title">
+                <a href="{{ front_page }}" title="{{ site_name }}">
+                  {{ site_name }}
+                </a>
               </div>
             {% endif %}
-            {% if not navbar_attributes.hasClass(container) %}
+            {% if page.navigation %}
+              <button type="button"
+                      class="navbar-toggle collapsed uw-mobile-menu-toggle"
+                      data-toggle="collapse" data-target="#navbar-collapse"
+                      aria-expanded="false">
+                <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
+                Menu
+              </button>
+            {% endif %}
           </div>
+          {# END Mobile header #}
+          
+          {# Region: Navigation #}
+          {% if page.navigation %}
+            {% set navbar_collapse_classes = [
+              'navbar-collapse',
+              'collapse',
+              (not is_front and uw_sidebar_menu is not empty) ? 'use-mobile-relative' : ''
+            ] %}
+            <div id="navbar-collapse" {{ attributes.addClass(navbar_collapse_classes) }}>
+              {# Main menu #}
+              {{ page.navigation }}
+              {# END Main menu #}
+              
+              {# Mobile relative menu #}
+              {% if not is_front and uw_sidebar_menu is not empty %}
+                <nav id="mobile-relative" class="collapse in" aria-expanded="true" aria-label="relative">
+                  <ul class="uw-sidebar-menu first-level">
+                    <li class="pagenav">
+                      <a href="{{ base_path }}" title='Home'
+                         class='homelink'>Home</a>
+                      {{ uw_sidebar_menu  | raw }}
+                    </li>
+                  </ul>
+                </nav>
+                {# END Mobile relative menu #}
+              {% endif %}
+            </div>
           {% endif %}
-        </header>
-      {% endblock %}
-    {% endif %}
+          {# END Region: Navigation #}
+          {% if not navbar_attributes.hasClass(container) %}
+        </div>
+        {% endif %}
+      </header>
+    {% endblock %}
     {# END Navbar #}
     
     {# Hero image and desktop site name #}
@@ -212,8 +219,8 @@
           {% if title is not empty %}
             <h1 class="page-header">{{ title }}</h1>
           {% endif %}
-          
           {{ title_suffix }}
+          
           {{ messages }}
           {% if tabs is not empty %}
             {{ tabs }}
@@ -256,7 +263,7 @@
                   {{ uw_sidebar_menu  | raw }}
                 </li>
               </ul>
-            </nav><!-- /#udesktop-relative -->
+            </nav><!-- /#desktop-relative menu -->
           {% endif %}
           {% if show_sidebar %}
             {{ page.sidebar_first }}
