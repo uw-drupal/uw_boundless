@@ -69,207 +69,219 @@
   or page.sidebar_first|render|striptags|trim|length > 0
   or page.sidebar_second|render|striptags|trim|length > 0 %}
 {% set content_width = show_sidebar ? 'md-8' : 'sm-12' %}
-{%
-  set content_column_classes = [
+{% set content_column_classes = [
   'col-' ~ content_width,
   'uw-sidebar-' ~ (show_sidebar ? 'shown' : 'hidden')
-]
-%}
+] %}
 
-<div id="uwsearcharea" aria-hidden="true" class="uw-search-bar-container" tabindex="-1" role="search">
-    <div class="container no-height">
-        <div class="center-block uw-search-wrapper">
-            {{ page.search }}
-         </div>
+<div id="uwsearcharea" aria-hidden="true" class="uw-search-bar-container"
+     tabindex="-1" role="search">
+  <div class="container no-height">
+    <div class="center-block uw-search-wrapper">
+      {{ page.search }}
     </div>
+  </div>
 </div><!-- /#uwsearcharea -->
 
 
 <div id="uw-container">
-
-    {% if page.quicklinks %}
-      {{ page.quicklinks }}
+  
+  {% if page.quicklinks %}
+    {{ page.quicklinks }}
+  {% endif %}
+  
+  <div id="uw-container-inner">
+    
+    {% if page.thinstrip %}
+      {{ page.thinstrip }}
     {% endif %}
-
-    <div id="uw-container-inner">
-
-        {% if page.thinstrip %}
-          {{ page.thinstrip }}
-        {% endif %}
-
-      {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-      {# Navbar #}
-      {% if page.navigation %}
-        {% block navbar %}
-          {%
-            set navbar_classes = [
-            'navbar',
-            theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-dawgdrops',
-            theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : '',
-            theme.settings.navbar_height == 'thin' ? 'navbar-thin' : '',
-          ]
-          %}
-          <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-            {% if not navbar_attributes.hasClass(container) %}
-            <div class="{{ container }}">
-              {% endif %}
-              <div class="navbar-header">
-                {% if site_name is not empty %}
-                  <div class="uw-site-title">
-                    <a href="{{ front_page }}" title="{{ site_name }}">
-                        {{ site_name }}
-                    </a>
+    
+    {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+    {# Navbar #}
+    {% if page.navigation %}
+      {% block navbar %}
+        {% set navbar_classes = [
+          'navbar',
+          theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-dawgdrops',
+          theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : '',
+          theme.settings.navbar_height == 'thin' ? 'navbar-thin' : '',
+        ] %}
+        <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar"
+                                                                role="banner">
+          {% if not navbar_attributes.hasClass(container) %}
+          <div class="{{ container }}">
+            {% endif %}
+            <div class="navbar-header">
+              {% if site_name is not empty %}
+                <div class="uw-site-title">
+                  <a href="{{ front_page }}" title="{{ site_name }}">
+                    {{ site_name }}
+                  </a>
                 </div>
-                {% endif %}
-                {% if page.navigation %}
-                  <button type="button" class="navbar-toggle collapsed uw-mobile-menu-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
-                    Menu
-                  </button>
+              {% endif %}
+              {% if page.navigation %}
+                <button type="button"
+                        class="navbar-toggle collapsed uw-mobile-menu-toggle"
+                        data-toggle="collapse" data-target="#navbar-collapse"
+                        aria-expanded="false">
+                  <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
+                  Menu
+                </button>
+              {% endif %}
+            </div>
+            
+            {% if page.navigation %}
+              {% set navbar_collapse_classes = [
+                'navbar-collapse',
+                'collapse',
+                (not is_front and uw_sidebar_menu is not empty) ? 'navbar-mobile-sidebar' : '',
+              ] %}
+              <div
+                  id="navbar-collapse" {{ attributes.addClass(navbar_collapse_classes) }}>
+                {{ page.navigation }}
+                {% if (not is_front and uw_sidebar_menu is not empty) %}
+                  <nav id="mobile-relative" role="navigation"
+                       aria-label="relative">
+                    <ul class="uw-mobile-menu first-level">
+                      <li class="pagenav uw_sidebar_menu_NOT_empty">
+                        {{ uw_sidebar_menu | raw }}
+                      </li>
+                    </ul>
+                  </nav>
                 {% endif %}
               </div>
-
-              {% if page.navigation %}
-                {%
-                  set navbar_collapse_classes = [
-                    'navbar-collapse',
-                    'collapse',
-                    (not is_front and uw_sidebar_menu is not empty) ? 'navbar-mobile-sidebar' : '',
-                  ]
-                %}
-                <div id="navbar-collapse" {{ attributes.addClass(navbar_collapse_classes) }}>
-                  {{ page.navigation }}
-                  {% if (not is_front and uw_sidebar_menu is not empty) %}
-                    <nav id="mobile-relative" role="navigation" aria-label="relative">
-                      <ul class="uw-mobile-menu first-level">
-                        <li class="pagenav uw_sidebar_menu_NOT_empty">
-                          {{ uw_sidebar_menu | raw}}
-                        </li>
-                      </ul>
-                    </nav>
-                  {% endif %}
-                </div>
-              {% endif %}
-              {% if not navbar_attributes.hasClass(container) %}
-            </div>
             {% endif %}
-          </header>
-        {% endblock %}
-      {% endif %}
-
-        {% if is_front and uw_boundless_hero_image_front_display != 'none' %}
-            <div class="uw-hero-image uw-hero-image--{{ uw_boundless_hero_image_front_display }}" style="background-image:url('{{ uw_hero_image_front_path }}');">
-                {% if site_name is not empty %}
-                    <div class="container">
-                        <h1 class="uw-site-title" style="color:{{ uw_boundless_front_page_title_color }};text-shadow:2px 2px 2px {{ uw_front_title_text_shadow }};">
-                           {{ site_name }}
-                        </h1>
-                        <div class="udub-slant"><span style="background-color:{{ uw_boundless_front_page_slant_color }};"></span></div -->
-                        {% if site_slogan is not empty %}
-                            <p style="color:{{ uw_boundless_front_page_slogan_color }};text-shadow:2px 2px 2px {{ uw_front_slogan_text_shadow }};">
-                              {{ site_slogan }}
-                            </p>
-                        {% endif %}
-                    </div>
-                {% endif %}
-            </div>
-        {% elseif not is_front and uw_boundless_hero_image_display != 'none' %}
-          <div class="uw-hero-image" style="background-image:url('{{ uw_hero_image_path }}');">    </div>
-        {% endif %}
-        <!-- /#uw-hero-image -->
-
-        <a id="main-content"></a>
-        <div class="container uw-body">
-
-            <div class="row">
-
-                <section {{ attributes.setAttribute('class', '').addClass(content_column_classes) }}>
-
-                {% if site_name is not empty %}
-                    <a href="{{ front_page }}" title="{{ site_name }}">
-                        <h2 class="uw-site-title">{{ site_name }}</h2>
-                        {% if site_slogan is not empty %} <p>{{ site_slogan }}</p> {% endif %}
-                    </a>
-                {% endif %}
-
-                {% if breadcrumb is not empty %}
-                    <nav class="uw-breadcrumbs" aria-label="breadcrumbs">
-                    {{ breadcrumb }}
-                    </nav>
-                {% endif %}
-
-                {{ title_prefix }}
-                {% if title is not empty %}
-                  <h1 class="page-header">{{ title }}</h1>
-                {% endif %}
-
-                {{ title_suffix }}
-                {{ messages }}
-                {% if tabs is not empty %}
-                  {{ tabs }}
-                {% endif %}
-
-                {% if page.highlighted is not empty %}
-                  {% block highlighted %}
-                    <div class="highlighted">{{ page.highlighted }}</div>
-                  {% endblock %}
-                {% endif %}
-
-                {# Help #}
-                {% if page.help is not empty %}
-                  {% block help %}
-                    {{ page.help }}
-                  {% endblock %}
-                {% endif %}
-
-                {% if action_links is not empty%}
-                  <ul class="action-links">{{ action_links }}</ul>
-                {% endif %}
-
-                <div class="uw-content" role='main'>
-                    <div id='main_content' class="uw-body-copy">
-                      {% block content %}
-                        <a id="main-content"></a>
-                        {{ page.content }}
-                      {% endblock %}
-                    </div>
-                </div>
-                </section>
-
-                <aside class="col-md-4 uw-sidebar" role="complementary">
-                {% if page.navigation is not empty and  uw_sidebar_menu %}
-                    <nav id="desktop-relative" aria-label="relative">
-                        <ul class="uw-sidebar-menu first-level">
-                            <li class="pagenav">
-                              <a href="{{ base_path }}" title='Home' class='homelink'>Home</a>
-                              {{ uw_sidebar_menu  | raw }}
-                            </li>
-                        </ul>
-                    </nav><!-- /#udesktop-relative -->
-                {% endif %}
-                  {% if show_sidebar %}
-                    {{ page.sidebar_first }}
-                    {{ page.sidebar_second }}
-                {% endif %}
-                </aside>
-                <!--  #uw-sidebar -->
-
-            </div><!-- /#row -->
-
-        </div><!-- /#uw-body -->
-
-
-       {% if page.uwfooter %}
-        <footer class="uw-footer">
-           {{ page.uwfooter }}
-          {% if login_url|length %}
-            <p role="contentinfo">© <a id="loginlink" style="color: white;" href="{{ login_url }}">{{ current_year }}</a> University of Washington | Seattle, WA</p>
-          {% else %}
-            <p role="contentinfo">© {{ current_year }} University of Washington | Seattle, WA</p>
+            {% if not navbar_attributes.hasClass(container) %}
+          </div>
           {% endif %}
-        </footer>
-      {% endif %}
-
-    </div><!-- /#uw-container-inner -->
+        </header>
+      {% endblock %}
+    {% endif %}
+    
+    {% if is_front and uw_boundless_hero_image_front_display != 'none' %}
+      <div
+          class="uw-hero-image uw-hero-image--{{ uw_boundless_hero_image_front_display }}"
+          style="background-image:url('{{ uw_hero_image_front_path }}');">
+        {% if site_name is not empty %}
+          <div class="container">
+            <h1 class="uw-site-title"
+                style="color:{{ uw_boundless_front_page_title_color }};text-shadow:2px 2px 2px {{ uw_front_title_text_shadow }};">
+              {{ site_name }}
+            </h1>
+            <div class="udub-slant"><span
+                  style="background-color:{{ uw_boundless_front_page_slant_color }};"></span>
+            </div -->
+            {% if site_slogan is not empty %}
+              <p style="color:{{ uw_boundless_front_page_slogan_color }};text-shadow:2px 2px 2px {{ uw_front_slogan_text_shadow }};">
+                {{ site_slogan }}
+              </p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% elseif not is_front and uw_boundless_hero_image_display != 'none' %}
+      <div class="uw-hero-image"
+           style="background-image:url('{{ uw_hero_image_path }}');"></div>
+    {% endif %}
+    <!-- /#uw-hero-image -->
+    
+    <a id="main-content"></a>
+    <div class="container uw-body">
+      
+      <div class="row">
+        
+        <section {{ attributes.setAttribute('class', '').addClass(content_column_classes) }}>
+          
+          {% if site_name is not empty %}
+            <a href="{{ front_page }}" title="{{ site_name }}">
+              <h2 class="uw-site-title">{{ site_name }}</h2>
+              {% if site_slogan is not empty %}
+                <p>{{ site_slogan }}</p> {% endif %}
+            </a>
+          {% endif %}
+          
+          {% if breadcrumb is not empty %}
+            <nav class="uw-breadcrumbs" aria-label="breadcrumbs">
+              {{ breadcrumb }}
+            </nav>
+          {% endif %}
+          
+          {{ title_prefix }}
+          {% if title is not empty %}
+            <h1 class="page-header">{{ title }}</h1>
+          {% endif %}
+          
+          {{ title_suffix }}
+          {{ messages }}
+          {% if tabs is not empty %}
+            {{ tabs }}
+          {% endif %}
+          
+          {% if page.highlighted is not empty %}
+            {% block highlighted %}
+              <div class="highlighted">{{ page.highlighted }}</div>
+            {% endblock %}
+          {% endif %}
+          
+          {# Help #}
+          {% if page.help is not empty %}
+            {% block help %}
+              {{ page.help }}
+            {% endblock %}
+          {% endif %}
+          
+          {% if action_links is not empty %}
+            <ul class="action-links">{{ action_links }}</ul>
+          {% endif %}
+          
+          <div class="uw-content" role='main'>
+            <div id='main_content' class="uw-body-copy">
+              {% block content %}
+                <a id="main-content"></a>
+                {{ page.content }}
+              {% endblock %}
+            </div>
+          </div>
+        </section>
+        
+        <aside class="col-md-4 uw-sidebar" role="complementary">
+          {% if page.navigation is not empty and  uw_sidebar_menu %}
+            <nav id="desktop-relative" aria-label="relative">
+              <ul class="uw-sidebar-menu first-level">
+                <li class="pagenav">
+                  <a href="{{ base_path }}" title='Home'
+                     class='homelink'>Home</a>
+                  {{ uw_sidebar_menu  | raw }}
+                </li>
+              </ul>
+            </nav><!-- /#udesktop-relative -->
+          {% endif %}
+          {% if show_sidebar %}
+            {{ page.sidebar_first }}
+            {{ page.sidebar_second }}
+          {% endif %}
+        </aside>
+        <!--  #uw-sidebar -->
+      
+      </div><!-- /#row -->
+    
+    </div><!-- /#uw-body -->
+    
+    
+    {% if page.uwfooter %}
+      <footer class="uw-footer">
+        {{ page.uwfooter }}
+        {% if login_url|length %}
+          <p role="contentinfo">© <a id="loginlink" style="color: white;"
+                                     href="{{ login_url }}">{{ current_year }}</a>
+            University of Washington | Seattle, WA</p>
+        {% else %}
+          <p role="contentinfo">© {{ current_year }} University of Washington |
+            Seattle, WA</p>
+        {% endif %}
+      </footer>
+    {% endif %}
+  
+  </div><!-- /#uw-container-inner -->
 
 </div><!-- /#uw-container -->
