@@ -10523,9 +10523,12 @@ table th[class*="col-"] {
   margin-top: 29px;
   margin-bottom: 14.5px;
 }
+.NOTFRONT .uw-hero-image .udub-slant,
 .uw-hero-image--small .udub-slant {
+  margin-top: 0;
   margin-bottom: 10px;
 }
+.NOTFRONT .uw-hero-image p,
 .uw-hero-image--small p {
   position: absolute;
 }
@@ -15052,13 +15055,10 @@ pre.prettyprint ol.linenums li {
 }
 .front .uw-hero-image--small {
   height: 170px;
+  padding-top: 0;
 }
 .front .uw-hero-image--small h1 {
-  margin-top: 29px;
-  margin-bottom: 14.5px;
   text-transform: none;
-  position: absolute;
-  top: 0;
   font-size: 50px;
   line-height: 55px;
 }
