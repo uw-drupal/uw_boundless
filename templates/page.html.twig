@@ -64,9 +64,7 @@
  */
 #}
 
-{% set show_sidebar_menu = not is_front and page.navigation|render|striptags|trim is not empty and uw_sidebar_menu is not empty %}
-{% set show_sidebar = show_sidebar_menu
-  or page.sidebar_first|render|striptags|trim|length > 0
+{% set show_sidebar = page.sidebar_first|render|striptags|trim|length > 0
   or page.sidebar_second|render|striptags|trim|length > 0 %}
 {% set content_width = show_sidebar ? 'md-8' : 'sm-12' %}
 {% set content_column_classes = [
@@ -141,7 +139,7 @@
             {% set navbar_collapse_classes = [
               'navbar-collapse',
               'collapse',
-              (not is_front and uw_sidebar_menu is not empty) ? 'use-mobile-relative' : ''
+              (not is_front and uw_boundless_use_relative_mobile) ? 'use-mobile-relative' : '',
             ] %}
             <div id="navbar-collapse" {{ attributes.addClass(navbar_collapse_classes) }}>
               {# Main menu #}
@@ -149,18 +147,12 @@
               {# END Main menu #}
               
               {# Mobile relative menu #}
-              {% if not is_front and uw_sidebar_menu is not empty %}
+              {% if not is_front and uw_boundless_use_relative_mobile %}
                 <nav id="mobile-relative" class="collapse in" aria-expanded="true" aria-label="relative">
-                  <ul class="uw-sidebar-menu first-level">
-                    <li class="pagenav">
-                      <a href="{{ base_path }}" title='Home'
-                         class='homelink'>Home</a>
-                      {{ uw_sidebar_menu  | raw }}
-                    </li>
-                  </ul>
+                  {# JQuery clones the relative menu block and appends it here. #}
                 </nav>
-                {# END Mobile relative menu #}
               {% endif %}
+              {# END Mobile relative menu #}
             </div>
           {% endif %}
           {# END Region: Navigation #}
@@ -254,17 +246,6 @@
         </section>
         
         <aside class="col-md-4 uw-sidebar" role="complementary">
-          {% if page.navigation is not empty and  uw_sidebar_menu %}
-            <nav id="desktop-relative" aria-label="relative">
-              <ul class="uw-sidebar-menu first-level">
-                <li class="pagenav">
-                  <a href="{{ base_path }}" title='Home'
-                     class='homelink'>Home</a>
-                  {{ uw_sidebar_menu  | raw }}
-                </li>
-              </ul>
-            </nav><!-- /#desktop-relative menu -->
-          {% endif %}
           {% if show_sidebar %}
             {{ page.sidebar_first }}
             {{ page.sidebar_second }}
@@ -275,7 +256,6 @@
       </div><!-- /#row -->
     
     </div><!-- /#uw-body -->
-    
     
     {% if page.uwfooter %}
       <footer class="uw-footer">

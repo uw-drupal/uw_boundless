@@ -62,10 +62,12 @@ function uw_boundless_preprocess_page(array &$variables) {
   $variables['site_name'] = $config->get('name');
   $variables['site_slogan'] = $config->get('slogan');
 
-  // Sidebar menu.
+  // Sidebar menu. [deprecated]
   $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();
-
   $variables['uw_boundless_sidebar_menu_visibility'] = theme_get_setting('uw_boundless_sidebar_menu_visibility');
+
+  // Relative menu (replaces sidebar menu)
+  $variables['uw_boundless_use_relative_mobile'] = theme_get_setting('uw_boundless_mobile_menu_type') == 'relative' ?? false;
 
   // Hero images.
   $variables['uw_boundless_hero_image_front_display'] = theme_get_setting('uw_boundless_hero_image_front_display') ?? 'large';
@@ -296,19 +298,58 @@ function uw_boundless_form_system_theme_settings_alter(&$form, FormStateInterfac
   //
   $form['uw_boundless_sidebar_menu'] = [
     '#type' => 'details',
-    '#title' => t('Sidebar menu'),
+    '#title' => t('Sidebar menu [deprecated]'),
     '#group' => 'uw_boundless',
-    'uw_boundless_sidebar_menu_visibility' => [
+    'sidebar_info' => [
+      '#markup' => t('<p>As of v1.0 of this theme, the Sidebar menu setting is deprecated. Instead, use the <strong>block_menu</strong> module to create a relative sidebar menu.</p>
+       <ol>
+         <li>Add the Main navigation block to the top of the Primary region.</li>
+         <li>Settings:
+            <ul>
+              <li>Display title = Yes (Menu block will render the top-level page title.)</li>
+              <li>Menu levels: Initial visibility level = 2</li>
+              <li>Menu levels: Number of levels to display = 2</li>
+              <li>Menu levels: Expand all menu links = Yes (optional)</li>
+              <li>Advanced: Fixed parent item = "&lt;Main navigation&gt;"</li>
+              <li>Advanced: Use as title = "Active trail\'s parent title"</li>
+              <li>Advanced: Link the title = Yes</li>
+              <li>Advanced: Make the initial visibility level follow the active menu item = Yes</li>
+              <li>Advanced: Initial visibility level will be = "Active menu item"</li>
+              <li>HTML and style options: Theme hook suggestion = "main_relative"</li>
+            </ul>
+         </li>
+       </ol>'),
+    ]
+    // 'uw_boundless_sidebar_menu_visibility' => [
+    //   '#type' => 'select',
+    //   '#title' => t('Sidebar menu visibility'),
+    //   '#default_value' => theme_get_setting('uw_boundless_sidebar_menu_visibility'),
+    //   '#options' => [
+    //     0 => t('Hidden'),
+    //     1 => t('Visible'),
+    //   ],
+    // ],
+  ];
+  //
+  // Sidebar menu tab.
+  //
+  $form['uw_boundless_mobile_menu'] = [
+    '#type' => 'details',
+    '#title' => t('Mobile menu'),
+    '#group' => 'uw_boundless',
+    'uw_boundless_mobile_menu_type' => [
       '#type' => 'select',
-      '#title' => t('Sidebar menu visibility'),
-      '#default_value' => theme_get_setting('uw_boundless_sidebar_menu_visibility'),
+      '#title' => t('Mobile menu type'),
+      '#default_value' => theme_get_setting('uw_boundless_mobile_menu_type') ?? 'fixed',
       '#options' => [
-        0 => t('Hidden'),
-        1 => t('Visible'),
+        'fixed' => t('Fixed (always show the same top-level items)'),
+        'relative' => t('Relative (show items relative to the current page)'),
       ],
     ],
+    'relative_menu_info' => [
+      '#markup' => t('<p><strong>Important:</strong> In order to use the Relative mobile menu, you must first create a relative menu block. See the <strong>"Sidebar menu (deprecated)"</strong> tab for instructions.</p>')
+    ]
   ];
-
   // Login url settings.
   $form['uw_boundless_login'] = [
     '#type' => 'details',
@@ -377,7 +418,7 @@ function uw_boundless_settings_form_submit(&$form, &$form_state) {
  *   Returns HTML for the sidebar menu. Returns FALSE if the sidebar menu is
  *   hidden.
  *
- * @todo grandchildren
+ * @deprecated v1.0
  */
 function _uw_boundless_uw_sidebar_menu() {
   // Check the theme setting for visibility.

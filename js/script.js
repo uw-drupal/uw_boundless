@@ -28,6 +28,9 @@
      */
     UW.quicklinks.initialize();
 
+    $('.region-sidebar-first .uw-relative-menu').clone().appendTo('#mobile-relative');
+
+
     $('.webform-grid-option').addClass('radio');
     $('.webform-grid-option').removeClass('checkbox');
 

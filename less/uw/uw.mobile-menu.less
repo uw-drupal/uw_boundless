@@ -154,6 +154,7 @@
       width: 100%;
     }
   }
+  /* .uw-sidebar-menu is deprecated. Use .uw-relative-menu instead. */
   ul.uw-sidebar-menu {
     margin-top: 0;
     margin-bottom: 20px;
@@ -175,6 +176,29 @@
         padding-bottom: 7px;
         padding-left: 20px;
       }
+    }
+  }
+  .uw-relative-menu {
+    margin: 0 0 20px;
+    padding:0;
+    .menu-block-title,
+    .menu-item {
+      > a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 20px;
+        font-size: 14px;
+      }
+    }
+    .menu-block-title > a:after {
+      height: 38px;
+      margin-top: -19px;
+      background-position-y: -484px;
+    }
+    .children .menu-item a {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      padding-left: 30px;
     }
   }
   //ul.uw-sidebar-menu li.pagenav ul li.current_page_item > a

@@ -4,19 +4,11 @@
 
 # Overview
 
-The Drupal 8 UW Boundless theme is port of the drupal 7 version.  It is a
-itself a subtheme of Bootstrap.
+The Drupal 9 UW Boundless theme is port of the Drupal 7 version.  It is a 
+subtheme of Bootstrap.
 
-A notable change from the D7 version is that the .inc files that defined the
-content of the search area, the quicklinks flyout, the thin strip, and the
-footer have been replaced by regions into which you add a custom block that you
-define.  This facilitates managing the content of those areas, but since custom
-blocks cannot be created when a theme is installed, it places the burden of
-creating three custom blocks and placing them in the proper region on the admin
-who installs the theme.
-
-Here are some suggested steps for creating and configuring blocks for the four
-new regions.
+Unlike the Drupal 7 version, custom blocks must be created manually. Below is 
+suggested default code for the Thinstrip, Footer and Quicklinks blocks.
 
 ## Thinstrip
 
@@ -28,8 +20,8 @@ the graphics and the uw-thin-links menu as needed.
 <header class="uw-thinstrip">
 
   <div class="container">
-    <a href="http://uw.edu" title="University of Washington Home" class="uw-patch" tabindex='-1' aria-hidden='true'>University of Washington</a>
-    <a href="http://uw.edu" title="University of Washington Home" class="uw-wordmark">University of Washington</a>
+    <a href="https://uw.edu" title="University of Washington Home" class="uw-patch" tabindex='-1' aria-hidden='true'>University of Washington</a>
+    <a href="https://uw.edu" title="University of Washington Home" class="uw-wordmark">University of Washington</a>
   </div>
   <div class='align-right'>
       <nav class="uw-thin-strip-nav" aria-label='role navigation'>
@@ -73,39 +65,41 @@ flyout.
 
 ## Search
 
+[To do.]
+
 ## UW Footer
 
 Create a custom block to go in your footer and place it in the .  The following content will get you started:
 
 ```
-    <a href="http://www.washington.edu" class="footer-wordmark">University of Washington</a>
+    <a href="https://uw.edu" class="footer-wordmark">University of Washington</a>
 
-    <h3 class="be-boundless">Be boundless</h3>
+    <h3 class="be-boundless"><a href="https://uw.edu/boundless/">Be boundless</a></h3>
 
     <h4>Connect with us:</h4>
 
     <nav role="navigation" aria-label="social networking">
         <ul class="footer-social">
-            <li><a class="facebook" href="http://www.facebook.com/UofWA">Facebook</a></li>
-            <li><a class="twitter" href="http://twitter.com/UW">Twitter</a></li>
-            <li><a class="instagram" href="http://instagram.com/uofwa">Instagram</a></li>
-            <li><a class="youtube" href="http://www.youtube.com/user/uwhuskies">YouTube</a></li>
-            <li><a class="linkedin" href="http://www.linkedin.com/company/university-of-washington">LinkedIn</a></li>
-            <li><a class="pinterest" href="http://www.pinterest.com/uofwa/">Pinterest</a></li>
+            <li><a class="facebook" href="https://www.facebook.com/UofWA">Facebook</a></li>
+            <li><a class="twitter" href="https://twitter.com/UW">Twitter</a></li>
+            <li><a class="instagram" href="https://instagram.com/uofwa">Instagram</a></li>
+            <li><a class="youtube" href="https://www.youtube.com/user/uwhuskies">YouTube</a></li>
+            <li><a class="linkedin" href="https://www.linkedin.com/company/university-of-washington">LinkedIn</a></li>
+            <li><a class="pinterest" href="https://www.pinterest.com/uofwa/">Pinterest</a></li>
         </ul>
     </nav>
 
     <nav role="navigation" aria-label="footer links">
         <ul class="footer-links">
-            <li><a href="http://www.uw.edu/accessibility">Accessibility</a></li>
-            <li><a href="http://uw.edu/home/siteinfo/form">Contact Us</a></li>
-            <li><a href="http://www.washington.edu/jobs">Jobs</a></li>
-            <li><a href="http://www.washington.edu/safety">Campus Safety</a></li>
-            <li><a href="http://myuw.washington.edu/">My UW</a></li>
-            <li><a href="http://www.washington.edu/admin/rules/wac/rulesindex.html">Rules Docket</a></li>
-            <li><a href="http://www.washington.edu/online/privacy">Privacy</a></li>
-            <li><a href="http://www.washington.edu/online/terms">Terms</a></li>
-            <li><a href="http://www.washington.edu/newsletter/">Newsletter</a></li>
+            <li><a href="https://uw.edu/accessibility">Accessibility</a></li>
+            <li><a href="https://uw.edu/home/siteinfo/form">Contact s</a></li>
+            <li><a href="https://uw.edu/jobs">Jobs</a></li>
+            <li><a href="https://uw.edu/safety">Campus safety</a></li>
+            <li><a href="https://my.uw.edu/">My UW</a></li>
+            <li><a href="https://uw.edu/admin/rules/wac/rulesindex.html">Rules docket</a></li>
+            <li><a href="https://uw.edu/online/privacy">Privacy</a></li>
+            <li><a href="https://uw.edu/online/terms">Terms</a></li>
+            <li><a href="https://uw.edu/newsletter/">Newsletter</a></li>
         </ul>
     </nav>
 
@@ -120,12 +114,12 @@ content:
 <nav id="quicklinks" aria-label="quick links" aria-hidden="true">
   <ul id="big-links">
     <li><span class="icon-myuw"></span><a href="https://my.uw.edu/" tabindex="-1">MyUW</a></li>
-    <li><span class="icon-calendar"></span><a href="//uw.edu/calendar/" tabindex="-1">Calendar</a></li>
+    <li><span class="icon-calendar"></span><a href="https://uw.edu/calendar/" tabindex="-1">Calendar</a></li>
     <li><span class="icon-directories"></span><a href="https://directory.uw.edu/" tabindex="-1">Directories</a></li>
     <li><span class="icon-libraries"></span><a href="https://lib.uw.edu/" tabindex="-1">Libraries</a></li>
     <li><span class="icon-medicine"></span><a href="https://www.uwmedicine.org/" tabindex="-1">UW Medicine</a></li>
-    <li><span class="icon-maps"></span><a href="//uw.edu/maps/" tabindex="-1">Maps</a></li>
-    <li><span class="icon-uwtoday"></span><a href="//uw.edu/news/" tabindex="-1">UW News</a></li>
+    <li><span class="icon-maps"></span><a href="https://uw.edu/maps/" tabindex="-1">Maps</a></li>
+    <li><span class="icon-uwtoday"></span><a href="https://uw.edu/news/" tabindex="-1">UW News</a></li>
   </ul>
 <h3>Helpful Links</h3>
   <ul id="little-links">
