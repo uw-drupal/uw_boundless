@@ -8,14 +8,14 @@ a.uw-btn {
   display: inline-block;
   position: relative;
   background-image: none !important;
-  border-bottom: none;
+  border-bottom: 0;
   margin-bottom: 25px;
   margin-right: 50px;
   z-index: 1;
   line-height: 24px;
   font-size: 16px;
-
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: @darkgold;
     background-color: #f5f5f5;
     &:before {
@@ -25,7 +25,7 @@ a.uw-btn {
   &:after {
     content: "";
     position: absolute;
-    top: 0;
+    //top: 0;
     bottom: 0;
     width: 55px;
     height: 55px;
@@ -42,7 +42,7 @@ a.uw-btn {
     bottom: 0;
     position: absolute;
     background-color: @purple;
-    border-left: 5px solid rgba(0,0,0,.3);
+    border-left: 5px solid rgba(0, 0, 0, 0.3);
   }
 
   &.btn-sm {
@@ -110,7 +110,7 @@ a.uw-btn {
     background-color: @darkgold;
   }
   &.btn-gold:before {
-    border-left: 5px solid rgba(0,0,0,.1);
+    border-left: 5px solid rgba(0, 0, 0, 0.1);
   }
   &.btn-squish {
     margin-bottom: 5px;

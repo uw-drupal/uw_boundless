@@ -1,7 +1,7 @@
 ul.uw-select {
   position: absolute;
   list-style: none;
-  padding: 0;
+  //padding: 0;
   width: 100%;
   overflow: hidden;
   padding: 0 0 0 0;
@@ -9,16 +9,16 @@ ul.uw-select {
 
   &.open {
     background-color: #f7f7f7;
-    outline: 1px solid #f7f7f7;
+    //outline: 1px solid #f7f7f7;
     overflow: scroll;
     height: 355px;
-    outline: 1px solid #C4C4C4;
-    z-index:9999;
+    outline: 1px solid #c4c4c4;
+    z-index: 9999;
     li {
-     opacity: 1;
-     &.inactive a {
-       display:block;
-     }
+      opacity: 1;
+      &.inactive a {
+        display: block;
+      }
     }
   }
 
@@ -26,7 +26,7 @@ ul.uw-select {
     cursor: pointer;
     color: #565656;
     opacity: 0;
-    transition: opacity .5s;
+    transition: opacity 0.5s;
     position: relative;
     font-size: 16px;
     font-weight: normal;
@@ -48,7 +48,7 @@ ul.uw-select {
       &:hover,
       &:focus {
         background-color: #dfdfdf;
-        border-bottom: none;
+        border-bottom: 0;
         color: @purple;
       }
     }
@@ -56,7 +56,7 @@ ul.uw-select {
     &.active {
       opacity: 1;
       background: 0 0;
-      display:block;
+      display: block;
       a:after {
         display: none;
       }
@@ -66,7 +66,7 @@ ul.uw-select {
     }
 
     &.inactive a {
-      display:none;
+      display: none;
     }
   }
 }
@@ -81,7 +81,7 @@ ul.uw-select {
     height: 54px;
     display: block;
     position: relative;
-    &:hover{
+    &:hover {
       z-index: 2;
     }
     &:before,
@@ -99,8 +99,8 @@ ul.uw-select {
     }
     &:after {
       width: 55px;
-      background: url(assets/svg/uw-sprite.svg) no-repeat -37px -475px #8F8F8F;
-      border: none;
+      background: url(assets/svg/uw-sprite.svg) no-repeat -37px -475px #8f8f8f;
+      border: 0;
       right: -2px;
       top: 0;
       .rotate(90deg);
@@ -113,8 +113,8 @@ ul.uw-select {
       outline: none;
       z-index: 9999;
       width: 60px;
-      right: 0px;
-      top:0px;
+      right: 0;
+      top: 0;
     }
     .uw-select-mask {
       z-index: 2;

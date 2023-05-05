@@ -1,10 +1,9 @@
 // UW Drowpdowns
 
 .assistive-text {
-	position: absolute;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px,1px,1px,1px);
-	z-index: -1;
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  z-index: -1;
 }
 
 // Navbar
@@ -12,7 +11,7 @@
   border-radius: 0;
   margin-bottom: 0;
   z-index: 5;
-  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
   background: #fff;
   //.navbar-header {
   //  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
@@ -24,31 +23,31 @@
   position: relative;
   z-index: 5;
   display: block;
-	li {
-		list-style: none;
-		display: inline-block;
-		li {
-			width: 80%;
-			margin: 0 10%;
-		}
-	}
-	ul {
-		padding-left: 0;
-		padding-right: 0;
-		margin: 0;
-		list-style: none;
-	}
+  li {
+    list-style: none;
+    display: inline-block;
+    li {
+      width: 80%;
+      margin: 0 10%;
+    }
+  }
+  ul {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    list-style: none;
+  }
 }
 
 .dawgdrops-inner {
-	//position: relative;
-	padding: 20px 0 5px 0;
+  //position: relative;
+  padding: 20px 0 5px 0;
 }
 
 // Menu blocks
 .menu-block {
-	float: left;
-	width: 230px;
+  float: left;
+  width: 230px;
 }
 
 .dawgdrops-item {
@@ -69,7 +68,6 @@
     }
     &.dropdown-toggle {
       padding-right: 30px;
-
     }
   }
   // Submenu items.
@@ -89,63 +87,61 @@
       margin: 6px 0;
       font-size: 18px;
       line-height: 28px;
-
       &:hover,
       &:focus {
         color: @purple;
-        background-color: #E7E7E7;
+        background-color: #e7e7e7;
       }
     }
   }
-	//li.active a {
-	//	color: @gray;
-	//}
-	a {
-		&.dropdown-toggle {
-			padding-right: 30px;
-		}
-		&:focus {
+  //li.active a {
+  //	color: @gray;
+  //}
+  a {
+    &.dropdown-toggle {
+      padding-right: 30px;
+    }
+    &:focus {
       outline: thin dotted;
-		}
-	}
+    }
+  }
 }
 
 .dawgdrops-menu {
-	top: 66px;
-	left: 0;
-	position: absolute;
-	display: none;
-	min-width: 260px;
-	border: 0;
-	border-top: 4px solid @purple;
-	padding: 10px 0;
-	margin: -1px 0 0;
-	background: #fff;
-	overflow: hidden;
-	z-index:1;
-  -webkit-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
-     -moz-box-shadow: 1px 1px 8px rgba(0,0,0,.5);
-          box-shadow: 1px 1px 8px rgba(0,0,0,.5);
-
-	li {
-		float: left;
-		clear: left;
-		border-bottom: thin solid #eee;
-		a {
-			color: #707070;
-			text-align: left;
-			&:after {
+  top: 66px;
+  left: 0;
+  position: absolute;
+  display: none;
+  min-width: 260px;
+  border: 0;
+  border-top: 4px solid @purple;
+  padding: 10px 0;
+  margin: -1px 0 0;
+  background: #fff;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  li {
+    float: left;
+    clear: left;
+    border-bottom: thin solid #eee;
+    a {
+      color: #707070;
+      text-align: left;
+      &:after {
         background: none;
-			}
-		}
-		&:first-child {
-			margin-top: 5px;
-		}
-		&:last-child {
-			margin-bottom: 10px;
-			border: none;
-		}
-	}
+      }
+    }
+    &:first-child {
+      margin-top: 5px;
+    }
+    &:last-child {
+      margin-bottom: 10px;
+      border: 0;
+    }
+  }
 }
 
 // Thin navbar
@@ -166,9 +162,9 @@
 }
 
 @media only screen and (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-	.dawgdrops-item a {
-		font-size: 18px;
-	}
+  .dawgdrops-item a {
+    font-size: 18px;
+  }
 }
 
 // Larger than mobile.
@@ -203,7 +199,7 @@
           width: 10px;
           right: 8px;
           top: 17px;
-          background: url(assets/svg/uw-sprite.svg) no-repeat -353px 0px;
+          background: url(assets/svg/uw-sprite.svg) no-repeat -353px 0;
         }
       }
       // Forward slash menu-separator
@@ -214,12 +210,12 @@
         height: 24px;
         width: 12px;
         top: 14px;
-        background: url('assets/svg/slash.svg') no-repeat;
+        background: url("assets/svg/slash.svg") no-repeat;
       }
     }
   }
   // Special MyUW button
-	nav.dawgdrops .btn-myuw a {
+  nav.dawgdrops .btn-myuw a {
     font-size: 18px;
     text-transform: none;
     color: #fff;
@@ -247,15 +243,15 @@
       content: "";
       display: block;
       position: absolute;
-      top: 17px;
+      //top: 17px;
       width: 450px;
       height: 60px;
       left: 33px;
       top: -1px;
       background-color: @darkgold;
-      .skew(-15deg,0);
+      .skew(-15deg, 0);
       z-index: -1;
-      box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
-	}
+  }
 }

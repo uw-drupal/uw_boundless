@@ -9,7 +9,7 @@
     display: none;
   }
   .navbar-dawgdrops {
-    border: none;
+    border: 0;
     box-shadow: none;
     .navbar-header {
       position: relative;
@@ -23,7 +23,7 @@
       margin: 0;
       padding: 12px 95px 15px 10px;
       position: absolute;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       display: block;
       a {
         color: @purple;
@@ -57,8 +57,8 @@
       &:focus {
         outline: none;
         border: 1px solid #4d90fe;
-        -webkit-box-shadow: 0px 0px 5px #4d90fe;
-        box-shadow: 0px 0px 5px #4d90fe;
+        -webkit-box-shadow: 0 0 5px #4d90fe;
+        box-shadow: 0 0 5px #4d90fe;
       }
     }
     // Resets
@@ -92,8 +92,8 @@
           width: 26px;
           height: 23px;
           background: url(assets/svg/uw-sprite.svg) -284px 0 no-repeat rgba(0, 0, 0, 0);
-          opacity: .8;
-          margin-top: 0
+          opacity: 0.8;
+          margin-top: 0;
         }
       }
     }
@@ -112,7 +112,7 @@
         padding: 0;
         width: 100%;
         a {
-          color: #5F5F5F;
+          color: #5f5f5f;
           margin: 0;
           padding: 10px 10px 10px 20px;
           background-color: #fff;
@@ -125,7 +125,7 @@
           }
           &.is-active {
             border-left: 10px solid @darkgold;
-            border-bottom: none;
+            border-bottom: 0;
           }
         }
       }
@@ -141,14 +141,14 @@
     width: 100%;
     float: right;
     clear: both;
-    list-style:none;
-    padding:0;
-    margin:0 0 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
     > ul {
       display: block;
-      list-style:none;
-      padding:0;
-      margin:0;
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
     li {
       width: 100%;
@@ -184,7 +184,7 @@
 @media only screen and (max-width: @screen-xs-max) {
   // Hide the regular sidebar menu.
   #desktop-relative {
-    display:none;
+    display: none;
   }
 
   #mobile-relative {

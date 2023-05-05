@@ -1,122 +1,120 @@
 // UW Breadcrumbs
 
 .uw-breadcrumbs {
-	margin: -17px 0 15px -30px;
-	background-color: white;
-	display: inline-block;
-	padding: 20px 20px 0 30px;
-	ul {
-		padding: 0;
-		margin: 0;
-	}
-	li {
-		list-style: none;
-		display: inline-block;
-		position: relative;
-		&:first-child {
-			a {
-				background: url(assets/svg/uw-sprite.svg) no-repeat -253px 5px;
-				text-indent: -99999px;
-				width: 25px;
-				padding: 5px 0 5px 0;
-				margin-right: 25px;
-              border-bottom:none;
-				&:before {
-					right: -18px;
-				}
+  margin: -17px 0 15px -30px;
+  background-color: white;
+  display: inline-block;
+  padding: 20px 20px 0 30px;
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    &:first-child {
+      a {
+        background: url(assets/svg/uw-sprite.svg) no-repeat -253px 5px;
+        text-indent: -99999px;
+        width: 25px;
+        padding: 5px 0 5px 0;
+        margin-right: 25px;
+        border-bottom: 0;
+        &:before {
+          right: -18px;
+        }
         &:focus,
         &:active,
         &:hover {
-          //border-bottom: 1px solid @darkgold;
-          border-bottom: none;
-          //margin-bottom: -1px;
+          border-bottom: 0;
         }
-			}
-			&:after {
-				top: 17px;
-			}
-		}
-		&.current {
-      span {
-          color: @darkgold;
       }
-			&:after {
-				display: none;
-			}
-		}
-		&:before {
-			content: "";
-			position: absolute;
-			height: 29px;
-			width: 25px;
-			right: 0;
-			top: 4px;
-			background: url('assets/images/breadcrumb-gradient.png') right top repeat-y transparent;
-		}
-		&:after {
-			content: "";
-			position: absolute;
-			height: 10px;
-			width: 10px;
-			right: 5px;
-			top: 7px;
-			.opacity(.8);
-			background: url('assets/svg/caret.svg') no-repeat;
-			.background-size(7px 5px);
-			.rotate(-90deg);
-		}
-		&:empty {
-			display: none;
-		}
+      &:after {
+        top: 17px;
+      }
+    }
+    &.current {
+      span {
+        color: @darkgold;
+      }
+      &:after {
+        display: none;
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      height: 29px;
+      width: 25px;
+      right: 0;
+      top: 4px;
+      background: url("assets/images/breadcrumb-gradient.png") right top repeat-y transparent;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      right: 5px;
+      top: 7px;
+      .opacity(.8);
+      background: url("assets/svg/caret.svg") no-repeat;
+      .background-size(7px 5px);
+      .rotate(-90deg);
+    }
+    &:empty {
+      display: none;
+    }
     &:last-child:after {
       background: none;
     }
-		a {
+    a {
       border-bottom-color: @gray;
       &:hover {
         //border-bottom: none;
         //text-decoration: underline;
       }
-		}
-	}
-	a,
+    }
+  }
+  a,
   span {
-		font-family: @font-family-headline;
-		color: #535353;
-		font-weight: 400;
-		font-size: 15px;
-		padding: 0 25px 0 0;
-		display: block;
-		white-space: nowrap;
-		overflow: hidden;
-		//Caret
-		br {
-			display: none;
-		}
-	}
+    font-family: @font-family-headline;
+    color: #535353;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 0 25px 0 0;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    //Caret
+    br {
+      display: none;
+    }
+  }
 }
 
 @media only screen and (max-width: @screen-xs-max) {
-	.uw-breadcrumbs {
-		float: none;
-		padding: 0;
-		margin: 0 0 0 -5px;
-		li {
-			float: left;
-			display: initial;
-			a,
+  .uw-breadcrumbs {
+    float: none;
+    padding: 0;
+    margin: 0 0 0 -5px;
+    li {
+      float: left;
+      display: initial;
+      a,
       span {
-				padding: 0 25px 0 0;
-			}
-			&:first-child {
-				a {
-					background-position: -250px -3px;
-					padding: 0;
-				}
-				&:after {
-					top: 8px;
-				}
-			}
-		}
-	}
+        padding: 0 25px 0 0;
+      }
+      &:first-child {
+        a {
+          background-position: -250px -3px;
+          padding: 0;
+        }
+        &:after {
+          top: 8px;
+        }
+      }
+    }
+  }
 }
