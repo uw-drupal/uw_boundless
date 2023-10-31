@@ -17,7 +17,7 @@ const paths = {
   cke5_less: {
     // this is our main entry point; within style.less we're then referencing the parent theme and
     // .less imports within this theme
-    src: './less/ckeditor.less',
+    src: './less/ckeditor5.less',
     dest: './css',
     watch: './less/**/*.less',
   },
