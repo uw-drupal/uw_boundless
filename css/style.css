@@ -11099,6 +11099,7 @@ img.attachment-post-thumbnail.wp-post-image.blogroll-img,
   padding: 10px 0 0 40px;
 }
 @media only screen and (max-width: 992px) {
+  .uw-sidebar .block,
   .widget {
     padding: 10px 0 0 0;
   }
@@ -12128,6 +12129,12 @@ body.home .uw-sidebar-menu {
 }
 .uw-relative-menu .children .menu-item > a {
   padding-left: 40px;
+}
+@media only screen and (max-width: 992px) {
+  .uw-relative-menu {
+    margin: 0 0 10px;
+    padding: 10px 0 0 0;
+  }
 }
 img {
   max-width: 100%;
