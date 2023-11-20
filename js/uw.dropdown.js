@@ -14,7 +14,8 @@
 
     attach : function (context, settings) {
 
-      $('.js-dawgdrops .js-dawgdrops-inner').once('js-dawgdrops-inner').each(function() {
+      // $('.js-dawgdrops .js-dawgdrops-inner').once('js-dawgdrops-inner').each(function() {
+      $(once('js-dawgdrops-inner', '.js-dawgdrops .js-dawgdrops-inner', context)).each(function() {
 
         /** KEYBOARD NAVIGATION **/
 
