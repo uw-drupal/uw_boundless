@@ -11202,6 +11202,7 @@ body.search-open #uwsearcharea .uw-search-wrapper {
   font-size: 20px;
   outline: none;
   background-color: #f1f1f1;
+  color: #3d3d3d;
 }
 .uw-search-bar-container form .form-group {
   margin-bottom: auto;
