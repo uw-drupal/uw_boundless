@@ -1,7 +1,7 @@
 {
   "name": "uw_boundless",
   "description": "Packages for theme development of the UW Boundless Drupal theme",
-  "version": "2.0.0-dev1",
+  "version": "2.0.0-dev2",
   "author": "University of Washington",
   "devDependencies": {
     "gulp": "^4.0.2",
