@@ -1,0 +1,11 @@
+{
+  "name": "uw-drupal/uw_boundless",
+  "description": "UW Boundless Drupal theme running on bootstrap 3.",
+  "type": "drupal-theme",
+  "license": "GPL-2.0-or-later",
+  "support": {
+    "issues": "https://github.com/uw-drupal/uw_boundless/issues",
+    "source": "https://github.com/uw-drupal/uw_boundless"
+  },
+  "minimum-stability": "dev"
+}

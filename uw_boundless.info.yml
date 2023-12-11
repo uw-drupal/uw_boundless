@@ -1,10 +1,10 @@
 core_version_requirement: ^9 || ^10
 type: theme
 base theme: bootstrap
-version: 1.0.0
+#version: 2.0.0-dev
 
 name: 'UW Boundless'
-description: 'Bootstrap 9.x subtheme.  Uses lessc for css management.'
+description: 'Bootstrap 3 subtheme.  Uses lessc for css management.'
 package: 'Bootstrap'
 logo: images/logo.png
 
