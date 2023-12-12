@@ -3,8 +3,8 @@ type: theme
 base theme: bootstrap
 version: 1.0.0
 
-name: 'UW Boundless'
-description: 'Bootstrap 3 subtheme.  Uses lessc for css management.'
+name: 'UW Boundless [Deprecated]'
+description: 'This branch is deprecated. See the 1.x (or latest) branch for use with Drupal 9+. Bootstrap 3 subtheme.  Uses lessc for css management.'
 package: 'Bootstrap'
 logo: images/logo.png
 
