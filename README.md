@@ -2,21 +2,63 @@
 <!-- @defgroup sub_theming_less -->
 <!-- @ingroup sub_theming -->
 
-# Overview
+# UW Boundless Drupal 9+ theme
+
+## Overview
 
 The Drupal 9 UW Boundless theme is port of the Drupal 7 version.  It is a 
-subtheme of Bootstrap.
+sub-theme of the [Bootstrap theme] using Bootstrap 3.
 
-Unlike the Drupal 7 version, custom blocks must be created manually. Below is 
-suggested default code for the Thinstrip, Footer and Quicklinks blocks.
+## Get the code
 
-## Thinstrip
+Either clone the repository manually or using composer. 
+
+### Using composer
+
+To use composer, paste the following into your Drupal site's composer.json:
+
+_Replace 'current-version' with the version from uw_boundless.info.yml._
+
+```json
+{
+  "type": "package",
+  "package": {
+    "name": "uw-drupal/uw_boundless",
+    "version": "current-version",
+    "type": "drupal-theme",
+    "source": {
+      "url": "https://github.com/uw-drupal/uw_boundless",
+      "type": "git",
+      "reference": "1.x"
+    }
+  }
+}
+```
+
+Then run: `composer require uw-drupal/uw_boundless`
+
+## Get additional requirements
+
+* Using composer, require drupal/bootstrap. 
+* (Optional) Using composer, require drupal/menu_block. This is required only if
+  you plan to use the theme's sidebar menu.
+
+## Install
+
+Enable the theme and the menu_block module, if using.
+
+## Create custom blocks
+
+At the moment, Drupal themes can't create custom blocks, so you'll need to 
+create the following blocks manually and place them in the appropriate regions.
+
+### Custom block: Thinstrip
 
 Add a new custom block (/admin/structure/block/block-content).  Put #Thinstrip"
 in the block description and paste the following content in the body, customizing
 the graphics and the uw-thin-links menu as needed.
 
-```
+```html
 <header class="uw-thinstrip">
 
   <div class="container">
@@ -57,60 +99,75 @@ the graphics and the uw-thin-links menu as needed.
 </header>
 ```
 
-Go to the block layout page (/admin/structure/block) and click "Place block" in the Thinstrip region.
+Go to the block layout page (/admin/structure/block) and click "Place block" in 
+the Thinstrip region.
 
-Note that in order for the styling to work as intended, your content should be wrapped in a &lt;header class="uw-thinstrip"&gt;&lt;/header&gt;
-element and should contain the uw-search and uw-quicklinks buttons verbatim if you intend to use the search and quickinks
-flyout.
+Note that in order for the styling to work as intended, your content should be 
+wrapped in a `<header class="uw-thinstrip"></header>' element and should contain 
+the uw-search and uw-quicklinks buttons verbatim if you intend to use the search 
+and quickinks flyout.
 
-## Search
+### Custom block: Search
 
-[To do.]
+The default search block works automatically. If you want to use Search API or 
+another search module, create a block with this structure:
 
-## UW Footer
-
-Create a custom block to go in your footer and place it in the .  The following content will get you started:
-
-```
-    <a href="https://uw.edu" class="footer-wordmark">University of Washington</a>
-
-    <h3 class="be-boundless"><a href="https://uw.edu/boundless/">Be boundless</a></h3>
-
-    <h4>Connect with us:</h4>
-
-    <nav role="navigation" aria-label="social networking">
-        <ul class="footer-social">
-            <li><a class="facebook" href="https://www.facebook.com/UofWA">Facebook</a></li>
-            <li><a class="twitter" href="https://twitter.com/UW">Twitter</a></li>
-            <li><a class="instagram" href="https://instagram.com/uofwa">Instagram</a></li>
-            <li><a class="youtube" href="https://www.youtube.com/user/uwhuskies">YouTube</a></li>
-            <li><a class="linkedin" href="https://www.linkedin.com/company/university-of-washington">LinkedIn</a></li>
-            <li><a class="pinterest" href="https://www.pinterest.com/uofwa/">Pinterest</a></li>
-        </ul>
-    </nav>
-
-    <nav role="navigation" aria-label="footer links">
-        <ul class="footer-links">
-            <li><a href="https://uw.edu/accessibility">Accessibility</a></li>
-            <li><a href="https://uw.edu/home/siteinfo/form">Contact s</a></li>
-            <li><a href="https://uw.edu/jobs">Jobs</a></li>
-            <li><a href="https://uw.edu/safety">Campus safety</a></li>
-            <li><a href="https://my.uw.edu/">My UW</a></li>
-            <li><a href="https://uw.edu/admin/rules/wac/rulesindex.html">Rules docket</a></li>
-            <li><a href="https://uw.edu/online/privacy">Privacy</a></li>
-            <li><a href="https://uw.edu/online/terms">Terms</a></li>
-            <li><a href="https://uw.edu/newsletter/">Newsletter</a></li>
-        </ul>
-    </nav>
-
+```html
+<form id="search-block-form" action="/search/content" method="get">
+  <div class="form-group">
+    <label class="control-label sr-only" for="search-keywords">Search</label>
+    <div class="input-group">
+      <input id="search-keywords" class="form-search form-control" maxlength="128" name="search_text" size="15" type="text" value="" placeholder="Search this site" />
+      <span class="input-group-btn">
+        <button type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only"><span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </span>
+    </div>
+  </div>
+</form>
 ```
 
-## Quicklinks
+## Custom block: UW footer
 
-Create a quicklinks custom block and place it in the Quicklinks region.  This is the default
-content:
+Create a custom block to go in your footer and place it in the UW Footer region.
 
+```html
+<a href="https://uw.edu" class="footer-wordmark">University of Washington</a>
+
+<h3 class="be-boundless"><a href="https://uw.edu/boundless/">Be boundless</a></h3>
+
+<h4>Connect with us:</h4>
+
+<nav role="navigation" aria-label="social networking">
+  <ul class="footer-social">
+    <li><a class="facebook" href="https://www.facebook.com/UofWA">Facebook</a></li>
+    <li><a class="twitter" href="https://twitter.com/UW">Twitter</a></li>
+    <li><a class="instagram" href="https://instagram.com/uofwa">Instagram</a></li>
+    <li><a class="youtube" href="https://www.youtube.com/user/uwhuskies">YouTube</a></li>
+    <li><a class="linkedin" href="https://www.linkedin.com/company/university-of-washington">LinkedIn</a></li>
+    <li><a class="pinterest" href="https://www.pinterest.com/uofwa/">Pinterest</a></li>
+  </ul>
+</nav>
+
+<nav role="navigation" aria-label="footer links">
+  <ul class="footer-links">
+    <li><a href="https://uw.edu/accessibility">Accessibility</a></li>
+    <li><a href="https://uw.edu/home/siteinfo/form">Contact s</a></li>
+    <li><a href="https://uw.edu/jobs">Jobs</a></li>
+    <li><a href="https://uw.edu/safety">Campus safety</a></li>
+    <li><a href="https://my.uw.edu/">My UW</a></li>
+    <li><a href="https://uw.edu/admin/rules/wac/rulesindex.html">Rules docket</a></li>
+    <li><a href="https://uw.edu/online/privacy">Privacy</a></li>
+    <li><a href="https://uw.edu/online/terms">Terms</a></li>
+    <li><a href="https://uw.edu/newsletter/">Newsletter</a></li>
+  </ul>
+</nav>
 ```
+
+## Custom block: Quicklinks
+
+Create a quicklinks custom block and place it in the Quicklinks region.
+
+```html
 <nav id="quicklinks" aria-label="quick links" aria-hidden="true">
   <ul id="big-links">
     <li><span class="icon-myuw"></span><a href="https://my.uw.edu/" tabindex="-1">MyUW</a></li>
@@ -134,7 +191,7 @@ content:
  </nav>
  ```
 
-## Making a subtheme
+## Making a sub-theme
 
 Below are instructions on how to create a UW Boundless sub-theme using a Less
 preprocessor.
@@ -144,14 +201,15 @@ preprocessor.
 - [Overrides](#overrides)
 
 ## Prerequisites
-- Read the @link getting_started Getting Started @endlink and
-  @link sub_theming Sub-theming @endlink documentation topics.
-- You must understand the basic concept of using the [Less] CSS pre-processor.
+
+- Read Drupal's documentation on [creating sub-themes].
+- Understand the basic concept of using the [Less] CSS pre-processor.
 - You must use a **[local Less compiler](https://www.google.com/search?q=less+compiler)**.
 - You must use the [Bootstrap Framework Source Files] ending in the `.less`
   extension, not files ending in `.css`.
 
-## Additional Setup {#setup}
+## Additional setup {#setup}
+
 Download and extract the **latest** 3.x.x version of
 [Bootstrap Framework Source Files] into the root of your new sub-theme. After
 it has been extracted, the directory should be renamed (if needed) so it reads
@@ -167,6 +225,7 @@ or when you upgrade your version of the [Bootstrap Framework].
 [Bootstrap Framework] in the future.
 
 ## Overrides {#overrides}
+
 The `./uw_boundless/less/variable-overrides.less` file is generally where you will
 the majority of your time overriding the variables provided by the [Bootstrap
 Framework].
@@ -199,22 +258,8 @@ the proper way to rebuild the css and place it in the correct place.
 - @link templates Templates @endlink
 - @link plugins Plugin System @endlink
 
+[Bootstrap theme]: https://www.drupal.org/project/bootstrap
+[creating sub-themes]: https://www.drupal.org/docs/develop/theming-drupal/creating-sub-themes
 [Bootstrap Framework]: https://getbootstrap.com/docs/3.4/
 [Bootstrap Framework Source Files]: https://github.com/twbs/bootstrap/releases
 [Less]: http://lesscss.org
-
-## Drupal 8 Implementation Notes
-
-### template.php -> uw_boundless.theme
-
-The uw_boundless_preprocess_block() function has been removed.  Since blocks
-can appear in multiple regions in D8 there is no information available as to
-the intended region when a block is preprocessed.  This functionality has been
-moved to CSS-- see uw.body-content.less and uw.sidebar.less.
-
-The functions uw_boundless_menu_tree__main_menu() and uw_boundless_menu_link__main_menu()
-are not ported because D8 does not implement those hooks.  Rather, that functionality
-is folded into the template file menu--main.html.twig.
-
-The same applies to uw_boundless_breadcrumb() and breadcrumb.html.twig.
-
