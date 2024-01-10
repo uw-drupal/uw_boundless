@@ -21,6 +21,9 @@ regions:
   uwfooter: 'UW Footer'
   quicklinks: 'Quicklinks'
 
+libraries:
+  - uw_boundless/uw-alert
+
 libraries-extend:
   bootstrap/framework:
     - uw_boundless/framework

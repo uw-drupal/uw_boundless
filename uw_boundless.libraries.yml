@@ -22,3 +22,8 @@ framework:
     js/radios.js: {}
   dependencies:
     - core/once
+
+uw-alert:
+  js:
+    //www.washington.edu/static/alert.js:
+      type: external
