@@ -14355,6 +14355,61 @@ div[id*="trumba"] iframe {
     display: none;
   }
 }
+#uwalert-alert-message {
+  padding: 0 20px 40px;
+  position: relative;
+  z-index: 1;
+}
+#uwalert-alert-message h1 {
+  color: #fff;
+  font-size: 25px;
+}
+#uwalert-alert-message p {
+  color: #fff;
+  line-height: 1.62222;
+  display: inline;
+}
+#uwalert-alert-message a.more {
+  color: #fde048;
+  display: inline-block;
+}
+#uwalert-alert-message a.more:after {
+  background-position: -239px -492px;
+  bottom: 3px;
+}
+#uwalert-alert-message.uwalert-red,
+#uwalert-alert-message.red-alert-urgent {
+  background-color: #c61029;
+}
+#uwalert-alert-message.uwalert-orange,
+#uwalert-alert-message.orange-alert {
+  background-color: #ec7330;
+}
+#uwalert-alert-message.uwalert-steel,
+#uwalert-alert-message.steel-alert-fyis {
+  background-color: #597286;
+}
+#uwalert-alert-message .close {
+  position: absolute;
+  background: url(assets/svg/uw-sprite.svg) no-repeat -721px 6px transparent;
+  text-indent: -9999px;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  margin-top: 30px;
+  opacity: 1;
+  background-size: 1330px;
+  display: block;
+  right: 30px;
+  top: 0;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1201px) {
+  #uwalert-alert-message {
+    background: url(assets/images/alert.png) no-repeat 0 -10px transparent;
+    padding-left: 125px;
+  }
+}
 .uw-widget-campus-map .uw-campus-map-widget {
   position: relative;
 }
@@ -14895,61 +14950,6 @@ ul.shortcode-blogroll-mini {
 .widget_nav_menu ul.menu span a {
   color: #fff;
   border-bottom: none;
-}
-#uwalert-alert-message {
-  padding: 0 20px 40px;
-  position: relative;
-  z-index: 1;
-}
-#uwalert-alert-message h1 {
-  color: #fff;
-  font-size: 25px;
-}
-#uwalert-alert-message p {
-  color: #fff;
-  line-height: 1.62222;
-  display: inline;
-}
-#uwalert-alert-message a.more {
-  color: #fde048;
-  display: inline-block;
-}
-#uwalert-alert-message a.more:after {
-  background-position: -239px -492px;
-  bottom: 3px;
-}
-#uwalert-alert-message.uwalert-red,
-#uwalert-alert-message.red-alert-urgent {
-  background-color: #c61029;
-}
-#uwalert-alert-message.uwalert-orange,
-#uwalert-alert-message.orange-alert {
-  background-color: #ec7330;
-}
-#uwalert-alert-message.uwalert-steel,
-#uwalert-alert-message.steel-alert-fyis {
-  background-color: #597286;
-}
-#uwalert-alert-message .close {
-  position: absolute;
-  background: url(assets/svg/uw-sprite.svg) no-repeat -721px 6px transparent;
-  text-indent: -9999px;
-  overflow: hidden;
-  width: 40px;
-  height: 40px;
-  margin-top: 30px;
-  opacity: 1;
-  background-size: 1330px;
-  display: block;
-  right: 30px;
-  top: 0;
-  cursor: pointer;
-}
-@media only screen and (min-width: 1201px) {
-  #uwalert-alert-message {
-    background: url(assets/images/alert.png) no-repeat 0 -10px transparent;
-    padding-left: 125px;
-  }
 }
 pre.prettyprint {
   /* Specify class=linenums on a pre to get line numbering */
