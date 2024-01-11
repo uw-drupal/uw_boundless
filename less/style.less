@@ -2,6 +2,9 @@
 * style.less imports all required less partials
 */
 
+// Variable overrides
+//@import "variable-overrides.less";
+
 /**
 * Bootstrap base theme
 */
@@ -49,6 +52,7 @@
 @import "uw/uw.hero.less";
 @import "uw/uw.breadcrumbs.less";
 @import "uw/uw.body-content.less";
+@import "uw/uw.alert.less";
 @import "uw/uw.search.less";
 @import "uw/uw.sidebar.less";
 @import "uw/uw.mobile-menu.less";
@@ -79,6 +83,7 @@
 @import "uw/uw.responsive.less";
 
 // Widgets
+@import "uw/widgets/uw-alert.less";
 @import "uw/widgets/campus-map.less";
 @import "uw/widgets/search.less";
 @import "uw/widgets/recent-entries.less";
@@ -90,8 +95,6 @@
 @import "uw/widgets/cards.less";
 @import "uw/widgets/contact.less";
 @import "uw/widgets/custom-menu.less";
-
-@import "uw/uw.alert.less";
 
 // Inline code
 @import "uw/uw.prettify.less";
