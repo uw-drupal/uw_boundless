@@ -246,6 +246,10 @@ table.sticky-header {
   &:last-child {
     margin-bottom: 0;
   }
+  label {
+    min-height: 21px; // Overrides 29px from uw/flat/variables.
+    vertical-align: middle;
+  }
 }
 
 .panel-heading {
@@ -262,6 +266,15 @@ form input {
   &.form-checkbox {
     margin: 6px 0 0 -18px !important;
   }
+}
+
+.help-block,
+.help-block p {
+  color: lighten(@text-color, 25%); // Reset to Bootstrap default
+  font-size: @font-size-xs;
+}
+.help-block p:not(:last-child) {
+  margin-bottom: 5px;
 }
 
 // Error containers.
