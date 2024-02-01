@@ -7148,6 +7148,90 @@ html.js .ajax-new-content:empty {
   display: none !important;
 }
 /**
+ * Form styles.
+ */
+table .checkbox.form-no-label,
+table .radio.form-no-label {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.select-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+.form-inline .select-wrapper {
+  width: auto;
+}
+.input-group .select-wrapper {
+  display: table-cell;
+}
+.input-group .select-wrapper:first-child .form-control:first-child {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.input-group .select-wrapper:last-child .form-control:first-child {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.select-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  line-height: 1;
+  padding-right: 2em;
+}
+.select-wrapper select::-ms-expand {
+  opacity: 0;
+}
+.select-wrapper:after {
+  color: #4b2e83;
+  content: '▼';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: -0.5em;
+  padding-right: 0.5em;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: 10;
+}
+.has-glyphicons .select-wrapper:after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e114';
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+}
+.has-error .select-wrapper:after {
+  color: #a60606;
+}
+.has-success .select-wrapper:after {
+  color: #476a24;
+}
+.has-warning .select-wrapper:after {
+  color: #7d4d2a;
+}
+.form-required:after {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iI0VFMDAwMCIgIGQ9Ik0wLDcuNTYybDEuMTE0LTMuNDM4YzIuNTY1LDAuOTA2LDQuNDMsMS42ODgsNS41OSwyLjM1QzYuMzk4LDMuNTUzLDYuMjM3LDEuNTQ0LDYuMjIsMC40NDdoMy41MTEgYy0wLjA1LDEuNTk3LTAuMjM0LDMuNi0wLjU1OCw2LjAwM2MxLjY2NC0wLjgzOCwzLjU2Ni0xLjYxMyw1LjcxNC0yLjMyNUwxNiw3LjU2MmMtMi4wNSwwLjY3OC00LjA2LDEuMTMxLTYuMDI4LDEuMzU2IGMwLjk4NCwwLjg1NiwyLjM3MiwyLjM4MSw0LjE2Niw0LjU3NWwtMi45MDYsMi4wNTljLTAuOTM1LTEuMjc0LTIuMDQxLTMuMDA5LTMuMzE2LTUuMjA2Yy0xLjE5NCwyLjI3NS0yLjI0NCw0LjAxMy0zLjE0Nyw1LjIwNiBsLTIuODU2LTIuMDU5YzEuODcyLTIuMzA3LDMuMjExLTMuODMyLDQuMDE3LTQuNTc1QzMuODQ5LDguNTE2LDEuODcyLDguMDYyLDAsNy41NjIiLz48L3N2Zz4K);
+  background-size: 10px 7px;
+  content: "";
+  display: inline-block;
+  vertical-align: super;
+  line-height: 1;
+  height: 7px;
+  width: 10px;
+}
+.form-actions .btn,
+.form-actions .btn-group {
+  margin-right: 10px;
+}
+.form-actions .btn-group .btn {
+  margin-right: 0;
+}
+/**
  * Icon styles.
  */
 a.icon-before .glyphicon,
