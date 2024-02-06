@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Overrides the default theme implementation for a 'radios' #type form element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The rendered radios.
+ *
+ * @see template_preprocess_radios()
+ *
+ * @ingroup themeable
+ *
+ * Drupal core no longer sets the form-radios class even though it still does
+ * form-checkboxes. Needed for radios.js to toggle properly.
+ */
+#}
+<div{{ attributes.addClass('form-radios') }}>{{ children }}</div>
