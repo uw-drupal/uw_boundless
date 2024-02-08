@@ -7,6 +7,7 @@
 
 use Drupal\Core\Link;
 use Drupal\core\Url;
+use Drupal\Core\Render\Element;
 use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -61,6 +62,9 @@ function uw_boundless_preprocess_page(array &$variables) {
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
   $variables['site_slogan'] = $config->get('slogan');
+
+  // Determine if the sidebar has content.
+  $variables['sidebar_empty'] = Element::isEmpty($variables['page']['sidebar_first']) && Element::isEmpty($variables['page']['sidebar_second']);
 
   // Sidebar menu. [deprecated]
   $variables['uw_sidebar_menu'] = _uw_boundless_uw_sidebar_menu();

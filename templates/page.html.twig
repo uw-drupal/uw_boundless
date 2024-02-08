@@ -64,12 +64,10 @@
  */
 #}
 
-{% set show_sidebar = page.sidebar_first|render|striptags|trim|length > 0
-  or page.sidebar_second|render|striptags|trim|length > 0 %}
-{% set content_width = show_sidebar ? 'md-8' : 'sm-12' %}
+{% set content_width = not sidebar_empty ? 'md-8' : 'sm-12' %}
 {% set content_column_classes = [
   'col-' ~ content_width,
-  'uw-sidebar-' ~ (show_sidebar ? 'shown' : 'hidden')
+  'uw-sidebar-' ~ (not sidebar_empty ? 'shown' : 'hidden')
 ] %}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 
@@ -246,7 +244,7 @@
         </section>
         
         <aside class="col-md-4 uw-sidebar" role="complementary">
-          {% if show_sidebar %}
+          {% if not sidebar_empty %}
             {{ page.sidebar_first }}
             {{ page.sidebar_second }}
           {% endif %}
