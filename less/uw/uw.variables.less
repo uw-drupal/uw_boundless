@@ -1,10 +1,7 @@
-//== Typography
-//
-//## Font, line-height for body text, headings and more
+//== UW Variables
 
 // Brand core colors
 @purple:         #4b2e83;
-@gray:           #c9c9c9;
 @darkgray:       #5a5a5a;
 @brightgold:     #ffd800;
 @ultralightgold: #e8e3d3;
@@ -17,48 +14,28 @@
 @scarlet:     #a60606;
 @sapphire:    #24648e;
 
-
 // Fonts
-@font-family-base:      "Open Sans", sans-serif;
 @font-family-headline:  "Encode Sans Compressed", sans-serif;
-@headings-font-family:  @font-family-headline;
 @headline:              "Encode Sans Normal", sans-serif;
 @uni:                   "Uni sans", sans-serif;
 
 // ## Local fonts
-@local-font-path:               "assets/fonts/";
 @local-font-name-normal-black:  "EncodeSans-Normal-Black";
 @local-font-name-thin:          "encodesanscompressed-100-thin-webfont";
 @local-font-name-extralight:    "encodesanscompressed-200-extralight-webfont";
-@local-font-name-light:         "encodesanscompressed-300-light-webfont.eot";
 @local-font-name-regular:       "encodesanscondensed-400-regular-webfont";
 @local-font-name-medium:        "encodesanscondensed-500-medium-webfont";
 @local-font-name-semibold:      "encodesanscompressed-600-semibold-webfont";
-@local-font-name-bold:          "encodesanscompressed-700-bold-webfont";
 @local-font-name-extrabold:     "encodesanscompressed-800-extrabold-webfont";
-@local-font-name-black:         "encodesanscompressed-900-black-webfont";
 @local-font-name-icon:          "icomoon";
 @uni-sans:                      "uni_sans_thin-webfont";
 
 // ## Font styles
-@font-size-base:    17px;
 @font-weight-base:  normal;
 @font-color-base:   #3d3d3d;
-@font-size-small:   ceil((@font-size-base * 0.85)); // ~15px
-@font-size-xs:      ceil((@font-size-base * 0.75)); // ~13px
-
-//** Global text color on `<body>`.
-@text-color:        @font-color-base;
 
 // ## Font sizes
-@font-size-h1: floor(@font-size-base * 2.222); // ~62px
-@font-size-h2: ceil(@font-size-base * 1.6); // ~52px
-@font-size-h3: ceil(@font-size-base * 1.35); // ~40px
-@font-size-h4: ceil(@font-size-base * 1.2); // ~29px
-@font-size-h5: floor(@font-size-base * 1.111); // ~28px
-@font-size-h6: ceil(@font-size-base * 1.111); // ~20px
-
-@headings-line-height:      1.3;
+@font-size-xs:      ceil((@font-size-base * 0.75)); // ~13px
 
 // ## Font weights
 @ultra:           900;
@@ -70,35 +47,8 @@
 
 // ## Legacy font weights
 @ultra-font-weight:     900;
-@headings-font-weight:  800;
 @body-font-weight:      300;
-
-// Iconography
-// This font needs updating. Reverted to default bootstrap glyphicon font as
-// the unicodes have changed.
-// @icon-font-path:            "assets/icons/";
-// @icon-font-name:            "flat-ui-icons-regular";
-// @icon-font-svg-id:          "flat-ui-icons-regular";
 
 // Image assets
 @local-image-path:           "assets/images/";
 
-// Brand colors
-@brand-primary:             @purple;
-@brand-secondary:           @purple;
-@brand-success:             @deep-olive;
-@brand-warning:             @cinnamon;
-@brand-danger:              @scarlet;
-@brand-info:                @sapphire;
-
-// Elements
-// ## Links
-@link:             #0074bb;
-@link-color:       @link;
-@link-hover-color: @gray;
-
-// ## Tables
-// .table-striped accent
-@table-bg-accent:    #e2e2e2;
-// Border color for table and cell borders.
-@table-border-color: #ababab;
