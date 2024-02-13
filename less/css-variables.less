@@ -1,0 +1,589 @@
+/* UW Boundless CSS properties */
+// Properties for accessing Bootstrap and UW Boundless variables for use in
+// child themes.
+
+// Theme variables
+@import (reference) "../bootstrap/less/variables.less";
+@import (reference) "variable-overrides.less";
+
+:root {
+
+  //== Colors
+  //
+  // ## Black and grays
+  --uw-color-gray-base:                 @gray-base;
+  --uw-color-gray-darker:               @gray-darker;
+  --uw-color-gray-dark:                 @gray-dark;
+  --uw-color-gray:                      @gray;
+  --uw-color-gray-light:                @gray-light;
+  --uw-color-gray-lighter:              @gray-lighter;
+
+  // ## White
+  --uw-color-inverse:                   @inverse;
+
+  // ## Brand colors
+  --uw-color-brand-purple:              @purple;
+  --uw-color-brand-darkgray:            @darkgray;
+  --uw-color-brand-brightgold:          @brightgold;
+  --uw-color-brand-ultralightgold:      @ultralightgold;
+  --uw-color-brand-lightgold:           @lightgold;
+  --uw-color-brand-darkgold:            @darkgold;
+
+  // ## Additional colors
+  --uw-color-deep-olive:                @deep-olive;
+  --uw-color-cinnamon:                  @cinnamon;
+  --uw-color-scarlet:                   @scarlet;
+  --uw-color-sapphire:                  @sapphire;
+
+  // ## Brand state colors
+  --uw-color-brand-primary:             @brand-primary;
+  --uw-color-brand-secondary:           @brand-secondary;
+  --uw-color-brand-success:             @brand-success;
+  --uw-color-brand-warning:             @brand-warning;
+  --uw-color-brand-danger:              @brand-danger;
+  --uw-color-brand-info:                @brand-info;
+
+  //== Scaffolding
+  // Settings for some of the most global styles.
+  //
+  // ## Default background and text.
+  --uw-bg-body:                         @body-bg;
+  --uw-color-text:                      @text-color;
+  --uw-color-link:                      @link-color;
+  --uw-color-link-hover:                @link-hover-color;
+  --uw-link-hover-decoration:           @link-hover-decoration;
+
+  //== Typography
+  //
+  // ## Fonts
+  --uw-font-family-base:                @font-family-base;
+  --uw-font-family-monospace:           @font-family-monospace;
+  --uw-font-family-caps:                @uni;
+
+  // ## Local fonts
+  --uw-local-font-path:                 @local-font-path;
+  --uw-local-font-name-normal-black:    @local-font-name-normal-black;
+  --uw-local-font-name-black:           @local-font-name-black;
+  --uw-local-font-name-light:           @local-font-name-light;
+  --uw-local-font-name-bold:            @local-font-name-bold;
+  --uw-local-font-name-thin:            @local-font-name-thin;
+  --uw-local-font-name-extralight:      @local-font-name-extralight;
+  --uw-local-font-name-regular:         @local-font-name-regular;
+  --uw-local-font-name-medium:          @local-font-name-medium;
+  --uw-local-font-name-semibold:        @local-font-name-semibold;
+  --uw-local-font-name-extrabold:       @local-font-name-extrabold;
+  --uw-local-font-name-icon:            @local-font-name-icon;
+  --uw-local-font-name-uni-sans:        @uni-sans;
+
+  // ## Headings
+  --uw-font-family-heading:            @font-family-headline;
+  --uw-font-family-heading-expanded:   @headline;
+  --uw-font-weight-heading:            @headings-font-weight;
+  --uw-line-height-heading:            @headings-line-height;
+  --uw-color-heading:                  @headings-color;
+
+  // ## Font sizes
+  --uw-font-size-base:                  @font-size-base;
+  --uw-font-size-large:                 @font-size-large;
+  --uw-font-size-small:                 @font-size-small;
+  --uw-font-size-xs:                    @font-size-xs;
+  --uw-font-size-h1:                    @font-size-h1;
+  --uw-font-size-h2:                    @font-size-h2;
+  --uw-font-size-h3:                    @font-size-h3;
+  --uw-font-size-h4:                    @font-size-h4;
+  --uw-font-size-h5:                    @font-size-h5;
+  --uw-font-size-h6:                    @font-size-h6;
+
+  // ## Font styles
+  --uw-font-color-base:                 @font-color-base;
+  --uw-font-weight-base:                @font-weight-base;
+  --uw-font-weight-ultra:               @ultra;
+  --uw-font-weight-bold:                @bold;
+  --uw-font-weight-heavy:               @heavy;
+  --uw-font-weight-medium:              @medium;
+  --uw-font-weight-light:               @light;
+  --uw-font-weight-body:                @body;
+
+
+  //== Bootstrap Components
+  //
+  // ## Default font size in components
+  --uw-component-font-size-base:        @component-font-size-base;
+
+  // ## Padding
+  --uw-padding-base-vertical:           @padding-base-vertical;
+  --uw-padding-base-horizontal:         @padding-base-horizontal;
+
+  --uw-padding-large-vertical:          @padding-large-vertical;
+  --uw-padding-large-horizontal:        @padding-large-horizontal;
+
+  --uw-padding-small-vertical:          @padding-small-vertical;
+  --uw-padding-small-horizontal:        @padding-small-horizontal;
+
+  --uw-padding-xs-vertical:             @padding-xs-vertical;
+  --uw-padding-xs-horizontal:           @padding-xs-horizontal;
+
+  // ## Line height
+  --uw-line-height-base:                @line-height-base;
+  --uw-line-height-computed:            @line-height-computed;
+  --uw-line-height-large:               @line-height-large;
+  --uw-line-height-small:               @line-height-small;
+
+  // ## Border radius
+  --uw-border-radius-base:              @border-radius-base;
+  --uw-border-radius-large:             @border-radius-large;
+  --uw-border-radius-small:             @border-radius-small;
+
+  //** Global color for active items (e.g., navs or dropdowns).
+  --uw-component-active-color:          @component-active-color;
+  //** Global background color for active items (e.g., navs or dropdowns).
+  --uw-component-active-bg:             @component-active-bg;
+
+  //** Width of the `border` for generating carets that indicate dropdowns.
+  --uw-caret-width-base:                @caret-width-base;
+  //** Carets increase slightly in size for larger components.
+  --uw-caret-width-large:               @caret-width-large;
+
+  //== Tables
+
+  --uw-table-cell-padding:              @table-cell-padding;
+  --uw-table-condensed-cell-padding:    @table-condensed-cell-padding;
+  --uw-table-bg:                        @table-bg;
+  --uw-table-bg-accent:                 @table-bg-accent;
+  --uw-table-bg-hover:                  @table-bg-hover;
+  --uw-table-bg-active:                 @table-bg-active;
+  --uw-table-border-color:              @table-border-color;
+
+
+  //== Buttons
+
+  --uw-btn-font-weight:                 @btn-font-weight;
+  --uw-btn-default-color:               @btn-default-color;
+  --uw-btn-default-bg:                  @btn-default-bg;
+  --uw-btn-default-border:              @btn-default-border;
+  --uw-btn-primary-color:               @btn-primary-color;
+  --uw-btn-primary-bg:                  @btn-primary-bg;
+  --uw-btn-primary-border:              @btn-primary-border;
+  --uw-btn-success-color:               @btn-success-color;
+  --uw-btn-success-bg:                  @btn-success-bg;
+  --uw-btn-success-border:              @btn-success-border;
+  --uw-btn-info-color:                  @btn-info-color;
+  --uw-btn-info-bg:                     @btn-info-bg;
+  --uw-btn-info-border:                 @btn-info-border;
+  --uw-btn-warning-color:               @btn-warning-color;
+  --uw-btn-warning-bg:                  @btn-warning-bg;
+  --uw-btn-warning-border:              @btn-warning-border;
+  --uw-btn-danger-color:                @btn-danger-color;
+  --uw-btn-danger-bg:                   @btn-danger-bg;
+  --uw-btn-danger-border:               @btn-danger-border;
+  --uw-btn-link-disabled-color:         @btn-link-disabled-color;
+
+  // Allows for customizing button radius independently from global border radius
+  --uw-btn-border-radius-base:          @btn-border-radius-base;
+  --uw-btn-border-radius-large:         @btn-border-radius-large;
+  --uw-btn-border-radius-small:         @btn-border-radius-small;
+
+
+  //== Forms
+
+  --uw-input-bg:                        @input-bg;
+  --uw-input-bg-disabled:               @input-bg-disabled;
+  --uw-input-color:                     @input-color;
+  --uw-input-border:                    @input-border;
+  --uw-input-border-radius:             @input-border-radius;
+  --uw-input-border-radius-large:       @input-border-radius-large;
+  --uw-input-border-radius-small:       @input-border-radius-small;
+  --uw-input-border-focus:              @input-border-focus;
+  --uw-input-color-placeholder:         @input-color-placeholder;
+  --uw-input-height-base:               @input-height-base;
+  --uw-input-height-large:              @input-height-large;
+  --uw-input-height-small:              @input-height-small;
+  --uw-form-group-margin-bottom:        @form-group-margin-bottom;
+  --uw-legend-color:                    @legend-color;
+  --uw-legend-border-color:             @legend-border-color;
+  --uw-input-group-addon-bg:            @input-group-addon-bg;
+  --uw-input-group-addon-border-color:  @input-group-addon-border-color;
+  --uw-cursor-disabled:                 @cursor-disabled;
+
+
+  //== Dropdowns
+
+  --uw-dropdown-bg:                     @dropdown-bg;
+  --uw-dropdown-border:                 @dropdown-border;
+  --uw-dropdown-fallback-border:        @dropdown-fallback-border;
+  --uw-dropdown-divider-bg:             @dropdown-divider-bg;
+  --uw-dropdown-link-color:             @dropdown-link-color;
+  --uw-dropdown-link-hover-color:       @dropdown-link-hover-color;
+  --uw-dropdown-link-hover-bg:          @dropdown-link-hover-bg;
+  --uw-dropdown-link-active-color:      @dropdown-link-active-color;
+  --uw-dropdown-link-active-bg:         @dropdown-link-active-bg;
+  --uw-dropdown-link-disabled-color:    @dropdown-link-disabled-color;
+  --uw-dropdown-header-color:           @dropdown-header-color;
+  --uw-dropdown-caret-color:            @dropdown-caret-color;
+
+
+  //-- Z-index master list
+
+  --uw-zindex-navbar:                   @zindex-navbar;
+  --uw-zindex-dropdown:                 @zindex-dropdown;
+  --uw-zindex-popover:                  @zindex-popover;
+  --uw-zindex-tooltip:                  @zindex-tooltip;
+  --uw-zindex-navbar-fixed:             @zindex-navbar-fixed;
+  --uw-zindex-modal-background:         @zindex-modal-background;
+  --uw-zindex-modal:                    @zindex-modal;
+
+
+  //== Media queries breakpoints
+
+  --uw-screen-xs-min:                   @screen-xs-min;
+  --uw-screen-sm-min:                   @screen-sm-min;
+  --uw-screen-md-min:                   @screen-md-min;
+  --uw-screen-lg-min:                   @screen-lg-min;
+  --uw-screen-xs-max:                   @screen-xs-max;
+  --uw-screen-sm-max:                   @screen-sm-max;
+  --uw-screen-md-max:                   @screen-md-max;
+
+
+  //== Grid system
+
+  --uw-grid-columns:                    @grid-columns;
+  --uw-grid-gutter-width:               @grid-gutter-width;
+  --uw-grid-float-breakpoint:           @grid-float-breakpoint;
+  --uw-grid-float-breakpoint-max:       @grid-float-breakpoint-max;
+
+
+  //== Container sizes
+
+  --uw-container-sm:                    @container-sm;
+  --uw-container-md:                    @container-md;
+  --uw-container-lg:                    @container-lg;
+
+  //== Navbar
+
+  --uw-navbar-height:                     @navbar-height;
+  --uw-navbar-margin-bottom:              @navbar-margin-bottom;
+  --uw-navbar-border-radius:              @navbar-border-radius;
+  --uw-navbar-padding-horizontal:         @navbar-padding-horizontal;
+  --uw-navbar-padding-vertical:           @navbar-padding-vertical;
+  --uw-navbar-collapse-max-height:        @navbar-collapse-max-height;
+  --uw-navbar-default-color:              @navbar-default-color;
+  --uw-navbar-default-bg:                 @navbar-default-bg;
+  --uw-navbar-default-border:             @navbar-default-border;
+  --uw-navbar-default-link-color:         @navbar-default-link-color;
+  --uw-navbar-default-link-hover-color:   @navbar-default-link-hover-color;
+  --uw-navbar-default-link-hover-bg:      @navbar-default-link-hover-bg;
+  --uw-navbar-default-link-active-color:  @navbar-default-link-active-color;
+  --uw-navbar-default-link-active-bg:     @navbar-default-link-active-bg;
+  --uw-navbar-default-link-disabled-color:@navbar-default-link-disabled-color;
+  --uw-navbar-default-link-disabled-bg:   @navbar-default-link-disabled-bg;
+  --uw-navbar-default-brand-color:        @navbar-default-brand-color;
+  --uw-navbar-default-brand-hover-color:  @navbar-default-brand-hover-color;
+  --uw-navbar-default-brand-hover-bg:     @navbar-default-brand-hover-bg;
+  --uw-navbar-default-toggle-hover-bg:    @navbar-default-toggle-hover-bg;
+  --uw-navbar-default-toggle-icon-bar-bg: @navbar-default-toggle-icon-bar-bg;
+  --uw-navbar-default-toggle-border-color:@navbar-default-toggle-border-color;
+
+
+  //=== Inverted navbar
+  --uw-navbar-inverse-color:              @navbar-inverse-color;
+  --uw-navbar-inverse-bg:                 @navbar-inverse-bg;
+  --uw-navbar-inverse-border:             @navbar-inverse-border;
+  --uw-navbar-inverse-link-color:         @navbar-inverse-link-color;
+  --uw-navbar-inverse-link-hover-color:   @navbar-inverse-link-hover-color;
+  --uw-navbar-inverse-link-hover-bg:      @navbar-inverse-link-hover-bg;
+  --uw-navbar-inverse-link-active-color:  @navbar-inverse-link-active-color;
+  --uw-navbar-inverse-link-active-bg:     @navbar-inverse-link-active-bg;
+  --uw-navbar-inverse-link-disabled-color:@navbar-inverse-link-disabled-color;
+  --uw-navbar-inverse-link-disabled-bg:   @navbar-inverse-link-disabled-bg;
+  --uw-navbar-inverse-brand-color:        @navbar-inverse-brand-color;
+  --uw-navbar-inverse-brand-hover-color:  @navbar-inverse-brand-hover-color;
+  --uw-navbar-inverse-brand-hover-bg:     @navbar-inverse-brand-hover-bg;
+  --uw-navbar-inverse-toggle-hover-bg:    @navbar-inverse-toggle-hover-bg;
+  --uw-navbar-inverse-toggle-icon-bar-bg: @navbar-inverse-toggle-icon-bar-bg;
+  --uw-navbar-inverse-toggle-border-color:@navbar-inverse-toggle-border-color;
+
+
+  //== Navs
+
+  --uw-nav-link-padding:                           @nav-link-padding;
+  --uw-nav-link-hover-bg:                          @nav-link-hover-bg;
+  --uw-nav-disabled-link-color:                    @nav-disabled-link-color;
+  --uw-nav-disabled-link-hover-color:              @nav-disabled-link-hover-color;
+
+  //== Tabs
+
+  --uw-nav-tabs-border-color:                      @nav-tabs-border-color;
+  --uw-nav-tabs-link-hover-border-color:           @nav-tabs-link-hover-border-color;
+  --uw-nav-tabs-active-link-hover-bg:              @nav-tabs-active-link-hover-bg;
+  --uw-nav-tabs-active-link-hover-color:           @nav-tabs-active-link-hover-color;
+  --uw-nav-tabs-active-link-hover-border-color:    @nav-tabs-active-link-hover-border-color;
+  --uw-nav-tabs-justified-link-border-color:       @nav-tabs-justified-link-border-color;
+  --uw-nav-tabs-justified-active-link-border-color:@nav-tabs-justified-active-link-border-color;
+
+  //== Pills
+
+  --uw-nav-pills-border-radius:                    @nav-pills-border-radius;
+  --uw-nav-pills-active-link-hover-bg:             @nav-pills-active-link-hover-bg;
+  --uw-nav-pills-active-link-hover-color:          @nav-pills-active-link-hover-color;
+
+
+  //== Pagination
+
+  --uw-pagination-color:                @pagination-color;
+  --uw-pagination-bg:                   @pagination-bg;
+  --uw-pagination-border:               @pagination-border;
+  --uw-pagination-hover-color:          @pagination-hover-color;
+  --uw-pagination-hover-bg:             @pagination-hover-bg;
+  --uw-pagination-hover-border:         @pagination-hover-border;
+  --uw-pagination-active-color:         @pagination-active-color;
+  --uw-pagination-active-bg:            @pagination-active-bg;
+  --uw-pagination-active-border:        @pagination-active-border;
+  --uw-pagination-disabled-color:       @pagination-disabled-color;
+  --uw-pagination-disabled-bg:          @pagination-disabled-bg;
+  --uw-pagination-disabled-border:      @pagination-disabled-border;
+
+
+  //== Pager
+
+  --uw-pager-bg:                        @pager-bg;
+  --uw-pager-border:                    @pager-border;
+  --uw-pager-border-radius:             @pager-border-radius;
+  --uw-pager-hover-bg:                  @pager-hover-bg;
+  --uw-pager-active-bg:                 @pager-active-bg;
+  --uw-pager-active-color:              @pager-active-color;
+  --uw-pager-disabled-color:            @pager-disabled-color;
+
+
+  //== Form states and alerts
+
+  --uw-state-success-text:              @state-success-text;
+  --uw-state-success-bg:                @state-success-bg;
+  --uw-state-success-border:            @state-success-border;
+  --uw-state-info-text:                 @state-info-text;
+  --uw-state-info-bg:                   @state-info-bg;
+  --uw-state-info-border:               @state-info-border;
+  --uw-state-warning-text:              @state-warning-text;
+  --uw-state-warning-bg:                @state-warning-bg;
+  --uw-state-warning-border:            @state-warning-border;
+  --uw-state-danger-text:               @state-danger-text;
+  --uw-state-danger-bg:                 @state-danger-bg;
+  --uw-state-danger-border:             @state-danger-border;
+
+
+  //== Tooltips
+
+  --uw-tooltip-max-width:               @tooltip-max-width;
+  --uw-tooltip-color:                   @tooltip-color;
+  --uw-tooltip-bg:                      @tooltip-bg;
+  --uw-tooltip-opacity:                 @tooltip-opacity;
+  --uw-tooltip-arrow-width:             @tooltip-arrow-width;
+  --uw-tooltip-arrow-color:             @tooltip-arrow-color;
+
+
+  //== Popovers
+
+  --uw-popover-bg:                          @popover-bg;
+  --uw-popover-max-width:                   @popover-max-width;
+  --uw-popover-border-color:                @popover-border-color;
+  --uw-popover-fallback-border-color:       @popover-fallback-border-color;
+  --uw-popover-title-bg:                    @popover-title-bg;
+  --uw-popover-arrow-width:                 @popover-arrow-width;
+  --uw-popover-arrow-color:                 @popover-arrow-color;
+  --uw-popover-arrow-outer-width:           @popover-arrow-outer-width;
+  --uw-popover-arrow-outer-color:           @popover-arrow-outer-color;
+  --uw-popover-arrow-outer-fallback-color:  @popover-arrow-outer-fallback-color;
+
+
+  //== Labels
+
+  --uw-label-default-bg:                @label-default-bg;
+  --uw-label-primary-bg:                @label-primary-bg;
+  --uw-label-success-bg:                @label-success-bg;
+  --uw-label-info-bg:                   @label-info-bg;
+  --uw-label-warning-bg:                @label-warning-bg;
+  --uw-label-danger-bg:                 @label-danger-bg;
+  --uw-label-color:                     @label-color;
+  --uw-label-link-hover-color:          @label-link-hover-color;
+
+
+  //== Modals
+
+  --uw-modal-inner-padding:                @modal-inner-padding;
+  --uw-modal-title-padding:                @modal-title-padding;
+  --uw-modal-title-line-height:            @modal-title-line-height;
+  --uw-modal-content-bg:                   @modal-content-bg;
+  --uw-modal-content-border-color:         @modal-content-border-color;
+  --uw-modal-content-fallback-border-color:@modal-content-fallback-border-color;
+  --uw-modal-backdrop-bg:                  @modal-backdrop-bg;
+  --uw-modal-backdrop-opacity:             @modal-backdrop-opacity;
+  --uw-modal-header-border-color:          @modal-header-border-color;
+  --uw-modal-footer-border-color:          @modal-footer-border-color;
+  --uw-modal-lg:                           @modal-lg;
+  --uw-modal-md:                           @modal-md;
+  --uw-modal-sm:                           @modal-sm;
+
+
+  //== Alerts
+
+  --uw-alert-padding:                   @alert-padding;
+  --uw-alert-border-radius:             @alert-border-radius;
+  --uw-alert-link-font-weight:          @alert-link-font-weight;
+  --uw-alert-success-bg:                @alert-success-bg;
+  --uw-alert-success-text:              @alert-success-text;
+  --uw-alert-success-border:            @alert-success-border;
+  --uw-alert-info-bg:                   @alert-info-bg;
+  --uw-alert-info-text:                 @alert-info-text;
+  --uw-alert-info-border:               @alert-info-border;
+  --uw-alert-warning-bg:                @alert-warning-bg;
+  --uw-alert-warning-text:              @alert-warning-text;
+  --uw-alert-warning-border:            @alert-warning-border;
+  --uw-alert-danger-bg:                 @alert-danger-bg;
+  --uw-alert-danger-text:               @alert-danger-text;
+  --uw-alert-danger-border:             @alert-danger-border;
+
+
+  //== Progress bars
+
+  --uw-progress-bg:                     @progress-bg;
+  --uw-progress-bar-color:              @progress-bar-color;
+  --uw-progress-border-radius:          @progress-border-radius;
+  --uw-progress-bar-bg:                 @progress-bar-bg;
+  --uw-progress-bar-success-bg:         @progress-bar-success-bg;
+  --uw-progress-bar-warning-bg:         @progress-bar-warning-bg;
+  --uw-progress-bar-danger-bg:          @progress-bar-danger-bg;
+  --uw-progress-bar-info-bg:            @progress-bar-info-bg;
+
+
+  //== List group
+
+  --uw-list-group-bg:                   @list-group-bg;
+  --uw-list-group-border:               @list-group-border;
+  --uw-list-group-border-radius:        @list-group-border-radius;
+  --uw-list-group-hover-bg:             @list-group-hover-bg;
+  --uw-list-group-active-color:         @list-group-active-color;
+  --uw-list-group-active-bg:            @list-group-active-bg;
+  --uw-list-group-active-border:        @list-group-active-border;
+  --uw-list-group-active-text-color:    @list-group-active-text-color;
+  --uw-list-group-disabled-color:       @list-group-disabled-color;
+  --uw-list-group-disabled-bg:          @list-group-disabled-bg;
+  --uw-list-group-disabled-text-color:  @list-group-disabled-text-color;
+  --uw-list-group-link-color:           @list-group-link-color;
+  --uw-list-group-link-hover-color:     @list-group-link-hover-color;
+  --uw-list-group-link-heading-color:   @list-group-link-heading-color;
+
+
+  //== Panels
+
+  --uw-panel-bg:                        @panel-bg;
+  --uw-panel-body-padding:              @panel-body-padding;
+  --uw-panel-heading-padding:           @panel-heading-padding;
+  --uw-panel-footer-padding:            @panel-footer-padding;
+  --uw-panel-border-radius:             @panel-border-radius;
+  --uw-panel-inner-border:              @panel-inner-border;
+  --uw-panel-footer-bg:                 @panel-footer-bg;
+  --uw-panel-default-text:              @panel-default-text;
+  --uw-panel-default-border:            @panel-default-border;
+  --uw-panel-default-heading-bg:        @panel-default-heading-bg;
+  --uw-panel-primary-text:              @panel-primary-text;
+  --uw-panel-primary-border:            @panel-primary-border;
+  --uw-panel-primary-heading-bg:        @panel-primary-heading-bg;
+  --uw-panel-success-text:              @panel-success-text;
+  --uw-panel-success-border:            @panel-success-border;
+  --uw-panel-success-heading-bg:        @panel-success-heading-bg;
+  --uw-panel-info-text:                 @panel-info-text;
+  --uw-panel-info-border:               @panel-info-border;
+  --uw-panel-info-heading-bg:           @panel-info-heading-bg;
+  --uw-panel-warning-text:              @panel-warning-text;
+  --uw-panel-warning-border:            @panel-warning-border;
+  --uw-panel-warning-heading-bg:        @panel-warning-heading-bg;
+  --uw-panel-danger-text:               @panel-danger-text;
+  --uw-panel-danger-border:             @panel-danger-border;
+  --uw-panel-danger-heading-bg:         @panel-danger-heading-bg;
+
+
+
+  //== Thumbnails
+
+  --uw-thumbnail-padding:               @thumbnail-padding;
+  --uw-thumbnail-bg:                    @thumbnail-bg;
+  --uw-thumbnail-border:                @thumbnail-border;
+  --uw-thumbnail-border-radius:         @thumbnail-border-radius;
+  --uw-thumbnail-caption-color:         @thumbnail-caption-color;
+  --uw-thumbnail-caption-padding:       @thumbnail-caption-padding;
+
+
+  //== Wells
+
+  --uw-well-bg:                         @well-bg;
+  --uw-well-border:                     @well-border;
+
+
+  //== Badges
+
+  --uw-badge-color:                     @badge-color;
+  --uw-badge-link-hover-color:          @badge-link-hover-color;
+  --uw-badge-bg:                        @badge-bg;
+  --uw-badge-active-color:              @badge-active-color;
+  --uw-badge-active-bg:                 @badge-active-bg;
+  --uw-badge-font-weight:               @badge-font-weight;
+  --uw-badge-line-height:               @badge-line-height;
+  --uw-badge-border-radius:             @badge-border-radius;
+
+
+  //== Breadcrumbs
+
+  --uw-breadcrumb-padding-vertical:     8px;
+  --uw-breadcrumb-padding-horizontal:   15px;
+  --uw-breadcrumb-bg:                   #f5f5f5;
+  --uw-breadcrumb-color:                #ccc;
+  --uw-breadcrumb-active-color:         --uw-gray-light;
+  --uw-breadcrumb-separator:            "/";
+
+
+  //== Carousel
+
+  --uw-carousel-text-shadow:            @carousel-text-shadow;
+  --uw-carousel-control-color:          @carousel-control-color;
+  --uw-carousel-control-width:          @carousel-control-width;
+  --uw-carousel-control-opacity:        @carousel-control-opacity;
+  --uw-carousel-control-font-size:      @carousel-control-font-size;
+  --uw-carousel-indicator-active-bg:    @carousel-indicator-active-bg;
+  --uw-carousel-indicator-border-color: @carousel-indicator-border-color;
+  --uw-carousel-caption-color:          @carousel-caption-color;
+
+
+  //== Close
+
+  --uw-close-font-weight:               @close-font-weight;
+  --uw-close-color:                     @close-color;
+  --uw-close-text-shadow:               @close-text-shadow;
+
+
+  //== Code
+
+  --uw-code-color:                      @code-color;
+  --uw-code-bg:                         @code-bg;
+  --uw-kbd-color:                       @kbd-color;
+  --uw-kbd-bg:                          @kbd-bg;
+  --uw-pre-bg:                          @pre-bg;
+  --uw-pre-color:                       @pre-color;
+  --uw-pre-border-color:                @pre-border-color;
+  --uw-pre-scrollable-max-height:       @pre-scrollable-max-height;
+
+
+  //== Type
+
+  --uw-component-offset-horizontal: @component-offset-horizontal;
+  --uw-text-muted:                  @text-muted;
+  --uw-abbr-border-color:           @abbr-border-color;
+  --uw-headings-small-color:        @headings-small-color;
+  --uw-blockquote-small-color:      @blockquote-small-color;
+  --uw-blockquote-font-size:        @blockquote-font-size;
+  --uw-blockquote-border-color:     @blockquote-border-color;
+  --uw-page-header-border-color:    @page-header-border-color;
+  --uw-dl-horizontal-offset:        @dl-horizontal-offset;
+  --uw-dl-horizontal-breakpoint:    @dl-horizontal-breakpoint;
+  --uw-hr-border:                   @hr-border;
+
+}
+

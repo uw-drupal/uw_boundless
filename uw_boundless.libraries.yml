@@ -21,7 +21,13 @@ framework:
     js/script.js: {}
     js/radios.js: {}
   dependencies:
+    - uw_boundless/uw_boundless_vars
     - core/once
+
+uw_boundless_vars:
+  css:
+    theme:
+      css/css-variables.css: { minified: false }
 
 uw-alert:
   js:
