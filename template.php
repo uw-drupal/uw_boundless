@@ -201,7 +201,7 @@ function uw_boundless_breadcrumb($variables) {
     // Determine if we are to display the breadcrumb.
     $bootstrap_breadcrumb = theme_get_setting('bootstrap_breadcrumb');
     if (($bootstrap_breadcrumb == 1 || ($bootstrap_breadcrumb == 2 && arg(0) == 'admin')) && !empty($breadcrumb)) {
-        
+
         // only change if the "Show current page title at end" in the theme is checked
         if (theme_get_setting('bootstrap_breadcrumb_title')) {
             // create link for last crumb
@@ -296,52 +296,76 @@ function _uw_boundless_copyrightyear() {
 }
 
 /**
- * Local function 
- * 
  * Builds a sidebar menu based on the current path.
+ *
+ * The sidebar menu is a subset of main menu that is relative to the local
+ * path. The current path must be in the main menu.
  * 
- * @return HTML content or false
- * 
+ * @return string|false
+ *   Returns the HTML for the sidebar menu or FALSE if the sidebar menu is
+ *   hidden or the current path is not in the main menu.
+ *
  * @todo Refactor
  */
 function _uw_boundless_uw_sidebar_menu() {
-    global $theme;
+  global $theme;
 
-    // check the theme setting for visibility
-    if (!theme_get_setting('uw_boundless_sidebar_menu_visibility')) {
-        return FALSE;
+  // Check the theme setting for visibility.
+  if (!theme_get_setting('uw_boundless_sidebar_menu_visibility')) {
+    return FALSE;
+  }
+  
+  $current_path = current_path();
+  // Don't render the sidebar menu for admin paths.
+  if (path_is_admin($current_path)) {
+    return FALSE;
+  }
+  $active_trail = menu_get_active_trail();
+  $current_depth = count($active_trail);
+  $active_trail_key =  $current_depth - 1;
+  
+  // Don't build the sidebar menu if there's no active trail.
+  if ($active_trail_key < 1 ) {
+    return FALSE;
+  }
+  // Don't build the sidebar if menu_name is not a key in the active trail.
+  if (!array_key_exists('menu_name',$active_trail[1])) {
+    return FALSE;
+  }
+  
+  // Get the current menu link.
+  $current_link = menu_link_get_preferred($current_path, 'main-menu');
+  
+  // Don't build the sidebar if menu_name is not main-menu.
+  if ($active_trail[1]['menu_name'] !== 'main-menu') {
+    // Create an alert and log entry if the active trail doesn't contain
+    // 'main-menu', but the preferred link does.
+    if (!empty($current_link)) {
+      // User-facing alert.
+      if (user_access('administer menu')) {
+        $alert_message = t('The sidebar menu may not have rendered correctly because the active trail is not in the main menu. See the log entry for more details.');
+        drupal_set_message($alert_message, 'warning');
+      }
+      
+      // Watchdog log entry.
+      $menu_name = $active_trail[1]['menu_name'];
+      $log_message = 'The sidebar menu may not have rendered correctly because the active trail is not in the main menu. It looks like it\'s using menu "@menu_name" by default.<br>
+     If this menu item is created by a custom module it may have been added to the Navigation menu as well. Try setting the \'menu_name\' key to \'main-menu\' in the module\'s hook_menu() and delete the item from the navigation menu.';
+      $log_vars = array(
+        '@menu_name' => $menu_name,
+      );
+      watchdog('uw_boundless', $log_message, $log_vars, WATCHDOG_WARNING);
     }
 
-    // get some data
-    $current_path = current_path();
-    $active_trail = menu_get_active_trail();
-    $current_depth = count($active_trail);
-    $active_trail_key =  $current_depth - 1;
-    
-    // no trail, no sidebar menu
-    if ($active_trail_key < 1 ) { return FALSE; }
-    // prevent admin paths from building the sidebar menu
-    if (path_is_admin($current_path)) { return FALSE; }
-    // is menu_name a key in the active trail
-    if (!array_key_exists('menu_name',$active_trail[1])) { return FALSE; }
-    // don't build the sidebar if menu_name is not the main-menu
-    if (!$active_trail[1]['menu_name'] == 'main-menu') {
-        $_message ='I\'m sorry, there\'s an issue with the sidebar menu. I can\'t build it. The active trail of this page does not appear to be the main-menu. It looks like it\'s using menu "'.$active_trail[1]['menu_name'].'".';
-        drupal_set_message($_message, 'warning');
-        // write to log
-        watchdog_exception($theme, new Exception($_message));
-        return FALSE;
-    }
-
-    // get the current menu link
-    $current_link = menu_link_get_preferred($current_path, 'main-menu');
-
+    return FALSE;
+  }
+  
     $output = TRUE;
     $output_menu = '';
-
+    
     $output_menu .= '<ul>';
 
-    // only display sidebar menu when there's a parent and it's not hidden
+    // Only display sidebar menu when there's a parent and it's not hidden.
     if ((isset($current_link['plid'])) && (!$current_link['hidden'])) {
         // first level links
         if (($current_depth == 2) && ($current_link['has_children'])) {
