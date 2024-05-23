@@ -97,7 +97,9 @@
     },
 
     loop : function (event) {
-      this.$el.focus();
+      if( this.open ) {
+        this.$el.focus();
+      }
     }
   }
 })(jQuery, Drupal, this, this.document);
