@@ -20,7 +20,7 @@
           }
         }
       }
-      this.$el = $(this.el);
+      this.$quicklinks_button = $(this.el);
       this.$quicklinks = $(this.quicklinks);
       this.$screen_reader_shortcuts = $(this.screen_reader_shortcuts);
       this.$container = $(this.container);
@@ -30,7 +30,8 @@
     },
 
     render : function () {
-      this.$el.attr( 'aria-controls', 'quicklinks' ).attr( 'aria-owns', 'quicklinks' );
+      this.$quicklinks_button.attr( 'aria-controls', 'quicklinks' ).attr( 'aria-owns', 'quicklinks' );
+      this.$quicklinks.find('a').attr('tabindex', -1);
     },
 
     events : function () {
@@ -38,7 +39,7 @@
       this.$quicklinks.on('keyup',   'a',       this.animate.bind(this) );
       this.$quicklinks.on('blur',    'a:last',  this.loop.bind(this) );
       this.$quicklinks.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', this.transitionEnd.bind(this));
-      this.$el.bind({
+      this.$quicklinks_button.bind({
         click      : this.animate.bind(this),
         touchstart : this.animate.bind(this),
         keyup      : this.animate.bind(this),
@@ -65,7 +66,7 @@
 
     inner_keydown : function(event) {
       if ( event.keyCode == 9 && event.shiftKey) {
-        this.$el.focus();
+        this.$quicklinks_button.focus();
         return false;
       }
     },
@@ -78,17 +79,20 @@
     },
 
     accessible : function (){
-      this.$el.attr( 'aria-expanded', this.open )
+      this.$quicklinks_button.attr( 'aria-expanded', this.open )
       this.$quicklinks.attr('aria-hidden',  ( ! this.open ).toString() )
       this.$container_inner.attr('aria-hidden', this.open.toString());
       this.$screen_reader_shortcuts.attr('aria-hidden', this.open.toString());
       if ( this.open ) {
-         this.$el.attr('aria-label', 'Close quick links');
-         this.$quicklinks.find('a').attr( 'tabindex', 0 ).first().focus()
+        // this.$quicklinks.removeAttr('hidden');
+         this.$quicklinks_button.attr('aria-label', 'Close quick links');
+         // this.$quicklinks.find('a').attr( 'tabindex', 0 ).first().focus()
+         this.$quicklinks.find('a').removeAttr( 'tabindex' ).first().focus();
       } else {
-         this.$el.attr('aria-label', 'Open quick links');
+         this.$quicklinks_button.attr('aria-label', 'Open quick links');
          this.$quicklinks.find('a').attr( 'tabindex', -1 )
-         this.$el.focus()
+         this.$quicklinks_button.focus()
+        // this.$quicklinks.attr('hidden', '');
       }
     },
 
@@ -99,7 +103,7 @@
     },
 
     loop : function (event) {
-      this.$el.focus();
+      this.$quicklinks_button.focus();
     }
   }
 })(jQuery, Drupal, this, this.document);

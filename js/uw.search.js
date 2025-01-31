@@ -2,9 +2,9 @@
   UW = (typeof(UW) === 'undefined') ? {} : UW;
 
   UW.search = {
-    
+
     el                      : '.uw-search',
-    search                  : '#uwsearcharea',
+    search_area             : '#uwsearcharea',
     screen_reader_shortcuts : '.screen-reader-shortcut',
     body                    : 'body',
     open                    : false,
@@ -20,8 +20,10 @@
           }
         }
       }
-      this.$el = $(this.el);
-      this.$search = $(this.search);
+      this.$search_button = $(this.el);
+      this.$search_area = $(this.search_area);
+      this.$search_input = this.$search_area.find('input').first();
+      this.$search_submit = this.$search_area.find('button').first();
       this.$screen_reader_shortcuts = $(this.screen_reader_shortcuts);
       this.$body = $(this.body);
       this.render();
@@ -29,15 +31,17 @@
     },
 
     render : function () {
-      this.$el.attr( 'aria-controls', 'uwsearcharea' ).attr( 'aria-owns', 'uwsearcharea' );
+      this.$search_button.attr( 'aria-controls', 'uwsearcharea' ).attr( 'aria-owns', 'uwsearcharea' );
+      this.$search_input.attr( 'tabindex', -1 ).attr('autocomplete', 'off');
+      this.$search_submit.attr( 'tabindex', -1 );
     },
 
     events : function () {
-      this.$search.on('keydown', 'input:first', this.inner_keydown.bind(this) );
-      this.$search.on('keyup',   'input',       this.animate.bind(this) );
-      this.$search.on('blur',    'button:last',  this.loop.bind(this) );
-      this.$search.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', this.transitionEnd.bind(this));
-      this.$el.bind({
+      this.$search_area.on('keydown', 'input:first', this.inner_keydown.bind(this) );
+      this.$search_area.on('keyup',   'input',       this.animate.bind(this) );
+      this.$search_area.on('blur',    'button:last',  this.loop.bind(this) );
+      this.$search_area.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', this.transitionEnd.bind(this));
+      this.$search_button.bind({
         click      : this.animate.bind(this),
         touchstart : this.animate.bind(this),
         keyup      : this.animate.bind(this),
@@ -53,9 +57,10 @@
       }
 
       this.animating = true;
-      this.$search.toggleClass('open');
+
+      this.$search_area.toggleClass('open');
+      this.open = this.$search_area.hasClass('open');
       this.$body.toggleClass('search-open');
-      this.open = this.$search.hasClass('open');
 
       if (!this.open) {
         this.accessible();
@@ -64,41 +69,42 @@
 
     inner_keydown : function(event) {
       if ( event.keyCode == 9 && event.shiftKey) {
-        this.$el.focus();
+        this.$search_button.focus();
         return false;
       }
     },
 
     transitionEnd : function (event) {
-      if (this.open && event.target == this.$search[0]) {
+      if (this.open && event.target == this.$search_area[0]) {
         this.accessible();
       }
       this.animating = false;
     },
 
     accessible : function (){
-      this.$el.attr( 'aria-expanded', this.open )
-      this.$search.attr('aria-hidden',  ( ! this.open ).toString() )
+      this.$search_button.attr( 'aria-expanded', this.open )
+      this.$search_area.attr('aria-hidden',  ( ! this.open ).toString() )
       this.$screen_reader_shortcuts.attr('aria-hidden', this.open.toString());
       if ( this.open ) {
-         this.$el.attr('aria-label', 'Close search area');
-         this.$search.find('input').attr( 'tabindex', 0 ).first().focus()
+         this.$search_button.attr('aria-label', 'close search area');
+        this.$search_input.attr( 'tabindex', 0 ).focus();
+        this.$search_submit.removeAttr( 'tabindex' );
       } else {
-         this.$el.attr('aria-label', 'Open search area');
-         this.$search.find('input').attr( 'tabindex', -1 )
-         this.$el.focus()
+        this.$search_button.attr('aria-label', 'open search area').focus();
+        this.$search_input.attr( 'tabindex', -1 );
+        this.$search_submit.attr( 'tabindex', -1 );
       }
     },
 
     blur : function (event) {
       if( this.open ) {
-        this.$search.find('input').first().focus();
+        this.$search_input.focus();
       }
     },
 
     loop : function (event) {
       if( this.open ) {
-        this.$el.focus();
+        this.$search_button.focus();
       }
     }
   }
