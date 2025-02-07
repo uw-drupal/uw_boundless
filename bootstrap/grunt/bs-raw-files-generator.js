@@ -1,8 +1,10 @@
 /*!
  * Bootstrap Grunt task for generating raw-files.min.js for the Customizer
- * http://getbootstrap.com
- * Copyright 2014-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * https://bootstrap.7pro.ca/
+ * Copyright 2024 Entreprise 7pro.ca Inc.
+ * Licensed under MIT (https://github.com/entreprise7pro/bootstrap/blob/v3-dev/LICENSE)
+ * Copyright 2014-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  */
 
 'use strict';

@@ -1,9 +1,11 @@
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.3.7
- * http://getbootstrap.com/javascript/#scrollspy
+ * Bootstrap: scrollspy.js v3.4.5
+ * https://bootstrap.7pro.ca/docs/3.4/javascript/#scrollspy
  * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Copyright 2024 Entreprise 7pro.ca Inc.
+ * Licensed under MIT (https://github.com/entreprise7pro/bootstrap/blob/v3-dev/LICENSE)
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -28,7 +30,7 @@
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.7'
+  ScrollSpy.VERSION = '3.4.5'
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -47,28 +49,34 @@
     this.targets      = []
     this.scrollHeight = this.getScrollHeight()
 
-    if (!$.isWindow(this.$scrollElement[0])) {
-      offsetMethod = 'position'
-      offsetBase   = this.$scrollElement.scrollTop()
+    if (!(this.$scrollElement[0] != null && this.$scrollElement[0] === this.$scrollElement[0].window)) {
+      offsetMethod = 'position';
+      offsetBase = this.$scrollElement.scrollTop();
     }
 
-    this.$body
+    var elements = this.$body
       .find(this.selector)
       .map(function () {
-        var $el   = $(this)
-        var href  = $el.data('target') || $el.attr('href')
-        var $href = /^#./.test(href) && $(href)
+        var $el = $(this);
+        var href = $el.data('target') || $el.attr('href');
+        var $href = /^#./.test(href) && $(href);
 
         return ($href
           && $href.length
           && $href.is(':visible')
-          && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+          && [[$href[offsetMethod]().top + offsetBase, href]]) || null;
       })
-      .sort(function (a, b) { return a[0] - b[0] })
-      .each(function () {
-        that.offsets.push(this[0])
-        that.targets.push(this[1])
+      .get(); // Convert to a plain array
+
+    elements
+      .sort(function (a, b) {
+        return a[0] - b[0];
       })
+      .forEach(function (element) {
+        that.offsets.push(element[0]);
+        that.targets.push(element[1]);
+      });
+
   }
 
   ScrollSpy.prototype.process = function () {

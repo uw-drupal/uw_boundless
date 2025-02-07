@@ -2,6 +2,16 @@
   browser: >
     Microsoft Edge
   summary: >
+    Visual artifacts in scrollable modal dialogs
+  upstream_bug: >
+    Edge#9011176
+  origin: >
+    Bootstrap#20755
+
+-
+  browser: >
+    Microsoft Edge
+  summary: >
     Native browser tooltip for `title` shows on first keyboard focus (in addition to custom tooltip component)
   upstream_bug: >
     Edge#6793560
@@ -47,16 +57,6 @@
     Edge#5865620
   origin: >
     Bootstrap#18504
-
--
-  browser: >
-    Microsoft Edge
-  summary: >
-    `@-ms-viewport{width: device-width;}` has side-effect of making scrollbars auto-hide
-  upstream_bug: >
-    Edge#7165383
-  origin: >
-    Bootstrap#18543
 
 -
   browser: >

@@ -7,11 +7,11 @@
 
 
   <h2 id="less-bootstrap">Compiling Bootstrap</h2>
-  <p>Bootstrap can be used in at least two ways: with the compiled CSS or with the source Less files. To compile the Less files, <a href="../getting-started/#grunt">consult the Getting Started section</a> for how to setup your development environment to run the necessary commands.</p>
+  <p>Bootstrap can be used in at least two ways: with the compiled CSS or with the source Less files. To compile the Less files, <a href="{{ site.baseurl }}/getting-started/#grunt">consult the Getting Started section</a> for how to setup your development environment to run the necessary commands.</p>
   <p>Third party compilation tools may work with Bootstrap, but they are not supported by our core team.</p>
 
   <h2 id="less-variables">Variables</h2>
-  <p>Variables are used throughout the entire project as a way to centralize and share commonly used values like colors, spacing, or font stacks. For a complete breakdown, please see <a href="../customize/#less-variables-section">the Customizer</a>.</p>
+  <p>Variables are used throughout the entire project as a way to centralize and share commonly used values like colors, spacing, or font stacks. For a complete breakdown, please see <a href="{{ site.baseurl }}/customize/#less-variables-section">the Customizer</a>.</p>
 
   <h3 id="less-variables-colors">Colors</h3>
   <p>Easily make use of two color schemes: grayscale and semantic. Grayscale colors provide quick access to commonly used shades of black while semantic include various colors assigned to meaningful contextual values.</p>
@@ -161,7 +161,7 @@ a {
 
 
   <h3 id="less-mixins-box-sizing">Box-sizing</h3>
-  <p>Reset your components' box model with a single mixin. For context, see this <a href="https://developer.mozilla.org/en-US/docs/CSS/box-sizing" target="_blank">helpful article from Mozilla</a>.</p>
+  <p>Reset your components' box model with a single mixin. For context, see this <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" rel="noopener" target="_blank">helpful article from Mozilla</a>.</p>
   <p>The mixin is <strong>deprecated</strong> as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixin internally until Bootstrap v4.</p>
 {% highlight scss %}
 .box-sizing(@box-model) {
@@ -241,22 +241,18 @@ a {
 {% highlight scss %}
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
-      -ms-transform: rotate(@degrees); // IE9 only
           transform: rotate(@degrees);
 }
 .scale(@ratio; @ratio-y...) {
   -webkit-transform: scale(@ratio, @ratio-y);
-      -ms-transform: scale(@ratio, @ratio-y); // IE9 only
           transform: scale(@ratio, @ratio-y);
 }
 .translate(@x; @y) {
   -webkit-transform: translate(@x, @y);
-      -ms-transform: translate(@x, @y); // IE9 only
           transform: translate(@x, @y);
 }
 .skew(@x; @y) {
   -webkit-transform: skew(@x, @y);
-      -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
           transform: skew(@x, @y);
 }
 .translate3d(@x; @y; @z) {
@@ -266,12 +262,10 @@ a {
 
 .rotateX(@degrees) {
   -webkit-transform: rotateX(@degrees);
-      -ms-transform: rotateX(@degrees); // IE9 only
           transform: rotateX(@degrees);
 }
 .rotateY(@degrees) {
   -webkit-transform: rotateY(@degrees);
-      -ms-transform: rotateY(@degrees); // IE9 only
           transform: rotateY(@degrees);
 }
 .perspective(@perspective) {
@@ -287,7 +281,6 @@ a {
 .transform-origin(@origin) {
   -webkit-transform-origin: @origin;
      -moz-transform-origin: @origin;
-      -ms-transform-origin: @origin; // IE9 only
           transform-origin: @origin;
 }
 {% endhighlight %}
@@ -327,12 +320,10 @@ a {
 {% endhighlight %}
 
   <h3 id="less-mixins-opacity">Opacity</h3>
-  <p>Set the opacity for all browsers and provide a <code>filter</code> fallback for IE8.</p>
+  <p>Set the opacity for all browsers.</p>
 {% highlight scss %}
 .opacity(@opacity) {
   opacity: @opacity;
-  // IE8 filter
-  @opacity-ie: (@opacity * 100);
   filter: ~"alpha(opacity=@{opacity-ie})";
 }
 {% endhighlight %}
@@ -342,7 +333,6 @@ a {
 {% highlight scss %}
 .placeholder(@color: @input-color-placeholder) {
   &::-moz-placeholder           { color: @color; } // Firefox
-  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
   &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
 }
 {% endhighlight %}
@@ -390,7 +380,7 @@ a {
   <p>Utility mixins are mixins that combine otherwise unrelated CSS properties to achieve a specific goal or task.</p>
 
   <h3 id="less-mixins-clearfix">Clearfix</h3>
-  <p>Forget adding <code>class="clearfix"</code> to any element and instead add the <code>.clearfix()</code> mixin where appropriate. Uses the <a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank">micro clearfix</a> from <a href="https://twitter.com/necolas" target="_blank">Nicolas Gallagher</a>.</p>
+  <p>Forget adding <code>class="clearfix"</code> to any element and instead add the <code>.clearfix()</code> mixin where appropriate. Uses the <a href="http://nicolasgallagher.com/micro-clearfix-hack/" rel="noopener" target="_blank">micro clearfix</a> from <a href="https://twitter.com/necolas" rel="noopener" target="_blank">Nicolas Gallagher</a>.</p>
 {% highlight scss %}
 // Mixin
 .clearfix() {

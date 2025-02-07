@@ -1,9 +1,11 @@
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.7
- * http://getbootstrap.com/javascript/#dropdowns
+ * Bootstrap: dropdown.js v3.4.5
+ * https://bootstrap.7pro.ca/docs/3.4/javascript/#dropdowns
  * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Copyright 2024 Entreprise 7pro.ca Inc.
+ * Licensed under MIT (https://github.com/entreprise7pro/bootstrap/blob/v3-dev/LICENSE)
+ * Copyright 2011-2019 Twitter, Inc (now X).
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -19,7 +21,7 @@
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.7'
+  Dropdown.VERSION = '3.4.5'
 
   function getParent($this) {
     var selector = $this.attr('data-target')
@@ -29,7 +31,7 @@
       selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
-    var $parent = selector && $(selector)
+    var $parent = selector !== '#' ? $(document).find(selector) : null
 
     return $parent && $parent.length ? $parent : $this.parent()
   }

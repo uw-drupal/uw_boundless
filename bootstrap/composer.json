@@ -1,6 +1,6 @@
 {
-  "name": "twbs/bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "name": "entreprise7pro/bootstrap",
+  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web with jQuery v4 support.",
   "keywords": [
     "css",
     "js",
@@ -11,24 +11,20 @@
     "framework",
     "web"
   ],
-  "homepage": "http://getbootstrap.com",
+  "homepage": "https://getbootstrap.com/",
   "authors": [
     {
-      "name": "Mark Otto",
-      "email": "markdotto@gmail.com"
-    },
-    {
-      "name": "Jacob Thornton",
-      "email": "jacobthornton@gmail.com"
+      "name": "Joseph Olstad",
+      "email": "joseph.olstad@1321830.no-reply.drupal.org"
     }
   ],
   "support": {
-    "issues": "https://github.com/twbs/bootstrap/issues"
+    "issues": "https://github.com/entreprise7pro/bootstrap/issues"
   },
   "license": "MIT",
   "extra": {
     "branch-alias": {
-      "dev-master": "3.3.x-dev"
+      "dev-master": "3.4.x-dev"
     }
   },
   "replace": {

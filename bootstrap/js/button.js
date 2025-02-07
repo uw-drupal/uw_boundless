@@ -1,9 +1,11 @@
 /* ========================================================================
- * Bootstrap: button.js v3.3.7
- * http://getbootstrap.com/javascript/#buttons
+ * Bootstrap: button.js v3.4.5
+ * https://bootstrap.7pro.ca/docs/3.4/javascript/#buttons
  * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Copyright 2024 Entreprise 7pro.ca Inc.
+ * Licensed under MIT (https://github.com/entreprise7pro/bootstrap/blob/v3-dev/LICENSE)
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -19,10 +21,19 @@
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.7'
+  Button.VERSION = '3.4.5'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
+  }
+
+  Button.prototype.sanitize = function (unsafeText) {
+    return unsafeText
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
   Button.prototype.setState = function (state) {
@@ -37,7 +48,7 @@
 
     // push to event loop to allow forms to submit
     setTimeout($.proxy(function () {
-      $el[val](data[state] == null ? this.options[state] : data[state])
+      $el[val](data[state] == null ? this.options[state] : this.sanitize(data[state]))
 
       if (state == 'loadingText') {
         this.isLoading = true

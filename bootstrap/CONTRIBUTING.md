@@ -19,20 +19,21 @@ and [submitting pull requests](#pull-requests), but please respect the following
 restrictions:
 
 * Please **do not** use the issue tracker for personal support requests. Stack
-  Overflow ([`twitter-bootstrap-3`](https://stackoverflow.com/questions/tagged/twitter-bootstrap-3) tag), [Slack](https://bootstrap-slack.herokuapp.com/) or [IRC](README.md#community) are better places to get help.
+  Overflow ([`twitter-bootstrap-3`](https://stackoverflow.com/questions/tagged/twitter-bootstrap-3) tag),
+  [Slack](https://bootstrap-slack.herokuapp.com/) or [IRC](README.md#community) are better places to get help.
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
 
 * Please **do not** post comments consisting solely of "+1" or ":thumbsup:".
-  Use [GitHub's "reactions" feature](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments)
+  Use [GitHub's "reactions" feature](https://blog.github.com/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)
   instead. We reserve the right to delete comments which violate this rule.
 
 * Please **do not** open issues or pull requests regarding the code in
   [`Normalize`](https://github.com/necolas/normalize.css) (open them in
   their respective repositories).
 
-* Please **do not** open issues regarding the official themes offered on <http://themes.getbootstrap.com/>.
+* Please **do not** open issues regarding the official themes offered on <https://themes.getbootstrap.com/>.
   Instead, please email any questions or feedback regarding those themes to `themes AT getbootstrap DOT com`.
 
 
@@ -62,7 +63,7 @@ Good bug reports are extremely helpful, so thanks!
 
 Guidelines for bug reports:
 
-0. **Validate and lint your code** &mdash; [validate your HTML](http://html5.validator.nu)
+0. **Validate and lint your code** &mdash; [validate your HTML](https://html5.validator.nu/)
    and [lint your HTML](https://github.com/twbs/bootlint) to ensure your
    problem isn't caused by a simple error in your own code.
 
@@ -70,7 +71,7 @@ Guidelines for bug reports:
    reported.
 
 2. **Check if the issue has been fixed** &mdash; try to reproduce it using the
-   latest `master` or development branch in the repository.
+   latest `v3-dev` or development branch in the repository.
 
 3. **Isolate the problem** &mdash; ideally create a [reduced test
    case](https://css-tricks.com/reduced-test-cases/) and a live example.
@@ -105,7 +106,7 @@ Example:
 ### Reporting upstream browser bugs
 
 Sometimes bugs reported to us are actually caused by bugs in the browser(s) themselves, not bugs in Bootstrap per se.
-When feasible, we aim to report such upstream bugs to the relevant browser vendor(s), and then list them on our [Wall of Browser Bugs](http://getbootstrap.com/browser-bugs/) and [document them in MDN](https://developer.mozilla.org/en-US/docs/Web).
+When feasible, we aim to report such upstream bugs to the relevant browser vendor(s), and then list them on our [Wall of Browser Bugs](https://getbootstrap.com/docs/3.4/browser-bugs/) and [document them in MDN](https://developer.mozilla.org/en-US/docs/Web).
 
 | Vendor(s)     | Browser(s)                   | Rendering engine | Bug reporting website(s)                                                              | Notes                                                    |
 | ------------- | ---------------------------- | ---------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -113,11 +114,6 @@ When feasible, we aim to report such upstream bugs to the relevant browser vendo
 | Apple         | Safari                       | WebKit           | https://bugs.webkit.org/enter_bug.cgi?product=WebKit <br> https://bugreport.apple.com | In Apple's bug reporter, choose "Safari" as the product. |
 | Google, Opera | Chrome, Chromium, Opera v15+ | Blink            | https://code.google.com/p/chromium/issues/list                                        | Click the "New issue" button.                            |
 | Microsoft     | Edge                         | EdgeHTML         | https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/                 |                                                          |
-
-### Issues bots
-
-[@twbs-lmvtfy](https://github.com/twbs-lmvtfy) is a Bootstrap bot that hangs out in our GitHub issue tracker and automatically checks for HTML validation errors in live examples (e.g. jsFiddles, JS Bins, Bootplys, Plunks, CodePens, etc.) posted in issue comments. If it finds any errors, it will post a follow-up comment on the issue and point out the errors. If this happens with an example you've posted, please fix the errors and post an updated live example. If you opened a bug report, please check whether the bug still occurs with your revised, valid live example. If the bug no longer occurs, it was probably due to your invalid HTML rather than something in Bootstrap and we'd appreciate it if you could close out the GitHub issue.
-
 
 ## Feature requests
 
@@ -157,13 +153,13 @@ project (indentation, accurate comments, etc.) and any other requirements
 
 **Do not edit `bootstrap.css`, `bootstrap-theme.css`, or `bootstrap.js`
 directly!** Those files are automatically generated. You should edit the
-source files in [`/bootstrap/less/`](https://github.com/twbs/bootstrap/tree/master/less),
+source files in [`/bootstrap/less/`](https://github.com/twbs/bootstrap/tree/v3-dev/less),
 [`/bootstrap/scss/`](https://github.com/twbs/bootstrap/tree/v4-dev/scss) (for Bootstrap v4),
-and/or [`/bootstrap/js/`](https://github.com/twbs/bootstrap/tree/master/js) instead.
+and/or [`/bootstrap/js/`](https://github.com/twbs/bootstrap/tree/v3-dev/js) instead.
 
 Similarly, when contributing to Bootstrap's documentation, you should edit the
 documentation source files in
-[the `/bootstrap/docs/` directory of the `master` branch](https://github.com/twbs/bootstrap/tree/master/docs).
+[the `/bootstrap/docs/` directory of the `v3-dev` branch](https://github.com/twbs/bootstrap/tree/v3-dev/docs).
 **Do not edit the `gh-pages` branch.** That branch is generated from the
 documentation source files and is managed separately by the Bootstrap Core Team.
 
@@ -185,8 +181,8 @@ included in the project:
 2. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
-   git checkout master
-   git pull upstream master
+   git checkout v3-dev
+   git pull upstream v3-dev
    ```
 
 3. Create a new topic branch (off the main project development branch) to
@@ -199,13 +195,13 @@ included in the project:
 4. Commit your changes in logical chunks. Please adhere to these [git commit
    message guidelines](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
    or your code is unlikely to be merged into the main project. Use Git's
-   [interactive rebase](https://help.github.com/articles/interactive-rebase)
+   [interactive rebase](https://help.github.com/articles/about-git-rebase/)
    feature to tidy up your commits before making them public.
 
 5. Locally merge (or rebase) the upstream development branch into your topic branch:
 
    ```bash
-   git pull [--rebase] upstream master
+   git pull [--rebase] upstream v3-dev
    ```
 
 6. Push your topic branch up to your fork:
@@ -215,23 +211,13 @@ included in the project:
    ```
 
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description against the `master` branch.
+    with a clear title and description against the `v3-dev` branch.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owners to
 license your work under the terms of the [MIT License](LICENSE) (if it
 includes code changes) and under the terms of the
 [Creative Commons Attribution 3.0 Unported License](docs/LICENSE)
 (if it includes documentation changes).
-
-### Pull request bots
-
-[@twbs-rorschach](https://github.com/twbs-rorschach) is a Bootstrap bot that hangs out in our GitHub issue tracker and automatically checks all pull requests for a few simple common mistakes. It's possible that Rorschach might leave a comment on your pull request and then close it. If that happens, simply fix the problem(s) mentioned in the comment (there should be link(s) in the comment explaining the problem(s) in detail) and then either:
-
-* Push the revised version to your pull request's branch and post a comment on the pull request saying that you've fixed the problem(s). One of the Bootstrap Core Team members will then come along and reopen your pull request.
-* Or you can just open a new pull request for your revised version.
-
-[@twbs-savage](https://github.com/twbs-savage) is a Bootstrap bot that automatically runs cross-browser tests (via [Sauce](https://saucelabs.com) and Travis CI) on JavaScript pull requests. Savage will leave a comment on pull requests stating whether cross-browser JS tests passed or failed, with a link to the full Travis build details. If your pull request fails, check the Travis log to see which browser + OS combinations failed. Each browser test in the Travis log includes a link to a Sauce page with details about the test. On those details pages, you can watch a screencast of the test run to see exactly which unit tests failed.
-
 
 ## Code guidelines
 
@@ -247,8 +233,8 @@ includes code changes) and under the terms of the
 
 [Adhere to the Code Guide.](http://codeguide.co/#css)
 
-- When feasible, default color palettes should comply with [WCAG color contrast guidelines](http://www.w3.org/TR/WCAG20/#visual-audio-contrast).
-- Except in rare cases, don't remove default `:focus` styles (via e.g. `outline: none;`) without providing alternative styles. See [this A11Y Project post](http://a11yproject.com/posts/never-remove-css-outlines) for more details.
+- When feasible, default color palettes should comply with [WCAG color contrast guidelines](https://www.w3.org/TR/WCAG20/#visual-audio-contrast).
+- Except in rare cases, don't remove default `:focus` styles (via e.g. `outline: none;`) without providing alternative styles. See [this A11Y Project post](https://a11yproject.com/posts/never-remove-css-outlines/) for more details.
 
 ### JS
 
@@ -256,7 +242,7 @@ includes code changes) and under the terms of the
 - 2 spaces (no tabs)
 - strict mode
 - "Attractive"
-- Don't use [jQuery event alias convenience methods](https://github.com/jquery/jquery/blob/master/src/event/alias.js) (such as `$().focus()`). Instead, use [`$().trigger(eventType, ...)`](http://api.jquery.com/trigger/) or [`$().on(eventType, ...)`](http://api.jquery.com/on/), depending on whether you're firing an event or listening for an event. (For example, `$().trigger('focus')` or `$().on('focus', function (event) { /* handle focus event */ })`) We do this to be compatible with custom builds of jQuery where the event aliases module has been excluded.
+- Don't use [jQuery event alias convenience methods](https://github.com/jquery/jquery/blob/master/src/event/alias.js) (such as `$().focus()`). Instead, use [`$().trigger(eventType, ...)`](https://api.jquery.com/trigger/) or [`$().on(eventType, ...)`](https://api.jquery.com/on/), depending on whether you're firing an event or listening for an event. (For example, `$().trigger('focus')` or `$().on('focus', function (event) { /* handle focus event */ })`) We do this to be compatible with custom builds of jQuery where the event aliases module has been excluded.
 
 ### Checking coding style
 
