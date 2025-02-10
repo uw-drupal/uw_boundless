@@ -22,6 +22,7 @@ regions:
   quicklinks: 'Quicklinks'
 
 libraries:
+  - core/drupal.tableheader
   - uw_boundless/uw-alert
 
 libraries-extend:

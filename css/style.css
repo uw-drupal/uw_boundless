@@ -7657,6 +7657,9 @@ div.image-widget-data {
 table.sticky-header {
   z-index: 1;
 }
+.table-responsive {
+  overflow-x: clip !important;
+}
 .resizable-textarea textarea {
   border-radius: 4px 4px 0 0;
 }
@@ -8294,7 +8297,7 @@ address {
   height: 100%;
   margin-left: 0;
   background-color: #fff;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 #uw-container #quicklinks {
   position: absolute;
@@ -9241,6 +9244,14 @@ th {
 }
 .table .table {
   background-color: #fff;
+}
+.table.sticky-header > thead > tr {
+  border-left: 2px solid #ababab;
+  border-top: 2px solid #ababab;
+}
+.table.sticky-header > thead > tr > th {
+  background-color: #fff;
+  border-bottom: 4px solid #ababab;
 }
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
