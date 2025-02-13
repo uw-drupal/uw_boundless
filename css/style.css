@@ -8297,7 +8297,7 @@ address {
   height: 100%;
   margin-left: 0;
   background-color: #fff;
-  overflow-x: clip;
+  overflow: clip;
 }
 #uw-container #quicklinks {
   position: absolute;
@@ -11389,6 +11389,9 @@ body.search-open #uw-container {
   -webkit-transform: matrix(1, 0, 0, 1, 0, 192);
   -ms-transform: matrix(1, 0, 0, 1, 0, 192);
   transform: matrix(1, 0, 0, 1, 0, 192);
+}
+body.search-open #uw-container table.sticky-header thead {
+  top: -192px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   #uwsearcharea .center-block {
