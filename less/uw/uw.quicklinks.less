@@ -20,18 +20,10 @@
     transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     background: #4d4d4d;
     background: rgba(46, 46, 46, 1);
-    background: -moz-linear-gradient(left, rgba(46, 46, 46, 1) 0%, rgba(77, 77, 77, 1) 4%, rgba(77, 77, 77, 1) 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, rgba(46, 46, 46, 1)), color-stop(4%, rgba(77, 77, 77, 1)), color-stop(100%, rgba(77, 77, 77, 1)));
-    background: -webkit-linear-gradient(left, rgba(46, 46, 46, 1) 0%, rgba(77, 77, 77, 1) 4%, rgba(77, 77, 77, 1) 100%);
-    background: -o-linear-gradient(left, rgba(46, 46, 46, 1) 0%, rgba(77, 77, 77, 1) 4%, rgba(77, 77, 77, 1) 100%);
-    background: -ms-linear-gradient(left, rgba(46, 46, 46, 1) 0%, rgba(77, 77, 77, 1) 4%, rgba(77, 77, 77, 1) 100%);
     background: linear-gradient(to right, rgba(46, 46, 46, 1) 0%, rgba(77, 77, 77, 1) 4%, rgba(77, 77, 77, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e2e2e", endColorstr="#4d4d4d", GradientType=1);
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -webkit-transform: matrix(1, 0, 0, 1, 190, 0);
-    -moz-transform: matrix(1, 0, 0, 1, 190, 0);
-    -ms-transform: matrix(1, 0, 0, 1, 190, 0);
-    -o-transform: matrix(1, 0, 0, 1, 190, 0);
     transform: matrix(1, 0, 0, 1, 190, 0);
 
     ul {
@@ -187,10 +179,6 @@
     }
 
     &.open {
-      -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
-      -moz-transform: matrix(1, 0, 0, 1, 0, 0);
-      -ms-transform: matrix(1, 0, 0, 1, 0, 0);
-      -o-transform: matrix(1, 0, 0, 1, 0, 0);
       transform: matrix(1, 0, 0, 1, 0, 0);
     }
   }
@@ -204,10 +192,6 @@
 
   &.open {
     div#uw-container-inner {
-      -webkit-transform: matrix(1, 0, 0, 1, -270, 0);
-      -moz-transform: matrix(1, 0, 0, 1, -270, 0);
-      -ms-transform: matrix(1, 0, 0, 1, -270, 0);
-      -o-transform: matrix(1, 0, 0, 1, -270, 0);
       transform: matrix(1, 0, 0, 1, -270, 0);
     }
   }
