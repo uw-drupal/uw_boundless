@@ -7542,6 +7542,10 @@ body.admin-expanded.admin-vertical.admin-sw .navbar {
     margin-top: 0;
   }
 }
+a:focus {
+  -webkit-transition-property: color;
+  transition-property: color;
+}
 .navbar.container,
 .navbar.container-fluid {
   margin-top: 20px;
