@@ -50,10 +50,16 @@ label.screen-reader {
   a:hover {
     color: @darkgold;
     border-bottom: 1px solid #bdbdbd;
+    //outline: 2px solid @purple;
     // We don't want buttons underlined on hover
     &.uw-btn {
       border-bottom: 0;
     }
+  }
+  a:focus {
+    outline: 2px solid @purple;
+    outline-offset: 2px;
+    //border-bottom: 0;
   }
   a.uw-btn:focus {
     text-decoration: underline;
@@ -61,7 +67,8 @@ label.screen-reader {
   .uw-breadcrumbs {
     a:focus {
       border-bottom: 0;
-      text-decoration: underline;
+      //text-decoration: underline;
+      text-decoration: none;
     }
   }
   #main_content:focus {

@@ -1,8 +1,7 @@
 .uw-footer {
-  background: url("assets/images/footer.jpg") center bottom;
+  background: @purple url(assets/images/footer.jpg) center bottom;
   .background-size(cover);
   padding: 0 0 30px 0;
-  background-color: @purple;
   // background: url('assets/images/footer.jpg') repeat-x center bottom;
   // padding: 0 0 120px 0;
   // background-color: #432577;
@@ -16,9 +15,13 @@
     text-indent: -9999px;
     overflow: hidden;
     margin-top: 50px;
+    border-bottom: none;
     &:focus,
     &:hover {
       background: url(assets/svg/uw-sprite-focus.svg) no-repeat 0 -434px transparent;
+    }
+    &:focus {
+      outline-offset: 5px;
     }
   }
   .be-boundless {
@@ -61,12 +64,30 @@
       bottom: -85px;
     }
   }
+  a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    &:hover,
+    &:focus {
+      color: @lightgold !important;
+    }
+    &:focus {
+      border-bottom-color: transparent;
+      outline: 2px @ultralightgold solid;
+      outline-offset: 2px;
+      transition-property: color;
+    }
+    &#loginlink {
+      border-bottom: none;
+    }
+  }
   ul.footer-social {
     li {
       list-style: none;
       display: inline-block;
       a {
-        color: #fff;
+        //color: #fff;
         text-indent: -9999px;
         overflow: hidden;
         display: inline-block;
@@ -142,7 +163,7 @@
         display: none;
       }
       a {
-        color: #fff;
+        //color: #fff;
         position: relative;
         margin-right: 20px;
         &:after {
@@ -154,8 +175,8 @@
         }
         &:focus,
         &:hover {
-          color: @lightgold;
-          text-decoration: none;
+          //color: @lightgold;
+          //text-decoration: none;
           &:after {
             color: #fff;
           }
