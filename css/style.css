@@ -14912,15 +14912,15 @@ ul.shortcode-blogroll-mini {
   margin-top: 35px;
   margin-bottom: 5px;
 }
-.contact-widget-inner p.person-phone,
-.contact-widget-inner a.person-email {
+.contact-widget-inner .person-phone,
+.contact-widget-inner .person-email {
   padding: 1px 0 1px 35px;
   background-image: url(assets/svg/widgets-sprite.svg);
 }
-.contact-widget-inner p.person-phone {
+.contact-widget-inner .person-phone {
   background-position: 0 -30px;
 }
-.contact-widget-inner a.person-email {
+.contact-widget-inner .person-email {
   color: inherit;
   background-position: 0 1px;
 }
