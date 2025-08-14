@@ -32,7 +32,7 @@
   
   .input-group-hg &,
   .input-group-lg &,
-  .input-group-sm &, {
+  .input-group-sm & {
     line-height: 1;
   }
 }
@@ -47,20 +47,34 @@
 .form-group.focus,
 .input-group.focus {
   .input-group-addon {
-    background-color: @brand-secondary;
-    border-color: @brand-secondary;
+    // @brand-secondary was changed to gold. @brand-primary is now used
+    // here for backwards compatibility.
+    //background-color: @brand-secondary;
+    //border-color: @brand-secondary;
+    background-color: @brand-primary;
+    border-color: @brand-primary;
   }
   .input-group-btn {
     > .btn-default + .btn-default {
-      border-left-color: mix(@brand-secondary, black, 85%);
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //border-left-color: mix(@brand-secondary, black, 85%);
+      border-left-color: mix(@brand-primary, black, 85%);
     }
     .btn {
-      border-color: @brand-secondary;
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //border-color: @brand-secondary;
+      border-color: @brand-primary;
       background-color: @inverse;
-      color: @brand-secondary;
+      //color: @brand-secondary;
+      color: @brand-primary;
     }
     .btn-default {
-      .button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //.button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+      .button-variant(@btn-default-color, @brand-primary, @btn-primary-hover-bg, @btn-primary-active-bg);
     }
   }
 }

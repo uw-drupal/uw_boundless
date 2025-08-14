@@ -108,7 +108,10 @@ label {
       border-color: @gray-light;
     }
     &:focus {
-      border-color: @brand-secondary;
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //border-color: @brand-secondary;
+      border-color: @brand-primary;
     }
   }
 }

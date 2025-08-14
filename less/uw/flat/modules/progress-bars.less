@@ -12,7 +12,10 @@
 
 // Bar of progress
 .progress-bar {
-  background: @brand-secondary;
+  // @brand-secondary was changed to gold. @brand-primary is now used
+  // here for backwards compatibility.
+  //background: @brand-secondary;
+  background: @brand-primary;
   line-height: @progress-height;
   .box-shadow(none);
 }

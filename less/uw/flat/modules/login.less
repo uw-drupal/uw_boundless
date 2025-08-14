@@ -15,7 +15,10 @@
 }
 
 .login-screen {
-  background-color: @brand-secondary;
+  // @brand-secondary was changed to gold. @brand-primary is now used
+  // here for backwards compatibility.
+  //background-color: @brand-secondary;
+  background-color: @brand-primary;
   min-height: 473px;
   padding: 123px 199px 33px 306px;
 }
@@ -77,11 +80,17 @@
     text-indent: 3px;
     
     &:focus {
-      border-color: @brand-secondary;
-      
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //border-color: @brand-secondary;
+      border-color: @brand-primary;
+
       & + .login-field-icon {
-        color: @brand-secondary;
-      }  
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        //color: @brand-secondary;
+        color: @brand-primary;
+      }
     }    
   }
   .login-field-icon {

@@ -69,14 +69,20 @@
 
   // Checked State
   &.checked {
-    color: @brand-secondary;
+    // @brand-secondary was changed to gold. @brand-primary is now used
+    // here for backwards compatibility.
+    //color: @brand-secondary;
+    color: @brand-primary;
 
     .first-icon {
       .opacity(0);
     }
     .second-icon {
       .opacity(1);
-      color: @brand-secondary;
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //color: @brand-secondary;
+      color: @brand-primary;
      .transition(color .25s linear);
     }
   }
@@ -119,10 +125,16 @@
     }
     // Checked State
     &.checked {
-      color: @brand-secondary;
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //color: @brand-secondary;
+      color: @brand-primary;
 
       .icons {
-        color: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        //color: @brand-secondary;
+        color: @brand-primary;
       }
     }
     // Disabled state

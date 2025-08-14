@@ -35,18 +35,25 @@
     &.todo-done {
       background: transparent ~"url(../images/todo/done.png) 92% center no-repeat";
       background-size: 20px 20px;
-      color: @brand-secondary;
+      // @brand-secondary was deprecated because it should be gold. @brand-primary
+      // is now used here for backwards compatibility.
+      //color: @brand-secondary;
+      color: @brand-primary;
 
       .todo-name {
-        color: @brand-secondary;
-      }  
+        //color: @brand-secondary;
+        color: @brand-primary;
+      }
     }  
   }      
 }
 
 .todo-search {
   position: relative;
-  background: @brand-secondary;
+  // @brand-secondary was deprecated because it should be gold. @brand-primary
+  // is now used here for backwards compatibility.
+  //background: @brand-secondary;
+  background: @brand-primary;
   background-size: 16px 16px;
   border-radius: @border-radius-large @border-radius-large 0 0;
   color: @brand-primary;

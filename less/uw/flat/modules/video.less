@@ -176,7 +176,10 @@ body.vjs-full-window {
     &:after {
       position: absolute;
       font-family: "Flat-UI-Icons";
-      color: @brand-secondary;
+      // @brand-secondary was deprecated because it should be gold. @brand-primary
+      // is now used here for backwards compatibility.
+      //color: @brand-secondary;
+      color: @brand-primary;
       font-size: 16px;
       top: 50%;
       left: 50%;
@@ -195,8 +198,11 @@ body.vjs-full-window {
 .vjs-paused .vjs-play-control {  
   &:hover {
     div:before {
-      color: mix(@brand-secondary, black, 85%);
-    } 
+      // @brand-secondary was deprecated because it should be gold. @brand-primary
+      // is now used here for backwards compatibility.
+      //color: mix(@brand-secondary, black, 85%);
+      color: mix(@brand-primary, black, 85%);
+    }
   }  
   div {
     &:after {
@@ -211,8 +217,11 @@ body.vjs-full-window {
 .vjs-playing .vjs-play-control {  
   &:hover {
     div:after {
-      color: mix(@brand-secondary, black, 85%);
-    } 
+      // @brand-secondary was deprecated because it should be gold. @brand-primary
+      // is now used here for backwards compatibility.
+      //color: mix(@brand-secondary, black, 85%);
+      color: mix(@brand-primary, black, 85%);
+    }
   }  
   div {
     &:after {
@@ -305,7 +314,10 @@ body.vjs-full-window {
 }
 
 .vjs-play-progress {
-  background: @brand-secondary;
+  // @brand-secondary was deprecated because it should be gold. @brand-primary
+  // is now used here for backwards compatibility.
+  //background: @brand-secondary;
+  background: @brand-primary;
   left: -1px;
 }
 
@@ -320,7 +332,10 @@ body.vjs-full-window {
 }
 
 .vjs-seek-handle {
-  background-color: mix(@brand-secondary, black, 85%);
+  // @brand-secondary was deprecated because it should be gold. @brand-primary
+  // is now used here for backwards compatibility.
+  //background-color: mix(@brand-secondary, black, 85%);
+  background-color: mix(@brand-primary, black, 85%);
   position: absolute;
   width: 18px;
   height: 18px;
@@ -338,11 +353,15 @@ body.vjs-full-window {
   }
   &:hover,
   &:focus {
-    background-color: mix(@brand-secondary, black, 75%);
-  }  
+    // @brand-secondary was deprecated because it should be gold. @brand-primary
+    // is now used here for backwards compatibility.
+    //background-color: mix(@brand-secondary, black, 75%);
+    background-color: mix(@brand-primary, black, 75%);
+  }
   &:active {
-    background-color: mix(@brand-secondary, black, 65%)
-  }  
+    //background-color: mix(@brand-secondary, black, 65%)
+    background-color: mix(@brand-primary, black, 65%)
+  }
 }
 
 // Player time controls

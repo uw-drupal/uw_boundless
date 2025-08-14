@@ -41,12 +41,18 @@
     &.selected {
       > a,
       > a.highlighted {
-        background: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        //background: @brand-secondary;
+        background: @brand-primary;
         color: @inverse;
 
         &:hover,
         &:focus {
-          background: mix(@brand-secondary, black, 85%);
+          // @brand-secondary was changed to gold. @brand-primary is now used
+          // here for backwards compatibility.
+          //background: mix(@brand-secondary-gold, black, 85%);
+          background: mix(@brand-primary, black, 85%);
           color: @inverse;
         }
       }
@@ -183,7 +189,10 @@
     &.active,
     &.selected {
       > a {
-        background: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        //background: @brand-secondary;
+        background: @brand-primary;
         color: @inverse;
         position: relative;
         z-index: 1;

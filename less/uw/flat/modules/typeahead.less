@@ -12,8 +12,11 @@
 
   .tt-dropdown-menu {
     width: 100%;
-    margin-top: 5px;    
-    border: 2px solid @brand-secondary;
+    margin-top: 5px;
+    // @brand-secondary was changed to gold. @brand-primary is now used
+    // here for backwards compatibility.
+    //border: 2px solid @brand-secondary;
+    border: 2px solid @brand-primary;
     padding: 5px 0;
     background-color: @inverse;
     border-radius: @border-radius-large;
@@ -35,7 +38,10 @@
     }
     &.tt-is-under-cursor {
       color: #fff;
-      background-color: mix(@brand-secondary, black, 85%);
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //background-color: mix(@brand-secondary, black, 85%);
+      background-color: mix(@brand-primary, black, 85%);
     }
   }
 }

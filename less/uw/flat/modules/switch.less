@@ -51,7 +51,10 @@
       left: 0;
 
       label {
-        background-color: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        //background-color: @brand-secondary;
+        background-color: @brand-primary;
       }
     }
   }
@@ -79,7 +82,10 @@
     &.switch-left {
       border-radius: @switch-border-radius 0 0 @switch-border-radius;
       background-color: @brand-primary;
-      color: @brand-secondary;
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //color: @brand-secondary;
+      color: @brand-primary;
       border-left: 1px solid transparent;
     }
 
@@ -145,6 +151,9 @@
 
   label {
     border-radius: 0 @border-radius-large @border-radius-large 0;
-    border-color: @brand-secondary;
+    // @brand-secondary was changed to gold. @brand-primary is now used
+    // here for backwards compatibility.
+    //border-color: @brand-secondary;
+    border-color: @brand-primary;
   }
 }

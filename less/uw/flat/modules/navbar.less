@@ -395,7 +395,10 @@
 .navbar-unread,
 .navbar-new {
   font-family: @font-family-base;
-  background-color: @brand-secondary;
+  // @brand-secondary was changed to gold. @brand-primary is now used
+  // here for backwards compatibility.
+  //background-color: @brand-secondary;
+  background-color: @brand-primary;
   border-radius: 50%;
   color: @inverse;
   font-size: 0;
@@ -568,8 +571,12 @@
       .placeholder(@navbar-default-form-placeholder);
       
       &:focus {
-        border-color: @brand-secondary;
-         color: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        //border-color: @brand-secondary;
+        //color: @brand-secondary;
+        border-color: @brand-primary;
+        color: @brand-primary;
       }
     }
     .input-group-btn .btn {
@@ -579,8 +586,12 @@
     .input-group.focus {
       .form-control,
       .input-group-btn .btn {
-         border-color: @brand-secondary;
-         color: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        // border-color: @brand-secondary;
+        // color: @brand-secondary;
+         border-color: @brand-primary;
+         color: @brand-primary;
       }     
     }
   }
@@ -762,12 +773,19 @@
       .placeholder(@navbar-inverse-form-placeholder);
       
       &:focus {
-        border-color: @brand-secondary;
-         color: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        //border-color: @brand-secondary;
+        // color: @brand-secondary;
+        border-color: @brand-primary;
+         color: @brand-primary;
       }
     }
     .btn {
-      .button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+      // @brand-secondary was changed to gold. @brand-primary is now used
+      // here for backwards compatibility.
+      //.button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+      .button-variant(@btn-default-color, @brand-primary, @btn-primary-hover-bg, @btn-primary-active-bg);
     }
     .input-group-btn .btn {
       border-color: transparent;
@@ -777,8 +795,12 @@
     .input-group.focus {
       .form-control,
       .input-group-btn .btn {
-         border-color: @brand-secondary;
-         color: @brand-secondary;
+        // @brand-secondary was changed to gold. @brand-primary is now used
+        // here for backwards compatibility.
+        // border-color: @brand-secondary;
+        // color: @brand-secondary;
+         border-color: @brand-primary;
+         color: @brand-primary;
       }     
     }
     
@@ -802,7 +824,10 @@
   }
   
   .navbar-btn {
-    .button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+    // @brand-secondary was changed to gold. @brand-primary is now used
+    // here for backwards compatibility.
+    //.button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+    .button-variant(@btn-default-color, @brand-primary, @btn-primary-hover-bg, @btn-primary-active-bg);
   }
 }
 

@@ -95,7 +95,10 @@
             &,
             &:hover,
             &:focus {
-              background-color: @brand-secondary;
+              // @brand-secondary was changed to gold. @brand-primary is now used
+              // here for backwards compatibility.
+              //background-color: @brand-secondary;
+              background-color: @brand-primary;
               color: @inverse;
             }
           }
@@ -123,14 +126,22 @@
 
         &:hover,
         &:focus {
-          background-color: @brand-secondary;
-          border-color: @brand-secondary;
+          // @brand-secondary was changed to gold. @brand-primary is now used
+          // here for backwards compatibility.
+          //background-color: @brand-secondary;
+          //border-color: @brand-secondary;
+          background-color: @brand-primary;
+          border-color: @brand-primary;
           color: @inverse;
           .transition(~"background .2s ease-out, border-color .2s ease-out, color .2s ease-out");
         }
         &:active {
-          background-color: mix(@brand-secondary, black, 85%);
-          border-color: mix(@brand-secondary, black, 85%);
+          // @brand-secondary was changed to gold. @brand-primary is now used
+          // here for backwards compatibility.
+          //background-color: mix(@brand-secondary, black, 85%);
+          //border-color: mix(@brand-secondary, black, 85%);
+          background-color: mix(@brand-primary, black, 85%);
+          border-color: mix(@brand-primary, black, 85%);
         }
       }
     }

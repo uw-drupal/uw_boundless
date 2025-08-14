@@ -59,7 +59,10 @@
   .button-variant(@btn-default-color, @btn-default-bg, @btn-hover-bg, @btn-active-bg);
 }
 .btn-primary {
-  .button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+  // @brand-secondary was changed to gold. @brand-primary is now used
+  // here for backwards compatibility.
+  //.button-variant(@btn-default-color, @brand-secondary, @btn-primary-hover-bg, @btn-primary-active-bg);
+  .button-variant(@btn-default-color, @brand-primary, @btn-primary-hover-bg, @btn-primary-active-bg);
 }
 .btn-info    {
   .button-variant(@btn-default-color, @brand-info, @btn-info-hover-bg, @btn-info-active-bg);

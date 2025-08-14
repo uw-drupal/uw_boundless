@@ -4,7 +4,10 @@
 
 .tagsinput {
   background: white;
-  border: 2px solid @brand-secondary;
+  // @brand-secondary was deprecated because it should be gold. @brand-primary
+  // is now used here for backwards compatibility.
+  //border: 2px solid @brand-secondary;
+  border: 2px solid @brand-primary;
   border-radius: @border-radius-large;
   height: 100px;
   margin-bottom: 18px;
@@ -14,7 +17,10 @@
 
   .tag {    
     border-radius: @border-radius-base;
-    background-color: @brand-secondary;
+    // @brand-secondary was deprecated because it should be gold. @brand-primary
+    // is now used here for backwards compatibility.
+    //background-color: @brand-secondary;
+    background-color: @brand-primary;
     color: @inverse;
     font-size: ceil(@component-font-size-base * 0.933); // ~14px
     cursor: pointer;
@@ -29,7 +35,10 @@
     .transition(.25s linear);
 
     &:hover {
-      background-color: mix(@brand-secondary, black, 85%);
+      // @brand-secondary was deprecated because it should be gold. @brand-primary
+      // is now used here for backwards compatibility.
+      //background-color: mix(@brand-secondary, black, 85%);
+      background-color: mix(@brand-primary, black, 85%);
       color: @inverse;
       padding-left: 12px;
       padding-right: 20px;
@@ -101,7 +110,10 @@
   .transition(.25s linear);
   
   &:hover {
-    background-color: @brand-secondary;
+    // @brand-secondary was deprecated because it should be gold. @brand-primary
+    // is now used here for backwards compatibility.
+    //background-color: @brand-secondary;
+    background-color: @brand-primary;
   }
   &:before {
     content: "\e009";
