@@ -8,8 +8,14 @@
   --uw-color-gray-lighter: #eeeeee;
   --uw-color-inverse: white;
   --uw-color-brand-purple: #4b2e83;
+  --uw-color-brand-spirit-purple: #4b2e83;
+  --uw-color-brand-husky-purple: #32006e;
+  --uw-color-brand-spirit-gold: #ffc700;
+  --uw-color-brand-husky-light-gold: #e8e3d3;
+  --uw-color-brand-husky-gold: #b7a57a;
+  --uw-color-brand-husky-metallic-gold: #85754d;
   --uw-color-brand-darkgray: #5a5a5a;
-  --uw-color-brand-brightgold: #ffd800;
+  --uw-color-brand-brightgold: #ffc700;
   --uw-color-brand-ultralightgold: #e8e3d3;
   --uw-color-brand-lightgold: #b7a57a;
   --uw-color-brand-darkgold: #85754d;
@@ -22,7 +28,7 @@
   --uw-color-scarlet: #a60606;
   --uw-color-sapphire: #24648e;
   --uw-color-brand-primary: #4b2e83;
-  --uw-color-brand-secondary: #4b2e83;
+  --uw-color-brand-secondary: #85754d;
   --uw-color-brand-success: #476a24;
   --uw-color-brand-warning: #7d4d2a;
   --uw-color-brand-danger: #a60606;
