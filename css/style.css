@@ -1095,7 +1095,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #0074BB;
+  color: #1A62C7;
   text-decoration: none;
 }
 a:hover,
@@ -3855,7 +3855,7 @@ fieldset[disabled] .btn-danger.focus {
   background-color: #fff;
 }
 .btn-link {
-  color: #0074BB;
+  color: #1A62C7;
   font-weight: normal;
   border-radius: 0;
 }
@@ -4483,7 +4483,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #0074BB;
+  border-color: #1A62C7;
 }
 .nav .nav-divider {
   height: 1px;
@@ -5434,7 +5434,7 @@ a.badge:focus {
 }
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #0074BB;
+  color: #1A62C7;
   background-color: #fff;
 }
 .list-group-item > .badge {
@@ -5508,7 +5508,7 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #0074BB;
+  border-color: #1A62C7;
 }
 .thumbnail .caption {
   padding: 9px;
@@ -8200,7 +8200,7 @@ body {
   background-color: #fff;
 }
 a {
-  color: #0074BB;
+  color: #1A62C7;
   text-decoration: none;
   -webkit-transition: 0.25s;
   transition: 0.25s;
