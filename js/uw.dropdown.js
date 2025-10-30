@@ -232,17 +232,20 @@
               if (!$(this).is('.open')) {
                 // Menu item has dropdown class and is closed, so apply
                 // appropriate ARIA attributes.
-                $(this).children().attr('aria-expanded', 'false');
+                // $(this).children().attr('aria-expanded', 'false');
+                $(this).find('.dropdown-toggle').attr('aria-expanded', 'false');
               }
               else if ($(this).is('.open')) {
                 // Menu item has dropdown class and is open, so apply
                 // appropriate ARIA attributes.
-                $(this).children().attr('aria-expanded', 'true');
+                // $(this).children().attr('aria-expanded', 'true');
+                $(this).find('.dropdown-toggle').attr('aria-expanded', 'true');
               }
             }
             else {
               // Menu item doesn't have children, so remove ARIA attributes.
-              $(this).children().removeAttr('aria-expanded');
+              // $(this).children().removeAttr('aria-expanded');
+              $(this).find('.dropdown-toggle').removeAttr('aria-expanded');
             }
           });
         };
@@ -271,7 +274,7 @@
         };
 
         var hideMenu = function ($subMenu, mm_timeout) {
-          $subMenu.children('.dropdown-toggle').attr('aria-expanded', 'false');
+          // $subMenu.children('.dropdown-toggle').attr('aria-expanded', 'false');
           if ($subMenu.hasClass('dropdown')) {
             $subMenu.addClass('animating');
             clearTimeout($subMenu.data('animatingTimeout'));
