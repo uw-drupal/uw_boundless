@@ -1083,7 +1083,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 17px;
   line-height: 1.72222;
-  color: #3D3D3D;
+  color: #3d3d3d;
   background-color: #fff;
 }
 input,
@@ -1095,7 +1095,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #1A62C7;
+  color: #1a62c7;
   text-decoration: none;
 }
 a:hover,
@@ -3855,7 +3855,7 @@ fieldset[disabled] .btn-danger.focus {
   background-color: #fff;
 }
 .btn-link {
-  color: #1A62C7;
+  color: #1a62c7;
   font-weight: normal;
   border-radius: 0;
 }
@@ -4483,7 +4483,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #1A62C7;
+  border-color: #1a62c7;
 }
 .nav .nav-divider {
   height: 1px;
@@ -5434,7 +5434,7 @@ a.badge:focus {
 }
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #1A62C7;
+  color: #1a62c7;
   background-color: #fff;
 }
 .list-group-item > .badge {
@@ -5508,11 +5508,11 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #1A62C7;
+  border-color: #1a62c7;
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 .alert {
   padding: 15px;
@@ -8196,11 +8196,11 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 17px;
   line-height: 1.72222;
-  color: #3D3D3D;
+  color: #3d3d3d;
   background-color: #fff;
 }
 a {
-  color: #1A62C7;
+  color: #1a62c7;
   text-decoration: none;
   -webkit-transition: 0.25s;
   transition: 0.25s;
@@ -8306,7 +8306,7 @@ p {
   line-height: 1.72222;
   margin: 0 0 14.5px;
   font-weight: normal;
-  color: #3D3D3D;
+  color: #3d3d3d;
   -webkit-font-smoothing: antialiased;
 }
 .lead {
@@ -9159,7 +9159,7 @@ ul.uw-select li {
 }
 ul.uw-select li a {
   padding: 0;
-  color: #5A5A5A;
+  color: #5a5a5a;
   display: block;
   line-height: 23px;
   padding: 15px 20px;
@@ -10746,7 +10746,7 @@ table th[class*="col-"] {
   margin: 0 0 0 -5px;
 }
 .page-template-templatestemplate-no-hero-php .uw-body .uw-site-title {
-  color: #5A5A5A;
+  color: #5a5a5a;
 }
 .page-template-templatestemplate-no-title-php .uw-body .uw-site-title {
   display: none;
@@ -11085,7 +11085,7 @@ span.next-page a {
   text-transform: uppercase;
   background-color: #e8e3d3;
   font-family: "Encode Sans Compressed", sans-serif;
-  color: #5A5A5A;
+  color: #5a5a5a;
   display: inline-block;
   position: relative;
   background-image: none !important;
@@ -11771,7 +11771,7 @@ ul.uw-sidebar-menu li.pagenav ul li.current_page_ancestor ul.children li span,
 ul.uw-mobile-menu li.pagenav ul li.current_page_ancestor ul.children li span,
 ul.uw-sidebar-menu > div ul li.current_page_ancestor ul.children li span,
 ul.uw-mobile-menu > div ul li.current_page_ancestor ul.children li span {
-  color: #5A5A5A;
+  color: #5a5a5a;
   padding: 10px 30px 10px 30px;
   border-left: none;
 }
@@ -11838,7 +11838,7 @@ ul.uw-mobile-menu li.pagenav ul li.current_page_ancestor ul.children li.current_
 ul.uw-sidebar-menu > div ul li.current_page_ancestor ul.children li.current_page_item ul.children a,
 ul.uw-mobile-menu > div ul li.current_page_ancestor ul.children li.current_page_item ul.children a {
   background-color: #ffffff;
-  color: #5A5A5A;
+  color: #5a5a5a;
   border-left: none;
   padding-left: 25px;
 }
@@ -13495,7 +13495,7 @@ button.uw-btn {
   background-color: #e8e3d3;
   font-family: "Encode Sans Compressed", sans-serif;
   font-weight: 800;
-  color: #5A5A5A;
+  color: #5a5a5a;
   display: inline-block;
   position: relative;
   background-image: none !important;
@@ -14132,7 +14132,7 @@ div[id*='trumba'] iframe {
 [class*=" ic-"].gray:before,
 [class^="ic-"].gray a,
 [class*=" ic-"].gray a {
-  color: #5A5A5A;
+  color: #5a5a5a;
 }
 [class^="ic-"].gray-light:before,
 [class*=" ic-"].gray-light:before,
@@ -14918,7 +14918,7 @@ ul.shortcode-blogroll-mini {
 }
 .widget_nav_menu ul.menu li a,
 .widget_nav_menu ul.menu li span {
-  color: #5A5A5A;
+  color: #5a5a5a;
   padding: 6px 25px 6px 20px;
   border-bottom: 1px solid #ffffff;
   display: block;
@@ -15305,7 +15305,7 @@ nav#mobile-relative .navbar-nav .dawgdrops-menu li {
 }
 nav#mobile-relative .navbar-nav .dawgdrops-menu li a {
   background-color: inherit;
-  color: #5A5A5A;
+  color: #5a5a5a;
   border-left: none;
   padding-left: 35px;
   padding-top: 10;
@@ -15365,7 +15365,7 @@ span.next-page a:after {
 }
 .table-striped > tbody > tr .checkbox.disabled,
 .table-striped > tbody > tr .radio.disabled {
-  color: #5A5A5A;
+  color: #5a5a5a;
 }
 .form-text,
 .form-textarea,
