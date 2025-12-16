@@ -15199,8 +15199,7 @@ pre.prettyprint ol.linenums li {
 .front .uw-hero-image {
   padding: 60px 0 0 0;
 }
-.front .uw-hero-image h1,
-.front .uw-hero-image h2 {
+.front .uw-hero-image .uw-site-title {
   font-family: "Encode Sans Compressed", sans-serif;
   font-weight: 900;
   line-height: 1;
@@ -15223,8 +15222,7 @@ pre.prettyprint ol.linenums li {
   height: 170px;
   padding-top: 0;
 }
-.front .uw-hero-image--small h1,
-.front .uw-hero-image--small h2 {
+.front .uw-hero-image--small .uw-site-title {
   text-transform: none;
   font-size: 50px;
   line-height: 55px;

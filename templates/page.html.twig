@@ -171,11 +171,11 @@
       <div {{ header_attributes.addClass(hero_image_classes) }} style="background-image:url('{{ hero_image_path }}');">
         {% if site_name is not empty %}
           <div class="container">
-            <h2 class="uw-site-title" style="color:{{ uw_boundless_front_page_title_color }};text-shadow:2px 2px 2px {{ uw_front_title_text_shadow }};">
+            <div class="uw-site-title" style="color:{{ uw_boundless_front_page_title_color }};text-shadow:2px 2px 2px {{ uw_front_title_text_shadow }};">
               <a href="{{ front_page }}" title="{{ site_name }}">
                 {{ site_name }}
               </a>
-            </h2>
+            </div>
             <div class="udub-slant">
               <span style="background-color:{{ uw_boundless_front_page_slant_color }};"></span>
             </div>
