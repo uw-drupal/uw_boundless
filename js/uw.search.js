@@ -39,6 +39,7 @@
     events : function () {
       this.$search_area.on('keydown', 'input:first', this.inner_keydown.bind(this) );
       this.$search_area.on('keyup',   'input',       this.animate.bind(this) );
+      this.$search_area.on('focus',   'input',       this.animate.bind(this) );
       this.$search_area.on('blur',    'button:last',  this.loop.bind(this) );
       this.$search_area.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', this.transitionEnd.bind(this));
       this.$search_button.bind({
@@ -46,7 +47,7 @@
         touchstart : this.animate.bind(this),
         keyup      : this.animate.bind(this),
         blur       : this.blur.bind(this),
-      }); 
+      });
     },
     
     animate : function ( event ) {
