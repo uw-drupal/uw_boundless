@@ -14,10 +14,10 @@
 # Disable the CDN provider so compiled LESS source files can be used.
 cdn_provider: ''
 uw_boundless_hero_image_front_display: large
-uw_boundless_hero_image_front_default_path: '//www.washington.edu/brand/files/2014/09/w.jpg'
+uw_boundless_hero_image_front_default_path: 'themes/custom/uw_boundless/images/hero-suzzallo.jpg'
 uw_boundless_hero_image_front_default: 1
 uw_boundless_hero_image_display: small
-uw_boundless_hero_image_default_path: '//www.washington.edu/brand/files/2014/09/w3.jpg'
+uw_boundless_hero_image_default_path: 'themes/custom/uw_boundless/images/hero-suzzallo.jpg'
 uw_boundless_hero_image_default: 1
 uw_boundless_front_page_title_color: '#ffffff'
 uw_boundless_front_page_slant_color: '#ffffff'
