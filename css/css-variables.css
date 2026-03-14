@@ -35,9 +35,14 @@
   --uw-color-brand-info: #24648e;
   --uw-bg-body: #fff;
   --uw-color-text: #3d3d3d;
-  --uw-color-link: #0074bb;
-  --uw-color-link-hover: #c9c9c9;
-  --uw-link-hover-decoration: underline;
+  --uw-color-link: #1a62c7;
+  --uw-color-link-hover: #85754d;
+  --uw-link-decoration: none;
+  --uw-link-border-bottom: 1px solid;
+  --uw-link-hover-decoration: none;
+  --uw-link-hover-border-bottom-color: #bdbdbd;
+  --uw-link-focus-outline: 2px solid var(--uw-color-brand-primary);
+  --uw-link-focus-outline-offset: 2px;
   --uw-font-family-base: "Open Sans", sans-serif;
   --uw-font-family-monospace: Monaco, Menlo, Consolas, "Courier New", monospace;
   --uw-font-family-caps: "Uni sans", sans-serif;
@@ -233,7 +238,7 @@
   --uw-pagination-color: #dbd5e6;
   --uw-pagination-bg: #fff;
   --uw-pagination-border: #ddd;
-  --uw-pagination-hover-color: #c9c9c9;
+  --uw-pagination-hover-color: #85754d;
   --uw-pagination-hover-bg: #eeeeee;
   --uw-pagination-hover-border: #ddd;
   --uw-pagination-active-color: #fff;
@@ -371,7 +376,7 @@
   --uw-badge-color: #fff;
   --uw-badge-link-hover-color: #fff;
   --uw-badge-bg: #bdc3c7;
-  --uw-badge-active-color: #0074bb;
+  --uw-badge-active-color: #1a62c7;
   --uw-badge-active-bg: #fff;
   --uw-badge-font-weight: bold;
   --uw-badge-line-height: 1;

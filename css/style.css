@@ -1095,8 +1095,8 @@ a {
 }
 a:hover,
 a:focus {
-  color: #c9c9c9;
-  text-decoration: underline;
+  color: #85754d;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
@@ -3650,8 +3650,8 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #c9c9c9;
-  text-decoration: underline;
+  color: #85754d;
+  text-decoration: none;
   background-color: transparent;
 }
 .btn-link[disabled]:hover,
@@ -4999,7 +4999,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   z-index: 2;
-  color: #c9c9c9;
+  color: #85754d;
   background-color: #eeeeee;
   border-color: #ddd;
 }
@@ -8022,7 +8022,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #c9c9c9;
+  color: #85754d;
   text-decoration: none;
 }
 .img-rounded {
@@ -13791,7 +13791,7 @@ a.screen-reader-shortcut:focus {
   top: 6px;
   padding: 15px 23px 14px;
   background-color: #f1f1f1;
-  color: #4b2e83;
+  color: var(--uw-color-brand-primary);
   -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
           box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 }
@@ -13812,23 +13812,24 @@ label.screen-reader {
 }
 .uw-body a:focus,
 .uw-body a:hover {
-  color: #85754d;
-  border-bottom: 1px solid #bdbdbd;
+  color: var(--uw-color-link-hover);
+  border-bottom: 1px solid var(--uw-link-hover-border-bottom-color);
 }
 .uw-body a:focus.uw-btn,
 .uw-body a:hover.uw-btn {
   border-bottom: 0;
 }
 .uw-body a:focus {
-  outline: 2px solid #4b2e83;
-  outline-offset: 2px;
+  outline: var(--uw-link-focus-outline);
+  outline-offset: var(--uw-link-focus-outline-offset);
 }
 .uw-body a.uw-btn:focus {
-  text-decoration: underline;
+  -webkit-text-decoration: var(--uw-link-hover-decoration);
+          text-decoration: var(--uw-link-hover-decoration);
 }
 .uw-body .uw-breadcrumbs a:focus {
-  border-bottom: 0;
-  text-decoration: none;
+  -webkit-text-decoration: var(--uw-link-hover-decoration);
+          text-decoration: var(--uw-link-hover-decoration);
 }
 .uw-body #main_content:focus {
   outline: none;
@@ -13836,7 +13837,7 @@ label.screen-reader {
 .uw-body .widget a.widget-link:focus,
 .uw-body .widget a.widget-link:hover {
   border-bottom: 0;
-  color: #85754d;
+  color: var(--uw-color-link-hover);
 }
 .uw-body .widget a.widget-link:focus {
   text-decoration: underline;
