@@ -50,31 +50,22 @@ label.screen-reader {
   a:focus,
   a:hover {
     color: var(--uw-color-link-hover);
-    //border-bottom: 1px solid #bdbdbd;
     border-bottom: 1px solid var(--uw-link-hover-border-bottom-color);
-    //border-bottom-color: var(--uw-link-hover-border-bottom-color);
-    //outline: 2px solid @purple;
-    // We don't want buttons underlined on hover
+
     &.uw-btn {
       border-bottom: 0;
     }
   }
   a:focus {
-    //outline: 2px solid @purple;
     outline: var(--uw-link-focus-outline);
-    //outline-offset: 2px;
     outline-offset: var(--uw-link-focus-outline-offset);
-    //border-bottom: 0;
   }
   a.uw-btn:focus {
-    //text-decoration: underline;
     text-decoration: var(--uw-link-hover-decoration);
   }
   .uw-breadcrumbs {
     a:focus {
       //border-bottom: 0;
-      //text-decoration: underline;
-      //text-decoration: none;
       text-decoration: var(--uw-link-hover-decoration);
     }
   }
@@ -86,7 +77,6 @@ label.screen-reader {
       &:focus,
       &:hover {
         border-bottom: 0;
-        //color: @darkgold;
         color: var(--uw-color-link-hover);
       }
       &:focus {
