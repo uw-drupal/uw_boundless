@@ -6117,7 +6117,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 1620;
   display: none;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
@@ -6163,7 +6163,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 1610;
   background-color: #000;
 }
 .modal-backdrop.fade {
@@ -13477,7 +13477,7 @@ a.uw-btn {
   background-color: #e8e3d3;
   font-family: "Encode Sans Compressed", sans-serif;
   font-weight: 800;
-  color: #5a5a5a;
+  color: var(--uw-btn-default-color) !important;
   display: inline-block;
   position: relative;
   background-image: none !important;
@@ -13487,11 +13487,14 @@ a.uw-btn {
   z-index: 1;
   line-height: 24px;
   font-size: 16px;
+  -webkit-text-decoration: var(--uw-btn-text-decoration);
+          text-decoration: var(--uw-btn-text-decoration);
+  border-bottom: var(--uw-btn-border-bottom);
 }
 a.uw-btn:hover,
 a.uw-btn:focus {
-  color: #85754d;
-  background-color: #f5f5f5;
+  color: var(--uw-btn-hover-color) !important;
+  background-color: var(--uw-btn-hover-bg);
 }
 a.uw-btn:hover:before,
 a.uw-btn:focus:before {
@@ -13813,7 +13816,7 @@ label.screen-reader {
 .uw-body a:focus,
 .uw-body a:hover {
   color: var(--uw-color-link-hover);
-  border-bottom: 1px solid var(--uw-link-hover-border-bottom-color);
+  border-bottom: var(--uw-link-hover-border-bottom);
 }
 .uw-body a:focus.uw-btn,
 .uw-body a:hover.uw-btn {

@@ -29,6 +29,7 @@
   --uw-color-brand-husky-light-gold:    @husky-light-gold;
   --uw-color-brand-husky-gold:          @husky-gold;
   --uw-color-brand-husky-metallic-gold: @husky-metallic-gold;
+  --uw-color-brand-ultralightgray:      @ultralightgray;
   --uw-color-brand-darkgray:            @darkgray;
 
   // ## Deprecated brand colors
@@ -75,6 +76,7 @@
   // ## Hover, active, focus
   --uw-link-hover-decoration:           @link-hover-decoration;
   --uw-link-hover-border-bottom-color:  @link-hover-border-bottom-color;
+  --uw-link-hover-border-bottom:        @link-border-bottom @link-hover-border-bottom-color;
   --uw-link-focus-outline:              2px solid var(--uw-color-brand-primary);
   --uw-link-focus-outline-offset:       2px;
 
@@ -183,32 +185,40 @@
 
   //== Buttons
 
-  --uw-btn-font-weight:                 @btn-font-weight;
-  --uw-btn-default-color:               @btn-default-color;
-  --uw-btn-default-bg:                  @btn-default-bg;
-  --uw-btn-default-border:              @btn-default-border;
-  --uw-btn-primary-color:               @btn-primary-color;
-  --uw-btn-primary-bg:                  @btn-primary-bg;
-  --uw-btn-primary-border:              @btn-primary-border;
-  --uw-btn-success-color:               @btn-success-color;
-  --uw-btn-success-bg:                  @btn-success-bg;
-  --uw-btn-success-border:              @btn-success-border;
-  --uw-btn-info-color:                  @btn-info-color;
-  --uw-btn-info-bg:                     @btn-info-bg;
-  --uw-btn-info-border:                 @btn-info-border;
-  --uw-btn-warning-color:               @btn-warning-color;
-  --uw-btn-warning-bg:                  @btn-warning-bg;
-  --uw-btn-warning-border:              @btn-warning-border;
-  --uw-btn-danger-color:                @btn-danger-color;
-  --uw-btn-danger-bg:                   @btn-danger-bg;
-  --uw-btn-danger-border:               @btn-danger-border;
-  --uw-btn-link-disabled-color:         @btn-link-disabled-color;
+  // ## Bootstrap buttons
+  --bs-btn-font-weight:                 @btn-font-weight;
+  --bs-btn-default-color:               @btn-default-color;
+  --bs-btn-default-bg:                  @btn-default-bg;
+  --bs-btn-default-border:              @btn-default-border;
+  --bs-btn-primary-color:               @btn-primary-color;
+  --bs-btn-primary-bg:                  @btn-primary-bg;
+  --bs-btn-primary-border:              @btn-primary-border;
+  --bs-btn-success-color:               @btn-success-color;
+  --bs-btn-success-bg:                  @btn-success-bg;
+  --bs-btn-success-border:              @btn-success-border;
+  --bs-btn-info-color:                  @btn-info-color;
+  --bs-btn-info-bg:                     @btn-info-bg;
+  --bs-btn-info-border:                 @btn-info-border;
+  --bs-btn-warning-color:               @btn-warning-color;
+  --bs-btn-warning-bg:                  @btn-warning-bg;
+  --bs-btn-warning-border:              @btn-warning-border;
+  --bs-btn-danger-color:                @btn-danger-color;
+  --bs-btn-danger-bg:                   @btn-danger-bg;
+  --bs-btn-danger-border:               @btn-danger-border;
+  --bs-btn-link-disabled-color:         @btn-link-disabled-color;
 
   // Allows for customizing button radius independently from global border radius
-  --uw-btn-border-radius-base:          @btn-border-radius-base;
-  --uw-btn-border-radius-large:         @btn-border-radius-large;
-  --uw-btn-border-radius-small:         @btn-border-radius-small;
+  --bs-btn-border-radius-base:          @btn-border-radius-base;
+  --bs-btn-border-radius-large:         @btn-border-radius-large;
+  --bs-btn-border-radius-small:         @btn-border-radius-small;
 
+  // ## UW buttons
+  --uw-btn-default-color:               @darkgray;
+  --uw-btn-default-bg:                  @ultralightgold;
+  --uw-btn-text-decoration:             none;
+  --uw-btn-border-bottom:               none;
+  --uw-btn-hover-color:                 @darkgold;
+  --uw-btn-hover-bg:                    @ultralightgray;
 
   //== Forms
 
@@ -440,6 +450,7 @@
   --uw-modal-content-bg:                   @modal-content-bg;
   --uw-modal-content-border-color:         @modal-content-border-color;
   --uw-modal-content-fallback-border-color:@modal-content-fallback-border-color;
+  //--uw-modal-content-box-shadow:           0 1px 2px rgb(20 45 82 / 2%), 0 3px 4px rgb(20 45 82 / 3%), 0 5px 8px rgb(20 45 82 / 4%);
   --uw-modal-backdrop-bg:                  @modal-backdrop-bg;
   --uw-modal-backdrop-opacity:             @modal-backdrop-opacity;
   --uw-modal-header-border-color:          @modal-header-border-color;

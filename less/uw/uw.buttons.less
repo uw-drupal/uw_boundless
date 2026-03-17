@@ -4,7 +4,7 @@ a.uw-btn {
   background-color: @ultralightgold;
   font-family: @font-family-headline;
   font-weight: @bold;
-  color: @darkgray;
+  color: var(--uw-btn-default-color) !important;
   display: inline-block;
   position: relative;
   background-image: none !important;
@@ -14,10 +14,12 @@ a.uw-btn {
   z-index: 1;
   line-height: 24px;
   font-size: 16px;
+  text-decoration: var(--uw-btn-text-decoration);
+  border-bottom: var(--uw-btn-border-bottom);
   &:hover,
   &:focus {
-    color: @darkgold;
-    background-color: #f5f5f5;
+    color: var(--uw-btn-hover-color) !important;
+    background-color: var(--uw-btn-hover-bg);
     &:before {
       background-color: lighten(@purple, 10%);
     }
